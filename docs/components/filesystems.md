@@ -11,6 +11,8 @@ from `/etc/fstab`, using [fstab](../components/fstab.md).
 The component doesn't provide any special resources at the moment. It
 just watches for changes on `/system/filesystems` and `/system/blockdevices`
 and creates new filesystems, if needed.
+You can also use ncm-filesystems to replace [fstab](../components/fstab.md) :
+If `manage_blockdevs` is set to false, only the [fstab](../components/fstab.md) code will run.
 
 A blockdevice is useful only for its ability to hold a
 filesystem. Blockdevices with no filesystems associated will not be

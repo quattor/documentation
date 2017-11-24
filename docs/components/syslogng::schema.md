@@ -187,25 +187,32 @@
     - `/software/syslogng/structure_syslogng_socksrc/so_broadcast`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/syslogng/structure_syslogng_socksrc/so_rcvbuf`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/syslogng/structure_syslogng_socksrc/so_sndbuf`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/syslogng/structure_syslogng_socksrc/so_keepalive`
         - Optional
         - Type: boolean
+        - Default value: false
  - `/software/syslogng/structure_syslogng_unixsock_src`
     - `/software/syslogng/structure_syslogng_unixsock_src/owner`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/syslogng/structure_syslogng_unixsock_src/group`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/syslogng/structure_syslogng_unixsock_src/perm`
         - Optional
         - Type: long
+        - Default value: 438
     - `/software/syslogng/structure_syslogng_unixsock_src/path`
         - Optional
         - Type: string
@@ -223,13 +230,16 @@
         - Optional
         - Type: long
         - Range: 0..65536
+        - Default value: 514
  - `/software/syslogng/structure_syslogng_network_tcp_src`
     - `/software/syslogng/structure_syslogng_network_tcp_src/keep-alive`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/syslogng/structure_syslogng_network_tcp_src/max-connections`
         - Optional
         - Type: long
+        - Default value: 256
  - `/software/syslogng/structure_syslogng_filepipe_src`
     - `/software/syslogng/structure_syslogng_filepipe_src/path`
         - Optional
@@ -299,81 +309,104 @@
     - `/software/syslogng/structure_syslogng_options/time_reopen`
         - Optional
         - Type: long
+        - Default value: 60
     - `/software/syslogng/structure_syslogng_options/time_reap`
         - Optional
         - Type: long
+        - Default value: 60
     - `/software/syslogng/structure_syslogng_options/time_sleep`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/syslogng/structure_syslogng_options/stats_freq`
         - Optional
         - Type: long
+        - Default value: 600
     - `/software/syslogng/structure_syslogng_options/log_fifo_size`
         - Optional
         - Type: long
+        - Default value: 100
     - `/software/syslogng/structure_syslogng_options/chain_hostnames`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/syslogng/structure_syslogng_options/normalize_hostnames`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/syslogng/structure_syslogng_options/keep_hostname`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/syslogng/structure_syslogng_options/bad_hostname`
         - Optional
         - Type: string
     - `/software/syslogng/structure_syslogng_options/create_dirs`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/syslogng/structure_syslogng_options/owner`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/syslogng/structure_syslogng_options/group`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/syslogng/structure_syslogng_options/perm`
         - Optional
         - Type: long
+        - Default value: 384
     - `/software/syslogng/structure_syslogng_options/dir_owner`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/syslogng/structure_syslogng_options/dir_group`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/syslogng/structure_syslogng_options/dir_perm`
         - Optional
         - Type: long
+        - Default value: 448
     - `/software/syslogng/structure_syslogng_options/ts_format`
         - Optional
         - Type: string
+        - Default value: rfc3164
     - `/software/syslogng/structure_syslogng_options/use_dns`
         - Optional
         - Type: string
     - `/software/syslogng/structure_syslogng_options/dns_cache`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/syslogng/structure_syslogng_options/dns_cache_size`
         - Optional
         - Type: long
+        - Default value: 1007
     - `/software/syslogng/structure_syslogng_options/dns_cache_expire`
         - Optional
         - Type: long
+        - Default value: 3600
     - `/software/syslogng/structure_syslogng_options/dns_cache_hosts`
         - Optional
         - Type: string
     - `/software/syslogng/structure_syslogng_options/log_msg_size`
         - Optional
         - Type: long
+        - Default value: 8192
     - `/software/syslogng/structure_syslogng_options/use_fqdn`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/syslogng/structure_syslogng_options/flush_lines`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/syslogng/structure_syslogng_options/flush_timeout`
         - Optional
         - Type: long
+        - Default value: 10000
     - `/software/syslogng/structure_syslogng_options/recv_time_zone`
         - Optional
         - Type: string
@@ -383,9 +416,11 @@
     - `/software/syslogng/structure_syslogng_options/frac_digits`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/syslogng/structure_syslogng_options/sync`
         - Optional
         - Type: boolean
+        - Default value: false
  - `/software/syslogng/structure_component_syslogng`
     - `/software/syslogng/structure_component_syslogng/options`
         - Optional

@@ -39,7 +39,7 @@ ncm-puppet: Component for running puppet standalone within quattor
 - `/software/components/puppet/nodefiles`
 
     Named list of node specific manifests. The component will run `puppet --apply `/etc/puppet/manifests`/<file>`
-    for each item &lt;file> of the nlist. The parameters of each item are:
+    for each item <file> of the nlist. The parameters of each item are:
 
     - `contents` : string
 

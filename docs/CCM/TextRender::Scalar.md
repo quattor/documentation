@@ -1,7 +1,7 @@
 
 ### NAME
 
-    CCM::TT::Scalar - Class to access scalar/property Element attributes within TT.
+    CCM::TextRender::Scalar - Class to access scalar/property Element attributes within TT.
 
 ### DESCRIPTION
 

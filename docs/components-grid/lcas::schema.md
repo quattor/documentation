@@ -8,6 +8,7 @@
     - `/software/lcas/lcas_component_plainfile_content/noheader`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/lcas/lcas_component_plainfile_content/content`
         - Optional
         - Type: string

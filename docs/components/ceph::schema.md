@@ -8,17 +8,21 @@
     - `/software/ceph/ceph_daemon/up`
         - Optional
         - Type: boolean
+        - Default value: true
  - `/software/ceph/ceph_cluster_config`
     - Description:  ceph cluster-wide config parameters 
     - `/software/ceph/ceph_cluster_config/auth_client_required`
         - Optional
         - Type: string
+        - Default value: cephx
     - `/software/ceph/ceph_cluster_config/auth_cluster_required`
         - Optional
         - Type: string
+        - Default value: cephx
     - `/software/ceph/ceph_cluster_config/auth_service_required`
         - Optional
         - Type: string
+        - Default value: cephx
     - `/software/ceph/ceph_cluster_config/cluster_network`
         - Optional
         - Type: type_network_name
@@ -34,6 +38,7 @@
     - `/software/ceph/ceph_cluster_config/mon_cluster_log_to_syslog`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/ceph/ceph_cluster_config/mon_initial_members`
         - Optional
         - Type: type_network_name
@@ -48,6 +53,7 @@
     - `/software/ceph/ceph_cluster_config/mon_osd_max_op_age`
         - Optional
         - Type: long
+        - Default value: 32
     - `/software/ceph/ceph_cluster_config/ms_type`
         - Optional
         - Type: string
@@ -61,6 +67,7 @@
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 10240
     - `/software/ceph/ceph_cluster_config/osd_objectstore`
         - Optional
         - Type: string
@@ -68,6 +75,7 @@
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 2
     - `/software/ceph/ceph_cluster_config/osd_pool_default_pg_num`
         - Optional
         - Type: long
@@ -80,6 +88,7 @@
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 3
     - `/software/ceph/ceph_cluster_config/public_network`
         - Optional
         - Type: type_network_name
@@ -97,15 +106,18 @@
     - `/software/ceph/ceph_crushmap_bucket/hash`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/ceph/ceph_crushmap_bucket/weight`
         - Optional
         - Type: double
     - `/software/ceph/ceph_crushmap_bucket/defaultalg`
         - Optional
         - Type: string
+        - Default value: straw
     - `/software/ceph/ceph_crushmap_bucket/defaulthash`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/ceph/ceph_crushmap_bucket/labels`
         - Optional
         - Type: string
@@ -120,6 +132,7 @@
     - `/software/ceph/ceph_crushmap_rule_choice/number`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/ceph/ceph_crushmap_rule_choice/bktype`
         - Optional
         - Type: string
@@ -145,6 +158,7 @@
     - `/software/ceph/ceph_crushmap_rule/type`
         - Optional
         - Type: string
+        - Default value: replicated
     - `/software/ceph/ceph_crushmap_rule/ruleset`
         - Optional
         - Type: long
@@ -153,10 +167,12 @@
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 1
     - `/software/ceph/ceph_crushmap_rule/max_size`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 10
     - `/software/ceph/ceph_crushmap_rule/steps`
         - Optional
         - Type: ceph_crushmap_rule_step
@@ -231,10 +247,12 @@ For use with dedicated pan code that builds the cluster info from remote templat
     - `/software/ceph/ceph_component/ssh_multiplex`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/ceph/ceph_component/max_add_osd_failures_per_host`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 0
 
 ### Functions
 

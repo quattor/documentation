@@ -18,6 +18,7 @@
     - `/software/ipmi/component_ipmi_type/channel`
         - Optional
         - Type: long
+        - Default value: 1
     - `/software/ipmi/component_ipmi_type/users`
         - Optional
         - Type: structure_users

@@ -53,6 +53,7 @@
     - `/software/ntpd/ntpd_restrict_options/ignore`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/ntpd/ntpd_restrict_options/kod`
         - Optional
         - Type: boolean
@@ -254,9 +255,11 @@
     - `/software/ntpd/component_ntpd_type/includelocalhost`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/ntpd/component_ntpd_type/enablelocalhostdebug`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/ntpd/component_ntpd_type/group`
         - Description: if the group is set, files are written with root.group ownership and 0640 permission
         - Optional

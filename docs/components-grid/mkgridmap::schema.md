@@ -12,12 +12,15 @@
     - `/software/mkgridmap/structure_mkgridmap_lcmaps/flavor`
         - Optional
         - Type: string
+        - Default value: glite
     - `/software/mkgridmap/structure_mkgridmap_lcmaps/gridmapfile`
         - Optional
         - Type: string
+        - Default value: /opt/edg/etc/lcmaps/gridmapfile
     - `/software/mkgridmap/structure_mkgridmap_lcmaps/groupmapfile`
         - Optional
         - Type: string
+        - Default value: /opt/edg/etc/lcmaps/groupmapfile
  - `/software/mkgridmap/mkgridmap_component_entry`
     - `/software/mkgridmap/mkgridmap_component_entry/mkgridmapconf`
         - Optional

@@ -97,7 +97,7 @@ the NVA cache.
     Returns unlocked Configuration object.
 
     Unless the object is locked explicitly later by calling the `lock` method,
-    `CCM::Element`s will always be fetched from the current CID,
+    `CCM::CacheManager::Element`s will always be fetched from the current CID,
     not the CID passed via `$cid`. (If the $cid parameter is omitted,
     the most recently downloaded configuration (when the cache
     was not globally locked) is returned.)
@@ -121,7 +121,7 @@ the NVA cache.
     Returns unlocked anonymous Configuration object.
 
     Unless the object is locked explicitly later by calling the `lock` method,
-    `CCM::Element`s will always be fetched from the current CID,
+    `CCM::CacheManager::Element`s will always be fetched from the current CID,
     not the CID passed via `$cid`. (If the $cid parameter is omitted,
     the most recently downloaded configuration (when the cache
     was not globally locked) is returned.)

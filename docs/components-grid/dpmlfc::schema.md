@@ -67,6 +67,7 @@
     - `/software/dpmlfc/dpmlfc_component_node_config/globusThreadModel`
         - Optional
         - Type: string
+        - Default value: pthread
  - `/software/dpmlfc/dpmlfc_component_dpm_node_config`
     - `/software/dpmlfc/dpmlfc_component_dpm_node_config/requestMaxAge`
         - Optional
@@ -197,12 +198,14 @@
     - `/software/dpmlfc/dpmlfc_component_db_conn_options/configmode`
         - Optional
         - Type: string
+        - Default value: 600
     - `/software/dpmlfc/dpmlfc_component_db_conn_options/server`
         - Optional
         - Type: string
     - `/software/dpmlfc/dpmlfc_component_db_conn_options/user`
         - Optional
         - Type: string
+        - Default value: dpmmgr
     - `/software/dpmlfc/dpmlfc_component_db_conn_options/password`
         - Optional
         - Type: string
@@ -228,6 +231,7 @@
     - `/software/dpmlfc/dpmlfc_component_global_options/installDir`
         - Optional
         - Type: string
+        - Default value: /
     - `/software/dpmlfc/dpmlfc_component_global_options/gridmapfile`
         - Optional
         - Type: string

@@ -21,10 +21,12 @@
         - Description: ensure that a directory is within a mountpoint configured in the profile
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/dirperm/structure_dirperm_entry/within_mount`
         - Description: ensure that a directory is within a mountpoint
         - Optional
         - Type: boolean
+        - Default value: false
  - `/software/dirperm/component_dirperm`
     - `/software/dirperm/component_dirperm/paths`
         - Optional

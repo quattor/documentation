@@ -26,15 +26,18 @@
     - `/software/authconfig/sssd_global/debug_level`
         - Optional
         - Type: long
+        - Default value: 496
     - `/software/authconfig/sssd_global/config_file_version`
         - Optional
         - Type: long
+        - Default value: 2
     - `/software/authconfig/sssd_global/services`
         - Optional
         - Type: sssd_service
     - `/software/authconfig/sssd_global/reconnection_retries`
         - Optional
         - Type: long
+        - Default value: 3
     - `/software/authconfig/sssd_global/re_expression`
         - Optional
         - Type: string
@@ -44,6 +47,7 @@
     - `/software/authconfig/sssd_global/try_inotify`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/sssd_global/krb5_rcache_dir`
         - Optional
         - Type: string
@@ -54,74 +58,96 @@
     - `/software/authconfig/sssd_pam/debug_level`
         - Optional
         - Type: long
+        - Default value: 496
     - `/software/authconfig/sssd_pam/offline_credentials_expiration`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/authconfig/sssd_pam/offline_failed_login_attempts`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/authconfig/sssd_pam/offline_failed_login_delay`
         - Optional
         - Type: long
+        - Default value: 5
     - `/software/authconfig/sssd_pam/pam_verbosity`
         - Optional
         - Type: long
+        - Default value: 1
     - `/software/authconfig/sssd_pam/pam_id_timeout`
         - Optional
         - Type: long
+        - Default value: 5
     - `/software/authconfig/sssd_pam/pam_pwd_expiration_warning`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/authconfig/sssd_pam/get_domains_timeout`
         - Optional
         - Type: long
+        - Default value: 60
  - `/software/authconfig/sssd_nss`
     - `/software/authconfig/sssd_nss/debug_level`
         - Optional
         - Type: long
+        - Default value: 496
     - `/software/authconfig/sssd_nss/enum_cache_timeout`
         - Optional
         - Type: long
+        - Default value: 120
     - `/software/authconfig/sssd_nss/entry_cache_nowait_percentage`
         - Optional
         - Type: long
     - `/software/authconfig/sssd_nss/entry_negative_timeout`
         - Optional
         - Type: long
+        - Default value: 15
     - `/software/authconfig/sssd_nss/filter_users`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/authconfig/sssd_nss/filter_users_in_groups`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/sssd_nss/filter_groups`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/authconfig/sssd_nss/memcache_timeout`
         - Optional
         - Type: long
+        - Default value: 300
  - `/software/authconfig/authconfig_sssd_local`
     - `/software/authconfig/authconfig_sssd_local/default_shell`
         - Optional
         - Type: string
+        - Default value: /bin/bash
     - `/software/authconfig/authconfig_sssd_local/base_directory`
         - Optional
         - Type: string
+        - Default value: /home
     - `/software/authconfig/authconfig_sssd_local/create_homedir`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/authconfig_sssd_local/remove_homedir`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/authconfig_sssd_local/homedir_umask`
         - Optional
         - Type: long
+        - Default value: 63
     - `/software/authconfig/authconfig_sssd_local/skel_dir`
         - Optional
         - Type: string
+        - Default value: /etc/skel
     - `/software/authconfig/authconfig_sssd_local/mail_dir`
         - Optional
         - Type: string
+        - Default value: /var/mail
     - `/software/authconfig/authconfig_sssd_local/userdel_cmd`
         - Optional
         - Type: string
@@ -153,6 +179,7 @@
     - `/software/authconfig/authconfig_sssd_domain/debug_level`
         - Optional
         - Type: long
+        - Default value: 496
     - `/software/authconfig/authconfig_sssd_domain/sudo_provider`
         - Optional
         - Type: string
@@ -171,15 +198,19 @@
     - `/software/authconfig/authconfig_sssd_domain/re_expression`
         - Optional
         - Type: string
+        - Default value: (?P<name>[^@]+)@?(?P<domain>[^@]*$)
     - `/software/authconfig/authconfig_sssd_domain/full_name_format`
         - Optional
         - Type: string
+        - Default value: %1$s@%2$s
     - `/software/authconfig/authconfig_sssd_domain/lookup_family_order`
         - Optional
         - Type: string
+        - Default value: ipv4_first
     - `/software/authconfig/authconfig_sssd_domain/dns_resolver_timeout`
         - Optional
         - Type: long
+        - Default value: 5
     - `/software/authconfig/authconfig_sssd_domain/dns_discovery_domain`
         - Optional
         - Type: string
@@ -189,12 +220,15 @@
     - `/software/authconfig/authconfig_sssd_domain/case_sensitive`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/authconfig_sssd_domain/proxy_fast_alias`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/authconfig/authconfig_sssd_domain/subdomain_homedir`
         - Optional
         - Type: string
+        - Default value: /home/%d/%u
     - `/software/authconfig/authconfig_sssd_domain/proxy_pam_target`
         - Optional
         - Type: string
@@ -204,21 +238,27 @@
     - `/software/authconfig/authconfig_sssd_domain/min_id`
         - Optional
         - Type: long
+        - Default value: 1
     - `/software/authconfig/authconfig_sssd_domain/max_id`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/authconfig/authconfig_sssd_domain/enumerate`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/authconfig/authconfig_sssd_domain/timeout`
         - Optional
         - Type: long
+        - Default value: 10
     - `/software/authconfig/authconfig_sssd_domain/force_timeout`
         - Optional
         - Type: long
+        - Default value: 60
     - `/software/authconfig/authconfig_sssd_domain/entry_cache_timeout`
         - Optional
         - Type: long
+        - Default value: 5400
     - `/software/authconfig/authconfig_sssd_domain/entry_cache_user_timeout`
         - Optional
         - Type: long
@@ -243,9 +283,11 @@
     - `/software/authconfig/authconfig_sssd_domain/cache_credentials`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/authconfig/authconfig_sssd_domain/account_cache_expiration`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/authconfig/authconfig_sssd_domain/pwd_expiration_warning`
         - Optional
         - Type: long
@@ -253,6 +295,7 @@
     - `/software/authconfig/authconfig_method_sssd_type/nssonly`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/authconfig/authconfig_method_sssd_type/domains`
         - Optional
         - Type: authconfig_sssd_domain

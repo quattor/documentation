@@ -1,7 +1,7 @@
 
 ### NAME
 
-EDG::WP4::CCM::Element - Element class
+EDG::WP4::CCM::CacheManager::Element - Element class
 
 ### SYNOPSIS
 
@@ -20,25 +20,10 @@ EDG::WP4::CCM::Element - Element class
 
 ### DESCRIPTION
 
-The class `EDG::WP4::CCM::Element` implements those methods
+The class `EDG::WP4::CCM::CacheManager::Element` implements those methods
 that are common to all elements and represents a `Property`.
-The class <EDG::WP4::CCM::Element> is a base class for
-`EDG::WP4::CCM::Resource`, which has additional methods.
-
-Type constants:
-
-    ELEMENT
-      PROPERTY
-        STRING
-        LONG
-        DOUBLE
-        BOOLEAN
-        LINK
-     RESOURCE
-        NLIST
-          TABLE
-          RECORD
-        LIST
+The class <EDG::WP4::CCM::CacheManager::Element> is a base class for
+`EDG::WP4::CCM::CacheManager::Resource`, which has additional methods.
 
 - new($config, $ele\_path)
 

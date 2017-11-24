@@ -11,3 +11,8 @@ and a module allows for far easier unittesting.
 - action\_show
 
     Print the tree starting from the selected path(s). Not existing paths are skipped.
+
+- action\_dumpdb
+
+    Lowlevel debugging function to dump the profile DBs
+    `path2eid` and `eid2data`.

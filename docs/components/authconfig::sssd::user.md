@@ -5,84 +5,109 @@
     - `/software/authconfig/sssd_user/uid_number`
         - Optional
         - Type: string
+        - Default value: uidNumber
     - `/software/authconfig/sssd_user/gid_number`
         - Optional
         - Type: string
+        - Default value: gidNumber
     - `/software/authconfig/sssd_user/gecos`
         - Optional
         - Type: string
+        - Default value: gecos
     - `/software/authconfig/sssd_user/home_directory`
         - Optional
         - Type: string
+        - Default value: homeDirectory
     - `/software/authconfig/sssd_user/shell`
         - Optional
         - Type: string
+        - Default value: loginShell
     - `/software/authconfig/sssd_user/uuid`
         - Optional
         - Type: string
+        - Default value: nsUniqueId
     - `/software/authconfig/sssd_user/objectsid`
         - Optional
         - Type: string
     - `/software/authconfig/sssd_user/modify_timestamp`
         - Optional
         - Type: string
+        - Default value: modifyTimestamp
     - `/software/authconfig/sssd_user/shadow_last_change`
         - Optional
         - Type: string
+        - Default value: shadowLastChange
     - `/software/authconfig/sssd_user/shadow_min`
         - Optional
         - Type: string
+        - Default value: shadowMin
     - `/software/authconfig/sssd_user/shadow_max`
         - Optional
         - Type: string
+        - Default value: shadowMax
     - `/software/authconfig/sssd_user/shadow_warning`
         - Optional
         - Type: string
+        - Default value: shadowWarning
     - `/software/authconfig/sssd_user/shadow_inactive`
         - Optional
         - Type: string
+        - Default value: shadowInactive
     - `/software/authconfig/sssd_user/shadow_expire`
         - Optional
         - Type: string
+        - Default value: shadowExpire
     - `/software/authconfig/sssd_user/krb_last_pwd_change`
         - Optional
         - Type: string
+        - Default value: krbLastPwdChange
     - `/software/authconfig/sssd_user/krb_password_expiration`
         - Optional
         - Type: string
+        - Default value: krbPasswordExpiration
     - `/software/authconfig/sssd_user/ad_account_expires`
         - Optional
         - Type: string
+        - Default value: accountExpires
     - `/software/authconfig/sssd_user/ad_user_account_control`
         - Optional
         - Type: string
+        - Default value: userAccountControl
     - `/software/authconfig/sssd_user/nds_login_disabled`
         - Optional
         - Type: string
+        - Default value: loginDisabled
     - `/software/authconfig/sssd_user/nds_login_expiration_time`
         - Optional
         - Type: string
+        - Default value: loginDisabled
     - `/software/authconfig/sssd_user/nds_login_allowed_time_map`
         - Optional
         - Type: string
+        - Default value: loginAllowedTimeMap
     - `/software/authconfig/sssd_user/principal`
         - Optional
         - Type: string
+        - Default value: krbPrincipalName
     - `/software/authconfig/sssd_user/ssh_public_key`
         - Optional
         - Type: string
     - `/software/authconfig/sssd_user/fullname`
         - Optional
         - Type: string
+        - Default value: cn
     - `/software/authconfig/sssd_user/member_of`
         - Optional
         - Type: string
+        - Default value: memberOf
     - `/software/authconfig/sssd_user/authorized_service`
         - Optional
         - Type: string
+        - Default value: authorizedService
     - `/software/authconfig/sssd_user/authorized_host`
         - Optional
         - Type: string
+        - Default value: host
     - `/software/authconfig/sssd_user/search_base`
         - Optional
         - Type: string
@@ -93,27 +118,34 @@
     - `/software/authconfig/sssd_group/object_class`
         - Optional
         - Type: string
+        - Default value: posixGroup
     - `/software/authconfig/sssd_group/name`
         - Optional
         - Type: string
+        - Default value: cn
     - `/software/authconfig/sssd_group/gid_number`
         - Optional
         - Type: string
+        - Default value: gidNumber
     - `/software/authconfig/sssd_group/member`
         - Optional
         - Type: string
+        - Default value: memberuid
     - `/software/authconfig/sssd_group/uuid`
         - Optional
         - Type: string
+        - Default value: nsUniqueId
     - `/software/authconfig/sssd_group/objectsid`
         - Optional
         - Type: string
     - `/software/authconfig/sssd_group/modify_timestamp`
         - Optional
         - Type: string
+        - Default value: modifyTimestamp
     - `/software/authconfig/sssd_group/nesting_level`
         - Optional
         - Type: long
+        - Default value: 2
     - `/software/authconfig/sssd_group/search_base`
         - Optional
         - Type: string

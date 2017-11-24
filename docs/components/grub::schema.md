@@ -39,6 +39,7 @@
         - Description: See description of the file option. The user (first field) to be picked from a password field.
         - Optional
         - Type: string
+        - Default value: root
  - `/software/grub/type_kernel`
     - `/software/grub/type_kernel/kernelpath`
         - Description: Path to the kernel (relative to "prefix" described above).
@@ -69,12 +70,12 @@
         - Description: The title string that will be used to describe this entry.
         - Optional
         - Type: string
- - `/software/grub/component_grub_type`
-    - `/software/grub/component_grub_type/prefix`
+ - `/software/grub/grub_component`
+    - `/software/grub/grub_component/prefix`
         - Description: Prefix where kernels are found. Component defaults to /boot.
         - Optional
         - Type: string
-    - `/software/grub/component_grub_type/args`
+    - `/software/grub/grub_component/args`
         - Description: Sets the arguments for the default kernel at boot time.
       The removal of a current argument is done by preceding the argument with a "-".
 
@@ -85,15 +86,15 @@
       kernel are substituted by the ones given in this entry.
         - Optional
         - Type: string
-    - `/software/grub/component_grub_type/fullcontrol`
+    - `/software/grub/grub_component/fullcontrol`
         - Description: Sets if we want a full control of the kernel arguments. The component default is 'false'.
         - Optional
         - Type: boolean
-    - `/software/grub/component_grub_type/kernels`
+    - `/software/grub/grub_component/kernels`
         - Description: This is a list of kernels that should have entries in the grub
       configuration file. Each kernel is described by the following entries.
         - Optional
         - Type: type_kernel
-    - `/software/grub/component_grub_type/password`
+    - `/software/grub/grub_component/password`
         - Optional
         - Type: type_grub_password

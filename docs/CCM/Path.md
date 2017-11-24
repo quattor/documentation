@@ -103,7 +103,7 @@ to manipulate absolute paths
     or compiled regular expressions.
 
     These child subpaths are safe to represent as their unescaped value
-    wrapped in `{}` when &lt;toString> method is called (e.g. during stringification).
+    wrapped in `{}` when <toString> method is called (e.g. during stringification).
 
     Parent paths who have a safe-to escape parent path of their own should be added
     already escaped.

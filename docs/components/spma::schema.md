@@ -5,15 +5,18 @@
     - `/software/spma/component_spma_common/cmdfile`
         - Optional
         - Type: string
+        - Default value: /var/tmp/spma-commands
     - `/software/spma/component_spma_common/packager`
         - Optional
         - Type: string
+        - Default value: yum
     - `/software/spma/component_spma_common/pkgpaths`
         - Optional
         - Type: string
     - `/software/spma/component_spma_common/process_obsoletes`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/spma/component_spma_common/cachedir`
         - Optional
         - Type: string
@@ -63,6 +66,9 @@
         - Optional
         - Type: boolean
     - `/software/spma/component_spma_common/uninstpaths`
+        - Optional
+        - Type: string
+    - `/software/spma/component_spma_common/whitepaths`
         - Optional
         - Type: string
     - `/software/spma/component_spma_common/userpkgs`

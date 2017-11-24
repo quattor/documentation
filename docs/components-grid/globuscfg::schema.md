@@ -167,12 +167,15 @@
     - `/software/globuscfg/globus_global_type/GLOBUS_LOCATION`
         - Optional
         - Type: string
+        - Default value: /opt/globus
     - `/software/globuscfg/globus_global_type/GPT_LOCATION`
         - Optional
         - Type: string
+        - Default value: /opt/gpt
     - `/software/globuscfg/globus_global_type/GLOBUS_CONFIG`
         - Optional
         - Type: string
+        - Default value: /etc/globus.conf
     - `/software/globuscfg/globus_global_type/GLOBUS_TCP_PORT_RANGE`
         - Optional
         - Type: string
@@ -191,6 +194,7 @@
     - `/software/globuscfg/globus_global_type/x509_cert_dir`
         - Optional
         - Type: string
+        - Default value: /etc/grid-security/certificates
     - `/software/globuscfg/globus_global_type/gridmap`
         - Optional
         - Type: string
@@ -209,4 +213,5 @@
     - `/software/globuscfg/globus_global_type/sysconfigUpdate`
         - Optional
         - Type: boolean
+        - Default value: true
  - `/software/globuscfg/globuscfg_component_type`

@@ -23,6 +23,23 @@ undef on failure and store the error message in the `fail` attribute.
     - SUCCESS: nothing changed (boolean true)
     - CHANGED: something changed (boolean true).
 
+#### Functions
+
+- mkcafpath
+
+    Returns an instance of [Object](../CAF/Object.md) and `CAF::Path`.
+    This instance is a simple way to use `CAF::Path` when
+    subclassing is not possible. Allowed options are
+    `<log =` $logger>> and `<NoAction =` $noaction>>.
+
+    This function is not exported, to be used as e.g.
+        use CAF::Path;
+        ...
+        my $cafpath = CAF::Path::mkcafpath(log => $logger);
+        if(! defined($cafpath->directory($name)) {
+            $logger->error("Failed to make directory $name: $cafpath->{fail}");
+        };
+
 #### Methods
 
 - \_get\_noaction
@@ -53,8 +70,10 @@ undef on failure and store the error message in the `fail` attribute.
 
     Run function reference `funcref` with arrayref `argsref` and hashref `optsref`.
 
-    Return and set fail attribute with `failmsg` on die, verbose `msg` on success
-    (resp. $@ and stringified result are appended).
+    Return and set fail attribute with `failmsg` on die or an error (`undef` returned
+    by `funcref`), or print (at verbose level) `msg` on success (respectively $@ and
+    stringified result are appended). Note that `_safe_eval` doesn't work with functions
+    that don't return a defined value when they succeed.
 
     Resets previous exceptions and/or fail attribute
 
@@ -80,7 +99,7 @@ undef on failure and store the error message in the `fail` attribute.
     wrapped in a method to allow unittesting.
 
     If  `directory` is a symlink, the symlink target
-    is tested. If the symlink is broken (no target), 
+    is tested. If the symlink is broken (no target),
     `directory_exists` returns false.
 
 - file\_exists
@@ -91,7 +110,7 @@ undef on failure and store the error message in the `fail` attribute.
     wrapped in a method to allow unittesting.
 
     If  `filename` is a symlink, the symlink target
-    is tested. If the symlink is broken (no target), 
+    is tested. If the symlink is broken (no target),
     `file_exists` returns false.
 
 - any\_exists
@@ -104,6 +123,13 @@ undef on failure and store the error message in the `fail` attribute.
     A broken symlink (symlink whose target doesn't
     exist) exists: `any_exists` returns true.
 
+- is\_symlink
+
+    Test if `path` is a symlink.
+
+    Returns true as long as `path` is a symlink, including when the
+    symlink target doesn't exist.
+
 - cleanup
 
     cleanup removes `dest` with backup support.
@@ -114,7 +140,7 @@ undef on failure and store the error message in the `fail` attribute.
     Returns CHANGED is something was cleaned-up, SUCCESS if nothing was done
     and undef on failure (and sets the fail attribute).
 
-    The &lt;backup> is a suffix for `dest`.
+    The <backup> is a suffix for `dest`.
 
     If backup is undefined, use `backup` attribute.
     (Pass an empty string to disable backup with `backup` attribute defined)
@@ -159,6 +185,76 @@ undef on failure and store the error message in the `fail` attribute.
 
     - keeps\_state: boolean passed to `_get_noaction`.
 
+- \_make\_link
+
+    This method is mainly a wrapper over `LC::Check::link`
+    returning the standard `CAF::Path` return values. Every option
+    supported by `LC::Check::link` is supported. `NoAction`
+    flag is handled by `LC::Check::link` and `keeps_state` option
+    is honored (overrides `NoAction` if true). One important
+    difference is the order of the arguments: `CAF::Path:_make_link`
+    and the methods based on it are following the Perl `symlink`
+    (and `ln` command) argument order.
+
+    This is an internal method, not supposed to be called directly.
+    Either call [symlink](../components/symlink.md) or `hardlink` public methods instead.
+
+- hardlink
+
+    Create a hardlink `link_path` whose target is `target`.
+
+    On failure, returns undef and sets the fail attribute.
+    If `link_path` exists and is a file, it is updated.
+    `target` must exist (`check` flag available in symlink()
+    is ignored for hardlinks) and it must reside in the same
+    filesystem as `link_path`. If `target_path` is a
+    relative path, it is interpreted from the current directory.
+    `link_name` parent directory is created if it doesn't exist.
+
+    Returns SUCCESS on sucess if the hardlink already existed
+    with the same target, CHANGED if the hardlink was created
+    or updated, undef otherwise.
+
+    This method relies on `_make_link` method to do the real work,
+    after enforcing the option saying that it is a hardlink.
+
+- symlink
+
+    Create a symlink `link_path` whose target is `target`.
+
+    Returns undef and sets the fail attribute if `link_path`
+    already exists and is not a symlink, except if this is a file
+    and option `force` is defined and true. If `link_path` exists
+    and is a symlink, it is updated. By default, the target is not
+    required to exist. If you want to ensure that it exists,
+    define option `check` to true. Both `link_path` and `target`
+    can be relative paths: `link_path` is interpreted as relatif
+    to the current directory and `target` is kept relative.
+    `link_path` parent directory is created if it doesn't exist.
+
+    Returns SUCCESS on sucess if the symlink already existed
+    with the same target, CHANGED if the symlink was created
+    or updated, undef otherwise.
+
+    This method relies on `_make_link` method to do the real work,
+    after enforcing the option saying that it is a symlink.
+
+- has\_hardlinks
+
+    Method that returns the number of hardlinks for `file`. The number of
+    hardlinks is the number of entries referring to the inodes minus 1. If
+    `file` has no hardlink, the return value is 0. If `file` is not a file,
+    the return value is `undef`.
+
+- is\_hardlink
+
+    This method returns SUCCESS if `path1` and `path2` refer to the same file (inode).
+    It returns 0 if `path1` and `path2` both exist but are different files or are the same path
+    and `undef` if one of the paths doesn't exist or is not a file.
+
+    Note: the result returned will be identical whatever is the order of `path1` and `path2`
+    arguments.
+
 - status
 
     Set the path stat options: `owner`, `group`, `mode` and/or `mtime`.
@@ -182,7 +278,7 @@ undef on failure and store the error message in the `fail` attribute.
     does not exist to start with, success is immediately returned,
     and no backup of `dest` is created).
 
-    The &lt;backup> is a suffix for the cleanup of `dest`
+    The <backup> is a suffix for the cleanup of `dest`
     (and passed to `cleanup` method).
 
     (The basedir of `dest` is created using `directory` method.)

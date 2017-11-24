@@ -1,7 +1,7 @@
 
 ### NAME
 
-EDG::WP4::CCM::Resource - Resource class
+EDG::WP4::CCM::CacheManager::Resource - Resource class
 
 ### SYNOPSIS
 

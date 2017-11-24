@@ -44,12 +44,15 @@
     - `/software/metaconfig/metaconfig_config/mode`
         - Optional
         - Type: long
+        - Default value: 420
     - `/software/metaconfig/metaconfig_config/owner`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/metaconfig/metaconfig_config/group`
         - Optional
         - Type: string
+        - Default value: root
     - `/software/metaconfig/metaconfig_config/daemons`
         - Optional
         - Type: caf_service_action

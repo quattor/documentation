@@ -11,18 +11,22 @@
     image from scratch use remove hook first.
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/opennebula/structure_aii_opennebula/template`
         - Description: force (re)create template, also stop/delete vm
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/opennebula/structure_aii_opennebula/vm`
         - Description: instantiate template (i.e. make vm)
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/opennebula/structure_aii_opennebula/onhold`
         - Description: vm is placed onhold, if false the VM execution is scheduled asap
         - Optional
         - Type: boolean
+        - Default value: true
  - `/software/opennebula/opennebula_vmtemplate_vnet`
  - `/software/opennebula/opennebula_vmtemplate_datastore`
  - `/software/opennebula/valid_interface_ignoremac`
@@ -143,6 +147,7 @@ More info: http://docs.opennebula.org/5.0/operation/references/template.html#pla
         - Description: Set graphics to export VM graphical display (VNC is used by default)
         - Optional
         - Type: string
+        - Default value: VNC
     - `/software/opennebula/opennebula_vmtemplate/diskcache`
         - Description: Select the cache mechanism for your disks. (by default is set to none)
         - Optional

@@ -55,24 +55,31 @@ or later.
 - `/software/uninstall` ? nlist ()
 
     A list of packages to uninstall. Packages in this list will not be installed,
-    and will be passed to the `pkg install` command via the `--reject` option.
-    The format is the same as with `/software/requests`.
+    and if found on the system will be removed. The format is the same as with
+    `/software/requests`.
+
+- `/software/whitelist` ? nlist ()
+
+    A list of packages to whitelist. Packages in this list are permitted on the
+    system even if they have not been explicitly requested and even if
+    `userpkgs` is set to `no`. The format is the same as with
+    `/software/requests`.
 
 - `/software/components/spma/packager` ? string
 
-    Must contain '**ips**' to use this module.
+    Must contain `ips` to use this module.
 
 - `/software/components/spma/run` ? string
 
-    Set to **yes** to allow this module to launch `spma-run --execute` to make
-    immediate changes to the new boot environment. If set to **no** or omitted,
+    Set to `yes` to allow this module to launch `spma-run --execute` to make
+    immediate changes to the new boot environment. If set to `no` or omitted,
     this module prepares and validates the changes only, but does not perform
     any updates, it will be the responsibility of an external process to launch
     `spma-run --execute` in this case.
 
 - `/software/components/spma/userpkgs` ? string
 
-    Set to **yes** to allow user-installed packages. If set to **no** or omitted,
+    Set to `yes` to allow user-installed packages. If set to `no` or omitted,
     then SPMA will find all leaf packages that have not been requested and
     uninstall them via `--reject` arguments to `pkg install`.
 
@@ -90,6 +97,13 @@ or later.
 
         list("/software/uninstall");
 
+- `/software/components/spma/whitepaths` : string \[\]
+
+    Contains a list of resource paths where packages to whitelist are located.
+    Should be set to:
+
+        list("/software/whitelist");
+
 - `/software/components/spma/cmdfile` : string
 
     Where to save commands for the [spma-run](../components/spma-run.md) script. Default location
@@ -97,7 +111,7 @@ or later.
 
 - `/software/components/spma/flagfile` ? string
 
-    File to touch if `/software/components/spma/run` is set to **no** and this
+    File to touch if `/software/components/spma/run` is set to `no` and this
     module has determined that there is work to do, i.e. packages to install or
     to uninstall. If the file exists after this module has completed, then
     `spma-run --execute` can be run to create a new BE and make package changes
@@ -118,14 +132,14 @@ or later.
     Add a `--reject` option to the `pkg install` command for every Solaris IDR
     installed that has not been explicitly requested.
 
-    Default is **true**.
+    Default is `true`.
 
 - `/software/components/spma/ips/freeze` : boolean
 
     Ignore frozen packages. This will prevent SPMA from updating or uninstalling
     frozen packages.
 
-    Default is **true**.
+    Default is `true`.
 
 ### NOTES
 
@@ -149,6 +163,7 @@ Solaris:
     "packager" = "ips";
     "pkgpaths" = list("/software/catalogues", "/software/requests");
     "uninstpaths" = list("/software/uninstall");
+    "whitepaths" = list("/software/whitelist");
     "register_change" = list("/software/catalogues",
                              "/software/requests",
                              "/software/uninstall");

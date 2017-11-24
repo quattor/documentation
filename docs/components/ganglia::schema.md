@@ -5,15 +5,18 @@
     - `/software/ganglia/daemon_ganglia/config_file`
         - Optional
         - Type: string
+        - Default value: /etc/ganglia/gmetad.conf
     - `/software/ganglia/daemon_ganglia/data_source`
         - Optional
         - Type: string
     - `/software/ganglia/daemon_ganglia/gridname`
         - Optional
         - Type: string
+        - Default value: unspecified
     - `/software/ganglia/daemon_ganglia/case_sensitive_hostnames`
         - Optional
         - Type: long
+        - Default value: 1
  - `/software/ganglia/metric_collection_groups_client_ganglia`
     - `/software/ganglia/metric_collection_groups_client_ganglia/name`
         - Optional
@@ -74,6 +77,7 @@
     - `/software/ganglia/udp_accept_channel_client_ganglia/port`
         - Optional
         - Type: long
+        - Default value: 8649
     - `/software/ganglia/udp_accept_channel_client_ganglia/bind`
         - Optional
         - Type: string
@@ -93,6 +97,7 @@
     - `/software/ganglia/udp_recv_channel_client_ganglia/port`
         - Optional
         - Type: long
+        - Default value: 8649
     - `/software/ganglia/udp_recv_channel_client_ganglia/mcast_join`
         - Optional
         - Type: string
@@ -115,9 +120,11 @@
     - `/software/ganglia/udp_send_channel_client_ganglia/port`
         - Optional
         - Type: long
+        - Default value: 8649
     - `/software/ganglia/udp_send_channel_client_ganglia/ttl`
         - Optional
         - Type: long
+        - Default value: 1
     - `/software/ganglia/udp_send_channel_client_ganglia/mcast_join`
         - Optional
         - Type: string
@@ -128,6 +135,7 @@
     - `/software/ganglia/host_client_ganglia/location`
         - Optional
         - Type: string
+        - Default value: unspecified
  - `/software/ganglia/cluster_client_ganglia`
     - `/software/ganglia/cluster_client_ganglia/name`
         - Optional
@@ -135,49 +143,62 @@
     - `/software/ganglia/cluster_client_ganglia/owner`
         - Optional
         - Type: string
+        - Default value: unspecified
     - `/software/ganglia/cluster_client_ganglia/latlong`
         - Optional
         - Type: string
+        - Default value: unspecified
     - `/software/ganglia/cluster_client_ganglia/url`
         - Optional
         - Type: string
+        - Default value: unspecified
  - `/software/ganglia/globals_client_ganglia`
     - `/software/ganglia/globals_client_ganglia/daemonize`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/ganglia/globals_client_ganglia/setuid`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/ganglia/globals_client_ganglia/user`
         - Optional
         - Type: string
+        - Default value: nobody
     - `/software/ganglia/globals_client_ganglia/debug_level`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/ganglia/globals_client_ganglia/max_udp_msg_len`
         - Optional
         - Type: long
+        - Default value: 1472
     - `/software/ganglia/globals_client_ganglia/mute`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/ganglia/globals_client_ganglia/deaf`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/ganglia/globals_client_ganglia/allow_extra_data`
         - Optional
         - Type: boolean
     - `/software/ganglia/globals_client_ganglia/host_dmax`
         - Optional
         - Type: long
+        - Default value: 1209600
     - `/software/ganglia/globals_client_ganglia/cleanup_threshold`
         - Optional
         - Type: long
+        - Default value: 300
     - `/software/ganglia/globals_client_ganglia/send_metadata_interval`
         - Optional
         - Type: long
     - `/software/ganglia/globals_client_ganglia/gexec`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/ganglia/globals_client_ganglia/module_dir`
         - Optional
         - Type: string
@@ -185,6 +206,7 @@
     - `/software/ganglia/client_ganglia/config_file`
         - Optional
         - Type: string
+        - Default value: /etc/ganglia/gmond.conf
     - `/software/ganglia/client_ganglia/globals`
         - Optional
         - Type: globals_client_ganglia

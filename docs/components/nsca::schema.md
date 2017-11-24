@@ -5,6 +5,7 @@
     - `/software/nsca/structure_component_nsca_daemon/pid_file`
         - Optional
         - Type: string
+        - Default value: /var/run/nsca.pid
     - `/software/nsca/structure_component_nsca_daemon/server_port`
         - Optional
         - Type: long
@@ -14,36 +15,45 @@
     - `/software/nsca/structure_component_nsca_daemon/user`
         - Optional
         - Type: string
+        - Default value: nagios
     - `/software/nsca/structure_component_nsca_daemon/group`
         - Optional
         - Type: string
+        - Default value: nagios
     - `/software/nsca/structure_component_nsca_daemon/chroot`
         - Optional
         - Type: string
     - `/software/nsca/structure_component_nsca_daemon/debug`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/nsca/structure_component_nsca_daemon/command_file`
         - Optional
         - Type: string
+        - Default value: /var/log/nagios/rw/nagios.cmd
     - `/software/nsca/structure_component_nsca_daemon/alt_dump_file`
         - Optional
         - Type: string
+        - Default value: /var/log/nagios/rw/nsca.dump
     - `/software/nsca/structure_component_nsca_daemon/aggregate_writes`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/nsca/structure_component_nsca_daemon/append_to_file`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/nsca/structure_component_nsca_daemon/max_packet_age`
         - Optional
         - Type: long
+        - Default value: 30
     - `/software/nsca/structure_component_nsca_daemon/password`
         - Optional
         - Type: string
     - `/software/nsca/structure_component_nsca_daemon/decryption_method`
         - Optional
         - Type: long
+        - Default value: 1
  - `/software/nsca/structure_component_nsca_send`
     - `/software/nsca/structure_component_nsca_send/password`
         - Optional
@@ -51,6 +61,7 @@
     - `/software/nsca/structure_component_nsca_send/encryption_method`
         - Optional
         - Type: long
+        - Default value: 1
  - `/software/nsca/structure_component_nsca`
     - `/software/nsca/structure_component_nsca/daemon`
         - Optional

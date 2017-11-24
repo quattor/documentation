@@ -61,6 +61,11 @@ that control the following variables:
     Contents of a file after it is closed. The keys of this hash are the
     absolute paths to the files.
 
+    This hash is a global variable whose contents can be checked in a
+    test, if necessary. But if you want to set the file content
+    before using the [Path](../CAF/Path.md) methods (for example, using
+    `set_file_contents`), it is preferable to use `%desired_file_contents`.
+
 - `%commands_run`
 
     CAF::Process objects being associated to a command execution.
@@ -83,7 +88,11 @@ that control the following variables:
 
 - `%desired_file_contents`
 
-    Optionally, initial contents for a file that should be "edited".
+    Initial contents for a file that should be "edited". The content of this hash
+    (keys are the absolute path names) is managed/updated by all the `CAF::FileWriter`
+    methods. It is preferable to use it rather than `%files_contents`, if you don't need
+    to access its contents directly from another module (`CAF::FileWriter` methods give
+    access to its contents in fact).
 
 - `@command_history`
 
@@ -102,16 +111,15 @@ that control the following variables:
     E.g. if you want to run tests with `CAF::Object::NoAction` not set
     (to test the behaviour of regular `CAF::Object::NoAction`).
 
-- `caf_file_close_diff`
+    Default is 1.
 
-    A boolean to mimic the regular (i.e. when no `NoAction` is set) behaviour of a
-    [FileWriter](../CAF/FileWriter.md) or [FileEditor](../CAF/FileEditor.md) `close` (it returns whether or not the
-    file changed). With `NoAction` set, this check is skipped and `undef` is returned.
+- `%immutable`
 
-    With this boolean set to true, contents difference is reported ( but not any changes
-    due to e.g. file permissions or anything else checked with `LC::Check::file)`.
+    The content of this hash (keys are the absolute path names) indicates
+    if paths (files, directories, ...) are immutable (or not).
+    Any modification to an immutable path will result in an error.
 
-    Defaults to false (to keep regular `NoAction` behaviour).
+    You can add paths using the `set_immutable` function.
 
 #### Redefined functions
 
@@ -127,10 +135,35 @@ automatically:
     Overriding this function allows us to inspect its contents after the
     unit under tests has released it.
 
-- `CAF::FileEditor::new`
+- `CAF::FileWriter::close`
 
-    It's just calling CAF::FileWriter::new, plus initialising its contnts
-    with the value of the appropriate entry in `%desired_file_contents`
+    Overriding this function to force noaction and update
+    mocked `%desired_file_contents`.
+
+- `CAF::FileWriter::_close`
+
+    Mock-only method to make the FileWriter instance not opened
+    (in [IO::String](https://metacpan.org/pod/IO::String) sense).
+
+    Required for cleanup of filehandles left by eg immutable paths.
+
+- `CAF::FileWriter::_read_contents`
+
+    Used to get the original content (for `<CAF::FileWriter-`close>>) and/or source
+    (for `<CAF::FileEditor-`new>>) from the `%desired_file_contents`.
+
+- `CAF::FileEditor::_is_valid_file`
+
+    Mock using `is_file` function.
+
+- `CAF::FileEditor::_is_reference_newer`
+
+    Mock using `is_file` function (but no support for pipes or
+    age test).
+
+- `CAF::FileReader::_is_valid_file`
+
+    Mock using `is_file` function (but no support for pipes).
 
 - `CAF::Reporter::debug`
 
@@ -156,6 +189,37 @@ automatically:
 
     Return the mocked `is_any`
 
+- is\_symlink
+
+    Test if given `path` is a mocked symlink
+
+- has\_hardlinks
+
+    Test if given `path` is a mocked hardlink
+
+    Note that it is not a perfect replacement for the c<CAF::Path> `has_hardlinks` because
+    the current implementation of mocked hardlinks does not allow to mimic multiple references
+    to an inode. The differences are : the link used at creation time must be queried, not the
+    target (where in a real hardlink target and link are undistinguishable); if the path is
+    a hardlink the number of references for the inode is always 1.
+
+- is\_hardlink
+
+    Test if `path1` and `path2` are hardlinked
+
+- \_make\_link
+
+    Add a mocked `_make_link`.
+
+    This mocked method implements most of the checks done in `LC::Check::link`, the function
+    doing the real work in `_make_link`, and returns the same values as [Path](../CAF/Path.md) `_make_link`.
+    See [Path](../CAF/Path.md) comments for details.
+
+    Internally, this mocked symlink/hardlink support uses the file contents to track that a path
+    is a symlink or hardlink. Thus, in addition to the symlink() and hardlink() methods, a link
+    can be created with `set_file_contents($filename, $Test::Quattor::SYMLINK)` for a symlink
+    and `set_file_contents($filename, $Test::Quattor::HARDLINK)` for a hardlink.
+
 - `CAF::Path::directory`
 
     Return directory name unless mocked `make_directory` or mocked `LC_Check` fail.
@@ -174,6 +238,13 @@ automatically:
 
     `remove_any` and store args in `caf_path` using `add_caf_path`.
 
+- `CAF::Path::_listdir`
+
+    Mock underlying \_listdir method that does the actual opendir/readdir/closedir.
+
+    Has 2 args, one directory and one test function. The is no validation
+    of any kind. Do not use this method directly, use `listdir` instead.
+
 ### FUNCTIONS FOR EXTERNAL USE
 
 The following functions are exported by default:
@@ -184,7 +255,13 @@ The following functions are exported by default:
 
 - `set_file_contents`
 
-    For file `$filename`, sets the initial `$contents` the component shuold see.
+    For file `$filename`, sets the initial `$contents` the component should see.
+
+    Returns the contents on success, undef otherwise.
+
+- `get_file_contents`
+
+    For file `$filename`, returns the contents on success, undef otherwise.
 
 - `get_command`
 
@@ -262,9 +339,18 @@ The following functions are exported by default:
     the second (optional) argument is the subclass, followed by
     all other arguments as additional non-standard actions.
 
-- `set_caf_file_close_diff`
+- set\_immutable
 
-    Set the `caf_file_close_diff` boolean.
+    Make `path` immutable. Pass a false `bool` to make the path mutable again
+    (not <undef>, default is to make the path immutable).
+
+- is\_mutable
+
+    Check if the path and parent path are mutable.
+    (Parent path is not checked when `skip_parent` argument is true).
+
+    Report an error prefixed with `prefix` and return 0
+    when path (and/or parent path) is immutable.
 
 - sane\_path
 
@@ -282,13 +368,13 @@ The following functions are exported by default:
     Test if given `$path` is a mocked directory
 
 - is\_any
-
-    Test if given `path` is known (as file or directory or anything else)
-
+Test if given `path` is known (as file or directory or anything else)
 - make\_directory
 
     Add a directory to the mocked directories.
     If `rec` is true or undef, also add all underlying directories.
+
+    If `mutable` is true, always create the directory.
 
     If directory already exists and is a directory, return SUCCESS (undef otherwise).
 
@@ -308,6 +394,26 @@ The following functions are exported by default:
 - reset\_caf\_path
 
     Reset `caf_path` ref. If `name` is defined, only reset that cache.
+
+- dump\_contents
+
+    Debug function to show the entries in `desired_file_contents`
+    and `files_contents`.
+
+    Options
+
+    - log
+
+        Pass a reporter/logger instance, and report with verbose level.
+        By default, `Test::More::diag` is used.
+
+    - filter
+
+        Regex pattern to filter filenames to show (matches are kept).
+
+    - prefix
+
+        A message prefix
 
 ### BUGS
 

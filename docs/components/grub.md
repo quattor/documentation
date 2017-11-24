@@ -137,6 +137,12 @@ Besides `/software/component/grub`, following resources are used:
     Any serial console settings in the `kernelargs` attribute
     is replaced by `cons` (when defined).
 
+- get\_info
+
+    Return info for default kernel as an arrayref of hashref
+
+    Same kernel can have multiple entries.
+
 - default\_options
 
     Configure kernel commandline options of default kernel

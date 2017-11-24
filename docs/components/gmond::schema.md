@@ -22,12 +22,15 @@
     - `/software/gmond/structure_component_gmond_cluster/name`
         - Optional
         - Type: string
+        - Default value: unspecified
     - `/software/gmond/structure_component_gmond_cluster/owner`
         - Optional
         - Type: string
+        - Default value: unspecified
     - `/software/gmond/structure_component_gmond_cluster/latlong`
         - Optional
         - Type: string
+        - Default value: unspecified
     - `/software/gmond/structure_component_gmond_cluster/url`
         - Optional
         - Type: type_absoluteURI
@@ -35,40 +38,51 @@
     - `/software/gmond/structure_component_gmond_host/location`
         - Optional
         - Type: string
+        - Default value: unspecified
  - `/software/gmond/structure_component_gmond_globals`
     - `/software/gmond/structure_component_gmond_globals/daemonize`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/gmond/structure_component_gmond_globals/setuid`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/gmond/structure_component_gmond_globals/user`
         - Optional
         - Type: string
+        - Default value: nobody
     - `/software/gmond/structure_component_gmond_globals/debug_level`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/gmond/structure_component_gmond_globals/mute`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/gmond/structure_component_gmond_globals/deaf`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/gmond/structure_component_gmond_globals/host_dmax`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 0
     - `/software/gmond/structure_component_gmond_globals/cleanup_threshold`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 0
     - `/software/gmond/structure_component_gmond_globals/gexec`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/gmond/structure_component_gmond_globals/send_metadata_interval`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 0
     - `/software/gmond/structure_component_gmond_globals/module_dir`
         - Optional
         - Type: string
@@ -105,6 +119,7 @@
     - `/software/gmond/structure_component_gmond_udp_recv_channel/family`
         - Optional
         - Type: string
+        - Default value: inet4
     - `/software/gmond/structure_component_gmond_udp_recv_channel/acl`
         - Optional
         - Type: structure_component_gmond_acl
@@ -118,9 +133,11 @@
     - `/software/gmond/structure_component_gmond_tcp_accept_channel/family`
         - Optional
         - Type: string
+        - Default value: inet4
     - `/software/gmond/structure_component_gmond_tcp_accept_channel/timeout`
         - Optional
         - Type: long
+        - Default value: 1000000
     - `/software/gmond/structure_component_gmond_tcp_accept_channel/acl`
         - Optional
         - Type: structure_component_gmond_acl
@@ -146,6 +163,7 @@
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 3600
     - `/software/gmond/structure_component_gmond_collection_group/metric`
         - Optional
         - Type: structure_component_gmond_metric

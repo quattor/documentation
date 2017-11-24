@@ -55,6 +55,7 @@ with the `set_logfile` method.
         Set the (highest) debug level, for messages reported with
         the 'debug' method.
         The following recommendations apply:
+
             0: no debug information
             1: main package
             2: main libraries/functions
@@ -120,6 +121,9 @@ with the `set_logfile` method.
 - `is_verbose`: bool
 
     Return true if reporter is verbose, false otherwise
+
+    Supports boolean option `verbose_logfile` to check if
+    reporting to logfile is verbose.
 
 - `report(@array)`: boolean
 
@@ -223,16 +227,22 @@ with the `set_logfile` method.
 
     The configure options `debuglvl`, `quiet`, `verbose`, `facility`, `verbose_logfile`
     are passed as postional arguments in that order.
-        $self->setup\_reporter(2, 0, 1);
+
+        $self->setup_reporter(2, 0, 1);
+
     is equal to
-        $self->config\_reporter(debuglvl => 2, quiet => 0, verbose => 1);
+
+        $self->config_reporter(debuglvl => 2, quiet => 0, verbose => 1);
 
 - set\_report\_logfile
 
     Deprecated method to configure the reporter `LOGFILE` attribute:
-        $self->setup\_report\_logfile($instance);
+
+        $self->setup_report_logfile($instance);
+
     is equal to
-        $self->config\_reporter(logfile => $instance);
+
+        $self->config_reporter(logfile => $instance);
 
     Returns SUCCESS on success, undef otherwise.
 

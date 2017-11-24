@@ -1,7 +1,7 @@
 
 ### SYNOPSIS
 
-    EDG::WP4::CCM::XMLPanProfile->interpret_node($tag, $xmltree);
+    EDG::WP4::CCM::Fetch::XMLPanProfile->interpret_node($tag, $xmltree);
 
 ### DESCRIPTION
 

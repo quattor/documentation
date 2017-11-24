@@ -17,7 +17,7 @@ This class should be used whenever a file is to be opened for reading,
 and no modifications are expected.
 
 Printing to this file is allowed, but changes will be discarded (in
-effect, the [FileWriter](../CAF/FileWriter.md) is `cancel`-ed.
+effect, the [FileEditor](../CAF/FileEditor.md) is `cancel`-ed.
 
 - new
 

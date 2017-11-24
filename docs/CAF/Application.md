@@ -43,7 +43,7 @@ Applications can extend or overwrite the default methods.
 - version(): string
 
     Returns the version number as defined in $self->{'VERSION'}, or
-    &lt;unknown> if not defined.
+    <unknown> if not defined.
 
 - hostname(): string
 
@@ -53,12 +53,30 @@ Applications can extend or overwrite the default methods.
 
     Returns the name of the user.
 
+- option\_exists($opt): boolean
+
+    Returns true if the option exists, false otherwhise. Option can be
+    defined either in the application configuration file or on the
+    command line (based on `AppConfig` module).
+
 - option($opt): scalar|undef
 
     Returns the option value coming from the command line and/or
     configuration file. Scalar can be a string, or a reference to a hash
     or an array containing the option's value. option() is a wrapper
-    on top of AppConfig->get($opt).
+    on top of AppConfig->get($opt). 
+
+    If the option doesn't exist, returns `undef`, except if the `default`
+    argument has been specified: in this case this value is returned but
+    the option remains undefined.
+
+- set\_option($opt, $val): SUCCESS
+
+    Defines an option and sets its value. If the option was previously
+    defined, its value is overwritten. This is a wrapper over `AppConfig`
+    methods to hide the internal implementation of a `CAF::Application`.
+
+    This method always returns SUCCESS.
 
 - show\_usage(): boolean
 
