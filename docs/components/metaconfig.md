@@ -2,100 +2,11 @@
 ### NAME
 
 ncm-metaconfig: Configure services whose config format can be
-rendered via [TextRender](../CAF/TextRender.md).
-
-### DESCRIPTION
-
-metaconfig
-
-### RESOURCES
-
-#### `/software/components/metaconfig`
-
-The configuration information for the component.  It is an nlist of
-`services`, indexed by absolute path. Each service contains:
-
-- `mode` : long
-
-    File permissions. Defaults to 0644.
-
-- `owner` : string
-
-    File owner. Defaults to root.
-
-- `group` : string
-
-    File group. Defaults to root.
-
-- `backup` ? string
-
-    Extension for the file's backup.
-
-- `module` : string
-
-    Module to render the configuration file. See ["CONFIGURATION MODULES"](#configuration-modules)
-    below.
-
-- `daemons` ? `caf_service_action{}`
-
-    An nlist with foreach daemon the [Service](../CAF/Service.md) action to take
-    if the file changes.
-
-    Even if multiple `services` are associated to the same daemon, each action
-    for the daemon will be taken at most once.
-
-    If multiple actions are to be taken for the same daemon, all actions
-    will be taken (no attempt to optimize is made).
-
-- `preamble` ? string
-
-    Text to place at start of file.
-
-    It can be useful to include context in a configuration file, in the form of
-    a comment, such as how it was generated. Most of the formats that can be
-    output by this component support "comment" lines, but none of the modules that
-    it uses will generate them. The preamble attribute will be written out
-    verbatim, before the contents is generated. No comment character is added,
-    the user must specify this as part of the preamble string.
-
-- `contents`
-
-    A free-form structure describing the valid entries for the
-    configuration file. It is recommended to define another type for each
-    config file, and bind it to these contents, to get the best
-    validation.
-
-- `element`
-
-    Predefined conversions from `EDG::WP4::CCM::TextRender`:
-
-    - `yesno` ? boolean
-
-        Convert boolean to (lowercase) 'yes' and 'no'.
-
-    - `YESNO` ? boolean
-
-        Convert boolean to (uppercase) 'YES' and 'NO'.
-
-    - `truefalse` ? boolean
-
-        Convert boolean to (lowercase) 'true' and 'false'.
-
-    - `TRUEFALSE` ? boolean
-
-        Convert boolean to (uppercase) 'TRUE' and 'FALSE'.
-
-    - `doublequote` ? boolean
-
-        Convert string to doublequoted string.
-
-    - `singlequote` ? boolean
-
-        Convert string to singlequoted string.
+rendered via `EDG::WP4::CCM::TextRender`.
 
 ### CONFIGURATION MODULES
 
-The following formats can be rendered via `CAF::TextRender`:
+The following formats can be rendered via `EDG::WP4::CCM::TextRender`:
 
 - general
 

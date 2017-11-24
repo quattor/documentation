@@ -51,8 +51,6 @@ pages:
     - cron::schema: components/cron::schema.md
     - cups: components/cups.md
     - cups::schema: components/cups::schema.md
-    - directoryservices: components/directoryservices.md
-    - directoryservices::schema: components/directoryservices::schema.md
     - dirperm: components/dirperm.md
     - dirperm::schema: components/dirperm::schema.md
     - download: components/download.md
@@ -106,8 +104,6 @@ pages:
     - ldconf::schema: components/ldconf::schema.md
     - libvirtd: components/libvirtd.md
     - libvirtd::schema: components/libvirtd::schema.md
-    - mcx: components/mcx.md
-    - mcx::schema: components/mcx::schema.md
     - metaconfig: components/metaconfig.md
     - metaconfig::schema: components/metaconfig::schema.md
     - modprobe: components/modprobe.md

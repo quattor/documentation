@@ -551,9 +551,6 @@
         - Optional
         - Type: boolean
         - Default value: false
-    - `/software/authconfig/authconfig_component/startstop`
-        - Optional
-        - Type: boolean
     - `/software/authconfig/authconfig_component/usemd5`
         - Description: Enable the use of MD5 hashed password.
         - Optional
