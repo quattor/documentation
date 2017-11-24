@@ -213,7 +213,6 @@
     - `/software/pbsclient/pbsclient_component_type/behaviour`
         - Optional
         - Type: string
-        - Default value: OpenPBS
     - `/software/pbsclient/pbsclient_component_type/masters`
         - Optional
         - Type: string

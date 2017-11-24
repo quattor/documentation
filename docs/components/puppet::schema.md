@@ -13,11 +13,9 @@
     - `/software/puppet/puppet_puppetconf_main/logdir`
         - Optional
         - Type: string
-        - Default value: /var/log/puppet
     - `/software/puppet/puppet_puppetconf_main/rundir`
         - Optional
         - Type: string
-        - Default value: /var/run/puppet
  - `/software/puppet/puppet_puppetconf`
     - `/software/puppet/puppet_puppetconf/main`
         - Optional
@@ -26,7 +24,6 @@
     - `/software/puppet/puppet_hieraconf_yaml/_3adatadir`
         - Optional
         - Type: string
-        - Default value: /etc/puppet/hieradata
  - `/software/puppet/puppet_hieraconf`
     - `/software/puppet/puppet_hieraconf/_3abackends`
         - Optional

@@ -1,4 +1,4 @@
 
 ### Types
 
- - `/software/network/network_component`
+ - `/software/network/component_network_type`

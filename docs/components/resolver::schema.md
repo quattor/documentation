@@ -11,4 +11,3 @@
     - `/software/resolver/component_resolver_type/dnscache`
         - Optional
         - Type: boolean
-        - Default value: false

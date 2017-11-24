@@ -9,12 +9,10 @@
         - Description: remove the host on AII removal (precedes disable)
         - Optional
         - Type: boolean
-        - Default value: false
     - `/software/freeipa/aii_freeipa/disable`
         - Description: disable the host on AII removal
         - Optional
         - Type: boolean
-        - Default value: true
 
 ### Functions
 

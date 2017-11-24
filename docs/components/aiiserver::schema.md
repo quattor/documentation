@@ -4,10 +4,10 @@
  - `/software/aiiserver/structure_aiishellfe`
     - `/software/aiiserver/structure_aiishellfe/cachedir`
         - Optional
-        - Type: absolute_file_path
+        - Type: string
     - `/software/aiiserver/structure_aiishellfe/ca_dir`
         - Optional
-        - Type: absolute_file_path
+        - Type: string
     - `/software/aiiserver/structure_aiishellfe/ca_file`
         - Optional
         - Type: string
@@ -28,7 +28,7 @@
         - Type: string
     - `/software/aiiserver/structure_aiishellfe/lockdir`
         - Optional
-        - Type: absolute_file_path
+        - Type: string
     - `/software/aiiserver/structure_aiishellfe/logfile`
         - Optional
         - Type: string
@@ -52,23 +52,20 @@
         - Type: boolean
     - `/software/aiiserver/structure_aiishellfe/osinstalldir`
         - Optional
-        - Type: absolute_file_path
+        - Type: string
     - `/software/aiiserver/structure_aiishellfe/profile_format`
         - Optional
         - Type: string
-        - Default value: xml
     - `/software/aiiserver/structure_aiishellfe/profile_prefix`
         - Optional
         - Type: string
     - `/software/aiiserver/structure_aiishellfe/use_fqdn`
         - Optional
         - Type: boolean
-        - Default value: true
  - `/software/aiiserver/structure_aiidhcp`
     - `/software/aiiserver/structure_aiidhcp/dhcpconf`
         - Optional
-        - Type: absolute_file_path
-        - Default value: /etc/dhcpd.conf
+        - Type: string
     - `/software/aiiserver/structure_aiidhcp/restartcmd`
         - Optional
         - Type: string

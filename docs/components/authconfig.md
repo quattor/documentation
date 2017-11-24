@@ -24,6 +24,7 @@ It will also enable/disable NSCD support on the client.
     "usemd5" = true;
     "useshadow" = true;
     "usecache" = true;
+    "startstop" = true;
 
     prefix "/software/components/authconfig/method/files";
     "enable" = true;

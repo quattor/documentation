@@ -65,13 +65,13 @@ command will be run whenever changes to the configuration occur.
 #### groups
 
 A list of group entries in the edg-mkgridmap.conf file. For each group
-uri\_&lt;group> and user\_&lt;group> can be defined to specify the collection
+uri\_<group> and user\_<group> can be defined to specify the collection
 of users at a URI that should be mapped to a particular user.
 
 #### auths
 
 A list of auth entries in the edg-mkgridmap.conf file. For each auth line
-a uri\_&lt;auth> should be defined.
+a uri\_<auth> should be defined.
 
 #### lcuser
 
@@ -92,7 +92,7 @@ this.
 #### gmflocal
 
 One or more local grid-mapfile(s) to be imported in the generated grid-mapfile, where they will override
-other entries. By default &lt;edgcfg.location>/etc/grid-mapfile-local. The entry
+other entries. By default <edgcfg.location>/etc/grid-mapfile-local. The entry
 can be either a string (default), or a list of strings (in which case the existing entry will have to
 be null-ified beforehand).
 
@@ -103,6 +103,6 @@ overwritten if it already exists.
 
 #### locals
 
-A list for which each element has the values of cert\_&lt;local> and 
-user\_&lt;local>. This will add mappings to the (first) grid-mapfile-local defined
+A list for which each element has the values of cert\_<local> and 
+user\_<local>. This will add mappings to the (first) grid-mapfile-local defined
 above.

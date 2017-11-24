@@ -206,5 +206,5 @@ matches:
 
 ### SEE ALSO
 
-This class inherits from [FileWriter](../CAF/FileWriter.md), and thus from
-`IO::String`.
+This class inherits from [CAF::FileWriter(3pm)](../CAF::FileWriter), and thus from
+[IO::String(3pm)](../IO::String).

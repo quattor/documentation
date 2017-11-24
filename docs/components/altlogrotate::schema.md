@@ -130,13 +130,11 @@
         - Description: Logrotate configuration file location, defaults to /etc/logrotate.conf.
         - Optional
         - Type: string
-        - Default value: /etc/logrotate.conf
     - `/software/altlogrotate/altlogrotate_component/configDir`
         - Description: Logrotate entries directory path, defaults to /etc/logrotate.d,
       entries will be written to individual config files under this path.
         - Optional
         - Type: string
-        - Default value: /etc/logrotate.d
     - `/software/altlogrotate/altlogrotate_component/entries`
         - Description: A named list containing logrotate structures.
       Follows the logrotate config format, so see 'man 8 logrotate'

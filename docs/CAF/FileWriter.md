@@ -130,8 +130,6 @@ This is a wrapper class for `IO::String` with customised close based on
     `""`, so it's now possible to do "$fh" and get the contents of the
     file so far.
 
-    (Returns empty string on an already closed file.)
-
 - error, warn, info, verbose, debug, report, log, OK
 
     Convenience methods to access the log/reporter instance that might
@@ -243,7 +241,7 @@ will be closed automatically when it is destroyed:
 
 ### SEE ALSO
 
-This package inherits from `IO::String`. Check its man page to
+This package inherits from [IO::String(3pm)](../IO::String). Check its man page to
 do powerful things with the already printed contents.
 
 ### TODO

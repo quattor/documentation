@@ -32,31 +32,31 @@ difference the support of a `EDG::WP4::CCM::CacheManager::Element` instance as c
             - scalar
 
                 converted in a single line
-                    &lt;key> &lt;value>
+                    <key> <value>
 
             - arrayref of scalars
 
                 converted in multiple lines as follows
-                    &lt;key> &lt;scalar element0>
-                    &lt;key> &lt;scalar element1>
+                    <key> <scalar element0>
+                    <key> <scalar element1>
                     ...
 
             - hashref
 
                 generates a block with format
                     <"key">
-                        &lt;recursive rendering of the value>
-                    &lt;/"key">
+                        <recursive rendering of the value>
+                    </"key">
 
             - arrayref of hashref
 
                 generates series of blocks
                     <"key">
-                        &lt;recursive rendering of the element0>
-                    &lt;/"key">
+                        <recursive rendering of the element0>
+                    </"key">
                     <"key">
-                        &lt;recursive rendering of the element1>
-                    &lt;/"key">
+                        <recursive rendering of the element1>
+                    </"key">
                     ...
 
             (Whitespace in the block name is enforced with double quotes.)

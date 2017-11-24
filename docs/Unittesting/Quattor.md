@@ -191,11 +191,11 @@ automatically:
 
 - is\_symlink
 
-    Test if given [path](../components/path.md) is a mocked symlink
+    Test if given `path` is a mocked symlink
 
 - has\_hardlinks
 
-    Test if given [path](../components/path.md) is a mocked hardlink
+    Test if given `path` is a mocked hardlink
 
     Note that it is not a perfect replacement for the c<CAF::Path> `has_hardlinks` because
     the current implementation of mocked hardlinks does not allow to mimic multiple references
@@ -341,8 +341,8 @@ The following functions are exported by default:
 
 - set\_immutable
 
-    Make [path](../components/path.md) immutable. Pass a false `bool` to make the path mutable again
-    (not &lt;undef>, default is to make the path immutable).
+    Make `path` immutable. Pass a false `bool` to make the path mutable again
+    (not <undef>, default is to make the path immutable).
 
 - is\_mutable
 
@@ -368,7 +368,7 @@ The following functions are exported by default:
     Test if given `$path` is a mocked directory
 
 - is\_any
-Test if given [path](../components/path.md) is known (as file or directory or anything else)
+Test if given `path` is known (as file or directory or anything else)
 - make\_directory
 
     Add a directory to the mocked directories.
@@ -380,7 +380,7 @@ Test if given [path](../components/path.md) is known (as file or directory or an
 
 - remove\_any
 
-    Recursive removal of a [path](../components/path.md) from the files\_contents / desired\_file\_contents
+    Recursive removal of a `path` from the files\_contents / desired\_file\_contents
 
 - move
 

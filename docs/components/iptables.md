@@ -141,7 +141,7 @@ if the parameter is true.
 - The **"out\_interface"** defines the output interface for the packet.
 - The **"target"** defines the target for the packet: "log", "accept" or "drop".
 
-#### \* function add\_rule(&lt;table>, &lt;rule>)
+#### \* function add\_rule(<table>, <rule>)
 
 This function add a new entry rule to the resource list
 

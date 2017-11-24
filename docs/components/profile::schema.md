@@ -24,7 +24,6 @@
     - `/software/profile/structure_profile_script/flavorSuffix`
         - Optional
         - Type: boolean
-        - Default value: true
  - `/software/profile/component_profile`
     - `/software/profile/component_profile/configDir`
         - Optional

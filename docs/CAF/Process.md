@@ -81,7 +81,7 @@ secure.
     `noaction_value` is is the value to return with `NoAction`.
 
     `msg` and `postmsg` are used to construct log message
-    `<<msg` command: <COMMAND>\[ &lt;postmsg>\]>>.
+    `<<msg` command: <COMMAND>\[ <postmsg>\]>>.
 
 #### Public methods
 
@@ -266,4 +266,4 @@ It will only work with the `execute` method.
 
 ### SEE ALSO
 
-`LC::Process`
+[LC::Process(8)](http://man.he.net/man8/LC::Process)

@@ -2,7 +2,7 @@
 ### NAME
 
 `NCM::Component::OpenNebula::Network` adds `OpenNebula` `VirtualNetwork` 
-configuration support to [opennebula](../components/opennebula.md).
+configuration support to `NCM::Component::opennebula`.
 
 #### Public methods
 

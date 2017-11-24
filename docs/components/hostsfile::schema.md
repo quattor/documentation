@@ -11,4 +11,3 @@
     - `/software/hostsfile/component_hostsfile_type/takeover`
         - Optional
         - Type: boolean
-        - Default value: false
