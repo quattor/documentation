@@ -13,14 +13,14 @@ mapping of pool accounts.
 #### gridmapdir (required)
 
 The location of the configuration file.  Normally this should not be
-changed. 
+changed.
 
 #### poolaccounts (required)
 
 An nlist with the pool account prefix as the name and a long as the
 size of the pool.
 
-#### sharedGridmapdir : string (optional)  
+#### sharedGridmapdir : string (optional)
 
 If defined must indicate the path of a shared gridmapdir. In this case, gridmapdir as defined in 'gridmapdir' property
 is made a symlink of this directory.

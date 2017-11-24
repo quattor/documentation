@@ -2,11 +2,11 @@
 ### Types
 
  - `/software/openldap/long_pow2`
-    - Description: 
+    - Description:
     power of 2 (up to 64k)
 
  - `/software/openldap/ldap_hash`
-    - Description: 
+    - Description:
      Possible acceptable values
 
  - `/software/openldap/ldap_sizelimit`
@@ -550,7 +550,7 @@
 ### Functions
 
  - openldap_loglevels_to_long
-    - Description: 
+    - Description:
     converts a list of named loglevels to its numeric value
     returns undef in case of unknown entry
     returns (whichever comes first in list)

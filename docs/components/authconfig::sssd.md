@@ -2,11 +2,11 @@
 ### Types
 
  - `/software/authconfig/sssd_provider_string`
-    - Description: 
+    - Description:
     Valid SSSD providers.  For now we only implement ldap, simple and local
 
  - `/software/authconfig/authconfig_sssd_simple`
-    - Description: 
+    - Description:
     Simple access provider for SSSD.  See the sssd-simple man page.
 
     - `/software/authconfig/authconfig_sssd_simple/allow_users`

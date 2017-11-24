@@ -5,14 +5,14 @@ ncm-dpmlfc : NCM component to manage DPM and LFC configuration.
 
 ### DESCRIPTION
 
-This component allows to manage configuration of DPM and LFC services, with the exception of DPM xrootd protocol which is managed by 
+This component allows to manage configuration of DPM and LFC services, with the exception of DPM xrootd protocol which is managed by
 the [xrootd](../components-grid/xrootd.md) configuration module.
 
-Configuration module **ncm-dpmlfc** requires that the DPM and/or LFC configuration describes all nodes participating to the service and their respective 
+Configuration module **ncm-dpmlfc** requires that the DPM and/or LFC configuration describes all nodes participating to the service and their respective
 role (in term of daemon running on each node). Each daemon/host combination is called a daemon instance in this documentation.
 
-Using the whole DPM and/or LFC description, **ncm-dpmlfc** takes care of action needed on every node to configure it as requested 
-(you MUST use the same configuration description on every node participating to DPM and/or LFC). This includes restarting 
+Using the whole DPM and/or LFC description, **ncm-dpmlfc** takes care of action needed on every node to configure it as requested
+(you MUST use the same configuration description on every node participating to DPM and/or LFC). This includes restarting
 a service after configuration changes if needed.
 
 There are 2 sets of configuration options:
@@ -49,31 +49,31 @@ DPM and LFC accept the same global options but there is a separate set for each 
 
 - `/software/components/dpmlfc/options/PRODUCT/gridmapfile`
 
-    This option defines the local gridmap file used by products daemons. 
+    This option defines the local gridmap file used by products daemons.
 
     Default: None (default configuration provided by RPM will be used)
 
 - `/software/components/dpmlfc/options/PRODUCT/gridmapdir`
 
-    This option defines the gridmap dir used by products daemons. 
+    This option defines the gridmap dir used by products daemons.
 
     Default: None (default configuration provided by RPM will be used)
 
 - `/software/components/dpmlfc/options/PRODUCT/group`
 
-    This option defines the userid used by product daemons. 
+    This option defines the userid used by product daemons.
 
     Default: None (default configuration provided by RPM will be used)
 
 - `/software/components/dpmlfc/options/PRODUCT/user`
 
-    This option defines the userid used by product daemons. 
+    This option defines the userid used by product daemons.
 
     Default: dpmmgr for DPM, lfcmgr for LFC
 
 ### DATABASE CONNECTION OPTIONS (DPM and LFC)
 
-DPM and LFC accepts the same set of options to describe the database connection. In the following option names, 
+DPM and LFC accepts the same set of options to describe the database connection. In the following option names,
 replace `PRODUCT` by either `dpm` or `lfc`. Both sets can coexist.
 
 - `/software/components/dpmlfc/options/PRODUCT/db/configfile`
@@ -113,8 +113,8 @@ replace `PRODUCT` by either `dpm` or `lfc`. Both sets can coexist.
 - `/software/components/dpmlfc/options/PRODUCT/db/server` (string, optional)
 
     This option defines the server running the database. This component checks that
-    DPM and LFC database server run on different node (DPNS and LFC use the same database name). 
-    `localhost` is considered different as DPNS and LFC are not allowed to run on the same node. 
+    DPM and LFC database server run on different node (DPNS and LFC use the same database name).
+    `localhost` is considered different as DPNS and LFC are not allowed to run on the same node.
 
     Default : localhost.
 

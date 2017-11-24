@@ -2,23 +2,23 @@
 ### Types
 
  - `/software/postfix/postfix_lookup_type_string`
-    - Description: 
+    - Description:
     Types of lookup tables (databases) Postfix is capable to handle.
 
  - `/software/postfix/postfix_lookup`
-    - Description: 
+    - Description:
     Definition of a lookup in Postfix
 
     - `/software/postfix/postfix_lookup/type`
-        - Description:  The type of the database for this lookup 
+        - Description:  The type of the database for this lookup
         - Optional
         - Type: postfix_lookup_type_string
     - `/software/postfix/postfix_lookup/name`
-        - Description:  The name of the lookup (DB connection, file name...) 
+        - Description:  The name of the lookup (DB connection, file name...)
         - Optional
         - Type: string
  - `/software/postfix/postfix_ldap_database`
-    - Description: 
+    - Description:
     Description of a Postfix LDAP database. See
     http://www.postfix.org/ldap_table.5.html
 
@@ -120,7 +120,7 @@
         - Optional
         - Type: string
  - `/software/postfix/postfix_main`
-    - Description: 
+    - Description:
     All fields available in main.cf. Nothing is mandatory here, since
     it all has default values. Time limits are expressed in
     SECONDS. Multiply by the appropriate constant above to simplify
@@ -1702,7 +1702,7 @@
         - Optional
         - Type: string
  - `/software/postfix/postfix_databases`
-    - Description: 
+    - Description:
     Define multiple Postfix databases
 
     - `/software/postfix/postfix_databases/ldap`
@@ -1710,7 +1710,7 @@
         - Optional
         - Type: postfix_ldap_database
  - `/software/postfix/postfix_master`
-    - Description: 
+    - Description:
     Entries in the master.cf file. See the master man page for more
     details.
 
@@ -1745,14 +1745,14 @@
         - Type: string
  - `/software/postfix/postfix_component`
     - `/software/postfix/postfix_component/main`
-        - Description:  Contents of the main.cf file 
+        - Description:  Contents of the main.cf file
         - Optional
         - Type: postfix_main
     - `/software/postfix/postfix_component/master`
-        - Description:  Contents of the master.cf file 
+        - Description:  Contents of the master.cf file
         - Optional
         - Type: postfix_master
     - `/software/postfix/postfix_component/databases`
-        - Description:  Definition of Postfix databases 
+        - Description:  Definition of Postfix databases
         - Optional
         - Type: postfix_databases

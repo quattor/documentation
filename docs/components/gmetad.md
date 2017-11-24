@@ -32,7 +32,7 @@ The schema for this component is very similar to the options in the configuratio
 
 - `/software/components/gmetad/scalability` : string
 
-    Optional flag to enable or disable scalability mode. 
+    Optional flag to enable or disable scalability mode.
     Valid values are `on` and `off`.
 
 - `/software/components/gmetad/file` : string

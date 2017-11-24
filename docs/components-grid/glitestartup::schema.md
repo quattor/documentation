@@ -5,7 +5,7 @@
     - `/software/glitestartup/glitestartup_component_service/args`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
  - `/software/glitestartup/glitestartup_component_post_restart`
     - `/software/glitestartup/glitestartup_component_post_restart/cmd`
         - Optional

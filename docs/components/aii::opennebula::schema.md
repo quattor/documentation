@@ -30,11 +30,11 @@
  - `/software/opennebula/opennebula_vmtemplate_vnet`
  - `/software/opennebula/opennebula_vmtemplate_datastore`
  - `/software/opennebula/valid_interface_ignoremac`
-    - Description:  
+    - Description:
 Type that checks if the network interface is available from the quattor tree
 
  - `/software/opennebula/opennebula_ignoremac`
-    - Description:  
+    - Description:
 Type that sets which net interfaces/MACs
 will not include MAC values within ONE templates
 
@@ -45,7 +45,7 @@ will not include MAC values within ONE templates
         - Optional
         - Type: valid_interface_ignoremac
  - `/software/opennebula/opennebula_permissions`
-    - Description: 
+    - Description:
 Type that changes resources owner/group permissions.
 By default opennebula-aii generates all the resources as oneadmin owner/group.
   owner: OpenNebula user id or user name
@@ -62,7 +62,7 @@ By default opennebula-aii generates all the resources as oneadmin owner/group.
         - Optional
         - Type: long
  - `/software/opennebula/opennebula_vmtemplate_pci`
-    - Description: 
+    - Description:
 It is possible to discover PCI devices in the hosts
 and assign them to Virtual Machines for the KVM host.
 I/O MMU and SR-IOV must be supported and enabled by the host OS and BIOS.
@@ -106,7 +106,7 @@ http://docs.opennebula.org/5.0/deployment/open_cloud_host_setup/pci_passthrough.
         - Optional
         - Type: long
  - `/software/opennebula/opennebula_placements`
-    - Description: 
+    - Description:
 Type that sets placement constraints and preferences for the VM, valid for all hosts
 More info: http://docs.opennebula.org/5.0/operation/references/template.html#placement-section
 
@@ -165,10 +165,10 @@ More info: http://docs.opennebula.org/5.0/operation/references/template.html#pla
         - Optional
         - Type: opennebula_vmtemplate_pci
     - `/software/opennebula/opennebula_vmtemplate/labels`
-        - Description: labels is a list of strings to group the VMs under a given name and filter them 
-    in the admin and cloud views. It is also possible to include in the list 
+        - Description: labels is a list of strings to group the VMs under a given name and filter them
+    in the admin and cloud views. It is also possible to include in the list
     sub-labels using a common slash: list("Name", "Name/SubName")
-    This feature is available since OpenNebula 5.x, below this version the change 
+    This feature is available since OpenNebula 5.x, below this version the change
     does not take effect.
         - Optional
         - Type: string
@@ -179,6 +179,6 @@ More info: http://docs.opennebula.org/5.0/operation/references/template.html#pla
 ### Functions
 
  - validate_aii_opennebula_hooks
-    - Description:  
+    - Description:
 Function to validate all aii_opennebula hooks
 

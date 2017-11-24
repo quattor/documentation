@@ -2,7 +2,7 @@
 ### Types
 
  - `/software/grub/type_grub_password`
-    - Description: 
+    - Description:
  the crypted password can be supplied either in the password field
  OR, alternatively, within a file. this could be useful if putting the crypted
  password in the profile is undesirable. for this the file will be scanned

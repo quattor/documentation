@@ -5,7 +5,7 @@ wmslb : NCM component to configure gLite  WMS and LB
 
 ### DESCRIPTION
 
-This NCM component allows to configure gLite WMS and LB. 
+This NCM component allows to configure gLite WMS and LB.
 
 ### RESOURCES
 

@@ -5,52 +5,108 @@ nfs: NCM component for `/etc/exports` and `/etc/fstab`
 
 ### DESCRIPTION
 
-The _nfs_ component manages entries for NFS in the `/etc/exports`
-and NFS/PanFS/bind mount in the `/etc/fstab` files.
-
-### RESOURCES
-
-- `/software/components/nfs/exports`
-
-    This is a list of named lists with "path" giving the export path and
-    "hosts" being a nlist of host/option entries where the key is the escaped host name and
-    the value the export options(e.g. for `"nfsclient.example.org(rw)"`,
-    key will be `escape("nfsclient.example.org")` and value will be `'rw'`).  Note that the values in "hosts"
-    may NOT contain embedded spaces and should not contain the enclosing '()'.  This restriction is not checked in
-    the schema!
-
-    If a path is listed more than once, then the last entry will be used
-    to generate the exports file.
-
-- `/software/components/nfs/mounts`
-
-    This is a list of named lists.  The named lists must include values
-    for "device", "mountpoint", and "fstype".  The named lists may contain
-    values for "options", "freq", and "passno". the defaults being
-    "defaults", 0, and 0, respectively.
-
-    If a device is listed multiple times, then the last entry will be
-    used to generate a line in the `/etc/fstab` file.  Entries are added in
-    the order given in the list AFTER preexisting entries in the fstab
-    file.
-
-    If the mounts change, then the component will attempt to unmount any
-    mounts which are removed and mount any new ones.  If the options
-    change, then the volume will be remounted.
+The _nfs_ component manages entries for `NFS` in the `/etc/exports`
+and/or `NFS`/`NFSv4`/`CephFS`/`PanFS`/`bind` mount in the `/etc/fstab` files.
 
 ### Example
 
     prefix "/software/components/nfs";
-    "/software/components/nfs/exports" = append(dict(
+    "exports" = append(dict(
         "path", "/shared/path/",
         "hosts", dict(
             "server*.example.org", "no_root_squash",
         ),
     ));
 
-    "mounts" = append(SELF, dict(
+    "mounts" = append(dict(
         "device", "foreign.example.org:/shared/path/",
         "mountpoint", "/mnt/foreign",
         "fstype", "nfs",
         "options", "rw",
     ));
+
+#### Functions
+
+- mount\_action\_new\_old
+
+    Compares two fstab hashref `new` and `old` for equality,
+    and returns mount action to be taken.
+
+    - If old does not exist, mount.
+    - If equal, do nothing.
+    - If the entries differ in the devices or mountpoint, do unmount/mount.
+    - Otherwise, remount.
+
+- fstab\_add\_defaults
+
+    Given fstab hashref, add defaults for the undefined values
+    Returns a copy of the original hashref
+
+- parse\_fstab\_line
+
+    Parses a line of `/etc/fstab` and converts it
+    in a hashref.
+
+    Returns undef when the line is comment/empty.
+
+    Defaults are added using `fstab_add_defaults` function.
+
+#### Methods
+
+- exports
+
+    Given the component configuration hashref `tree`,
+    create the exports configuration file `/etc/exports`.
+    A backup of the old file is created.
+
+    The method also sets the `sync` option if nethier sync or async
+    is specified.
+
+    Returns if the configuration file changed (or not).
+
+- fstab
+
+    Given the component configuration hashref `tree`,
+    create the fstab configuration file `/etc/fstab`.
+    A backup of the old file is created.
+
+    The fstab configuration file is read and processed. Any non-managed
+    entries (and comments not related to the component) are left alone.
+
+    Only managed entries are considered for removal or modifications;
+    new ones are added from the configuration.
+
+    The current managed entries are
+
+    - devices with filesystems `nfs`, `nfs4`, `panfs` or `cephfs`.
+    - bind mounts (filesystem `none` and mount option `bind`)
+
+    Method returns
+
+    - if the configuration file changed (or not)
+    - hashref with the old managed entries
+    (key the device and value the fstab hashref
+    from `parse_fstab_line` function)
+    - arrayref with the order of the old managed devices \\%new, \\@new\_order;
+    - hashref with the configured managed entries (with defaults
+    and action to take added)
+    - arrayref with the order of the configured devices
+
+- do\_mount
+
+    Do something mount(point) related (umount, mount, remount, ...)
+    `cmd` is the arrayref, the mountpoint is appended from the [fstab](../components/fstab.md) hashref.
+
+    Returns SUCCESS on success, undef on failure.
+
+- process\_mounts
+
+    Given the component configuration hashref `tree`,
+    determine the new and old ncm-nfs managed entries via
+    the [fstab](../components/fstab.md) method and do the appropriate unmounting/mounting.
+
+    Returns
+
+    - if the fstab configuration file changed (or not)
+    (value from [fstab](../components/fstab.md) method)
+    - if any mount action was taken

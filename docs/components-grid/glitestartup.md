@@ -68,14 +68,14 @@ List of paths where to look for a script matching service name.
 
 Default : `/opt/glite/etc/init.d`
 
-#### `/software/components`/@COMP/services : nlist of string 
+#### `/software/components`/@COMP/services : nlist of string
 
 Nlist with one entry per service to start. Key is the service name,
 value is an optional nlist. This nlist can contain the following element:
 
 - args startup script arguments
 
-Default : none 
+Default : none
 
 ### DEPENDENCIES
 

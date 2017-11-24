@@ -2,7 +2,7 @@
 ### Types
 
  - `/software/fstab/fstab_protected_entries`
-    - Description: 
+    - Description:
 Protected mountpoints and filesystem types.
 mounts is looked for on the second field of fstab, fs_file
 fs_types is looked for on the third field of fstab, fs_vfstype
@@ -16,7 +16,7 @@ protected_mounts field in the structure_component_fstab type
         - Optional
         - Type: string
  - `/software/fstab/structure_component_fstab`
-    - Description: 
+    - Description:
 fstab component structure
 keep entries are always kept, but can be changed
 static entries can not be changed, but can be deleted

@@ -203,6 +203,7 @@
         - Type: boolean
         - Default value: false
  - `/software/ofed/component_ofed_openib`
+    - Description: openib configuration
     - `/software/ofed/component_ofed_openib/config`
         - Description: location of openibd config file
         - Optional
@@ -217,7 +218,61 @@
     - `/software/ofed/component_ofed_openib/hardware`
         - Optional
         - Type: component_ofed_openib_hardware
+ - `/software/ofed/component_ofed_partition_property`
+    - `/software/ofed/component_ofed_partition_property/guid`
+        - Description: Port GUID
+        - Optional
+        - Type: string
+    - `/software/ofed/component_ofed_partition_property/membership`
+        - Optional
+        - Type: string
+ - `/software/ofed/component_ofed_partition`
+    - Description:
+    Partition entry
+
+    - `/software/ofed/component_ofed_partition/key`
+        - Description: partition key (aka PKey); default is 32767/0x7fff.
+      (partition keys are unique; first name is used by OpenSM for same keys)
+        - Optional
+        - Type: long
+        - Range: 0..32767
+        - Default value: 32767
+    - `/software/ofed/component_ofed_partition/ipoib`
+        - Description: support IPoiB in this partition
+        - Optional
+        - Type: boolean
+    - `/software/ofed/component_ofed_partition/rate`
+        - Description: Rate: e.g. 3 (10Gbps), 4 (20Gbps),...
+        - Optional
+        - Type: long
+        - Range: 0..8
+    - `/software/ofed/component_ofed_partition/mtu`
+        - Description: MTU: e.g. 4 (2048 bytes), 5 (4096 bytes)
+        - Optional
+        - Type: long
+        - Range: 0..5
+    - `/software/ofed/component_ofed_partition/properties`
+        - Description: Partition properties
+        - Optional
+        - Type: component_ofed_partition_property
+ - `/software/ofed/component_ofed_opensm`
+    - Description: Subnet manager configuration
+    - `/software/ofed/component_ofed_opensm/daemons`
+        - Description: daemons to restart on configuration changes
+        - Optional
+        - Type: string
+    - `/software/ofed/component_ofed_opensm/partitions`
+        - Description: SM partitions configuration. Dict key is the partition name
+        - Optional
+        - Type: component_ofed_partition
+    - `/software/ofed/component_ofed_opensm/names`
+        - Description: Node name map configuration. Dict key is the GUID starting with 'x' (the 0 is prefixed automatically)
+        - Optional
+        - Type: string
  - `/software/ofed/ofed_component`
     - `/software/ofed/ofed_component/openib`
         - Optional
         - Type: component_ofed_openib
+    - `/software/ofed/ofed_component/opensm`
+        - Optional
+        - Type: component_ofed_opensm

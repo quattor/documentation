@@ -1,25 +1,25 @@
 
 ### NAME
 
-ncm-wlconfig: NCM wlconfig component 
+ncm-wlconfig: NCM wlconfig component
 
 ### DESCRIPTION
 
 The _ncm-wlconfig_ component manages the configuration files of the WP1
 NetworkServer, LogMonitor, JobController, and WorkloadManager
 services.  All of these services read the `/opt/edg/etc/edg`\_wl.conf
-file. 
+file.
 
 ### RESOURCES
 
 #### configFile (edg\_wl.conf)
 
 The name of the configuration file.  It will be created in the
-location EDG\_LOCATION/etc.  
+location EDG\_LOCATION/etc.
 
 #### user (edguser)
 
-The username to use to run the services. 
+The username to use to run the services.
 
 #### grisCache (1)
 
@@ -51,7 +51,7 @@ The absolute filename of the condor\_release executable.
 ### submitFile
 
 The directory where the temporary files are created (CondorG submit
-file and job wrapper scripts). 
+file and job wrapper scripts).
 
 ### outputFile
 
@@ -64,16 +64,16 @@ The JobController input queue of requests.
 
 ### log/file
 
-The absolute file name of the JobController log file. 
+The absolute file name of the JobController log file.
 
 ### log/level (5)
 
-The level for the logging. 
+The level for the logging.
 
 ### container (1000)
 
 The number of jobs after which the JobController must re-read the
-IdRepositoryName LogMonitor file. 
+IdRepositoryName LogMonitor file.
 
 #### LogMonitor
 
@@ -85,7 +85,7 @@ log file.  I.e. every jobsPerCondorLog jobs, the log file is changed.
 ### mainLoopDuration (10)
 
 It defines how often the LogMonitor reads the CondorG log file.
-I.e. every mainLoopDuration seconds the LogMonitor reads these files. 
+I.e. every mainLoopDuration seconds the LogMonitor reads these files.
 
 ### condorLogDir
 
@@ -94,30 +94,30 @@ The directory where the CondorG log file are created.
 ### condorRecycleDir
 
 The directory where the CondorG log files which have already been read
-are stored. 
+are stored.
 
 ### internalMonitorDir
 
 The directory where some files needed by the LogMonitor service are
-created and stored. 
+created and stored.
 
 ### idRepositoryName (irepository.dat)
 
 The name of the file used by the LogMonitor for internal purposes (the
-storage of the jobID/CondorID correspondance). 
+storage of the jobID/CondorID correspondance).
 
 ### abortedJobsTimeout (600)
 
 The timeout (in seconds) to have a cancelled job forgotten by the
-LogMonitor (useful when the job hangs in the CondorG queue). 
+LogMonitor (useful when the job hangs in the CondorG queue).
 
 ### log/file
 
-The absolute file name of the JobController log file. 
+The absolute file name of the JobController log file.
 
 ### log/level (5)
 
-The level for the logging. 
+The level for the logging.
 
 #### NetworkServer
 
@@ -125,7 +125,7 @@ The level for the logging.
 
 The contact parameters for the II.  The host must be defined by the
 user.  The default values are 2135, "mds-vo-name=local, o=grid", and
-30 for the iiPort, iiDN, and iiTimeout parameters, respectively. 
+30 for the iiPort, iiDN, and iiTimeout parameters, respectively.
 
 ### grisPort, grisDN, grisTimeout
 
@@ -135,11 +135,11 @@ grisTimeout parameters, respectively.
 
 ### listeningPort (7772)
 
-The port used by the NetworkServer to receive requests. 
+The port used by the NetworkServer to receive requests.
 
 ### masterThreads (8)
 
-The maximum number of simultaneous connections with UserInterfaces. 
+The maximum number of simultaneous connections with UserInterfaces.
 
 ### dispatcherThreads (8)
 
@@ -149,18 +149,18 @@ incoming requests) with the WorkloadManager.
 ### sandboxStagingPath
 
 The absolute pathname of the sandbox staging directory.  It is also
-the location where the .BrokerInfo file is stored. 
+the location where the .BrokerInfo file is stored.
 
 ### quotaManagement
 
 Boolean indicating whether the system should check file quotas for the
-input sandboxes. 
+input sandboxes.
 
 ### quotaManagement, quotaSandboxSize
 
 The quotaManagement flag is a boolean indicating whether or not the
 quotas should be checked for the input sandboxes.  The
-quotaSandboxSize is the maximum size of a single input sandbox. 
+quotaSandboxSize is the maximum size of a single input sandbox.
 
 ### quotaAdjustment, quotaAdjustmentAmount
 
@@ -168,28 +168,28 @@ The quotaAdjustment is a boolean indicating whether or not dynamic
 quotas should be used (i.e. the system administrator has not set a
 system quota).  The adjustment amount is the value by which the
 dynamic quota is increased/decreased as jobs enter and leave the
-system. 
+system.
 
 ### reservedDiskPercentage (2.0)
 
 Is a double representing the percentage of the disk (storing the
 sandboxes) which the administrator wants to keep unassigned.  So if
-the free space is less than this amount, no new jobs can be accepted. 
+the free space is less than this amount, no new jobs can be accepted.
 
 ### log/file
 
-The absolute file name of the JobController log file. 
+The absolute file name of the JobController log file.
 
 ### log/level (5)
 
-The level for the logging. 
+The level for the logging.
 
 #### WorkloadManager
 
 ### pipeDepth (1)
 
 The maximum size of the buffer between the dispatcher and worker
-threads. 
+threads.
 
 ### workerThreads (1)
 
@@ -197,26 +197,26 @@ The size of the workerThread pool.
 
 ### dispatcherType (filelist)
 
-Defines the type of the input queue of requests.  
+Defines the type of the input queue of requests.
 
 ### inputFile
 
-Input queue of the requests for the WorkloadManager. 
+Input queue of the requests for the WorkloadManager.
 
 ### maxRetryCount (10)
 
 The maximum number of times the WorkloadManager can try to re-schedule
-and re-submit a job in case of system failures.  
+and re-submit a job in case of system failures.
 
 ### hostProxyFile
 
 This must be the same as the X509\_USER\_PROXY value specified in the
-edg-wl-ns start up script. 
+edg-wl-ns start up script.
 
 ### log/file
 
-The absolute file name of the JobController log file. 
+The absolute file name of the JobController log file.
 
 ### log/level (5)
 
-The level for the logging. 
+The level for the logging.

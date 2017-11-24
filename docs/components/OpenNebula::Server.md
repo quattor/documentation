@@ -1,7 +1,7 @@
 
 ### NAME
 
-`NCM::Component::OpenNebula::Server` adds `OpenNebula` service configuration 
+`NCM::Component::OpenNebula::Server` adds `OpenNebula` service configuration
 support to `NCM::Component::OpenNebula`.
 
 #### Public methods

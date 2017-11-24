@@ -12,10 +12,10 @@ ncm-puppet: Component for running puppet standalone within quattor
 
 - `/software/components/puppet/puppetconf/main`
 
-    Each item is a parameter in the `[main]` section of the puppet.conf file. 
+    Each item is a parameter in the `[main]` section of the puppet.conf file.
     The mandatory parameters are:
 
-    - `logdir` : 
+    - `logdir` :
 
         Puppet log dir. Defaults to `/var/log/puppet`.
 
@@ -25,8 +25,8 @@ ncm-puppet: Component for running puppet standalone within quattor
 
 - `/software/components/puppet/hieraconf`
 
-    Defines the configuration for hiera. Each item is a key definition in the `/etc/puppet/hiera.yaml` file. 
-    The default is: 
+    Defines the configuration for hiera. Each item is a key definition in the `/etc/puppet/hiera.yaml` file.
+    The default is:
 
         ---
         :backends:
@@ -49,7 +49,7 @@ ncm-puppet: Component for running puppet standalone within quattor
 
 - `/software/components/puppet/hieradata`
 
-    Data to be passed to the hiera config. The data will be written in 
+    Data to be passed to the hiera config. The data will be written in
     `/etc/puppet/hieradata/quattor.yaml`. Note: the nlist keys will be unescaped by the component.
 
 - `/software/components/puppet/modules`

@@ -104,7 +104,7 @@ And, as such, the type `structure privilege_line` has the following fields:
 
 - `/software/components/sudo/privilege_lines/[n]/user` : mandatory
 
-    The user allowed to run `sudo <command>`. Can be an user, an 
+    The user allowed to run `sudo <command>`. Can be an user, an
     user\_alias, or a group (with a leading `%`).
 
 - `/software/components/sudo/privilege_lines/[n]/run_as` : mandatory

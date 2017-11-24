@@ -130,6 +130,8 @@ This is a wrapper class for `IO::String` with customised close based on
     `""`, so it's now possible to do "$fh" and get the contents of the
     file so far.
 
+    (Returns empty string on an already closed file.)
+
 - error, warn, info, verbose, debug, report, log, OK
 
     Convenience methods to access the log/reporter instance that might

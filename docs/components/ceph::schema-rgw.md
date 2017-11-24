@@ -3,7 +3,7 @@
 
  - `/software/ceph/type_quoted_string`
  - `/software/ceph/ceph_radosgw_config`
-    - Description:  configuration options for a ceph rados gateway instance 
+    - Description:  configuration options for a ceph rados gateway instance
     - `/software/ceph/ceph_radosgw_config/host`
         - Optional
         - Type: string
@@ -13,7 +13,7 @@
     - `/software/ceph/ceph_radosgw_config/rgw_socket_path`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/ceph/ceph_radosgw_config/log_file`
         - Optional
         - Type: string
@@ -48,7 +48,7 @@ http://ceph.com/docs/master/radosgw/
         - Optional
         - Type: ceph_radosgw_config
  - `/software/ceph/ceph_radosgwh`
-    - Description:  ceph rados gateway host, defining all gateways on a host 
+    - Description:  ceph rados gateway host, defining all gateways on a host
     - `/software/ceph/ceph_radosgwh/fqdn`
         - Optional
         - Type: type_fqdn

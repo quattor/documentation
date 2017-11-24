@@ -34,7 +34,7 @@ environment variables will be defined before the paths.
 
 - path
 
-    A structure defining (optionally) paths to define in default script. 
+    A structure defining (optionally) paths to define in default script.
     It may contain prepend, append, and value elements. Each element is a list of strings.
 
     The prepended values will be prepended and the appended values

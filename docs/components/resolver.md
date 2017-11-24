@@ -25,7 +25,7 @@ NCM::resolver - NCM resolver configuration component
 - `/software/components/resolver/servers` : list
 
     list of server addresses or hostnames. If these are
-    hostnames, they will be resolved before the resolver 
+    hostnames, they will be resolved before the resolver
     configuration is modified.
 
 - `/software/components/resolver/dnscache` : boolean
@@ -33,7 +33,7 @@ NCM::resolver - NCM resolver configuration component
     If true, then configure dnscache with the server list
     and point resolv.conf at the localhost. This will
     cause dnscache to be restarted. This implies that
-    the dnscache package is available on the machine, 
+    the dnscache package is available on the machine,
     but this component does not enforce that.
 
 ### FILES MODIFIED
