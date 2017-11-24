@@ -84,7 +84,6 @@
         - Description: autoreverse determines rev from netmask, overridden by rev (only supports 8-bit masks for now)
         - Optional
         - Type: boolean
-        - Default value: true
  - `/software/freeipa/component_freeipa_server`
     - Description:  Server configuration 
     - `/software/freeipa/component_freeipa_server/dns`
@@ -113,17 +112,14 @@
         - Description: mode/permissions
         - Optional
         - Type: long
-        - Default value: 256
     - `/software/freeipa/component_freeipa_permission/owner`
         - Description: owner
         - Optional
         - Type: string
-        - Default value: root
     - `/software/freeipa/component_freeipa_permission/group`
         - Description: group
         - Optional
         - Type: string
-        - Default value: root
  - `/software/freeipa/component_freeipa_keytab`
     - Description:  keytab for service configuration 
     - `/software/freeipa/component_freeipa_keytab/service`
@@ -145,7 +141,6 @@
         - Description:  certificate mode/permissions 
         - Optional
         - Type: long
-        - Default value: 292
     - `/software/freeipa/component_freeipa_certificate/key`
         - Description:  (private) key location to extract 
         - Optional
@@ -162,49 +157,49 @@
         - Type: string
  - `/software/freeipa/component_freeipa_nss`
     - Description: NSS db options
- - `/software/freeipa/freeipa_component`
-    - `/software/freeipa/freeipa_component/realm`
+ - `/software/freeipa/component_freeipa`
+    - `/software/freeipa/component_freeipa/realm`
         - Description: realm
         - Optional
         - Type: string
-    - `/software/freeipa/freeipa_component/primary`
+    - `/software/freeipa/component_freeipa/primary`
         - Description: FreeIPA server that will be used for all API and for secondaries to replicate
         - Optional
         - Type: type_hostname
-    - `/software/freeipa/freeipa_component/secondaries`
+    - `/software/freeipa/component_freeipa/secondaries`
         - Description: list of secondary servers to replicate
         - Optional
         - Type: type_hostname
-    - `/software/freeipa/freeipa_component/domain`
+    - `/software/freeipa/component_freeipa/domain`
         - Description: FreeIPA domain name (defaults to /system/network/domainname value if not specified)
         - Optional
         - Type: type_hostname
-    - `/software/freeipa/freeipa_component/server`
+    - `/software/freeipa/component_freeipa/server`
         - Description: server configuration settings
         - Optional
         - Type: component_freeipa_server
-    - `/software/freeipa/freeipa_component/keytabs`
+    - `/software/freeipa/component_freeipa/keytabs`
         - Description: keytabs to retrieve for services
         - Optional
         - Type: component_freeipa_keytab
-    - `/software/freeipa/freeipa_component/certificates`
+    - `/software/freeipa/component_freeipa/certificates`
         - Description: certificates to request/retrieve (key is the NSSDB nick, and is unique per DN)
         - Optional
         - Type: component_freeipa_certificate
-    - `/software/freeipa/freeipa_component/hostcert`
+    - `/software/freeipa/component_freeipa/hostcert`
         - Description: Generate the host certificate in /etc/ipa/quattor/certs/host.pem and key /etc/ipa/quattor/keys/host.key.
       The nick host is used (and any setting under certificates using that nick are preserved)
         - Optional
         - Type: boolean
-    - `/software/freeipa/freeipa_component/nss`
+    - `/software/freeipa/component_freeipa/nss`
         - Description: NSSDB options
         - Optional
         - Type: component_freeipa_nss
-    - `/software/freeipa/freeipa_component/host`
+    - `/software/freeipa/component_freeipa/host`
         - Description: Host options
         - Optional
         - Type: component_freeipa_host
-    - `/software/freeipa/freeipa_component/principals`
+    - `/software/freeipa/component_freeipa/principals`
         - Description: Principal/keytab pairs for client,server or aii roles (default client role with host/fqdn princiapl and /etc/krb5.keytab keytab)
         - Optional
         - Type: component_freeipa_principal

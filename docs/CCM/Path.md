@@ -23,10 +23,10 @@ to manipulate absolute paths
 
     Create new `EDG::WP4::CCM::Path` instance.
 
-    If [path](../components/path.md) argument is not specified, root path (`/`) is used.
+    If `path` argument is not specified, root path (`/`) is used.
     Empty string is not allowed as an argument.
 
-    [path](../components/path.md) is a string representation of the path as defined in the NVA-API
+    `path` is a string representation of the path as defined in the NVA-API
     Specification document.
 
 - depth
@@ -103,7 +103,7 @@ to manipulate absolute paths
     or compiled regular expressions.
 
     These child subpaths are safe to represent as their unescaped value
-    wrapped in `{}` when &lt;toString> method is called (e.g. during stringification).
+    wrapped in `{}` when <toString> method is called (e.g. during stringification).
 
     Parent paths who have a safe-to escape parent path of their own should be added
     already escaped.
@@ -121,7 +121,7 @@ to manipulate absolute paths
 
 - \_safe\_unescape
 
-    Given [path](../components/path.md) and `subpath`, test is [path](../components/path.md) is in `@safe_unescape`
+    Given `path` and `subpath`, test is `path` is in `@safe_unescape`
     and if it is, return unescaped subpath enclosed in `{}` (or not enclosed if
     `strip_unescape` is true).
 

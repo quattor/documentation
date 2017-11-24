@@ -6,7 +6,6 @@
         - Description: Enable this method. Unlisted methods are always disabled.
         - Optional
         - Type: boolean
-        - Default value: false
  - `/software/authconfig/authconfig_pamadditions_line_type`
     - `/software/authconfig/authconfig_pamadditions_line_type/order`
         - Optional
@@ -18,7 +17,6 @@
     - `/software/authconfig/authconfig_pamadditions_type/conffile`
         - Optional
         - Type: string
-        - Default value: /etc/pam.d/system_auth
     - `/software/authconfig/authconfig_pamadditions_type/section`
         - Optional
         - Type: string
@@ -29,11 +27,9 @@
     - `/software/authconfig/authconfig_method_ldap_tls_type/enable`
         - Optional
         - Type: boolean
-        - Default value: false
     - `/software/authconfig/authconfig_method_ldap_tls_type/peercheck`
         - Optional
         - Type: boolean
-        - Default value: false
     - `/software/authconfig/authconfig_method_ldap_tls_type/cacertfile`
         - Optional
         - Type: string
@@ -46,7 +42,6 @@
     - `/software/authconfig/authconfig_method_ldap_tls_type/reqcert`
         - Optional
         - Type: string
-        - Default value: never
  - `/software/authconfig/authconfig_method_ldap_timeouts_type`
     - `/software/authconfig/authconfig_method_ldap_timeouts_type/idle`
         - Optional
@@ -61,28 +56,22 @@
     - `/software/authconfig/authconfig_nss_map_objectclass/posixAccount`
         - Optional
         - Type: string
-        - Default value: user
     - `/software/authconfig/authconfig_nss_map_objectclass/shadowAccount`
         - Optional
         - Type: string
-        - Default value: user
     - `/software/authconfig/authconfig_nss_map_objectclass/posixGroup`
         - Optional
         - Type: string
-        - Default value: group
  - `/software/authconfig/authconfig_nss_map_attribute`
     - `/software/authconfig/authconfig_nss_map_attribute/uid`
         - Optional
         - Type: string
-        - Default value: sAMAccountName
     - `/software/authconfig/authconfig_nss_map_attribute/homeDirectory`
         - Optional
         - Type: string
-        - Default value: unixHomeDirectory
     - `/software/authconfig/authconfig_nss_map_attribute/uniqueMember`
         - Optional
         - Type: string
-        - Default value: member
     - `/software/authconfig/authconfig_nss_map_attribute/uidNumber`
         - Optional
         - Type: string
@@ -125,7 +114,6 @@
     - `/software/authconfig/authconfig_method_ldap_type/conffile`
         - Optional
         - Type: string
-        - Default value: /etc/ldap.conf
     - `/software/authconfig/authconfig_method_ldap_type/basedn`
         - Optional
         - Type: string
@@ -153,7 +141,6 @@
     - `/software/authconfig/authconfig_method_ldap_type/pam_filter`
         - Optional
         - Type: string
-        - Default value: objectclass=posixAccount
     - `/software/authconfig/authconfig_method_ldap_type/pam_login_attribute`
         - Optional
         - Type: string
@@ -196,7 +183,6 @@
     - `/software/authconfig/authconfig_method_ldap_type/ssl`
         - Optional
         - Type: string
-        - Default value: start_tls
     - `/software/authconfig/authconfig_method_ldap_type/nss_map_objectclass`
         - Optional
         - Type: authconfig_nss_map_objectclass
@@ -218,14 +204,12 @@
     - `/software/authconfig/authconfig_method_ldap_type/nss_paged_results`
         - Optional
         - Type: legacy_binary_affirmation_string
-        - Default value: yes
     - `/software/authconfig/authconfig_method_ldap_type/pagesize`
         - Optional
         - Type: long
     - `/software/authconfig/authconfig_method_ldap_type/nss_connect_policy`
         - Optional
         - Type: connect_policy
-        - Default value: oneshot
  - `/software/authconfig/authconfig_method_nis_type`
     - `/software/authconfig/authconfig_method_nis_type/servers`
         - Optional
@@ -534,11 +518,9 @@
         - Description: When set to true, no actual configuration will change. Default: false.
         - Optional
         - Type: boolean
-        - Default value: false
     - `/software/authconfig/authconfig_component/passalgorithm`
         - Optional
         - Type: hash_string
-        - Default value: md5
     - `/software/authconfig/authconfig_component/useshadow`
         - Description: Enable the use of shadow password files.
         - Optional
@@ -550,7 +532,9 @@
     - `/software/authconfig/authconfig_component/enableforcelegacy`
         - Optional
         - Type: boolean
-        - Default value: false
+    - `/software/authconfig/authconfig_component/startstop`
+        - Optional
+        - Type: boolean
     - `/software/authconfig/authconfig_component/usemd5`
         - Description: Enable the use of MD5 hashed password.
         - Optional

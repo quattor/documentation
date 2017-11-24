@@ -43,7 +43,7 @@ Applications can extend or overwrite the default methods.
 - version(): string
 
     Returns the version number as defined in $self->{'VERSION'}, or
-    &lt;unknown> if not defined.
+    <unknown> if not defined.
 
 - hostname(): string
 

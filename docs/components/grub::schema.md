@@ -39,7 +39,6 @@
         - Description: See description of the file option. The user (first field) to be picked from a password field.
         - Optional
         - Type: string
-        - Default value: root
  - `/software/grub/type_kernel`
     - `/software/grub/type_kernel/kernelpath`
         - Description: Path to the kernel (relative to "prefix" described above).

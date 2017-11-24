@@ -93,7 +93,7 @@ addition, it will start the specified Globus services.
 
     "/software/components/globuscfg/mds/gris/provider/xyz"=""
 
--
+- 
 
     "xyz" will be taken, as the name of the executable. 
     You may optionally specify a
@@ -122,7 +122,7 @@ addition, it will start the specified Globus services.
     will be taken as the default value for _name_ parameter, but can be 
     overriden by specifying this one explicitly. See example.
 
-- `/software/components/globuscfg/mds/giis/allowedregs`/&lt;number>/allowreg
+- `/software/components/globuscfg/mds/giis/allowedregs`/<number>/allowreg
 
     The list of allowed host:port pairs which may register to this
     giis. This is a sub-parameter of the giis.
@@ -213,24 +213,24 @@ addition, it will start the specified Globus services.
     manager is required (and required to be the default), so only non-fork
     job managers need to be specified. 
 
-- `/software/components/globuscfg/gatekeeper/jobmanagers`/&lt;entryNo>/recordname
+- `/software/components/globuscfg/gatekeeper/jobmanagers`/<entryNo>/recordname
 
     Obligatory parameter, identifier string for a certain job manager.
 
-- `/software/components/globuscfg/gatekeeper/jobmanagers`/&lt;entryNo>/type
+- `/software/components/globuscfg/gatekeeper/jobmanagers`/<entryNo>/type
 
     Mandatory option giving the type of LRMS.  E.g. pbs, lsf, etc.
 
-- `/software/components/globuscfg/gatekeeper/jobmanagers`/&lt;enrtyNo>/job\_manager
+- `/software/components/globuscfg/gatekeeper/jobmanagers`/<enrtyNo>/job\_manager
 
     Name of job manager executable.
 
-- `/software/components/globuscfg/gatekeeper/jobmanagers`/&lt;entryNo>/job\_manager\_path
+- `/software/components/globuscfg/gatekeeper/jobmanagers`/<entryNo>/job\_manager\_path
 
     Path to the job manager executable.  Only needs to be specified if it
     is in a non-standard location.
 
-- `/software/components/globuscfg/gatekeeper/jobmanagers`/&lt;entryNo>/extra\_config
+- `/software/components/globuscfg/gatekeeper/jobmanagers`/<entryNo>/extra\_config
 
     Extra configuration options needed by the job manager. 
 

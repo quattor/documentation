@@ -5,15 +5,70 @@
     - `/software/spma/SOFTWARE_GROUP/default`
         - Optional
         - Type: boolean
-        - Default value: true
     - `/software/spma/SOFTWARE_GROUP/mandatory`
         - Optional
         - Type: boolean
-        - Default value: true
     - `/software/spma/SOFTWARE_GROUP/optional`
         - Optional
         - Type: boolean
-        - Default value: false
+ - `/software/spma/spma_yum_plugin_fastestmirror`
+    - `/software/spma/spma_yum_plugin_fastestmirror/enabled`
+        - Optional
+        - Type: boolean
+    - `/software/spma/spma_yum_plugin_fastestmirror/verbose`
+        - Optional
+        - Type: boolean
+    - `/software/spma/spma_yum_plugin_fastestmirror/always_print_best_host`
+        - Optional
+        - Type: boolean
+    - `/software/spma/spma_yum_plugin_fastestmirror/socket_timeout`
+        - Optional
+        - Type: long
+        - Range: 0..
+    - `/software/spma/spma_yum_plugin_fastestmirror/hostfilepath`
+        - Optional
+        - Type: string
+    - `/software/spma/spma_yum_plugin_fastestmirror/maxhostfileage`
+        - Optional
+        - Type: long
+        - Range: 0..
+    - `/software/spma/spma_yum_plugin_fastestmirror/maxthreads`
+        - Optional
+        - Type: long
+        - Range: 0..
+    - `/software/spma/spma_yum_plugin_fastestmirror/exclude`
+        - Optional
+        - Type: string
+    - `/software/spma/spma_yum_plugin_fastestmirror/include_only`
+        - Optional
+        - Type: string
+ - `/software/spma/spma_yum_plugin_versionlock`
+    - `/software/spma/spma_yum_plugin_versionlock/enabled`
+        - Optional
+        - Type: boolean
+    - `/software/spma/spma_yum_plugin_versionlock/locklist`
+        - Optional
+        - Type: string
+    - `/software/spma/spma_yum_plugin_versionlock/follow_obsoletes`
+        - Optional
+        - Type: boolean
+ - `/software/spma/spma_yum_plugin_priorities`
+    - `/software/spma/spma_yum_plugin_priorities/enabled`
+        - Optional
+        - Type: boolean
+    - `/software/spma/spma_yum_plugin_priorities/check_obsoletes`
+        - Optional
+        - Type: boolean
+ - `/software/spma/spma_yum_plugins`
+    - `/software/spma/spma_yum_plugins/fastestmirror`
+        - Optional
+        - Type: spma_yum_plugin_fastestmirror
+    - `/software/spma/spma_yum_plugins/versionlock`
+        - Optional
+        - Type: spma_yum_plugin_versionlock
+    - `/software/spma/spma_yum_plugins/priorities`
+        - Optional
+        - Type: spma_yum_plugin_priorities
  - `/software/spma/spma_yum_main_options`
     - Description: 
     Main configuration options for yum.conf.
@@ -26,7 +81,6 @@
         - Optional
         - Type: long
         - Range: 0..
-        - Default value: 3
     - `/software/spma/spma_yum_main_options/keepcache`
         - Optional
         - Type: boolean
@@ -34,37 +88,35 @@
         - Optional
         - Type: long
         - Range: 0..
-        - Default value: 10
     - `/software/spma/spma_yum_main_options/timeout`
         - Optional
         - Type: long
         - Range: 0..
-        - Default value: 30
  - `/software/spma/component_spma_yum`
-    - `/software/spma/component_spma_yum/fullsearch`
-        - Optional
-        - Type: boolean
-        - Default value: false
-    - `/software/spma/component_spma_yum/main_options`
-        - Optional
-        - Type: spma_yum_main_options
-    - `/software/spma/component_spma_yum/plugins`
-        - Optional
-        - Type: spma_yum_plugins
-    - `/software/spma/component_spma_yum/process_obsoletes`
-        - Optional
-        - Type: boolean
-        - Default value: false
-    - `/software/spma/component_spma_yum/proxytype`
-        - Optional
-        - Type: string
-    - `/software/spma/component_spma_yum/run`
-        - Optional
-        - Type: legacy_binary_affirmation_string
     - `/software/spma/component_spma_yum/userpkgs_retry`
         - Optional
         - Type: boolean
-        - Default value: true
-    - `/software/spma/component_spma_yum/userpkgs`
+    - `/software/spma/component_spma_yum/fullsearch`
         - Optional
-        - Type: legacy_binary_affirmation_string
+        - Type: boolean
+    - `/software/spma/component_spma_yum/excludes`
+        - Optional
+        - Type: string
+    - `/software/spma/component_spma_yum/yumconf`
+        - Optional
+        - Type: string
+    - `/software/spma/component_spma_yum/whitelist`
+        - Optional
+        - Type: string
+    - `/software/spma/component_spma_yum/quattor_os_file`
+        - Optional
+        - Type: string
+    - `/software/spma/component_spma_yum/quattor_os_release`
+        - Optional
+        - Type: string
+    - `/software/spma/component_spma_yum/plugins`
+        - Optional
+        - Type: spma_yum_plugins
+    - `/software/spma/component_spma_yum/main_options`
+        - Optional
+        - Type: spma_yum_main_options

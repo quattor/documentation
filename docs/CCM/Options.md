@@ -57,11 +57,11 @@ Available convenience methods:
     Add actions defined in hashref to the supported actions.
 
     When creating a new module derived from EDG::WP4::CCM::Options,
-    add methods named "action\_&lt;something>", and add then via this method
+    add methods named "action\_<something>", and add then via this method
     to the \_actions hashref.
 
     This will create a commandline option "--something", if selected,
-    will execute the action\_&lt;something> method.
+    will execute the action\_<something> method.
 
     The hashref key is the action name, the value is the help text.
 
@@ -69,4 +69,4 @@ Available convenience methods:
 
 - action
 
-    Run first of the predefined actions via the action\_&lt;actionname> methods
+    Run first of the predefined actions via the action\_<actionname> methods

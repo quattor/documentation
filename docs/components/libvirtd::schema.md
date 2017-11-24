@@ -112,7 +112,6 @@
     - `/software/libvirtd/structure_component_libvirtd/libvirtd_config`
         - Optional
         - Type: string
-        - Default value: /etc/libvirt/libvirtd.conf
     - `/software/libvirtd/structure_component_libvirtd/network`
         - Optional
         - Type: structure_libvirtd_network

@@ -45,9 +45,6 @@ NCM::Component::FreeIPA::NSS handles the certificates using `NSS`.
 
     Check if certificate for `nick` exists in NSSDB.
 
-    If an ipa client instance is passed,
-    also check if the certificate is known in FreeIPA.
-
 - get\_cert
 
     Extract the certificate from NSSDB for `nick` to file `cert`
@@ -57,7 +54,7 @@ NCM::Component::FreeIPA::NSS handles the certificates using `NSS`.
 
     Make a certificate request for `fqdn` and optional `dn`,
     return filename of the CSR.
-    (Used DN is `<CN=<fqdn`,O=&lt;realm>>>).
+    (Used DN is `<CN=<fqdn`,O=<realm>>>).
 
 - ipa\_request\_cert
 

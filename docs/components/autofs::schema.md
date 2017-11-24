@@ -63,13 +63,11 @@
         - Description: If false, ignore entries for this map (no change made).
         - Optional
         - Type: boolean
-        - Default value: true
     - `/software/autofs/autofs_map_type/preserve`
         - Description: This flag indicated if local changes to the map must be
       preserved (true) or not (false).
         - Optional
         - Type: boolean
-        - Default value: true
     - `/software/autofs/autofs_map_type/type`
         - Description: Map type. Supported types are : direct, file, program, yp, nisplus, hesiod, userdir and ldap.
       Only direct, file and program map contents can be managed by this component.
@@ -102,7 +100,6 @@
       must be preserved (true) or not (false).
         - Optional
         - Type: boolean
-        - Default value: true
     - `/software/autofs/autofs_component/maps`
         - Description: This resource contains one entry per autofs map to manage. The dict key is
     mainly an internal name but it will be used to build the default map name.

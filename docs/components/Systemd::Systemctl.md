@@ -91,7 +91,7 @@ interaction via `systemctl` command.
     Run `systemctl is-enabled` for `unit`.
 
     Returns output without trailing newlines on success.
-    Undef returned (no error reported) when the exitcode is non-zero.
+    An error is logged and undef returned when the exitcode is non-zero.
 
 #### Private methods
 

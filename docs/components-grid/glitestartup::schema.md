@@ -5,7 +5,6 @@
     - `/software/glitestartup/glitestartup_component_service/args`
         - Optional
         - Type: string
-        - Default value: 
  - `/software/glitestartup/glitestartup_component_post_restart`
     - `/software/glitestartup/glitestartup_component_post_restart/cmd`
         - Optional
@@ -17,11 +16,9 @@
     - `/software/glitestartup/glitestartup_component/configFile`
         - Optional
         - Type: string
-        - Default value: /opt/glite/etc/gLiteservices
     - `/software/glitestartup/glitestartup_component/initScript`
         - Optional
         - Type: string
-        - Default value: /etc/rc.d/init.d/gLite
     - `/software/glitestartup/glitestartup_component/disableOutput`
         - Optional
         - Type: boolean
@@ -40,7 +37,6 @@
     - `/software/glitestartup/glitestartup_component/createProxy`
         - Optional
         - Type: boolean
-        - Default value: true
     - `/software/glitestartup/glitestartup_component/scriptPaths`
         - Optional
         - Type: string

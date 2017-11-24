@@ -7,8 +7,7 @@ NCM::Component::Systemd::Service handles the [systemd](../components/systemd.md)
 
 - new
 
-    Returns a new object with argument `base` (the configuration path)
-    and accepts the following options
+    Returns a new object, accepts the following options
 
     - log
 
@@ -23,7 +22,7 @@ NCM::Component::Systemd::Service handles the [systemd](../components/systemd.md)
 
 - set\_unconfigured\_default
 
-    Return the default behaviour for unconfigured units from `ncn-systemd`
+    Set the default behaviour for unconfigured units from `ncn-systemd`
     and legacy [chkconfig](../components/chkconfig.md).
 
 - gather\_configured\_units
@@ -43,17 +42,17 @@ NCM::Component::Systemd::Service handles the [systemd](../components/systemd.md)
 
     The hashref `relevant_units` is used to run minimal set
     of system commands where possible: e.g. if the hashref represents the
-    configured units and if `unconfigured` is `ignore`, only gathered
+    configured units and if `unconfigured_default` is `ignore`, only gathered
     details for these units.
 
 - process
 
-    `process` the `configured` and `current` units and
-    return hash references with state and activation changes.
+    `process` the `configured` units and
+    retrun hash references with state and activation changes.
 
     It uses the `current` units to make the required decisions.
-    Unconfigured current units are also processed according the
-    `unconfigured` value.
+
+    (Unconfigured units are not dealt with in this method).
 
 - change
 

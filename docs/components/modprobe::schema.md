@@ -24,7 +24,6 @@
     - `/software/modprobe/component_modprobe_type/file`
         - Optional
         - Type: string
-        - Default value: /etc/modprobe.d/quattor.conf
     - `/software/modprobe/component_modprobe_type/modules`
         - Optional
         - Type: module_type

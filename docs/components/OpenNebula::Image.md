@@ -9,7 +9,7 @@ support to `NCM::Component::OpenNebula`.
 - get\_images
 
     Gets the image template from `TT` file
-    and gathers the image names (`<fqdn`\_&lt;vdx>>)
+    and gathers the image names (`<fqdn`\_<vdx>>)
     and datastore names to store the new images.
 
 - remove\_or\_create\_vm\_images

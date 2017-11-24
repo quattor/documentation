@@ -250,11 +250,6 @@ NCM::Component::Systemd::Service::Unit is a class handling services with units
 
         Refresh the cache `force` (passed to `get_ufstate` method).
 
-    - derived
-
-        Boolean (default true) to use derived information when UnitFileState itself
-        is empty/undefined.
-
 #### Private methods
 
 - \_getTree

@@ -1,52 +1,45 @@
 
 ### Types
 
- - `/software/syslog/component_syslog_selector_type`
-    - `/software/syslog/component_syslog_selector_type/facility`
+ - `/software/syslog/component_selector_type`
+    - `/software/syslog/component_selector_type/facility`
         - Optional
         - Type: string
-    - `/software/syslog/component_syslog_selector_type/priority`
+    - `/software/syslog/component_selector_type/priority`
         - Optional
         - Type: string
- - `/software/syslog/component_syslog_legacy_rule`
-    - `/software/syslog/component_syslog_legacy_rule/selector`
+ - `/software/syslog/component_syslog_type`
+    - `/software/syslog/component_syslog_type/selector`
         - Optional
-        - Type: component_syslog_selector_type
-    - `/software/syslog/component_syslog_legacy_rule/action`
-        - Optional
-        - Type: string
-    - `/software/syslog/component_syslog_legacy_rule/template`
+        - Type: component_selector_type
+    - `/software/syslog/component_syslog_type/action`
         - Optional
         - Type: string
-    - `/software/syslog/component_syslog_legacy_rule/comment`
+    - `/software/syslog/component_syslog_type/template`
         - Optional
         - Type: string
- - `/software/syslog/syslog_component`
-    - `/software/syslog/syslog_component/config`
-        - Optional
-        - Type: component_syslog_legacy_rule
-    - `/software/syslog/syslog_component/directives`
+    - `/software/syslog/component_syslog_type/comment`
         - Optional
         - Type: string
-    - `/software/syslog/syslog_component/daemontype`
+ - `/software/syslog/component_syslog_entries`
+    - `/software/syslog/component_syslog_entries/config`
+        - Optional
+        - Type: component_syslog_type
+    - `/software/syslog/component_syslog_entries/directives`
         - Optional
         - Type: string
-        - Default value: syslog
-    - `/software/syslog/syslog_component/file`
-        - Description: Configuration filename. Defaults to /etc/<daemontype>.conf.
+    - `/software/syslog/component_syslog_entries/daemontype`
         - Optional
         - Type: string
-    - `/software/syslog/syslog_component/syslogdoptions`
-        - Description: Options for syslogd /etc/sysconfig/(r)syslog (will be wrapped in double quotes if needed)
+    - `/software/syslog/component_syslog_entries/file`
         - Optional
         - Type: string
-    - `/software/syslog/syslog_component/klogdoptions`
-        - Description: Options for the klogd /etc/sysconfig/(r)syslog (will be wrapped in double quotes if needed)
+    - `/software/syslog/component_syslog_entries/syslogdoptions`
         - Optional
         - Type: string
-    - `/software/syslog/syslog_component/fullcontrol`
-        - Description: Determines whether component has full control over the configuration file,
-      eventually erasing entries from other sources. If false or not defined, entries
-      from other sources are kept and configuration entries are added.
+    - `/software/syslog/component_syslog_entries/klogdoptions`
+        - Optional
+        - Type: string
+    - `/software/syslog/component_syslog_entries/fullcontrol`
         - Optional
         - Type: boolean

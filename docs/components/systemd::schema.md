@@ -17,7 +17,6 @@
     - `/software/systemd/systemd_skip/service`
         - Optional
         - Type: boolean
-        - Default value: false
  - `/software/systemd/systemd_unit_architecture`
  - `/software/systemd/systemd_unit_security`
  - `/software/systemd/systemd_unit_virtualization`
@@ -518,7 +517,6 @@ so do not forget to set those as well (can be dummy value).
         - Description: replaceunitfile configuration: if true, only the defined parameters will be used by the unit; anything else is ignored
         - Optional
         - Type: boolean
-        - Default value: false
     - `/software/systemd/systemd_unitfile/only`
         - Description: only use the unit parameters for unitfile configuration,
       ignore other defined here such as targets (but still allow e.g. values defined by legacy chkconfig)
@@ -535,15 +533,12 @@ so do not forget to set those as well (can be dummy value).
     - `/software/systemd/systemd_unit_type/type`
         - Optional
         - Type: string
-        - Default value: service
     - `/software/systemd/systemd_unit_type/startstop`
         - Optional
         - Type: boolean
-        - Default value: true
     - `/software/systemd/systemd_unit_type/state`
         - Optional
         - Type: string
-        - Default value: enabled
     - `/software/systemd/systemd_unit_type/file`
         - Description: unitfile configuration
         - Optional
@@ -553,10 +548,8 @@ so do not forget to set those as well (can be dummy value).
         - Optional
         - Type: systemd_skip
     - `/software/systemd/component_systemd/unconfigured`
-        - Description: what to do with unconfigured units: ignore, enabled, disabled, on (enabled+start), off (disabled+stop; advanced option)
         - Optional
         - Type: string
-        - Default value: ignore
     - `/software/systemd/component_systemd/unit`
         - Optional
         - Type: systemd_unit_type
