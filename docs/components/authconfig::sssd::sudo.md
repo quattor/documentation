@@ -5,46 +5,60 @@
     - `/software/authconfig/sssd_sudorule/object_class`
         - Optional
         - Type: string
+        - Default value: sudoRole
     - `/software/authconfig/sssd_sudorule/name`
         - Optional
         - Type: string
+        - Default value: cn
     - `/software/authconfig/sssd_sudorule/command`
         - Optional
         - Type: string
+        - Default value: sudoCommand
     - `/software/authconfig/sssd_sudorule/host`
         - Optional
         - Type: string
+        - Default value: sudoHost
     - `/software/authconfig/sssd_sudorule/user`
         - Optional
         - Type: string
+        - Default value: sudoUser
     - `/software/authconfig/sssd_sudorule/option`
         - Optional
         - Type: string
+        - Default value: sudoOption
     - `/software/authconfig/sssd_sudorule/runasuser`
         - Optional
         - Type: string
+        - Default value: sudoRunAsUser
     - `/software/authconfig/sssd_sudorule/runasgroup`
         - Optional
         - Type: string
+        - Default value: sudoRunAsGroup
     - `/software/authconfig/sssd_sudorule/notbefore`
         - Optional
         - Type: string
+        - Default value: sudoNotBefore
     - `/software/authconfig/sssd_sudorule/notafter`
         - Optional
         - Type: string
+        - Default value: sudoNotAfter
     - `/software/authconfig/sssd_sudorule/order`
         - Optional
         - Type: string
+        - Default value: sudoOrder
  - `/software/authconfig/sssd_sudo`
     - `/software/authconfig/sssd_sudo/full_refresh_interval`
         - Optional
         - Type: long
+        - Default value: 21600
     - `/software/authconfig/sssd_sudo/smart_refresh_interval`
         - Optional
         - Type: long
+        - Default value: 900
     - `/software/authconfig/sssd_sudo/use_host_filter`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/sssd_sudo/hostnames`
         - Optional
         - Type: string
@@ -54,9 +68,11 @@
     - `/software/authconfig/sssd_sudo/include_netgroups`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/sssd_sudo/include_regexp`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/sssd_sudo/search_base`
         - Optional
         - Type: string

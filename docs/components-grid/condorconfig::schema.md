@@ -5,12 +5,15 @@
     - `/software/condorconfig/condorconfig_component/configFile`
         - Optional
         - Type: string
+        - Default value: /opt/condor-c/etc/condor_config
     - `/software/condorconfig/condorconfig_component/localConfigFile`
         - Optional
         - Type: string
+        - Default value: /opt/condor-c/local.localhost/condor_config.local
     - `/software/condorconfig/condorconfig_component/user`
         - Optional
         - Type: string
+        - Default value: glite
     - `/software/condorconfig/condorconfig_component/RELEASE_DIR`
         - Optional
         - Type: string

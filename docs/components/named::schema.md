@@ -11,6 +11,7 @@
     - `/software/named/component_named/use_localhost`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/named/component_named/start`
         - Optional
         - Type: boolean

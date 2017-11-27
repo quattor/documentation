@@ -228,23 +228,24 @@ pages:
     - TextRender: CAF/TextRender.md
 - CCM:
     - CacheManager: CCM/CacheManager.md
+    - CacheManager::Configuration: CCM/CacheManager::Configuration.md
+    - CacheManager::DB: CCM/CacheManager::DB.md
+    - CacheManager::Element: CCM/CacheManager::Element.md
+    - CacheManager::Encode: CCM/CacheManager::Encode.md
+    - CacheManager::Resource: CCM/CacheManager::Resource.md
     - CCfg: CCM/CCfg.md
     - CLI: CCM/CLI.md
-    - Configuration: CCM/Configuration.md
-    - DB: CCM/DB.md
-    - Element: CCM/Element.md
     - Fetch: CCM/Fetch.md
     - Fetch::Config: CCM/Fetch::Config.md
     - Fetch::Download: CCM/Fetch::Download.md
+    - Fetch::JSONProfileSimple: CCM/Fetch::JSONProfileSimple.md
+    - Fetch::JSONProfileTyped: CCM/Fetch::JSONProfileTyped.md
     - Fetch::ProfileCache: CCM/Fetch::ProfileCache.md
-    - JSONProfileSimple: CCM/JSONProfileSimple.md
-    - JSONProfileTyped: CCM/JSONProfileTyped.md
+    - Fetch::XMLPanProfile: CCM/Fetch::XMLPanProfile.md
     - Options: CCM/Options.md
     - Path: CCM/Path.md
-    - Resource: CCM/Resource.md
     - TextRender: CCM/TextRender.md
-    - TT::Scalar: CCM/TT::Scalar.md
-    - XMLPanProfile: CCM/XMLPanProfile.md
+    - TextRender::Scalar: CCM/TextRender::Scalar.md
 - components-grid:
     - condorconfig: components-grid/condorconfig.md
     - condorconfig::schema: components-grid/condorconfig::schema.md

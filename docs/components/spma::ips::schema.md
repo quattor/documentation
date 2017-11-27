@@ -8,9 +8,11 @@
     - `/software/spma/component_spma_ips_type/rejectidr`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/spma/component_spma_ips_type/freeze`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/spma/component_spma_ips_type/imagedir`
         - Optional
         - Type: string

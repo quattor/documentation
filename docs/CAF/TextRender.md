@@ -53,7 +53,7 @@ This class simplyfies the generation of structured text like config files.
 
             .INI format (using `Config::Tiny`)
 
-        (Previously available module &lt;general> was removed in 15.12.
+        (Previously available module <general> was removed in 15.12.
         Component writers needing this functionality can use
         the **CCM::TextRender** subclass instead).
 

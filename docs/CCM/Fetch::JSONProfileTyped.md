@@ -1,7 +1,7 @@
 
 ### SYNOPSIS
 
-    EDG::WP4::CCM::JSONProfileTyped->interpret_node($tag, $jsondoc);
+    EDG::WP4::CCM::Fetch::JSONProfileTyped->interpret_node($tag, $jsondoc);
 
 ### DESCRIPTION
 
@@ -41,5 +41,5 @@ TODO: The validity of this assumption is tested in the `BEGIN{}` (and unittests)
 `b_obj` is returned by the `B::svref_2object()` method on the `doc`
 (ideally before `doc` is assigned).
 
-The initial call from [Fetch](../CCM/Fetch.md) doesn't pass the `b_obj` value, but that is
+The initial call from `Fetch` doesn't pass the `b_obj` value, but that is
 acceptable since we do not expect the whole JSON profile to be a single scalar value.

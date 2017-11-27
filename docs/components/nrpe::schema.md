@@ -5,42 +5,52 @@
     - `/software/nrpe/component_nrpe_options/log_facility`
         - Optional
         - Type: string
+        - Default value: daemon
     - `/software/nrpe/component_nrpe_options/pid_file`
         - Optional
         - Type: string
+        - Default value: /var/run/nrpe.pid
     - `/software/nrpe/component_nrpe_options/server_port`
         - Optional
         - Type: type_port
+        - Default value: 5666
     - `/software/nrpe/component_nrpe_options/server_address`
         - Optional
         - Type: string
     - `/software/nrpe/component_nrpe_options/nrpe_user`
         - Optional
         - Type: string
+        - Default value: nagios
     - `/software/nrpe/component_nrpe_options/nrpe_group`
         - Optional
         - Type: string
+        - Default value: nagios
     - `/software/nrpe/component_nrpe_options/allowed_hosts`
         - Optional
         - Type: type_hostname
     - `/software/nrpe/component_nrpe_options/dont_blame_nrpe`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/nrpe/component_nrpe_options/command_prefix`
         - Optional
         - Type: string
     - `/software/nrpe/component_nrpe_options/debug`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/nrpe/component_nrpe_options/command_timeout`
         - Optional
         - Type: long
+        - Default value: 60
     - `/software/nrpe/component_nrpe_options/connection_timeout`
         - Optional
         - Type: long
+        - Default value: 300
     - `/software/nrpe/component_nrpe_options/allow_weak_random_seed`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/nrpe/component_nrpe_options/command`
         - Optional
         - Type: string
@@ -54,6 +64,7 @@
     - `/software/nrpe/structure_component_nrpe/mode`
         - Optional
         - Type: long
+        - Default value: 416
     - `/software/nrpe/structure_component_nrpe/options`
         - Optional
         - Type: component_nrpe_options

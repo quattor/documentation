@@ -40,9 +40,11 @@
     - `/software/spma/SOFTWARE_REPOSITORY/enabled`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/spma/SOFTWARE_REPOSITORY/gpgcheck`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/spma/SOFTWARE_REPOSITORY/repo_gpgcheck`
         - Optional
         - Type: boolean
@@ -77,3 +79,4 @@
     - `/software/spma/SOFTWARE_REPOSITORY/skip_if_unavailable`
         - Optional
         - Type: boolean
+        - Default value: false

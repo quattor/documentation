@@ -5,18 +5,23 @@
     - `/software/pbsknownhosts/pbsknownhosts_component/configFile`
         - Optional
         - Type: string
+        - Default value: /opt/edg/etc/edg-pbs-knownhosts.conf
     - `/software/pbsknownhosts/pbsknownhosts_component/pbsbin`
         - Optional
         - Type: string
+        - Default value: /usr/bin
     - `/software/pbsknownhosts/pbsknownhosts_component/nodes`
         - Optional
         - Type: string
+        - Default value: 
     - `/software/pbsknownhosts/pbsknownhosts_component/keytypes`
         - Optional
         - Type: string
+        - Default value: rsa1,rsa,dsa
     - `/software/pbsknownhosts/pbsknownhosts_component/knownhosts`
         - Optional
         - Type: string
+        - Default value: /etc/ssh/ssh_known_hosts
     - `/software/pbsknownhosts/pbsknownhosts_component/knownhostsscript`
         - Optional
         - Type: string

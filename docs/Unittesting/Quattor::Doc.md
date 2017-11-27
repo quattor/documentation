@@ -22,7 +22,7 @@ Should be used mainly as follows:
         Array reference of directories to test for podfiles.
         Default dirs are the relative paths `target/lib/perl`
         and `target/doc/pod` (use the exported `@DOC_TEST_PATHS`
-        list of defaults or resp. `$DOC_TARGET_PERL` and &lt;$DOC\_TARGET\_POD>)
+        list of defaults or resp. `$DOC_TARGET_PERL` and <$DOC\_TARGET\_POD>)
 
     - podfiles
 

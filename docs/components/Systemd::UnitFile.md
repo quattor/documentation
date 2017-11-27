@@ -15,7 +15,7 @@ NCM::Component::Systemd::UnitFile handles the configuration of [systemd](../comp
 
     - config
 
-        A `EDG::WP4::CCM::Element` instance with the unitfile configuration.
+        A `EDG::WP4::CCM::CacheManager::Element` instance with the unitfile configuration.
 
         (An element instance is required becasue the rendering of
         the configuration is pan-basetype sensistive).

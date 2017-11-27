@@ -326,9 +326,11 @@
     - `/software/postgresql/postgresql_mainconfig/log_destination`
         - Optional
         - Type: string
+        - Default value: stderr
     - `/software/postgresql/postgresql_mainconfig/log_directory`
         - Optional
         - Type: string
+        - Default value: pg_log
     - `/software/postgresql/postgresql_mainconfig/log_disconnections`
         - Optional
         - Type: boolean
@@ -347,6 +349,7 @@
     - `/software/postgresql/postgresql_mainconfig/log_filename`
         - Optional
         - Type: string
+        - Default value: postgresql-%a.log
     - `/software/postgresql/postgresql_mainconfig/log_hostname`
         - Optional
         - Type: boolean
@@ -374,9 +377,11 @@
     - `/software/postgresql/postgresql_mainconfig/log_rotation_age`
         - Optional
         - Type: string
+        - Default value: 1d
     - `/software/postgresql/postgresql_mainconfig/log_rotation_size`
         - Optional
         - Type: long
+        - Default value: 0
     - `/software/postgresql/postgresql_mainconfig/log_statement`
         - Optional
         - Type: string
@@ -392,9 +397,11 @@
     - `/software/postgresql/postgresql_mainconfig/log_truncate_on_rotation`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/postgresql/postgresql_mainconfig/logging_collector`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/postgresql/postgresql_mainconfig/maintenance_work_mem`
         - Optional
         - Type: string

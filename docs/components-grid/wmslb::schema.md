@@ -38,15 +38,19 @@
     - `/software/wmslb/wmslb_component_env/GLITE_WMS_QUERY_TIMEOUT`
         - Optional
         - Type: long
+        - Default value: 300
     - `/software/wmslb/wmslb_component_env/GLITE_WMS_WMPROXY_MAX_SERVED_REQUESTS`
         - Optional
         - Type: long
+        - Default value: 50
     - `/software/wmslb/wmslb_component_env/GLITE_PR_TIMEOUT`
         - Optional
         - Type: long
+        - Default value: 300
     - `/software/wmslb/wmslb_component_env/GLITE_SD_PLUGIN`
         - Optional
         - Type: string
+        - Default value: bdii,rgma
     - `/software/wmslb/wmslb_component_env/GLITE_HOST_KEY`
         - Optional
         - Type: string
@@ -65,12 +69,15 @@
     - `/software/wmslb/wmslb_component_env/GLITE_USER`
         - Optional
         - Type: string
+        - Default value: glite
     - `/software/wmslb/wmslb_component_env/X509_CERT_DIR`
         - Optional
         - Type: string
+        - Default value: /opt/grid-security/certificates
     - `/software/wmslb/wmslb_component_env/X509_VOMS_DIR`
         - Optional
         - Type: string
+        - Default value: /opt/grid-security/vomses
     - `/software/wmslb/wmslb_component_env/MYPROXY_TCP_PORT_RANGE`
         - Optional
         - Type: string
@@ -544,6 +551,7 @@
     - `/software/wmslb/wmslb_component_service_wmproxy_loadmonitor_script/name`
         - Optional
         - Type: string
+        - Default value: /usr/sbin/glite_wms_wmproxy_load_monitor
  - `/software/wmslb/wmslb_component_service_wmproxy_loadmonitor_opts`
     - `/software/wmslb/wmslb_component_service_wmproxy_loadmonitor_opts/ThresholdCPULoad1`
         - Optional
@@ -733,12 +741,14 @@
     - `/software/wmslb/wmslb_component/confFile`
         - Optional
         - Type: string
+        - Default value: /opt/glite/etc/glite_wms.conf
     - `/software/wmslb/wmslb_component/env`
         - Optional
         - Type: wmslb_component_env
     - `/software/wmslb/wmslb_component/envScript`
         - Optional
         - Type: string
+        - Default value: /etc/profile.d/glite-wms.sh
     - `/software/wmslb/wmslb_component/services`
         - Optional
         - Type: wmslb_component_services

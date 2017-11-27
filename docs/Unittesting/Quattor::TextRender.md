@@ -86,7 +86,7 @@ Run tests based on gather\_tt results; returns nothing.
 
 #### gather\_pan
 
-Same as Test::Quattor::Object `gather_pan`, but with &lt;relpath> set
+Same as Test::Quattor::Object `gather_pan`, but with <relpath> set
 to the instance 'basepath'. (With `panpath` and `pannamespace` as arguments)
 
 #### make\_namespace

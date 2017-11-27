@@ -1,7 +1,7 @@
 
 ### SYNOPSIS
 
-    EDG::WP4::CCM::JSONProfileSimple->interpret_node($tag, $jsondoc);
+    EDG::WP4::CCM::Fetch::JSONProfileSimple->interpret_node($tag, $jsondoc);
 
 ### DESCRIPTION
 

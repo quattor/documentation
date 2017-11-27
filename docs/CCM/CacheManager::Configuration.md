@@ -1,7 +1,7 @@
 
 ### NAME
 
-EDG::WP4::CCM::Configuration - Configuration class
+EDG::WP4::CCM::CacheManager::Configuration - Configuration class
 
 ### SYNOPSIS
 
@@ -36,7 +36,7 @@ Module provides the Configuration class, to manipulate confgurations.
     the Configuration instance is bound to the specific CID, even if this is not
     the CacheManager's current one (e.g. when a new profile is fetched during the lifetime
     of the process, the CacheManager current CID is updated to the latest one).
-    The locking is relevant when a [Element](../CCM/Element.md) is accessed via
+    The locking is relevant when a [CacheManager::Element](../CCM/CacheManager::Element.md) is accessed via
     a `CCM::Configuration` instance (in particular, when a call to `_prepareElement`
     is made).
     As a consequence, an unlocked Configuration instance will always use the
@@ -45,7 +45,7 @@ Module provides the Configuration class, to manipulate confgurations.
     Unless the anonymous flag is set to true, each process that creates a
     Configuration instance, creates a file named `ccm-active-profile.$cid.$pid`
     (with `$cid` the CID and `$pid` the process ID) under the `profile.$cid`
-    directory in the [CacheManager](../CCM/CacheManager.md) cache path. The presence of this file protects
+    directory in the `CacheManager` cache path. The presence of this file protects
     the process from getting this particular CID removed by the `ccm-purge` command
     (e.g. by the daily purge cron job).
     If the anonymous flag is set to -1, the permissions of the user to create this file

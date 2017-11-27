@@ -17,6 +17,12 @@
     - `/software/aiiserver/structure_aiishellfe/cert_file`
         - Optional
         - Type: string
+    - `/software/aiiserver/structure_aiishellfe/grub2_efi_kernel_root`
+        - Optional
+        - Type: string
+    - `/software/aiiserver/structure_aiishellfe/grub2_efi_linux_cmd`
+        - Optional
+        - Type: string
     - `/software/aiiserver/structure_aiishellfe/key_file`
         - Optional
         - Type: string
@@ -27,6 +33,9 @@
         - Optional
         - Type: string
     - `/software/aiiserver/structure_aiishellfe/nbpdir`
+        - Optional
+        - Type: string
+    - `/software/aiiserver/structure_aiishellfe/nbpdir_grub2`
         - Optional
         - Type: string
     - `/software/aiiserver/structure_aiishellfe/noaction`
@@ -47,16 +56,19 @@
     - `/software/aiiserver/structure_aiishellfe/profile_format`
         - Optional
         - Type: string
+        - Default value: xml
     - `/software/aiiserver/structure_aiishellfe/profile_prefix`
         - Optional
         - Type: string
     - `/software/aiiserver/structure_aiishellfe/use_fqdn`
         - Optional
         - Type: boolean
+        - Default value: true
  - `/software/aiiserver/structure_aiidhcp`
     - `/software/aiiserver/structure_aiidhcp/dhcpconf`
         - Optional
         - Type: string
+        - Default value: /etc/dhcpd.conf
     - `/software/aiiserver/structure_aiidhcp/restartcmd`
         - Optional
         - Type: string

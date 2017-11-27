@@ -40,7 +40,8 @@ level.
 
 #### Gory details
 
-This is just a wrapper class for `LC::Check::file`
+This is a wrapper class for `IO::String` with customised close based on
+`File::AtomicWrite`.
 
 #### Public methods
 
@@ -73,7 +74,7 @@ This is just a wrapper class for `LC::Check::file`
 
         Path for the backup file, if this one has to be re-written.
 
-    - keeps\_state
+    - `keeps_state`
 
         A boolean specifying whether a file change respects the current system
         state or not. A file with `keeps_state` will be created/modified,
@@ -83,26 +84,41 @@ This is just a wrapper class for `LC::Check::file`
         By default, file changes modify the state and thus `keeps_state` is
         false.
 
+    - `sensitive`
+
+        A boolean specifying whether a file contains sensitive information
+        (like passwords). When the content of the file is modified, the changes
+        (either the diff or the whole content in case of a new file) themself
+        are not reported and not added to the event history.
+
 - open
 
     Synonym for `new()`
 
 - close
 
-    Closes the file. If it has not been saved and it has not been
-    cancelled, it checks its contents and perhaps re-writes it, in a
-    secure way (not following symlinks, etc).
+    Closes the file.
+
+    If the file has been saved (e.g. previous `close` or `cancel`)
+    nothing happens and undef is returned.
+
+    If the file has not been saved,
+    it checks its contents and perhaps re-writes it, in a
+    secure way (not following symlinks, etc). The (re)write only occurs
+    if there was a change in content and this change (or not) is
+    always determined and returned, even if `NoAction` is true
+    (but in that case nothing is (re)written).
 
     Under a verbose level, it will show in the standard output a diff of
     the old and the newly-generated contents for this file before actually
-    saving to disk. This diff will **not** be stored in any logs to prevent
-    any leakages of confidential information (f.i. when writing to
-    `/etc/shadow`).
+    saving to disk.
 
 - cancel
 
     Marks the printed contents as invalid. The existing file will not be
     altered.
+
+    Option `msg` to add custom message to verbose reporting.
 
 - noAction
 
@@ -114,7 +130,7 @@ This is just a wrapper class for `LC::Check::file`
     `""`, so it's now possible to do "$fh" and get the contents of the
     file so far.
 
-- error, warn, info, verbose, debug, report, OK
+- error, warn, info, verbose, debug, report, log, OK
 
     Convenience methods to access the log/reporter instance that might
     be passed during initialisation and set to `*$self-`{LOG}>.
@@ -124,6 +140,9 @@ This is just a wrapper class for `LC::Check::file`
     Determine if the reporter level is verbose.
     If it can't be determined from the reporter instance,
     use the global [Reporter](../CAF/Reporter.md) state.
+
+    Supports boolean option `verbose_logfile` to check if
+    reporting to logfile is verbose.
 
 - event
 
@@ -136,6 +155,26 @@ This is just a wrapper class for `LC::Check::file`
         Adds the filename as metadata
 
 #### Private methods
+
+- \_read\_contents
+
+    Read the contents from file `filename` using `LC::File::file_contents`
+    and return it.
+
+    Optional named arguments
+
+    - event
+
+        A hashref that will be updated in place if an error occured. The `error`
+        attribute is set to the exception text.
+
+    - missing\_ok
+
+        When true and `LC::File::file_contents` fails with `ENOENT`
+        (i.e. when `filename` is missing),
+        the exception is ignored and no warning is reported.
+
+    By default, a warning is reported in case of an error and the exception is (re)thrown.
 
 - DESTROY
 

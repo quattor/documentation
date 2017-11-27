@@ -29,9 +29,14 @@
         - Optional
         - Type: string
     - `/software/altlogrotate/structure_altlogrotate_logrot/global`
+        - Description: part of global configuration file, requires an entry called 'global'.
+      The 'global' entry does not require the global flag.
         - Optional
         - Type: boolean
     - `/software/altlogrotate/structure_altlogrotate_logrot/overwrite`
+        - Description: Create and overwrite configfile with the entry as filename,
+      if it previously existed (only non-global files).
+      (If such file does not exist, use the ncm-altlogrotate suffix as usual)
         - Optional
         - Type: boolean
     - `/software/altlogrotate/structure_altlogrotate_logrot/include`
@@ -120,13 +125,22 @@
     - `/software/altlogrotate/structure_altlogrotate_logrot/scripts`
         - Optional
         - Type: structure_altlogrotate_scripts
- - `/software/altlogrotate/component_altlogrotate`
-    - `/software/altlogrotate/component_altlogrotate/configFile`
+ - `/software/altlogrotate/altlogrotate_component`
+    - `/software/altlogrotate/altlogrotate_component/configFile`
+        - Description: Logrotate configuration file location, defaults to /etc/logrotate.conf.
         - Optional
         - Type: string
-    - `/software/altlogrotate/component_altlogrotate/configDir`
+        - Default value: /etc/logrotate.conf
+    - `/software/altlogrotate/altlogrotate_component/configDir`
+        - Description: Logrotate entries directory path, defaults to /etc/logrotate.d,
+      entries will be written to individual config files under this path.
         - Optional
         - Type: string
-    - `/software/altlogrotate/component_altlogrotate/entries`
+        - Default value: /etc/logrotate.d
+    - `/software/altlogrotate/altlogrotate_component/entries`
+        - Description: A named list containing logrotate structures.
+      Follows the logrotate config format, so see 'man 8 logrotate'
+      for a detailed explanation of all options.
+      The 'global' entry (if exists) is put at the beginning of the main configuration.
         - Optional
         - Type: structure_altlogrotate_logrot

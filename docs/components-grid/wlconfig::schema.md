@@ -13,33 +13,43 @@
     - `/software/wlconfig/structure_wl_jobcontroller/condorSubmit`
         - Optional
         - Type: string
+        - Default value: ${CONDORG_INSTALL_PATH}/bin/condor_submit
     - `/software/wlconfig/structure_wl_jobcontroller/condorRemove`
         - Optional
         - Type: string
+        - Default value: ${CONDORG_INSTALL_PATH}/bin/condor_rm
     - `/software/wlconfig/structure_wl_jobcontroller/condorQuery`
         - Optional
         - Type: string
+        - Default value: ${CONDORG_INSTALL_PATH}/bin/condor_q
     - `/software/wlconfig/structure_wl_jobcontroller/condorSubmitDAG`
         - Optional
         - Type: string
+        - Default value: ${CONDORG_INSTALL_PATH}/bin/condor_submit_dag
     - `/software/wlconfig/structure_wl_jobcontroller/condorRelease`
         - Optional
         - Type: string
+        - Default value: ${CONDORG_INSTALL_PATH}/bin/condor_release
     - `/software/wlconfig/structure_wl_jobcontroller/container`
         - Optional
         - Type: long
+        - Default value: 1000
     - `/software/wlconfig/structure_wl_jobcontroller/submitFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/jobcontrol/submit
     - `/software/wlconfig/structure_wl_jobcontroller/outputFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/jobcontrol/cond
     - `/software/wlconfig/structure_wl_jobcontroller/queueFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/jobcontrol/queue.fl
     - `/software/wlconfig/structure_wl_jobcontroller/lockFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/jobcontrol/lock
     - `/software/wlconfig/structure_wl_jobcontroller/log`
         - Optional
         - Type: structure_wl_log
@@ -48,32 +58,41 @@
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 1000
     - `/software/wlconfig/structure_wl_logmonitor/mainLoopDuration`
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 10
     - `/software/wlconfig/structure_wl_logmonitor/condorLogDir`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/logmonitor/CondorG.log
     - `/software/wlconfig/structure_wl_logmonitor/condorRecycleDir`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/logmonitor/CondorG.log/recycle
     - `/software/wlconfig/structure_wl_logmonitor/monitorInternalDir`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/logmonitor/internal
     - `/software/wlconfig/structure_wl_logmonitor/idRepositoryName`
         - Optional
         - Type: string
+        - Default value: irepository.dat
     - `/software/wlconfig/structure_wl_logmonitor/abortedJobsTimeout`
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 600
     - `/software/wlconfig/structure_wl_logmonitor/externalLogFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/logmonitor/log/external.log
     - `/software/wlconfig/structure_wl_logmonitor/lockFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/logmonitor/lock
     - `/software/wlconfig/structure_wl_logmonitor/log`
         - Optional
         - Type: structure_wl_log
@@ -81,61 +100,77 @@
     - `/software/wlconfig/structure_wl_networkserver/iiPort`
         - Optional
         - Type: type_port
+        - Default value: 2135
     - `/software/wlconfig/structure_wl_networkserver/iiTimeout`
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 60
     - `/software/wlconfig/structure_wl_networkserver/iiDN`
         - Optional
         - Type: string
+        - Default value: mds-vo-name=local, o=grid
     - `/software/wlconfig/structure_wl_networkserver/iiHost`
         - Optional
         - Type: type_hostname
     - `/software/wlconfig/structure_wl_networkserver/grisPort`
         - Optional
         - Type: type_port
+        - Default value: 2135
     - `/software/wlconfig/structure_wl_networkserver/grisTimeout`
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 20
     - `/software/wlconfig/structure_wl_networkserver/grisDN`
         - Optional
         - Type: string
+        - Default value: mds-vo-name=local, o=grid
     - `/software/wlconfig/structure_wl_networkserver/backLogSize`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 16
     - `/software/wlconfig/structure_wl_networkserver/listeningPort`
         - Optional
         - Type: type_port
+        - Default value: 7772
     - `/software/wlconfig/structure_wl_networkserver/masterThreads`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 8
     - `/software/wlconfig/structure_wl_networkserver/dispatcherThreads`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 8
     - `/software/wlconfig/structure_wl_networkserver/sandboxStagingPath`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/SandboxDir
     - `/software/wlconfig/structure_wl_networkserver/quotaManagement`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/wlconfig/structure_wl_networkserver/quotaSandboxSize`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 10000000
     - `/software/wlconfig/structure_wl_networkserver/quotaAdjustment`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/wlconfig/structure_wl_networkserver/quotaAdjustmentAmount`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 2000
     - `/software/wlconfig/structure_wl_networkserver/reservedDiskPercentage`
         - Optional
         - Type: double
+        - Default value: 2.0
     - `/software/wlconfig/structure_wl_networkserver/log`
         - Optional
         - Type: structure_wl_log
@@ -150,20 +185,25 @@
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 1
     - `/software/wlconfig/structure_wl_workloadmanager/workerThreads`
         - Optional
         - Type: long
         - Range: 0..
+        - Default value: 1
     - `/software/wlconfig/structure_wl_workloadmanager/dispatcherType`
         - Optional
         - Type: string
+        - Default value: filelist
     - `/software/wlconfig/structure_wl_workloadmanager/inputFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/workload_manager/input.fl
     - `/software/wlconfig/structure_wl_workloadmanager/maxRetryCount`
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 10
     - `/software/wlconfig/structure_wl_workloadmanager/log`
         - Optional
         - Type: structure_wl_log
@@ -171,19 +211,24 @@
     - `/software/wlconfig/wlconfig_component/configFile`
         - Optional
         - Type: string
+        - Default value: edg_wl.conf
     - `/software/wlconfig/wlconfig_component/user`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_USER}
     - `/software/wlconfig/wlconfig_component/hostProxyFile`
         - Optional
         - Type: string
+        - Default value: ${EDG_WL_TMP}/networkserver/ns.proxy
     - `/software/wlconfig/wlconfig_component/grisCache`
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 1
     - `/software/wlconfig/wlconfig_component/useCachedResourceInfo`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/wlconfig/wlconfig_component/jobController`
         - Optional
         - Type: structure_wl_jobcontroller

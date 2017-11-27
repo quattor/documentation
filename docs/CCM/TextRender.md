@@ -6,7 +6,7 @@
 ### DESCRIPTION
 
 This class is an extension of the `CAF::TextRender` class; with the main
-difference the support of a `EDG::WP4::CCM:Element` instance as contents.
+difference the support of a `EDG::WP4::CCM::CacheManager::Element` instance as contents.
 
 #### Private methods
 
@@ -25,38 +25,38 @@ difference the support of a `EDG::WP4::CCM:Element` instance as contents.
             using TT to render a `Config::General` compatible file.
             (This is an alias for the `CCM/general` TT module).
 
-            Contents is a hashref (does not require a [Element](../CCM/Element.md) instance),
+            Contents is a hashref (does not require a `Element` instance),
             with key/value pairs generated according to
             the basetype of the value as follows:
 
             - scalar
 
                 converted in a single line
-                    &lt;key> &lt;value>
+                    <key> <value>
 
             - arrayref of scalars
 
                 converted in multiple lines as follows
-                    &lt;key> &lt;scalar element0>
-                    &lt;key> &lt;scalar element1>
+                    <key> <scalar element0>
+                    <key> <scalar element1>
                     ...
 
             - hashref
 
                 generates a block with format
                     <"key">
-                        &lt;recursive rendering of the value>
-                    &lt;/"key">
+                        <recursive rendering of the value>
+                    </"key">
 
             - arrayref of hashref
 
                 generates series of blocks
                     <"key">
-                        &lt;recursive rendering of the element0>
-                    &lt;/"key">
+                        <recursive rendering of the element0>
+                    </"key">
                     <"key">
-                        &lt;recursive rendering of the element1>
-                    &lt;/"key">
+                        <recursive rendering of the element1>
+                    </"key">
                     ...
 
             (Whitespace in the block name is enforced with double quotes.)
@@ -64,7 +64,7 @@ difference the support of a `EDG::WP4::CCM:Element` instance as contents.
     - contents
 
         `contents` is either a hash reference holding the contents to pass to the rendering module;
-        or a `EDG::WP4::CCM:Element` instance, on which `getTree` is called with any `element`
+        or a `EDG::WP4::CCM::CacheManager::Element` instance, on which `getTree` is called with any `element`
         options.
 
     All optional arguments from `CAF::TextRender` are supported unmodified:

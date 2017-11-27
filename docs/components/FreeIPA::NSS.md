@@ -54,7 +54,7 @@ NCM::Component::FreeIPA::NSS handles the certificates using `NSS`.
 
     Make a certificate request for `fqdn` and optional `dn`,
     return filename of the CSR.
-    (Used DN is `<CN=<fqdn`,O=&lt;realm>>>).
+    (Used DN is `<CN=<fqdn`,O=<realm>>>).
 
 - ipa\_request\_cert
 

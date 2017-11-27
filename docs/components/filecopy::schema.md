@@ -26,9 +26,11 @@
     - `/software/filecopy/structure_filecopy/forceRestart`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/filecopy/structure_filecopy/backup`
         - Optional
         - Type: boolean
+        - Default value: true
  - `/software/filecopy/component_filecopy`
     - `/software/filecopy/component_filecopy/services`
         - Optional
@@ -36,6 +38,7 @@
     - `/software/filecopy/component_filecopy/forceRestart`
         - Optional
         - Type: boolean
+        - Default value: false
 
 ### Functions
 

@@ -17,6 +17,7 @@
     - `/software/mcx/component_mcx/node`
         - Optional
         - Type: string
+        - Default value: MCX
     - `/software/mcx/component_mcx/computer`
         - Optional
         - Type: mcx_computer

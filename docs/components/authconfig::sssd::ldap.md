@@ -21,6 +21,7 @@
     - `/software/authconfig/sssd_chpass/update_last_change`
         - Optional
         - Type: boolean
+        - Default value: false
  - `/software/authconfig/sssd_ldap_defaults`
     - `/software/authconfig/sssd_ldap_defaults/bind_dn`
         - Optional
@@ -28,6 +29,7 @@
     - `/software/authconfig/sssd_ldap_defaults/authtok_type`
         - Optional
         - Type: ldap_authok
+        - Default value: password
     - `/software/authconfig/sssd_ldap_defaults/authtok`
         - Optional
         - Type: string
@@ -38,21 +40,27 @@
     - `/software/authconfig/sssd_netgroup/object_class`
         - Optional
         - Type: string
+        - Default value: nisNetgroup
     - `/software/authconfig/sssd_netgroup/name`
         - Optional
         - Type: string
+        - Default value: cn
     - `/software/authconfig/sssd_netgroup/member`
         - Optional
         - Type: string
+        - Default value: memberNisNetgroup
     - `/software/authconfig/sssd_netgroup/triple`
         - Optional
         - Type: string
+        - Default value: nisNetgroupTriple
     - `/software/authconfig/sssd_netgroup/uuid`
         - Optional
         - Type: string
+        - Default value: nsUniqueId
     - `/software/authconfig/sssd_netgroup/modify_timestamp`
         - Optional
         - Type: string
+        - Default value: modifyTimestamp
     - `/software/authconfig/sssd_netgroup/search_base`
         - Optional
         - Type: string
@@ -63,18 +71,23 @@
     - `/software/authconfig/sssd_autofs/map_object_class`
         - Optional
         - Type: string
+        - Default value: automountMap
     - `/software/authconfig/sssd_autofs/map_name`
         - Optional
         - Type: string
+        - Default value: ou
     - `/software/authconfig/sssd_autofs/entry_object_class`
         - Optional
         - Type: string
+        - Default value: automount
     - `/software/authconfig/sssd_autofs/entry_key`
         - Optional
         - Type: string
+        - Default value: cn
     - `/software/authconfig/sssd_autofs/entry_value`
         - Optional
         - Type: string
+        - Default value: automountInformation
     - `/software/authconfig/sssd_autofs/search_base`
         - Optional
         - Type: string
@@ -85,15 +98,19 @@
     - `/software/authconfig/sssd_ldap_service/object_class`
         - Optional
         - Type: string
+        - Default value: ipService
     - `/software/authconfig/sssd_ldap_service/name`
         - Optional
         - Type: string
+        - Default value: cn
     - `/software/authconfig/sssd_ldap_service/port`
         - Optional
         - Type: string
+        - Default value: ipServicePort
     - `/software/authconfig/sssd_ldap_service/proto`
         - Optional
         - Type: string
+        - Default value: ipServiceProtocol
     - `/software/authconfig/sssd_ldap_service/search_base`
         - Optional
         - Type: string
@@ -147,6 +164,7 @@
     - `/software/authconfig/authconfig_sssd_ldap/schema`
         - Optional
         - Type: ldap_schema
+        - Default value: rfc2307
     - `/software/authconfig/authconfig_sssd_ldap/service`
         - Optional
         - Type: sssd_ldap_service
@@ -168,12 +186,15 @@
     - `/software/authconfig/authconfig_sssd_ldap/access_order`
         - Optional
         - Type: ldap_order
+        - Default value: filter
     - `/software/authconfig/authconfig_sssd_ldap/connection_expire_timeout`
         - Optional
         - Type: long
+        - Default value: 900
     - `/software/authconfig/authconfig_sssd_ldap/deref`
         - Optional
         - Type: ldap_deref
+        - Default value: never
     - `/software/authconfig/authconfig_sssd_ldap/deref`
         - Optional
         - Type: string
@@ -183,6 +204,7 @@
     - `/software/authconfig/authconfig_sssd_ldap/disable_paging`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/authconfig/authconfig_sssd_ldap/dns_service_name`
         - Optional
         - Type: string
@@ -192,12 +214,15 @@
     - `/software/authconfig/authconfig_sssd_ldap/enumeration_refresh_timeout`
         - Optional
         - Type: long
+        - Default value: 300
     - `/software/authconfig/authconfig_sssd_ldap/enumeration_search_timeout`
         - Optional
         - Type: long
+        - Default value: 60
     - `/software/authconfig/authconfig_sssd_ldap/force_upper_case_realm`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/authconfig/authconfig_sssd_ldap/groups_use_matching_rule_in_chain`
         - Optional
         - Type: boolean
@@ -207,39 +232,49 @@
     - `/software/authconfig/authconfig_sssd_ldap/id_mapping`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/authconfig/authconfig_sssd_ldap/network_timeout`
         - Optional
         - Type: long
+        - Default value: 6
     - `/software/authconfig/authconfig_sssd_ldap/ns_account_lock`
         - Optional
         - Type: string
+        - Default value: nsAccountLock
     - `/software/authconfig/authconfig_sssd_ldap/offline_timeout`
         - Optional
         - Type: long
     - `/software/authconfig/authconfig_sssd_ldap/opt_timeout`
         - Optional
         - Type: long
+        - Default value: 6
     - `/software/authconfig/authconfig_sssd_ldap/page_size`
         - Optional
         - Type: long
+        - Default value: 1000
     - `/software/authconfig/authconfig_sssd_ldap/purge_cache_timeout`
         - Optional
         - Type: long
+        - Default value: 10800
     - `/software/authconfig/authconfig_sssd_ldap/pwd_policy`
         - Optional
         - Type: string
+        - Default value: none
     - `/software/authconfig/authconfig_sssd_ldap/referrals`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/authconfig/authconfig_sssd_ldap/rootdse_last_usn`
         - Optional
         - Type: string
     - `/software/authconfig/authconfig_sssd_ldap/search_timeout`
         - Optional
         - Type: long
+        - Default value: 6
     - `/software/authconfig/authconfig_sssd_ldap/use_object_class`
         - Optional
         - Type: string
+        - Default value: posixAccount
     - `/software/authconfig/authconfig_sssd_ldap/account_expire_policy`
         - Optional
         - Type: string

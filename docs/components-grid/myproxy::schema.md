@@ -18,12 +18,15 @@
     - `/software/myproxy/myproxy_component/flavor`
         - Optional
         - Type: string
+        - Default value: edg
     - `/software/myproxy/myproxy_component/confFile`
         - Optional
         - Type: string
+        - Default value: opt/edg/etc/edg-myproxy.conf
     - `/software/myproxy/myproxy_component/daemonName`
         - Optional
         - Type: string
+        - Default value: myproxy
     - `/software/myproxy/myproxy_component/trustedDNs`
         - Optional
         - Type: string

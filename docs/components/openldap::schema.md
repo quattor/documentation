@@ -58,6 +58,7 @@
     - `/software/openldap/tls_options/CipherSuite`
         - Optional
         - Type: string
+        - Default value: HIGH
     - `/software/openldap/tls_options/CACertificateFile`
         - Optional
         - Type: string
@@ -137,6 +138,7 @@
     - `/software/openldap/ldap_global/gentlehup`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/openldap/ldap_global/idletimeout`
         - Optional
         - Type: long
@@ -152,6 +154,7 @@
     - `/software/openldap/ldap_global/localSSF`
         - Optional
         - Type: long
+        - Default value: 71
     - `/software/openldap/ldap_global/logfile`
         - Optional
         - Type: string
@@ -170,6 +173,7 @@
     - `/software/openldap/ldap_global/password-hash`
         - Optional
         - Type: ldap_hash
+        - Default value: {SSHA}
     - `/software/openldap/ldap_global/password-crypt-salt-format`
         - Optional
         - Type: string
@@ -185,6 +189,7 @@
     - `/software/openldap/ldap_global/reverse-lookup`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/openldap/ldap_global/rootDSE`
         - Optional
         - Type: string
@@ -229,6 +234,7 @@
         - Optional
         - Type: long
         - Range: 2..
+        - Default value: 16
     - `/software/openldap/ldap_global/tls`
         - Optional
         - Type: tls_options
@@ -238,6 +244,7 @@
     - `/software/openldap/ldap_global/tool-threads`
         - Optional
         - Type: long
+        - Default value: 1
     - `/software/openldap/ldap_global/writetimeout`
         - Optional
         - Type: long
@@ -288,6 +295,7 @@
     - `/software/openldap/ldap_replica_cfg/schemachecking`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/openldap/ldap_replica_cfg/network-timeout`
         - Optional
         - Type: long
@@ -384,12 +392,15 @@
     - `/software/openldap/type_db_config/lg_regionmax`
         - Optional
         - Type: long
+        - Default value: 262144
     - `/software/openldap/type_db_config/lg_bsize`
         - Optional
         - Type: long
+        - Default value: 2097152
     - `/software/openldap/type_db_config/lg_max`
         - Optional
         - Type: long
+        - Default value: 10485760
  - `/software/openldap/ldap_database_limits`
     - `/software/openldap/ldap_database_limits/size`
         - Optional
@@ -401,6 +412,7 @@
     - `/software/openldap/ldap_monitoring/default`
         - Optional
         - Type: boolean
+        - Default value: true
  - `/software/openldap/ldap_database`
     - `/software/openldap/ldap_database/class`
         - Optional
@@ -408,6 +420,7 @@
     - `/software/openldap/ldap_database/add_content_acl`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/openldap/ldap_database/checkpoint`
         - Optional
         - Type: ldap_checkpoint
@@ -426,15 +439,18 @@
     - `/software/openldap/ldap_database/hidden`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/openldap/ldap_database/lastmod`
         - Optional
         - Type: boolean
+        - Default value: true
     - `/software/openldap/ldap_database/limits`
         - Optional
         - Type: ldap_database_limits
     - `/software/openldap/ldap_database/maxderefdepth`
         - Optional
         - Type: long
+        - Default value: 15
     - `/software/openldap/ldap_database/mirrormode`
         - Optional
         - Type: boolean
@@ -447,6 +463,7 @@
     - `/software/openldap/ldap_database/readonly`
         - Optional
         - Type: boolean
+        - Default value: false
     - `/software/openldap/ldap_database/restrict`
         - Optional
         - Type: ldap_ops
@@ -481,6 +498,7 @@
     - `/software/openldap/component_openldap/conf_file`
         - Optional
         - Type: string
+        - Default value: /etc/openldap/slapd.conf
     - `/software/openldap/component_openldap/include_schema`
         - Optional
         - Type: string
@@ -527,6 +545,7 @@
     - `/software/openldap/component_openldap/move_slapdd`
         - Optional
         - Type: boolean
+        - Default value: true
 
 ### Functions
 

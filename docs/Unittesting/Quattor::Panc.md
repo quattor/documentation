@@ -47,5 +47,10 @@ Generate the pan annotations from `basedir` in `outputdir` for `profiles`.
 
 Sort-of private method to use [Process](../CAF/Process.md) bypassing the mocking of [Process](../CAF/Process.md).
 
-Arrayhash `$cmd` for the command, `$message` for a message to print,
-`$croak_on_error` for croak\_on\_errror, and optional `srcdir` to return to.
+Arrayhash `$cmd` for the command, `$message` for a message to print.
+
+Options
+
+- croak\_on\_error: `croak` on error
+- srcdir: srcdir to return to after actual command is executed.
+- output: return arrayref with exitcode and output (stdout combined with stderr)

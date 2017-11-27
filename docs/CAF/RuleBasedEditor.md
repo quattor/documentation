@@ -41,7 +41,7 @@ matching line will be removed/commented out if the option is undefined.
     they exist. One option set only is allowed and only its existence (not its value) is tested.
 
     `option_set` can be either an actual option set as defined below or a subset of an option set
-    (a subhash of the option set hash). To specify a subset, use `/` as a level separator, 
+    (a subhash of the option set hash). To specify a subset, use `/` as a level separator,
     e.g. `xroot/securityProtocol/gsi` (`gsi` subet of `securityProtocol` subset of `xroot` option set).
 
     It is possible to negate the condition (option or option\_set must not exist)
@@ -102,57 +102,94 @@ There is a different group of constants for each part of the rule.
 
 ### LINE\_FORMAT\_xxx: general syntax of the line
 
-- LINE\_FORMAT\_KW\_VAL:        keyword value (e.g. Xrootd, Apache)
+- LINE\_FORMAT\_KW\_VAL
 
-    keywork/value separator can be customized with `LINE_VALUE_OPT_SEP_xxx`. No coment is added
-    to the line.
-
+    Keyword value (e.g. Xrootd, Apache) keywork/value separator can be customized with `LINE_VALUE_OPT_SEP_xxx`. No coment is added to the line.
     This is the default line format.
 
-- LINE\_FORMAT\_KW\_VAL\_SET:    set keyword value
+- LINE\_FORMAT\_KW\_VAL\_SET
 
-    Same remarks as for LINE\_FORMAT\_KW\_VAL.
+    Set keyword value. Same remarks as for LINE\_FORMAT\_KW\_VAL.
 
-- LINE\_FORMAT\_KW\_VAL\_SETENV:    setenv keyword value
+- LINE\_FORMAT\_KW\_VAL\_SETENV
 
-    Same remarks as for LINE\_FORMAT\_KW\_VAL.
+    Setenv keyword value Same remarks as for LINE\_FORMAT\_KW\_VAL.
 
-- LINE\_FORMAT\_ENV\_VAR:        export keyword=value (e.g. SH shell family). A comment is added at the
-end of the line if it is modified by **CAF::RuleBasedEditor**. If the value contains whitespaces, it
-is quoted.
-- LINE\_FORMAT\_SH\_VAR:         keyword=value (e.g. SH shell family). A comment is added at the
-end of the line if it is modified by **CAF::RuleBasedEditor**. If the value contains whitespaces, it
-is quoted.
+- LINE\_FORMAT\_ENV\_VAR
+
+    Export keyword=value (e.g. SH shell family). A comment is added at the end of the line if it
+    is modified by **CAF::RuleBasedEditor**. If the value contains whitespaces, it is quoted.
+
+- LINE\_FORMAT\_SH\_VAR
+
+    keyword=value (e.g. SH shell family). A comment is added at the end of the line if it is modified by **CAF::RuleBasedEditor**.
+    If the value contains whitespaces, it is quoted.
 
 Inline comments are not supported for the LINE\_FORMAT\_KW\_VAL\_xxx formats.
 
 ### LINE\_VALUE\_xxx: how to interpret the configuration value
 
-- LINE\_VALUE\_AS\_IS: take the value as it is, do not attempt any conversion.
+- LINE\_VALUE\_AS\_IS
 
-    This is the default value type.
+    Take the value as it is, do not attempt any conversion. This is the default value type.
 
-- LINE\_VALUE\_BOOLEAN: interpret the value as a boolean rendered as `yes` or `no`.
-- LINE\_VALUE\_ARRAY: the value is an array. Rendering controlled by LINE\_OPT\_xxx constants.
-- LINE\_VALUE\_HASH: the value is a hash of strings. Rendering controlled by LINE\_OPT\_xxx constants.
-- LINE\_VALUE\_HASH\_KEYS: the value is a hash whose keys are the value. Rendering similar to arrays with 
-`LINE_VALUE_ARRAY` (the key list is treated as an array).
-- LINE\_VALUE\_INSTANCE\_PARAMS: specific to **ncm-xrootd**
+- LINE\_VALUE\_BOOLEAN
+
+    Interpret the value as a boolean rendered as `yes` or `no`.
+
+- LINE\_VALUE\_ARRAY
+
+    The value is an array. Rendering controlled by LINE\_OPT\_xxx constants.
+
+- LINE\_VALUE\_HASH
+
+    The value is a hash of strings. Rendering controlled by LINE\_OPT\_xxx constants.
+
+- LINE\_VALUE\_HASH\_KEYS
+
+    The value is a hash whose keys are the value. Rendering similar to arrays with
+    `LINE_VALUE_ARRAY` (the key list is treated as an array).
+
+- LINE\_VALUE\_INSTANCE\_PARAMS
+
+    specific to **ncm-xrootd**
 
 ### LINE\_OPT\_xxx: options for rendering the config line
 
 These options mainly apply to lists and hashes and are interpreted as a bitmask.
 
-- LINE\_OPT\_KEY\_PREFIX\_DASH: if set, add a `-` before the keyword when writing it in the configuration file.
-- LINE\_OPT\_VALUE\_ONELINE: each value in an array or keyword/value pair in a hash must be on a separate line. This results in
-several instances of the same keyword (multiple lines) in the configuration file.
-- LINE\_OPT\_VALUE\_UNIQUE: each values are concatenated as a space-separated string
-- LINE\_OPT\_VALUE\_SORTED: values are sorted
-- LINE\_OPT\_HASH\_SEP\_COLON: when LINE\_VALUE\_HASH, use a colon between each hash key and value.
-- LINE\_OPT\_SEP\_COLON: use a colon between keyword and value.
-- LINE\_OPT\_SEP\_EQUAL: use an equal sign between keyword and value.
-- LINE\_VALUE\_OPT\_SPACE\_AROUND\_SEP: when updating the value, put a space around the 
-keyword/value separator.
+- LINE\_OPT\_KEY\_PREFIX\_DASH
+
+    If set, add a `-` before the keyword when writing it in the configuration file.
+
+- LINE\_OPT\_VALUE\_ONELINE
+
+    Each value in an array or keyword/value pair in a hash must be on a separate line. This results in
+    several instances of the same keyword (multiple lines) in the configuration file.
+
+- LINE\_OPT\_VALUE\_UNIQUE
+
+    Each values are concatenated as a space-separated string
+
+- LINE\_OPT\_VALUE\_SORTED
+
+    Values are sorted
+
+- LINE\_OPT\_HASH\_SEP\_COLON
+
+    When LINE\_VALUE\_HASH, use a colon between each hash key and value.
+
+- LINE\_OPT\_SEP\_COLON
+
+    Use a colon between keyword and value.
+
+- LINE\_OPT\_SEP\_EQUAL
+
+    Use an equal sign between keyword and value.
+
+- LINE\_VALUE\_OPT\_SPACE\_AROUND\_SEP
+
+    When updating the value, put a space around the keyword/value separator.
 
 $FILE\_INTRO\_xxx: constants defining the expected header lines in the configuration file
 
@@ -163,16 +200,19 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     Update configuration file contents,  applying configuration rules.
 
     Arguments :
-        config\_rules: a hashref containing config rules corresponding to the file to build
-        config\_options: a hashref for configuration parameters used to build actual configuration
+
+        config_rules: a hashref containing config rules corresponding to the file to build
+        config_options: a hashref for configuration parameters used to build actual configuration
         options: a hashref defining options to modify the behaviour of this function
 
     Supported entries for options hash:
-        always\_rules\_only: if true, apply only rules with ALWAYS condition (D: false). See introduction
+
+        always_rules_only: if true, apply only rules with ALWAYS condition (D: false). See introduction
                            about the ALWAYS condition.
-        remove\_if\_undef: if true, remove matching configuration line if rule condition is not met (D: false)
+        remove_if_undef: if true, remove matching configuration line if rule condition is not met (D: false)
 
     Return value
+
         sucess: 1
         error processing of one or more rules: 0
         argument error or error duing rule processing: undef
@@ -184,12 +224,14 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     This function formats an attribute value based on the value format specified.
 
     Arguments:
-        attr\_value : attribute value (type interpreted based on `value_fmt`)
-        line\_fmt : line format (see LINE\_FORMAT\_xxx constants)
-        value\_fmt : value format (see LINE\_VALUE\_xxx constants)
-        line\_opt: line rendering options
+
+        attr_value : attribute value (type interpreted based on C<value_fmt>)
+        line_fmt : line format (see LINE_FORMAT_xxx constants)
+        value_fmt : value format (see LINE_VALUE_xxx constants)
+        line_opt: line rendering options
 
     Return value:
+
         A string corresponding to the value formatted according to the format specified by arguments
         or undef in case of an internal error (missing arguments)
 
@@ -200,13 +242,15 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     quoted if the line format is not LINE\_FORMAT\_KW\_VAL.
 
     Arguments :
+
         keyword : line keyword
         value : keyword value (can be an empty string)
-        line\_fmt : line format (see LINE\_FORMAT\_xxx constants)
-        line\_opt: line rendering options
+        line_fmt : line format (see LINE_FORMAT_xxx constants)
+        line_opt: line rendering options
 
     Return value:
-        A string corresponding to the line formatted according to line\_fmt
+
+        A string corresponding to the line formatted according to line_fmt
         or undef in case of an internal error (missing arguments)
 
 - \_escape\_regexp\_string
@@ -215,9 +259,11 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     of a regexp.
 
     Arguments:
-        regexp\_str: initial regexp string (characters not escaped)
+
+        regexp_str: initial regexp string (characters not escaped)
 
     Return value:
+
         string: regexp with all specail characters escaped
 
 - \_buildLinePattern
@@ -230,13 +276,15 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     directive as a keyword with no value.
 
     Arguments :
-        config\_param: parameter to update
-        line\_fmt: line format (see LINE\_FORMAT\_xxx constants)
-        line\_opt: line rendering options
-        config\_value: when defined, make it part of the pattern (used when multiple lines
+
+        config_param: parameter to update
+        line_fmt: line format (see LINE_FORMAT_xxx constants)
+        line_opt: line rendering options
+        config_value: when defined, make it part of the pattern (used when multiple lines
                       with the same keyword are allowed)
 
     Return value:
+
         A string containing the pattern to use to match the line in the file or undef
         in case of an internal error (missing argument or an invalid line format).
 
@@ -246,11 +294,13 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     Match operation takes into account the line format.
 
     Arguments :
-        config\_param: parameter to update
-        line\_fmt : line format (see LINE\_FORMAT\_xxx constants)
-        line\_opt: line rendering options
+
+        config_param: parameter to update
+        line_fmt : line format (see LINE_FORMAT_xxx constants)
+        line_opt: line rendering options
 
     Return value:
+
         success: 1
         error during processing: 0
         internal error (missing argument): undef
@@ -261,13 +311,15 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     line formatting based on the line format.
 
     Arguments :
-        config\_param: parameter to update
-        config\_value: parameter value (can be an empty string)
-        line\_fmt: line format (see LINE\_FORMAT\_xxx constants)
-        line\_opt: line rendering options
+
+        config_param: parameter to update
+        config_value: parameter value (can be an empty string)
+        line_fmt: line format (see LINE_FORMAT_xxx constants)
+        line_opt: line rendering options
         multiple: if true, multiple lines with the same keyword can exist (D: false)
 
     Return value:
+
         undef or 1 in case of an internal error (missing argument)
 
 - \_parse\_rule
@@ -277,19 +329,22 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     information about the error.
 
     Arguments :
+
         rule: rule to parse
-        config\_options: configuration parameters used to build actual configuration
-        parser\_options: a hashref defining options to modify the behaviour of this function
+        config_options: configuration parameters used to build actual configuration
+        parser_options: a hashref defining options to modify the behaviour of this function
 
     Supported entries for options hash:
-        always\_rules\_only: if true, apply only rules with ALWAYS condition (D: false). See introduction
+
+        always_rules_only: if true, apply only rules with ALWAYS condition (D: false). See introduction
                            about the ALWAYS condition.
-        remove\_if\_undef: if true, remove matching configuration line if rule condition is not met (D: false)
+        remove_if_undef: if true, remove matching configuration line if rule condition is not met (D: false)
 
     Return value: undef if the rule condition is not met or a hash with the following information:
-        error\_msg: a non empty string if an error happened during parsing
-        remove\_matching\_lines: a boolean indicating that the matching lines must be removed
-        option\_sets: a list of option sets containing the attribute to use in the updated line
+
+        error_msg: a non empty string if an error happened during parsing
+        remove_matching_lines: a boolean indicating that the matching lines must be removed
+        option_sets: a list of option sets containing the attribute to use in the updated line
         attribute: the option attribute to use in the updated line
 
 - \_apply\_rules
@@ -297,18 +352,21 @@ $FILE\_INTRO\_xxx: constants defining the expected header lines in the configura
     Apply configuration rules. This method is the real workhorse of the rule-based editor.
 
     Arguments :
-        config\_rules: config rules corresponding to the file to build
-        config\_options: configuration parameters used to build actual configuration. Note that keys in the
-                        config\_options hash are interpreted as escaped (generally harmless if they are not as the
-                        killing sequence, '\_'+ 2 hex digit, is unlikely to occur in this context. Use camel case
+
+        config_rules: config rules corresponding to the file to build
+        config_options: configuration parameters used to build actual configuration. Note that keys in the
+                        config_options hash are interpreted as escaped (generally harmless if they are not as the
+                        killing sequence, '_'+ 2 hex digit, is unlikely to occur in this context. Use camel case
                         for keys to prevent problems).
-        parser\_options: a hash setting options to modify the behaviour of this function
+        parser_options: a hash setting options to modify the behaviour of this function
 
     Supported entries for options hash:
-        always\_rules\_only: if true, apply only rules with ALWAYS condition (D: false)
-        remove\_if\_undef: if true, remove matching configuration line if rule condition is not met (D: false)
+
+        always_rules_only: if true, apply only rules with ALWAYS condition (D: false)
+        remove_if_undef: if true, remove matching configuration line if rule condition is not met (D: false)
 
     Return value:
+
         success: 1
         error processing one or more rules: 0
         undef in case of an internal error (missing argument)

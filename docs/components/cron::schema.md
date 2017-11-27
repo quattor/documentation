@@ -5,12 +5,15 @@
     - `/software/cron/structure_cron_syslog/facility`
         - Optional
         - Type: string
+        - Default value: user
     - `/software/cron/structure_cron_syslog/level`
         - Optional
         - Type: string
+        - Default value: notice
     - `/software/cron/structure_cron_syslog/tagprefix`
         - Optional
         - Type: string
+        - Default value: ncm-cron.
     - `/software/cron/structure_cron_syslog/tag`
         - Optional
         - Type: string
@@ -91,6 +94,7 @@
     - `/software/cron/component_cron/securitypath`
         - Optional
         - Type: string
+        - Default value: /etc
 
 ### Functions
 

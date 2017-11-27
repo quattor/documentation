@@ -5,21 +5,26 @@
     - `/software/lcgbdii/lcgbdii_component/dir`
         - Optional
         - Type: string
+        - Default value: /opt/bdii/
     - `/software/lcgbdii/lcgbdii_component/varDir`
         - Optional
         - Type: string
+        - Default value: /opt/bdii/var
     - `/software/lcgbdii/lcgbdii_component/configFile`
         - Optional
         - Type: string
+        - Default value: /opt/bdii/bdii.conf
     - `/software/lcgbdii/lcgbdii_component/logFile`
         - Optional
         - Type: string
     - `/software/lcgbdii/lcgbdii_component/logLevel`
         - Optional
         - Type: string
+        - Default value: ERROR
     - `/software/lcgbdii/lcgbdii_component/schemaFile`
         - Optional
         - Type: string
+        - Default value: /opt/bdii/etc/schemas
     - `/software/lcgbdii/lcgbdii_component/schemas`
         - Optional
         - Type: string
@@ -35,9 +40,11 @@
     - `/software/lcgbdii/lcgbdii_component/user`
         - Optional
         - Type: string
+        - Default value: edguser
     - `/software/lcgbdii/lcgbdii_component/bind`
         - Optional
         - Type: string
+        - Default value: mds-vo-name=local,o=grid
     - `/software/lcgbdii/lcgbdii_component/passwd`
         - Optional
         - Type: string
@@ -56,21 +63,26 @@
         - Optional
         - Type: long
         - Range: 1..
+        - Default value: 60
     - `/software/lcgbdii/lcgbdii_component/archiveSize`
         - Optional
         - Type: long
     - `/software/lcgbdii/lcgbdii_component/autoUpdate`
         - Optional
         - Type: string
+        - Default value: no
     - `/software/lcgbdii/lcgbdii_component/autoModify`
         - Optional
         - Type: string
+        - Default value: no
     - `/software/lcgbdii/lcgbdii_component/isCache`
         - Optional
         - Type: string
+        - Default value: no
     - `/software/lcgbdii/lcgbdii_component/modifyDN`
         - Optional
         - Type: string
+        - Default value: no
     - `/software/lcgbdii/lcgbdii_component/RAMDisk`
         - Optional
         - Type: string
@@ -89,6 +101,7 @@
     - `/software/lcgbdii/lcgbdii_component/defaultLdif`
         - Optional
         - Type: string
+        - Default value: /opt/bdii/etc/default.ldif
     - `/software/lcgbdii/lcgbdii_component/slapd`
         - Optional
         - Type: string
@@ -98,6 +111,7 @@
     - `/software/lcgbdii/lcgbdii_component/slapdConf`
         - Optional
         - Type: string
+        - Default value: /opt/bdii/etc/glue-slapd.conf
     - `/software/lcgbdii/lcgbdii_component/slapdDebugLevel`
         - Optional
         - Type: long
