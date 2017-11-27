@@ -3,17 +3,38 @@
 
  - `/software/network/structure_route`
     - Description:
-    Route
+    Add route (IPv4 of IPv6)
+    Presence of ':' in any of the values indicates this is IPv6 related.
 
     - `/software/network/structure_route/address`
+        - Description: The ADDRESS in ADDRESS/PREFIX via GATEWAY
+        - Optional
+        - Type: type_ip
+    - `/software/network/structure_route/prefix`
+        - Description: The PREFIX in ADDRESS/PREFIX via GATEWAY
+        - Optional
+        - Type: long
+    - `/software/network/structure_route/gateway`
+        - Description: The GATEWAY in ADDRESS/PREFIX via GATEWAY
         - Optional
         - Type: type_ip
     - `/software/network/structure_route/netmask`
+        - Description: alternative notation for prefix (cannot be combined with prefix)
         - Optional
         - Type: type_ip
-    - `/software/network/structure_route/gateway`
+    - `/software/network/structure_route/command`
+        - Description: route add command options to use (cannot be combined with other options)
         - Optional
-        - Type: type_ip
+        - Type: string
+ - `/software/network/structure_rule`
+    - Description:
+    Add rule (IPv4 of IPv6)
+    Presence of ':' in any of the values indicates this is IPv6 related.
+
+    - `/software/network/structure_rule/command`
+        - Description: rule add options to use (cannot be combined with other options)
+        - Optional
+        - Type: string
  - `/software/network/structure_interface_alias`
     - Description:
     Interface alias
@@ -97,6 +118,7 @@
         - Optional
         - Type: string
     - `/software/network/structure_ethtool_offload/tso`
+        - Description: Set the TCP segment offload parameter to "off" or "on"
         - Optional
         - Type: string
     - `/software/network/structure_ethtool_offload/gro`
@@ -104,7 +126,8 @@
         - Type: string
  - `/software/network/structure_ethtool_ring`
     - Description:
-    interface ethtool ring
+    Set the ethernet transmit or receive buffer ring counts.
+    See ethtool --show-ring for the values.
 
     - `/software/network/structure_ethtool_ring/rx`
         - Optional
@@ -122,7 +145,7 @@
     - Description:
     ethtool wol p|u|m|b|a|g|s|d...
     from the man page
-        Sets Wake-on-LAN options.  Not all devices support this.  The argument to this option is  a  string
+        Sets Wake-on-LAN options.  Not all devices support this.  The argument to this option is a string
         of characters specifying which options to enable.
             p  Wake on phy activity
             u  Wake on unicast messages
@@ -149,6 +172,44 @@
     - `/software/network/structure_ethtool/speed`
         - Optional
         - Type: long
+ - `/software/network/structure_interface_plugin_vxlan`
+    - Description:
+    interface plugin for vxlan support via initscripts-vxlan
+
+    - `/software/network/structure_interface_plugin_vxlan/vni`
+        - Description: VXLAN Network Identifier (or VXLAN Segment ID); derived from devicename vxlan[0-9] if not defined
+        - Optional
+        - Type: long
+        - Range: 0..16777216
+    - `/software/network/structure_interface_plugin_vxlan/group`
+        - Description: multicast ip to join
+        - Optional
+        - Type: type_ip
+    - `/software/network/structure_interface_plugin_vxlan/remote`
+        - Description: destination IP address to use in outgoing packets
+        - Optional
+        - Type: type_ip
+    - `/software/network/structure_interface_plugin_vxlan/local`
+        - Description: source IP address to use in outgoing packets
+        - Optional
+        - Type: type_ip
+    - `/software/network/structure_interface_plugin_vxlan/dstport`
+        - Description: UDP destination port
+        - Optional
+        - Type: long
+        - Range: 2..65535
+    - `/software/network/structure_interface_plugin_vxlan/gbp`
+        - Description: Group Policy extension
+        - Optional
+        - Type: boolean
+ - `/software/network/structure_interface_plugin`
+    - Description:
+    interface plugin via custom ifup/down[-pre]-local hooks
+
+    - `/software/network/structure_interface_plugin/vxlan`
+        - Description: VXLAN support via initscripts-vxlan
+        - Optional
+        - Type: structure_interface_plugin_vxlan
  - `/software/network/structure_interface`
     - Description:
     interface
@@ -173,7 +234,7 @@
         - Type: string
     - `/software/network/structure_interface/onboot`
         - Optional
-        - Type: string
+        - Type: boolean
     - `/software/network/structure_interface/type`
         - Optional
         - Type: string
@@ -187,12 +248,27 @@
         - Optional
         - Type: long
     - `/software/network/structure_interface/route`
+        - Description: Routes for this interface.
+      These values are used to generate the /etc/sysconfig/network-scripts/route[6]-<interface> files
+      as used by ifup-routes when using ncm-network.
+      This allows for mixed IPv4 and IPv6 configuration
         - Optional
         - Type: structure_route
+    - `/software/network/structure_interface/rule`
+        - Description: Rules for this interface.
+      These values are used to generate the /etc/sysconfig/network-scripts/rule[6]-<interface> files
+      as used by ifup-routes when using ncm-network.
+      This allows for mixed IPv4 and IPv6 configuration
+        - Optional
+        - Type: structure_rule
     - `/software/network/structure_interface/aliases`
+        - Description: Aliases for this interface.
+      These values are used to generate the /etc/sysconfig/network-scripts/ifcfg-<interface>:<key> files
+      as used by ifup-aliases when using ncm-network.
         - Optional
         - Type: structure_interface_alias
     - `/software/network/structure_interface/set_hwaddr`
+        - Description: Explicitly set the MAC address. The MAC address is taken from /hardware/cards/nic/<interface>/hwaddr.
         - Optional
         - Type: boolean
     - `/software/network/structure_interface/bridge`
@@ -211,9 +287,12 @@
         - Optional
         - Type: structure_ethtool
     - `/software/network/structure_interface/vlan`
+        - Description: Is a VLAN device. If the device name starts with vlan, this is always true.
         - Optional
         - Type: boolean
     - `/software/network/structure_interface/physdev`
+        - Description: If the device name starts with vlan, this has to be set.
+      It is set (but ignored by ifup) if it the device is not named vlan
         - Optional
         - Type: valid_interface
     - `/software/network/structure_interface/fqdn`
@@ -226,6 +305,10 @@
         - Optional
         - Type: string
     - `/software/network/structure_interface/nmcontrolled`
+        - Optional
+        - Type: boolean
+    - `/software/network/structure_interface/defroute`
+        - Description: Set DEFROUTE, is the default for ipv6_defroute
         - Optional
         - Type: boolean
     - `/software/network/structure_interface/linkdelay`
@@ -280,6 +363,10 @@
     - `/software/network/structure_interface/ipv6_rtr`
         - Optional
         - Type: boolean
+    - `/software/network/structure_interface/ipv6_defroute`
+        - Description: Set IPV6_DEFROUTE, defaults to defroute value
+        - Optional
+        - Type: boolean
     - `/software/network/structure_interface/ipv6addr`
         - Optional
         - Type: type_network_name
@@ -289,6 +376,9 @@
     - `/software/network/structure_interface/ipv6init`
         - Optional
         - Type: boolean
+    - `/software/network/structure_interface/plugin`
+        - Optional
+        - Type: structure_interface_plugin
  - `/software/network/structure_router`
     - Description:
     router
@@ -308,7 +398,10 @@
         - Type: valid_interface
  - `/software/network/structure_network`
     - Description:
-    network
+    Host network configuration
+
+    These values are used to generate /etc/sysconfig/network
+    when using ncm-network (unless specified otherwise).
 
     - `/software/network/structure_network/domainname`
         - Optional
@@ -322,10 +415,19 @@
     - `/software/network/structure_network/default_gateway`
         - Optional
         - Type: type_ip
+    - `/software/network/structure_network/guess_default_gateway`
+        - Description: When default_gateway is not set, the component will try to guess the default
+      gateway using the first configured gateway set on an interface.
+      The default is true for backward compatible behaviour.
+        - Optional
+        - Type: boolean
     - `/software/network/structure_network/gatewaydev`
         - Optional
         - Type: valid_interface
     - `/software/network/structure_network/interfaces`
+        - Description: Per interface network settings.
+      These values are used to generate the /etc/sysconfig/network-scripts/ifcfg-<interface> files
+      when using ncm-network.
         - Optional
         - Type: structure_interface
     - `/software/network/structure_network/nameserver`
@@ -335,9 +437,12 @@
         - Optional
         - Type: string
     - `/software/network/structure_network/nozeroconf`
+        - Description: Setting nozeroconf to true stops an interface from being assigned an automatic address in the 169.254.0.0 subnet.
         - Optional
         - Type: boolean
     - `/software/network/structure_network/set_hwaddr`
+        - Description: The default behaviour for all interfaces wrt setting the MAC address (see interface set_hwaddr attribute).
+      The component default is false.
         - Optional
         - Type: boolean
     - `/software/network/structure_network/nmcontrolled`
