@@ -64,7 +64,7 @@ Applications can extend or overwrite the default methods.
     Returns the option value coming from the command line and/or
     configuration file. Scalar can be a string, or a reference to a hash
     or an array containing the option's value. option() is a wrapper
-    on top of AppConfig->get($opt). 
+    on top of AppConfig->get($opt).
 
     If the option doesn't exist, returns `undef`, except if the `default`
     argument has been specified: in this case this value is returned but

@@ -1,7 +1,7 @@
 
 ### NAME
 
-`NCM::Component::OpenNebula::Image` adds `OpenNebula` `VM` images 
+`NCM::Component::OpenNebula::Image` adds `OpenNebula` `VM` images
 support to `NCM::Component::OpenNebula`.
 
 #### Public methods
@@ -14,8 +14,8 @@ support to `NCM::Component::OpenNebula`.
 
 - remove\_or\_create\_vm\_images
 
-    Creates new `VM` images and it detects if the image is 
-    already available or not. 
+    Creates new `VM` images and it detects if the image is
+    already available or not.
     Also it removes images if the remove flag is set.
 
 - create\_vm\_images

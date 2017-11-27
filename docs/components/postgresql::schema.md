@@ -23,7 +23,7 @@
         - Optional
         - Type: string
  - `/software/postgresql/postgresql_mainconfig`
-    - Description: 
+    - Description:
     postgresql main configuration
         boolean -> yes / no
         int     -> int
@@ -615,7 +615,7 @@
         - Optional
         - Type: string
     - `/software/postgresql/postgresql_db/lang`
-        - Description: sets the pg language for the db (using createlang), this runs after installfile. 
+        - Description: sets the pg language for the db (using createlang), this runs after installfile.
         - Optional
         - Type: string
     - `/software/postgresql/postgresql_db/langfile`
@@ -641,7 +641,7 @@
         - Optional
         - Type: long
  - `/software/postgresql/postgresql_role_sql`
-    - Description: 
+    - Description:
     The raw ALTER ROLE sql (cannot contain a ';'; use ENCRYPTED PASSWORD instead)
 
  - `/software/postgresql/component_postgresql`

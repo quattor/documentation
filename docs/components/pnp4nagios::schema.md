@@ -139,11 +139,11 @@
     - `/software/pnp4nagios/pnp4nagios_php_config/graph_opt`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/pnp4nagios/pnp4nagios_php_config/pdf_graph_opt`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/pnp4nagios/pnp4nagios_php_config/rrdbase`
         - Optional
         - Type: string
@@ -175,7 +175,7 @@
     - `/software/pnp4nagios/pnp4nagios_php_config/multisite_site`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/pnp4nagios/pnp4nagios_php_config/auth_enabled`
         - Optional
         - Type: boolean
@@ -187,11 +187,11 @@
     - `/software/pnp4nagios/pnp4nagios_php_config/allowed_for_all_services`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/pnp4nagios/pnp4nagios_php_config/allowed_for_all_hosts`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/pnp4nagios/pnp4nagios_php_config/allowed_for_service_links`
         - Optional
         - Type: string
@@ -254,7 +254,7 @@
     - `/software/pnp4nagios/pnp4nagios_php_config/rrd_daemon_opts`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/pnp4nagios/pnp4nagios_php_config/template_dirs`
         - Optional
         - Type: string

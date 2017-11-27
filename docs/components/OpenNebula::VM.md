@@ -1,7 +1,7 @@
 
 ### NAME
 
-`NCM::Component::OpenNebula::VM` adds `OpenNebula` `VMs` 
+`NCM::Component::OpenNebula::VM` adds `OpenNebula` `VMs`
 manage support to `NCM::Component::OpenNebula`.
 
 #### Public methods

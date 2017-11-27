@@ -5,7 +5,7 @@ globuscfg: Configure Globus services.
 
 ### DESCRIPTION
 
-The _globuscfg_ component configures the globus services.  It manages 
+The _globuscfg_ component configures the globus services.  It manages
 the `/etc/sysconfig/globus` and globus configuration files.  In
 addition, it will start the specified Globus services.
 
@@ -26,12 +26,12 @@ addition, it will start the specified Globus services.
 - `/software/components/globuscfg/GLOBUS`\_CONFIG
 
     The full path to the Globus configuration file.  Defaults to
-    `/etc/globus.conf`. 
+    `/etc/globus.conf`.
 
 - `/software/components/globuscfg/globus`\_flavor\_name
 
     The globus "flavor" to use.  There is no default.  A typical value is
-    gcc32dbg. 
+    gcc32dbg.
 
 - `/software/components/globuscfg/services`
 
@@ -78,12 +78,12 @@ addition, it will start the specified Globus services.
 - `/software/components/globuscfg/mds/x509`\_user\_key
 
     The path to the certificate and key to use for MDS. Host credentials
-    will be used if not specified. 
+    will be used if not specified.
 
-- `/software/components/globuscfg/mds/gris/suffix` 
+- `/software/components/globuscfg/mds/gris/suffix`
 
-    The suffix to use for the GRISes.  Defaults to "\\"Mds-Vo-name=local,o=grid\\"". 
-    Double quotes MUST appear as part of the value. 
+    The suffix to use for the GRISes.  Defaults to "\\"Mds-Vo-name=local,o=grid\\"".
+    Double quotes MUST appear as part of the value.
 
 - `/software/components/globuscfg/mds/gris/provider`
 
@@ -93,9 +93,9 @@ addition, it will start the specified Globus services.
 
     "/software/components/globuscfg/mds/gris/provider/xyz"=""
 
-- 
+-
 
-    "xyz" will be taken, as the name of the executable. 
+    "xyz" will be taken, as the name of the executable.
     You may optionally specify a
     fully-qualified executable name to override this default. The
     parameter to set is, for example, "provider\_edg" for the edg
@@ -104,7 +104,7 @@ addition, it will start the specified Globus services.
 - `/software/components/globuscfg/mds/gris/registration`
 
     The _list_ of GIISes to which the GRISes should register, so it
-    has entries labelled with numbers. These entries are have 
+    has entries labelled with numbers. These entries are have
     further entries like
     _regname_, _reghost_, _regport_, _regperiod_, and _ttl_. These
     are optional; default values of these parameters can be changed
@@ -112,14 +112,14 @@ addition, it will start the specified Globus services.
     _ttl_ should be specified as a pair with _ttl_ at least twice that
     of _regperiod_. The name of
     the GIIS defaults entry _recordname_, which is obligatory for
-    every element. 
+    every element.
 
 - `/software/components/globuscfg/mds/giis/allowedregs`
 
     The _list_ of local GIISes to run. As for lists, entries which
     represent GIISes have numbers as names. They have an obligatory
-    field (_recordname_), the identifier name of the entry. This 
-    will be taken as the default value for _name_ parameter, but can be 
+    field (_recordname_), the identifier name of the entry. This
+    will be taken as the default value for _name_ parameter, but can be
     overriden by specifying this one explicitly. See example.
 
 - `/software/components/globuscfg/mds/giis/allowedregs`/<number>/allowreg
@@ -139,8 +139,8 @@ addition, it will start the specified Globus services.
     dummy entry and explicitly specifying the tag and _name_
     parameters.
 
-    The _regperiod_ and _ttl_ should be specified as a pair with _ttl_ 
-    at least twice that of _regperiod_.  
+    The _regperiod_ and _ttl_ should be specified as a pair with _ttl_
+    at least twice that of _regperiod_.
 
 - `/software/components/globuscfg/gridftp/globus`\_flavour\_name
 
@@ -151,12 +151,12 @@ addition, it will start the specified Globus services.
 - `/software/components/globuscfg/gridftp/X509`\_USER\_KEY
 
     The path to the certificate and key to use for GridFTP.  Host credentials
-    will be used if not specified. 
+    will be used if not specified.
 
 - `/software/components/globuscfg/gridftp/ftpd`
 
     The full path to the GridFTP daemon.  Normally this is not specified
-    as the default is usually correct. 
+    as the default is usually correct.
 
 - `/software/components/globuscfg/gridftp/port`
 
@@ -164,7 +164,7 @@ addition, it will start the specified Globus services.
 
 - `/software/components/globuscfg/gridftp/umask`
 
-    The umask to use for the GridFTP daemon.  The default is 002. 
+    The umask to use for the GridFTP daemon.  The default is 002.
 
 - `/software/components/globuscfg/gridftp/log`
 
@@ -200,7 +200,7 @@ addition, it will start the specified Globus services.
 - `/software/components/globuscfg/gatekeeper/port`
 
     The port to use for the gatekeeper.  (This defaults to 2119 if not
-    specified.) 
+    specified.)
 
 - `/software/components/globuscfg/gatekeeper/logfile`
 
@@ -211,7 +211,7 @@ addition, it will start the specified Globus services.
 
     The _list_ of job managers to use for this gatekeeper.  The fork job
     manager is required (and required to be the default), so only non-fork
-    job managers need to be specified. 
+    job managers need to be specified.
 
 - `/software/components/globuscfg/gatekeeper/jobmanagers`/<entryNo>/recordname
 
@@ -232,7 +232,7 @@ addition, it will start the specified Globus services.
 
 - `/software/components/globuscfg/gatekeeper/jobmanagers`/<entryNo>/extra\_config
 
-    Extra configuration options needed by the job manager. 
+    Extra configuration options needed by the job manager.
 
 ### EXAMPLE
 
@@ -242,14 +242,14 @@ addition, it will start the specified Globus services.
 
 "/software/components/globuscfg/GLOBUS\_CONFIG" = "/etc/globus.conf";
 
-"/software/components/globuscfg/services" = 
+"/software/components/globuscfg/services" =
 list(" globus-mds", "globus-gridftp");
 
 "/software/components/globuscfg/mds/user" = "mdsuser";
 
 "/software/components/globuscfg/gris/provider/globus-gris" = "";
 
-"/software/components/globuscfg/gris/provider/othergrid" = 
+"/software/components/globuscfg/gris/provider/othergrid" =
 					"/opt/othergrid/othergrid.info";
 
 "/software/components/globuscfg/gris/registration/0/recordname" =  "local";
@@ -264,7 +264,7 @@ list(" globus-mds", "globus-gridftp");
 
 "/software/components/globuscfg/mds/giis/registration/remote/regname" = "somecountry";
 
-"/software/components/globuscfg/mds/giis/registration/remote/reghost" = 
+"/software/components/globuscfg/mds/giis/registration/remote/reghost" =
 "giis.someplace.com";
 
 "/software/components/globuscfg/mds/giis/registration/remote/regport" = 2135;

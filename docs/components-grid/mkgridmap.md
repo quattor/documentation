@@ -6,7 +6,7 @@ mkgridmap:  NCM component to configure edg-mkgridmap.conf for mkgridmap.
 ### DESCRIPTION
 
 The _mkgridmap_ component manages the configuration file (e.g. `/opt/edg/etc/edg`-mkgridmap.conf) for mkgridmap.
-It can handle several mapfiles and support two distinct mapfile format : 
+It can handle several mapfiles and support two distinct mapfile format :
 
 - edg : the traditional format associating DNs with pool accounts
 - lcgdm : a mapfile to associate DNs to VO name. It is used by LCG products like DPM and LFC to handle
@@ -30,9 +30,9 @@ This list specifies the VO to process, and the order in which they will appear. 
 
 ### LCMAPS RESOURCES
 
-#### flavor : string 
+#### flavor : string
 
-This property indicates LCMAPS gridmapfile/groupmafile format. It can be 'edg' or 'glite'. When format is 'glite', FQANs 
+This property indicates LCMAPS gridmapfile/groupmafile format. It can be 'edg' or 'glite'. When format is 'glite', FQANs
 are taken literally from configuration : they must be valid VOMS FQAN in standard format. When format is 'edg', FQANs
 in configuration are converted into EDG format (/VO=vo\_name/GROUP=.../ROLE=...).
 
@@ -60,7 +60,7 @@ The location of the edg-mkgridmap.conf file, by default
 #### command
 
 The command to run to regenerate the gridmap file.  If provided, this
-command will be run whenever changes to the configuration occur. 
+command will be run whenever changes to the configuration occur.
 
 #### groups
 
@@ -103,6 +103,6 @@ overwritten if it already exists.
 
 #### locals
 
-A list for which each element has the values of cert\_<local> and 
+A list for which each element has the values of cert\_<local> and
 user\_<local>. This will add mappings to the (first) grid-mapfile-local defined
 above.

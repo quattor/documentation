@@ -25,6 +25,7 @@ Features that are implemented at this moment:
 - Assign OpenNebula users to primary groups
 - Updates OpenNebula `*_auth` files
 - Updates VMM kvmrc config file
+- Updates VNM OpenNebulaNetwork config file
 - Cloud resource labels (OpenNebula >= 5.x)
 
 OpenNebula installation is 100% automated. Therefore:

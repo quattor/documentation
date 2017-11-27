@@ -5,25 +5,25 @@ pbsserver: NCM component to configure partially the pbs (torque) server.
 
 ### DESCRIPTION
 
-The _pbsserver_ component configures the pbs (torque) server. 
+The _pbsserver_ component configures the pbs (torque) server.
 Unsetting attributes of nodes doesn't work (yet).
 
 ### RESOURCES
 
 #### pbsroot (/var/spool/pbs)
 
-The absolute path to the pbs root directory.  
+The absolute path to the pbs root directory.
 
 #### binpath (/usr/bin)
 
-The absolute path to the pbs binaries qmgr and pbsnodes. 
+The absolute path to the pbs binaries qmgr and pbsnodes.
 
 #### submitfilter
 
 The content of the submit filter.  This file will be written to the
 file $pbsroot/submit\_filter and a reference to this put into the
 $pbsroot/torque.cfg file.  If this is not specified, the reference to
-the script will be removed. 
+the script will be removed.
 
 #### env
 
@@ -33,7 +33,7 @@ and substitutes the environment defined in this file.  Typical things
 to set are the PATH and LANG.  Optionally for torque, the variable
 TORQUEKEEPCOMPLETED can be set to keep jobs in a "completed" state for
 5 minutes after they complete.  This is very useful for debugging
-problems. 
+problems.
 
 #### "/software/components/pbsserver/server" ? pbs\_server
 

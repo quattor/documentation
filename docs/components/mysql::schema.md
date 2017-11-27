@@ -33,7 +33,7 @@
     - `/software/mysql/component_mysql_db_options/initOnce`
         - Optional
         - Type: boolean
-        - Default value: false
+        - Default value: true
     - `/software/mysql/component_mysql_db_options/createDb`
         - Optional
         - Type: boolean

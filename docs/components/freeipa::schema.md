@@ -2,13 +2,13 @@
 ### Types
 
  - `/software/freeipa/component_freeipa_member`
-    - Description:  group members configuration 
+    - Description:  group members configuration
     - `/software/freeipa/component_freeipa_member/user`
         - Description: (minimal) user group members
         - Optional
         - Type: string
  - `/software/freeipa/component_freeipa_group`
-    - Description:  group configuration 
+    - Description:  group configuration
     - `/software/freeipa/component_freeipa_group/gidnumber`
         - Description: group ID number
         - Optional
@@ -19,7 +19,7 @@
         - Optional
         - Type: component_freeipa_member
  - `/software/freeipa/component_freeipa_user`
-    - Description:  service configuration 
+    - Description:  service configuration
     - `/software/freeipa/component_freeipa_user/uidnumber`
         - Description: user ID number
         - Optional
@@ -54,14 +54,14 @@
         - Optional
         - Type: string
  - `/software/freeipa/component_freeipa_service`
-    - Description:  service configuration 
+    - Description:  service configuration
     - `/software/freeipa/component_freeipa_service/hosts`
         - Description: regular expressions to match known hosts; for each host, a service/host principal
       will be added and the host is allowed to retrieve the keytab
         - Optional
         - Type: string
  - `/software/freeipa/component_freeipa_host`
-    - Description:  host configuration 
+    - Description:  host configuration
     - `/software/freeipa/component_freeipa_host/ip_address`
         - Description: host ip address (for DNS configuration only)
         - Optional
@@ -71,7 +71,7 @@
         - Optional
         - Type: string
  - `/software/freeipa/component_freeipa_dns`
-    - Description:  DNS zone configuration 
+    - Description:  DNS zone configuration
     - `/software/freeipa/component_freeipa_dns/subnet`
         - Description: subnet to use, in A.B.C.D/MASK notation
         - Optional
@@ -86,7 +86,7 @@
         - Type: boolean
         - Default value: true
  - `/software/freeipa/component_freeipa_server`
-    - Description:  Server configuration 
+    - Description:  Server configuration
     - `/software/freeipa/component_freeipa_server/dns`
         - Description: subnet name with DNSzone information
         - Optional
@@ -108,7 +108,7 @@
         - Optional
         - Type: component_freeipa_group
  - `/software/freeipa/component_freeipa_permission`
-    - Description:  permission / ownership for keytabs and certificates 
+    - Description:  permission / ownership for keytabs and certificates
     - `/software/freeipa/component_freeipa_permission/mode`
         - Description: mode/permissions
         - Optional
@@ -125,29 +125,29 @@
         - Type: string
         - Default value: root
  - `/software/freeipa/component_freeipa_keytab`
-    - Description:  keytab for service configuration 
+    - Description:  keytab for service configuration
     - `/software/freeipa/component_freeipa_keytab/service`
         - Description: service to retrieve keytab for (the pricipal service/fqdn is used if no component is specified)
         - Optional
         - Type: string
  - `/software/freeipa/component_freeipa_certificate`
-    - Description: 
+    - Description:
    Certificate to request/retrieve. cert and/or key can be optionally extracted from NSSDB.
    Permissions are set on both cert and key, with certmode for the certificate.
    The nick is an alias for DN, and is unique (adding a 2nd nick for same, existing DN will result in
    adding a new entry with already existing nick).
 
     - `/software/freeipa/component_freeipa_certificate/cert`
-        - Description:  certificate location to extract 
+        - Description:  certificate location to extract
         - Optional
         - Type: string
     - `/software/freeipa/component_freeipa_certificate/certmode`
-        - Description:  certificate mode/permissions 
+        - Description:  certificate mode/permissions
         - Optional
         - Type: long
         - Default value: 292
     - `/software/freeipa/component_freeipa_certificate/key`
-        - Description:  (private) key location to extract 
+        - Description:  (private) key location to extract
         - Optional
         - Type: string
  - `/software/freeipa/component_freeipa_principal`
@@ -162,49 +162,49 @@
         - Type: string
  - `/software/freeipa/component_freeipa_nss`
     - Description: NSS db options
- - `/software/freeipa/component_freeipa`
-    - `/software/freeipa/component_freeipa/realm`
+ - `/software/freeipa/freeipa_component`
+    - `/software/freeipa/freeipa_component/realm`
         - Description: realm
         - Optional
         - Type: string
-    - `/software/freeipa/component_freeipa/primary`
+    - `/software/freeipa/freeipa_component/primary`
         - Description: FreeIPA server that will be used for all API and for secondaries to replicate
         - Optional
         - Type: type_hostname
-    - `/software/freeipa/component_freeipa/secondaries`
+    - `/software/freeipa/freeipa_component/secondaries`
         - Description: list of secondary servers to replicate
         - Optional
         - Type: type_hostname
-    - `/software/freeipa/component_freeipa/domain`
+    - `/software/freeipa/freeipa_component/domain`
         - Description: FreeIPA domain name (defaults to /system/network/domainname value if not specified)
         - Optional
         - Type: type_hostname
-    - `/software/freeipa/component_freeipa/server`
+    - `/software/freeipa/freeipa_component/server`
         - Description: server configuration settings
         - Optional
         - Type: component_freeipa_server
-    - `/software/freeipa/component_freeipa/keytabs`
+    - `/software/freeipa/freeipa_component/keytabs`
         - Description: keytabs to retrieve for services
         - Optional
         - Type: component_freeipa_keytab
-    - `/software/freeipa/component_freeipa/certificates`
+    - `/software/freeipa/freeipa_component/certificates`
         - Description: certificates to request/retrieve (key is the NSSDB nick, and is unique per DN)
         - Optional
         - Type: component_freeipa_certificate
-    - `/software/freeipa/component_freeipa/hostcert`
+    - `/software/freeipa/freeipa_component/hostcert`
         - Description: Generate the host certificate in /etc/ipa/quattor/certs/host.pem and key /etc/ipa/quattor/keys/host.key.
       The nick host is used (and any setting under certificates using that nick are preserved)
         - Optional
         - Type: boolean
-    - `/software/freeipa/component_freeipa/nss`
+    - `/software/freeipa/freeipa_component/nss`
         - Description: NSSDB options
         - Optional
         - Type: component_freeipa_nss
-    - `/software/freeipa/component_freeipa/host`
+    - `/software/freeipa/freeipa_component/host`
         - Description: Host options
         - Optional
         - Type: component_freeipa_host
-    - `/software/freeipa/component_freeipa/principals`
+    - `/software/freeipa/freeipa_component/principals`
         - Description: Principal/keytab pairs for client,server or aii roles (default client role with host/fqdn princiapl and /etc/krb5.keytab keytab)
         - Optional
         - Type: component_freeipa_principal

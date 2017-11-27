@@ -12,4 +12,5 @@ NCM::Component::FreeIPA::Cert adds certificate related methods to
 
 - get\_cert
 
-    Given `serial`, retrieve the certificate and save it in file `crt`.
+    Given `serial`, retrieve the certificate and when defined,
+    save it in file `crt`.

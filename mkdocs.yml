@@ -154,6 +154,8 @@ pages:
     - pam: components/pam.md
     - pam::config: components/pam::config.md
     - pam::schema: components/pam::schema.md
+    - path: components/path.md
+    - path::schema: components/path::schema.md
     - pnp4nagios: components/pnp4nagios.md
     - pnp4nagios::schema: components/pnp4nagios::schema.md
     - postfix: components/postfix.md
@@ -172,9 +174,12 @@ pages:
     - shorewall::schema: components/shorewall::schema.md
     - spma-run: components/spma-run.md
     - spma: components/spma.md
+    - spma::apt: components/spma::apt.md
+    - spma::apt::schema: components/spma::apt::schema.md
     - spma::functions: components/spma::functions.md
     - spma::ips: components/spma::ips.md
     - spma::ips::schema: components/spma::ips::schema.md
+    - spma::schema-common-yum: components/spma::schema-common-yum.md
     - spma::schema: components/spma::schema.md
     - spma::software: components/spma::software.md
     - spma::yum: components/spma::yum.md

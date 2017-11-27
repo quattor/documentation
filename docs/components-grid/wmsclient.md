@@ -28,7 +28,7 @@ Default : true (for a present variant).
 The base directory to use for generating VO-specific configuration
 file.  It defaults to EDG\_LOCATION/etc (or `/opt/edg/etc` if EDG\_LOCATION
 is not defined) for EDG RB, and to GLITE\_LOCATION/etc (or `/opt/glite/etc` if GLITE\_LOCATION
-is not defined) for gLite WMS. 
+is not defined) for gLite WMS.
 
 #### `/software/components/wmsclient/MW`\_VARIANT/defaultAttrs
 
@@ -42,7 +42,7 @@ Default values should be appropriate.
 
 VO specific configuration is under `/system/vo` configuration path. There is one entry per VO. In the resource for
 each VO, this component uses the items described below. Except for VO full name, information is under 'services'
-for EDG RB and under 'services/wms' for gLite WMS. 
+for EDG RB and under 'services/wms' for gLite WMS.
 
 ### `/system/vo`/\*/name
 

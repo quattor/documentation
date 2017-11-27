@@ -1,7 +1,7 @@
 
 ### NAME
 
-`NCM::Component::OpenNebula::Account` adds and modifies `OpenNebula` user 
+`NCM::Component::OpenNebula::Account` adds and modifies `OpenNebula` user
 and groups accounts.
 
 #### Public methods

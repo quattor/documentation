@@ -1,7 +1,7 @@
 
 ### NAME
 
-The _lcgbdii_ component manages the configuration file of BDII service.  
+The _lcgbdii_ component manages the configuration file of BDII service.
 
 ### DESCRIPTION
 
@@ -31,7 +31,7 @@ Default : no
 
 #### bind : string
 
-The binding string. 
+The binding string.
 
 Default: "mds-vo-name=local,o=grid"
 
@@ -49,7 +49,7 @@ Default: `/opt/bdii/etc/bdii.conf`
 
 #### dir
 
-The base directory for the BDII code and configuration files. 
+The base directory for the BDII code and configuration files.
 
 Default: `/opt/bdii`
 
@@ -97,7 +97,7 @@ Default: none
 
 #### portRead : port number
 
-The port to read from (version <= 4). 
+The port to read from (version <= 4).
 
 Default: none
 
@@ -128,7 +128,7 @@ Default: `/opt/bdii/etc/schemas`
 
 #### schemas : list of strings (optional)
 
-List of file names for the schema files used. 
+List of file names for the schema files used.
 
 Default: none
 
@@ -164,12 +164,12 @@ The URL for the update LDIF file.
 
 #### updateUrl
 
-The URL for the update file. 
+The URL for the update file.
 
 #### urls (optional)
 
 A hash containing all of the update URLs.  The keys are for
-documentation purposes only. 
+documentation purposes only.
 
 This resource is required for BDII v4 and later.
 

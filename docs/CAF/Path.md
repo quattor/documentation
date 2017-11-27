@@ -87,7 +87,7 @@ undef on failure and store the error message in the `fail` attribute.
 
 - \_untaint\_path
 
-    Untaint the `path` argument.
+    Untaint the [path](../components/path.md) argument.
 
     Returns undef on failure and sets the fail attribute with `msg`
 
@@ -115,7 +115,7 @@ undef on failure and store the error message in the `fail` attribute.
 
 - any\_exists
 
-    Test if `path` exists.
+    Test if [path](../components/path.md) exists.
 
     This is basically the perl builtin `-e || -l`,
     wrapped in a method to allow unittesting.
@@ -125,9 +125,9 @@ undef on failure and store the error message in the `fail` attribute.
 
 - is\_symlink
 
-    Test if `path` is a symlink.
+    Test if [path](../components/path.md) is a symlink.
 
-    Returns true as long as `path` is a symlink, including when the
+    Returns true as long as [path](../components/path.md) is a symlink, including when the
     symlink target doesn't exist.
 
 - cleanup
@@ -286,3 +286,48 @@ undef on failure and store the error message in the `fail` attribute.
     Additional options
 
     - keeps\_state: boolean passed to `_get_noaction`.
+
+- listdir
+
+    Return an arrayref of sorted directory entry names or undef on failure.
+    (The `.` and `..` are removed).
+
+    Can be used to replace `glob()` as follows:
+
+        ...
+        foreach my $file (glob('/path/*.ext')) {
+        ...
+
+        replace by
+
+        ...
+        foreach my $file (@{$self->listdir('/path', filter => '\.ext$', adddir => 1)}) {
+        ...
+
+    Options
+
+    - test
+
+        An (anonymous) sub used for testing.
+        The return value is interpreted as boolean value for filtering the
+        directory entry names (true value means the name is kept).
+
+        Accepts 2 arguments: first argument (`$_[0]`) the directory entry name,
+        2nd argument (`$_[1]`) the directory.
+
+    - filter
+
+        A pattern or compiled pattern to filter directory entry names.
+        Matching names are kept.
+
+    - inverse
+
+        Apply inverse test (or filter) logic.
+
+    - adddir
+
+        Prefix the directory to the returned filenames (default false).
+
+    - file\_exists
+
+        Shortcut for test function that uses `CAF::Path::file_exists` as test function.

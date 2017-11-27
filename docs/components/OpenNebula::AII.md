@@ -1,8 +1,8 @@
 
 ### NAME
 
-`NCM::Component::OpenNebula::AII` adds `AII` hook 
-to generate the required resources and templates 
+`NCM::Component::OpenNebula::AII` adds `AII` hook
+to generate the required resources and templates
 to instantiate/create/remove VMs within an `OpenNebula` infrastructure.
 
 #### AII

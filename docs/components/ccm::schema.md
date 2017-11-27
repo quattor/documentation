@@ -2,7 +2,7 @@
 ### Types
 
  - `/software/ccm/kerberos_principal_string`
-    - Description: 
+    - Description:
     kerberos_principal_string is a string with format `principal[/component1[/component2[...]]]@REALM`
 
  - `/software/ccm/ccm_component`
@@ -27,7 +27,7 @@
         - Range: 0..1
         - Default value: 0
     - `/software/ccm/ccm_component/force`
-        - Description: Force fetching of the machine profile. Turning this on ignores the modification times. Defaults to 0. 
+        - Description: Force fetching of the machine profile. Turning this on ignores the modification times. Defaults to 0.
         - Optional
         - Type: long
         - Range: 0..1
@@ -89,7 +89,7 @@
         - Optional
         - Type: string
     - `/software/ccm/ccm_component/world_readable`
-        - Description: Whether the profiles should be world-readable. Defaults to 0. 
+        - Description: Whether the profiles should be world-readable. Defaults to 0.
         - Optional
         - Type: long
         - Range: 0..1
@@ -99,7 +99,7 @@
         - Optional
         - Type: type_absoluteURI
     - `/software/ccm/ccm_component/dbformat`
-        - Description: Format of the local database, must be `DB_File`, `CDB_File` or `GDBM_File`. Defaults to `GDBM_File`. 
+        - Description: Format of the local database, must be `DB_File`, `CDB_File` or `GDBM_File`. Defaults to `GDBM_File`.
         - Optional
         - Type: string
     - `/software/ccm/ccm_component/json_typed`

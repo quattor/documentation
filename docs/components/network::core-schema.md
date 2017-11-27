@@ -2,7 +2,7 @@
 ### Types
 
  - `/software/network/structure_route`
-    - Description: 
+    - Description:
     Route
 
     - `/software/network/structure_route/address`
@@ -15,7 +15,7 @@
         - Optional
         - Type: type_ip
  - `/software/network/structure_interface_alias`
-    - Description: 
+    - Description:
     Interface alias
 
     - `/software/network/structure_interface_alias/ip`
@@ -31,7 +31,7 @@
         - Optional
         - Type: type_fqdn
  - `/software/network/structure_bonding_options`
-    - Description: 
+    - Description:
     Describes the bonding options for configuring channel bonding on EL5 and similar.
 
     - `/software/network/structure_bonding_options/mode`
@@ -58,7 +58,7 @@
         - Optional
         - Type: string
  - `/software/network/structure_bridging_options`
-    - Description: 
+    - Description:
     describes the bridging options
     (the parameters for /sys/class/net/<br>/brport)
 
@@ -87,7 +87,7 @@
         - Optional
         - Type: long
  - `/software/network/structure_ethtool_offload`
-    - Description: 
+    - Description:
     interface ethtool offload
 
     - `/software/network/structure_ethtool_offload/rx`
@@ -103,7 +103,7 @@
         - Optional
         - Type: string
  - `/software/network/structure_ethtool_ring`
-    - Description: 
+    - Description:
     interface ethtool ring
 
     - `/software/network/structure_ethtool_ring/rx`
@@ -119,7 +119,7 @@
         - Optional
         - Type: long
  - `/software/network/structure_ethtool_wol`
-    - Description: 
+    - Description:
     ethtool wol p|u|m|b|a|g|s|d...
     from the man page
         Sets Wake-on-LAN options.  Not all devices support this.  The argument to this option is  a  string
@@ -134,7 +134,7 @@
             d  Disable (wake on nothing).  This option clears all previous option
 
  - `/software/network/structure_ethtool`
-    - Description: 
+    - Description:
     ethtool
 
     - `/software/network/structure_ethtool/wol`
@@ -150,7 +150,7 @@
         - Optional
         - Type: long
  - `/software/network/structure_interface`
-    - Description: 
+    - Description:
     interface
 
     - `/software/network/structure_interface/ip`
@@ -290,11 +290,11 @@
         - Optional
         - Type: boolean
  - `/software/network/structure_router`
-    - Description: 
+    - Description:
     router
 
  - `/software/network/structure_ipv6`
-    - Description: 
+    - Description:
     IPv6 global settings
 
     - `/software/network/structure_ipv6/enabled`
@@ -307,7 +307,7 @@
         - Optional
         - Type: valid_interface
  - `/software/network/structure_network`
-    - Description: 
+    - Description:
     network
 
     - `/software/network/structure_network/domainname`

@@ -8,7 +8,7 @@
 Configuration module for OpenNebula. Executes the required ssh commands
 to enable the hosts to be used by the cloud server.
 
-This component needs a 'oneadmin' user. 
+This component needs a 'oneadmin' user.
 The user should be able to run these commands with sudo without password:
 
 - `virsh secret-define --file `/var/lib/one/templates/secret/secret_ceph.xml``

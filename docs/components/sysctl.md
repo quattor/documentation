@@ -17,7 +17,7 @@ Add/modify variables into sysctl configuration file.
 
 - `/software/components/ncm-sysctl/compat-v1` : boolean (required)
 
-    This property is a boolean making sysctl accept variable definitions 
+    This property is a boolean making sysctl accept variable definitions
     according to v1 of this component. This is deprecated. If you rely on this,
     you are advised to convert your configuration to v2 schema.
 

@@ -16,20 +16,6 @@ Quattor, please check
 
     Activates/deactivates the component.
 
-- `/software/components/spma/unescape` : boolean
-
-    If defined and set to false, then it is assumed that the package information in
-    the profile has not been escaped with PAN's escape() function. This setting is
-    only meaningful when using a tool different than PAN for generating CDB
-    profiles.
-
-    Currently ignored.
-
-- `/software/components/spma/tmpdir` : string
-
-    If defined, set the path to the temporary directory (for compatibility
-    with -bad- packages that need to remove the sticky bit from `/tmp`).
-
 #### Flags for Yum processing:
 
 - `/software/components/spma/process_obsoletes` : boolean
@@ -87,42 +73,6 @@ Quattor, please check
 
     String to be put in quattor\_os\_file upon successful SPMA completion.
 
-- `/software/components/spma/userprio` : string ("yes|no")
-
-    Obsoleted and ignored.
-
-- `/software/components/spma/protectkernel` : string ("yes|no")
-
-    Obsolete and ignored. This is delegated to Yum.
-
-- `/software/components/spma/packager` : string
-
-    Must contain `yum` to use this module.
-
-- `/software/components/spma/usespmlist` : string ("yes|no")
-
-    Obsolete. Currently ignored.
-
-- `/software/components/spma/rpmexclusive` : string ("yes|no")
-
-    Obsolete. Currently ignored.
-
-- `/software/components/spma/debug` : string ("0|1|2|3|4|5")
-
-    Obsolete. Currently ignored.
-
-- `/software/components/spma/verbose` : string ("0|1")
-
-    Obsolete. Currently ignored.
-
-- `/software/components/spma/cachedir` : string
-
-    Obsolete. Currently ignored.
-
-- `/software/components/spma/localcache` : string ("yes|no")
-
-    Obsolete. Currently ignored.
-
 - `/software/components/spma/proxy` : string ("yes|no")
 
     Whether to use a proxy.
@@ -155,10 +105,6 @@ Quattor, please check
     search of each pattern can be performed by setting `fullsearch` to true.
     By default, the fullsearch is not performed, and for any packages that have
     versions with wildcards, it is assumed that the repositories contain them.
-
-- `/software/components/spma/headnode` : boolean
-
-    Ignored.
 
 ### FILES
 

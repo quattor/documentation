@@ -6,7 +6,7 @@ myproxy:  NCM component to configure MyProxy server.
 ### DESCRIPTION
 
 The _myproxy_ component manages the `/opt/edg/etc/edg`-myproxy.conf
-file for the MyProxy server.  
+file for the MyProxy server.
 
 ### RESOURCES
 

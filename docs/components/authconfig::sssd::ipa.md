@@ -2,7 +2,7 @@
 ### Types
 
  - `/software/authconfig/authconfig_sssd_ipa_krb5`
-    - Description: 
+    - Description:
     Kerberos settings for the IPA access provider
 
     - `/software/authconfig/authconfig_sssd_ipa_krb5/validate`
@@ -21,7 +21,7 @@
         - Optional
         - Type: absolute_file_path
  - `/software/authconfig/authconfig_sssd_ipa_dyndns`
-    - Description: 
+    - Description:
     dyndns settings for the IPA access provider
 
     - `/software/authconfig/authconfig_sssd_ipa_dyndns/update`
@@ -48,7 +48,7 @@
         - Optional
         - Type: type_ip
  - `/software/authconfig/authconfig_sssd_ipa_search_base`
-    - Description: 
+    - Description:
     search_base settings for the IPA access provider
 
     - `/software/authconfig/authconfig_sssd_ipa_search_base/hbac`
@@ -70,7 +70,7 @@
         - Optional
         - Type: string
  - `/software/authconfig/authconfig_sssd_ipa`
-    - Description: 
+    - Description:
     IPA access provider for SSSD.  See the sssd-ipa man page.
 
     - `/software/authconfig/authconfig_sssd_ipa/krb5`

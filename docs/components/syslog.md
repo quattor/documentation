@@ -1,28 +1,30 @@
 
 ### NAME
 
-NCM::syslog - adding entries and editing `/etc/syslog.conf`
+`NCM::Component::syslog` configures entries in `/etc`/(r)syslog.conf
 
-### RESOURCES
+### Methods
 
-- `/software/components/syslog/active` : boolean
+- sysconfig
 
-    Activates/deactivates the component.
+    Modify/add `SYSLOGD` and/or `KLOGD` options
+    in the `$sysconfig` file.
 
-- `/software/components/syslog/fullcontrol` : boolean
+    Returns if file changed.
 
-    Determines whether component has full control over `/etc/syslog.conf`,
-    eventually erasing entries from other sources, or whether entries
-    from other sources are kept.
+- render
 
-- `/software/components/syslog/syslogdoptions` : string
+    Create the complete (r)syslog config file.
 
-    Options for syslogd `/etc/sysconfig/syslog`
+    This method is used when `fullcontrol` is enabled.
 
-- `/software/components/syslog/syslogdoptions` : string
+    Returns if file changed.
 
-    Options for the klogd `/etc/sysconfig/syslog`
+- edit
 
-- `/software/components/syslog/config/`
+    Edit the (r)syslog config file, leaving entries from
+    other sources intact.
 
-    The configuration items.
+    This method is used when `fullcontrol` is disabled.
+
+    Returns if file changed.

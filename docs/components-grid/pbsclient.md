@@ -8,7 +8,7 @@ NCM::pbsclient - NCM pbsclient configuration component
 - Configure()
 
     Do the necessary configuration for an PBS client at CERN. The mail two configuration files
-    are `/var/spool/pbs/mom`\_priv/config and `/var/spool/pbs/server`\_name. The first one is the 
+    are `/var/spool/pbs/mom`\_priv/config and `/var/spool/pbs/server`\_name. The first one is the
     default configuration file for PBS, the second one is used to hold the PBS server name.
     In case Torque behaviour is selected, the server\_name is contained in the config file
     as well.
@@ -87,8 +87,8 @@ NCM::pbsclient - NCM pbsclient configuration component
 - `/software/components/pbsclient/checkpoint`\_run\_exe : string
 - `/software/components/pbsclient/configPath` : string
 
-    location of the PBS mom configuration file (default: 
-    `/var/spool/pbs/mom`\_priv/config).  Note that the server\_name file is 
+    location of the PBS mom configuration file (default:
+    `/var/spool/pbs/mom`\_priv/config).  Note that the server\_name file is
     written two directories up (thus by default in `/var/spool/pbs`).
 
 - `/software/components/pbsclient/behaviour` : string

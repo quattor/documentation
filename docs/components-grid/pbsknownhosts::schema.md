@@ -13,7 +13,7 @@
     - `/software/pbsknownhosts/pbsknownhosts_component/nodes`
         - Optional
         - Type: string
-        - Default value: 
+        - Default value:
     - `/software/pbsknownhosts/pbsknownhosts_component/keytypes`
         - Optional
         - Type: string

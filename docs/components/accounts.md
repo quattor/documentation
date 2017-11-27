@@ -79,7 +79,7 @@ It updates a structure\_accounts (return value may be assigned to Default: `/sof
 #### keep\_user\_group(user\_or\_group:string or list of string)
 
 This functions adds a user or group to the kept\_users or kept\_groups resources. The
-argument can be a string or list of strings. The return value can be assigned to 
+argument can be a string or list of strings. The return value can be assigned to
 `/software/components/accounts/kept_users` or `/software/components/accounts/kept_groups`.
 
 ### RESOURCES
@@ -128,7 +128,7 @@ mandatory. The available fields are:
 
     the shell for the user. If it is defined as an empty string, the current shell
     is preserved for an existing account (for a new account, it will remain undefined,
-    meaning that the default shell on the system will be used). 
+    meaning that the default shell on the system will be used).
 
     Defaults to `/bin/bash.`
 
@@ -175,7 +175,7 @@ name.  At least one field must be specified.
     An optional list of users that must be added as member of the group. The users don't have to be
     local users, defined in the configuration.
 
-    Note 1: group members present in the `/etc/group` file but not defined in the current configuration 
+    Note 1: group members present in the `/etc/group` file but not defined in the current configuration
     are removed by **ncm-accounts** if they are not required members.
 
     Note 2: for users defined in the configuration the preferred way to add them to groups is by defining
@@ -232,7 +232,7 @@ default is false.  The root account can never be removed.
 #### `/software/components/accounts/preserved_accounts`
 
 This property may have 3 values: 'none', 'system', 'dyn\_user\_group'. It controls
-the accounts/groups that have to be preserved when `remove_unknown` is true 
+the accounts/groups that have to be preserved when `remove_unknown` is true
 (it has no effect when `remove_unknown=false`).
 
 The effect of each possible value is:
@@ -248,7 +248,7 @@ The effect of each possible value is:
 
     all accounts/groups in the system range and in the
     range used for dynamic uid/gid allocation by useradd command, ie. all
-    accounts/groups with uid/gid less or equal to GID/UID\_MAX as defined in 
+    accounts/groups with uid/gid less or equal to GID/UID\_MAX as defined in
     `/etc/login.defs`, are preserved. The exact list of accounts preserved
     depends on UID/GID\_MAX value. It is possible to use login\_defs/uid\_max and
     login\_defs/gid\_max properties to control the preserved ranges. Not that
