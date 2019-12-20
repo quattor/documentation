@@ -1,0 +1,65 @@
+##################
+types\::annotation
+##################
+
+Types
+-----
+
+ - **structure_annotation**
+    - Description: optional hardware specific information
+    - *structure_annotation/name*
+        - Description: product name
+        - Optional
+        - Type: string
+    - *structure_annotation/type*
+        - Description: product type
+        - Optional
+        - Type: string
+    - *structure_annotation/model*
+        - Description: product model
+        - Optional
+        - Type: string
+    - *structure_annotation/manufacturer*
+        - Description: manufacturer name
+        - Optional
+        - Type: string
+    - *structure_annotation/vendor*
+        - Description: vendor name
+        - Optional
+        - Type: string
+    - *structure_annotation/version*
+        - Description: product version
+        - Optional
+        - Type: string
+    - *structure_annotation/chipset*
+        - Description: product chipset
+        - Optional
+        - Type: string
+    - *structure_annotation/serialnumber*
+        - Description: product serialnumber
+        - Optional
+        - Type: string
+    - *structure_annotation/arch*
+        - Description: product architecture: i386, amd64, m68k, ...
+        - Optional
+        - Type: string
+    - *structure_annotation/bus*
+        - Description: bus of peripheral
+        - Optional
+        - Type: string
+    - *structure_annotation/clock*
+        - Description: clock of peripheral
+        - Optional
+        - Type: long
+    - *structure_annotation/lang*
+        - Description: language of the product
+        - Optional
+        - Type: string
+    - *structure_annotation/power*
+        - Description: power in watts
+        - Optional
+        - Type: long
+    - *structure_annotation/location*
+        - Description: location of the hardware
+        - Optional
+        - Type: string

@@ -1,0 +1,103 @@
+###############################
+NCM\::Component\::cups - schema
+###############################
+
+Types
+-----
+
+ - **/software/components/cups/cups_component_printer**
+    - */software/components/cups/cups_component_printer/server*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/protocol*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/printer*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/uri*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/delete*
+        - Optional
+        - Type: boolean
+    - */software/components/cups/cups_component_printer/enable*
+        - Optional
+        - Type: boolean
+    - */software/components/cups/cups_component_printer/class*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/description*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/location*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/model*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_printer/ppd*
+        - Optional
+        - Type: string
+ - **/software/components/cups/cups_component_options**
+    - */software/components/cups/cups_component_options/AutoPurgeJobs*
+        - Optional
+        - Type: legacy_binary_affirmation_string
+    - */software/components/cups/cups_component_options/Classification*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/ClassifyOverride*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/DataDir*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/DefaultCharset*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/Encryption*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/ErrorLog*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/LogLevel*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/MaxCopies*
+        - Optional
+        - Type: long
+    - */software/components/cups/cups_component_options/MaxLogSize*
+        - Optional
+        - Type: long
+    - */software/components/cups/cups_component_options/PreserveJobHistory*
+        - Optional
+        - Type: legacy_binary_affirmation_string
+    - */software/components/cups/cups_component_options/PreserveJobFiles*
+        - Optional
+        - Type: legacy_binary_affirmation_string
+    - */software/components/cups/cups_component_options/Printcap*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/ServerAdmin*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/ServerAlias*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component_options/ServerName*
+        - Optional
+        - Type: string
+ - **/software/components/cups/cups_component**
+    - */software/components/cups/cups_component/defaultprinter*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component/nodetype*
+        - Optional
+        - Type: string
+    - */software/components/cups/cups_component/options*
+        - Optional
+        - Type: cups_component_options
+    - */software/components/cups/cups_component/printers*
+        - Optional
+        - Type: cups_component_printer

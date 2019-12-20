@@ -1,0 +1,99 @@
+#################################################
+NCM\::Component\::metaconfig\::rpcidmapd - schema
+#################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/rpcidmapd_general_config**
+    - */software/components/metaconfig/rpcidmapd_general_config/Verbosity*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/rpcidmapd_general_config/Domain*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_general_config/Local-Realms*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rpcidmapd_mapping_config**
+    - */software/components/metaconfig/rpcidmapd_mapping_config/Nobody-User*
+        - Required
+        - Type: string
+        - Default value: nobody
+    - */software/components/metaconfig/rpcidmapd_mapping_config/Nobody-Group*
+        - Required
+        - Type: string
+        - Default value: nobody
+ - **/software/components/metaconfig/rpcidmapd_translation_config**
+    - */software/components/metaconfig/rpcidmapd_translation_config/Method*
+        - Required
+        - Type: string
+        - Default value: nsswitch
+    - */software/components/metaconfig/rpcidmapd_translation_config/GSS-Methods*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rpcidmapd_umich_schema_config**
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/LDAP_server*
+        - Required
+        - Type: type_fqdn
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/LDAP_base*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/LDAP_canonicalize_name*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/LDAP_people_base*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/LDAP_group_base*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/LDAP_use_ssl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/LDAP_ca_cert*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_person_objectclass*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_name_attr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_uid_attr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/GSS_principal_attr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_acctname_attr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_group_objectclass*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_gid_attr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_group_attr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_umich_schema_config/NFSv4_member_attr*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rpcidmapd_config**
+    - */software/components/metaconfig/rpcidmapd_config/General*
+        - Required
+        - Type: rpcidmapd_general_config
+    - */software/components/metaconfig/rpcidmapd_config/Mapping*
+        - Required
+        - Type: rpcidmapd_mapping_config
+    - */software/components/metaconfig/rpcidmapd_config/Translation*
+        - Required
+        - Type: rpcidmapd_translation_config
+    - */software/components/metaconfig/rpcidmapd_config/Static*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rpcidmapd_config/UMICH_SCHEMA*
+        - Optional
+        - Type: rpcidmapd_umich_schema_config

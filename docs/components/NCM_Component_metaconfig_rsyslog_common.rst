@@ -1,0 +1,212 @@
+###############################################
+NCM\::Component\::metaconfig\::rsyslog - common
+###############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/rsyslog_queue**
+    - Description: General queue parameters
+    - */software/components/metaconfig/rsyslog_queue/filename*
+        - Description: queue filename, relative to spoolDirectory
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_queue/spoolDirectory*
+        - Description: directory used to store queue files
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_queue/size*
+        - Description: maximum number of messages
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/dequeuebatchsize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/maxdiskspace*
+        - Description: maximum diskspace used by all queue files
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/highwatermark*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/lowwatermark*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/fulldelaymark*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/lightdelaymark*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/discardmark*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/discardseverity*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/checkpointinterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/syncqueuefiles*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_queue/samplinginterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_queue/workerthreads*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/timeoutshutdown*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/timeoutactioncompletion*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/timeoutenqueue*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/timeoutworkerthreadshutdown*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/workerthreadminimummessages*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/maxfilesize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/saveonshutdown*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_queue/dequeueslowdown*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/dequeuetimebegin*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/dequeuetimeend*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_queue/samplinginterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/rsyslog_global**
+    - Description: Global configuration queue parameters
+    - */software/components/metaconfig/rsyslog_global/action.reportSuspension*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/action.reportSuspensionContinuation*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/workDirectory*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_global/dropMsgsWithMaliciousDNSPtrRecords*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/localHostname*
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/rsyslog_global/preserveFQDN*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/defaultNetstreamDriverCAFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_global/defaultNetstreamDriverKeyFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_global/defaultNetstreamDriverCertFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_global/debug.gnutls*
+        - Optional
+        - Type: long
+        - Range: 0..10
+    - */software/components/metaconfig/rsyslog_global/processInternalMessages*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/stdlog.channelspec*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_global/defaultNetstreamDriver*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_global/maxMessageSize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_global/janitorInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_global/debug.onShutdown*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/debug.logFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_global/net.ipprotocol*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_global/net.aclAddHostnameOnFail*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/net.aclResolveHostname*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/net.enableDNS*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/net.permitACLWarning*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/parser.parseHostnameAndTag*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/parser.permitSlashInHostname*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/senders.keepTrack*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/senders.timeoutAfter*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_global/senders.reportGoneAway*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/senders.reportNew*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/debug.unloadModules*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_global/environment*
+        - Optional
+        - Type: string

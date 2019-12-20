@@ -1,0 +1,139 @@
+##################################
+NCM\::Component\::lcgbdii - schema
+##################################
+
+Types
+-----
+
+ - **/software/components/lcgbdii/lcgbdii_component**
+    - */software/components/lcgbdii/lcgbdii_component/dir*
+        - Optional
+        - Type: string
+        - Default value: /opt/bdii/
+    - */software/components/lcgbdii/lcgbdii_component/varDir*
+        - Required
+        - Type: string
+        - Default value: /opt/bdii/var
+    - */software/components/lcgbdii/lcgbdii_component/configFile*
+        - Required
+        - Type: string
+        - Default value: /opt/bdii/bdii.conf
+    - */software/components/lcgbdii/lcgbdii_component/logFile*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/logLevel*
+        - Required
+        - Type: string
+        - Default value: ERROR
+    - */software/components/lcgbdii/lcgbdii_component/schemaFile*
+        - Optional
+        - Type: string
+        - Default value: /opt/bdii/etc/schemas
+    - */software/components/lcgbdii/lcgbdii_component/schemas*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/port*
+        - Optional
+        - Type: type_port
+    - */software/components/lcgbdii/lcgbdii_component/portRead*
+        - Optional
+        - Type: type_port
+    - */software/components/lcgbdii/lcgbdii_component/portsWrite*
+        - Optional
+        - Type: type_port
+    - */software/components/lcgbdii/lcgbdii_component/user*
+        - Required
+        - Type: string
+        - Default value: edguser
+    - */software/components/lcgbdii/lcgbdii_component/bind*
+        - Optional
+        - Type: string
+        - Default value: mds-vo-name=local,o=grid
+    - */software/components/lcgbdii/lcgbdii_component/passwd*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/searchFilter*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/searchTimeout*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/lcgbdii/lcgbdii_component/readTimeout*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/lcgbdii/lcgbdii_component/breatheTime*
+        - Optional
+        - Type: long
+        - Range: 1..
+        - Default value: 60
+    - */software/components/lcgbdii/lcgbdii_component/archiveSize*
+        - Optional
+        - Type: long
+    - */software/components/lcgbdii/lcgbdii_component/autoUpdate*
+        - Optional
+        - Type: string
+        - Default value: no
+    - */software/components/lcgbdii/lcgbdii_component/autoModify*
+        - Optional
+        - Type: string
+        - Default value: no
+    - */software/components/lcgbdii/lcgbdii_component/isCache*
+        - Optional
+        - Type: string
+        - Default value: no
+    - */software/components/lcgbdii/lcgbdii_component/modifyDN*
+        - Optional
+        - Type: string
+        - Default value: no
+    - */software/components/lcgbdii/lcgbdii_component/RAMDisk*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/deleteDelay*
+        - Optional
+        - Type: long
+    - */software/components/lcgbdii/lcgbdii_component/fixGlue*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/updateUrl*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/lcgbdii/lcgbdii_component/updateLdif*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/lcgbdii/lcgbdii_component/defaultLdif*
+        - Optional
+        - Type: string
+        - Default value: /opt/bdii/etc/default.ldif
+    - */software/components/lcgbdii/lcgbdii_component/slapd*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/slapadd*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/slapdConf*
+        - Optional
+        - Type: string
+        - Default value: /opt/bdii/etc/glue-slapd.conf
+    - */software/components/lcgbdii/lcgbdii_component/slapdDebugLevel*
+        - Optional
+        - Type: long
+        - Range: 0..5
+    - */software/components/lcgbdii/lcgbdii_component/urls*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/lcgbdii/lcgbdii_component/ldifDir*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/pluginDir*
+        - Optional
+        - Type: string
+    - */software/components/lcgbdii/lcgbdii_component/providerDir*
+        - Optional
+        - Type: string
+
+Functions
+---------
+
+ - lcgbdii_check_params

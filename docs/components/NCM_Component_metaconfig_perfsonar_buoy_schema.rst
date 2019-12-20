@@ -1,0 +1,214 @@
+########################################################
+NCM\::Component\::metaconfig\::perfsonar\::buoy - schema
+########################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/buoy_nodestring**
+ - **/software/components/metaconfig/buoy_service_globals**
+    - */software/components/metaconfig/buoy_service_globals/data_dir*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_service_globals/central_host*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_service_globals/db*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_service_globals/timeout*
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/buoy_service_globals/archive_dir*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/buoy_bw_test**
+    - */software/components/metaconfig/buoy_bw_test/interval*
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/buoy_bw_test/start_alpha*
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/buoy_bw_test/report_interval*
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/buoy_bw_test/duration*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 60
+    - */software/components/metaconfig/buoy_bw_test/type*
+        - Required
+        - Type: string
+        - Default value: BWTCP
+ - **/software/components/metaconfig/buoy_owp_test**
+    - */software/components/metaconfig/buoy_owp_test/interval*
+        - Required
+        - Type: double
+        - Default value: 0.1
+    - */software/components/metaconfig/buoy_owp_test/lossthresh*
+        - Required
+        - Type: double
+        - Default value: 10.0
+    - */software/components/metaconfig/buoy_owp_test/session_count*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10800
+    - */software/components/metaconfig/buoy_owp_test/sample_count*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 600
+    - */software/components/metaconfig/buoy_owp_test/bucket_width*
+        - Required
+        - Type: double
+        - Default value: 1.0E-4
+ - **/software/components/metaconfig/buoy_test_spec**
+    - */software/components/metaconfig/buoy_test_spec/description*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_test_spec/tool*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_test_spec/bw*
+        - Optional
+        - Type: buoy_bw_test
+    - */software/components/metaconfig/buoy_test_spec/owamp*
+        - Optional
+        - Type: buoy_owp_test
+ - **/software/components/metaconfig/buoy_measurement_set**
+    - */software/components/metaconfig/buoy_measurement_set/testspec*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_measurement_set/group*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_measurement_set/exclude_self*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/buoy_measurement_set/description*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_measurement_set/addr_type*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/buoy_node**
+    - */software/components/metaconfig/buoy_node/longname*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_node/contact_addr*
+        - Required
+        - Type: type_ip
+    - */software/components/metaconfig/buoy_node/test_addr*
+        - Required
+        - Type: type_ip
+ - **/software/components/metaconfig/buoy_nodehash**
+ - **/software/components/metaconfig/buoy_group**
+    - */software/components/metaconfig/buoy_group/description*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_group/type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/buoy_group/hauptnode*
+        - Optional
+        - Type: buoy_nodestring
+    - */software/components/metaconfig/buoy_group/nodes*
+        - Required
+        - Type: buoy_nodestring
+    - */software/components/metaconfig/buoy_group/include_senders*
+        - Optional
+        - Type: type_fqdn
+    - */software/components/metaconfig/buoy_group/include_receivers*
+        - Optional
+        - Type: type_fqdn
+    - */software/components/metaconfig/buoy_group/senders*
+        - Optional
+        - Type: type_fqdn
+    - */software/components/metaconfig/buoy_group/receivers*
+        - Optional
+        - Type: type_fqdn
+ - **/software/components/metaconfig/buoy_host**
+    - */software/components/metaconfig/buoy_host/node*
+        - Required
+        - Type: buoy_nodestring
+ - **/software/components/metaconfig/type_owmesh**
+    - */software/components/metaconfig/type_owmesh/bindir*
+        - Required
+        - Type: string
+        - Default value: /usr/bin
+    - */software/components/metaconfig/type_owmesh/bwctl*
+        - Required
+        - Type: buoy_service_globals
+    - */software/components/metaconfig/type_owmesh/owamp*
+        - Required
+        - Type: buoy_service_globals
+    - */software/components/metaconfig/type_owmesh/var_dir*
+        - Required
+        - Type: string
+        - Default value: /var/lib
+    - */software/components/metaconfig/type_owmesh/user*
+        - Required
+        - Type: string
+        - Default value: perfsonar
+    - */software/components/metaconfig/type_owmesh/group*
+        - Required
+        - Type: string
+        - Default value: perfsonar
+    - */software/components/metaconfig/type_owmesh/verify_peer_addr*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/type_owmesh/central_data_dir*
+        - Required
+        - Type: string
+        - Default value: /var/lib/perfsonar/perfsonarbuoy_ma
+    - */software/components/metaconfig/type_owmesh/central_db_type*
+        - Required
+        - Type: string
+        - Default value: DBI:mysql
+    - */software/components/metaconfig/type_owmesh/central_db_user*
+        - Required
+        - Type: string
+        - Default value: perfsonar
+    - */software/components/metaconfig/type_owmesh/central_db_pass*
+        - Required
+        - Type: string
+        - Default value: 7hc4m1
+    - */software/components/metaconfig/type_owmesh/send_timeout*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/metaconfig/type_owmesh/testspecs*
+        - Required
+        - Type: buoy_test_spec
+    - */software/components/metaconfig/type_owmesh/nodes*
+        - Required
+        - Type: buoy_nodehash
+    - */software/components/metaconfig/type_owmesh/localnodes*
+        - Required
+        - Type: buoy_nodestring
+    - */software/components/metaconfig/type_owmesh/hosts*
+        - Required
+        - Type: buoy_host
+    - */software/components/metaconfig/type_owmesh/groups*
+        - Required
+        - Type: buoy_group
+    - */software/components/metaconfig/type_owmesh/measurementsets*
+        - Required
+        - Type: buoy_measurement_set
+    - */software/components/metaconfig/type_owmesh/addrtype*
+        - Required
+        - Type: string
+
+Variables
+---------
+
+ - BW_DEFS
+ - OWAMP_DEFS

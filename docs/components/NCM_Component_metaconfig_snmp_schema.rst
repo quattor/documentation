@@ -1,0 +1,585 @@
+############################################
+NCM\::Component\::metaconfig\::snmp - schema
+############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/snmp_snmp_client_behaviour**
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/defDomain*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/defTarget*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/defaultPort*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/defVersion*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/defCommunity*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/alias*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/dumpPacket*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/doDebugging*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/debugTokens*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/clientaddr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/clientaddrUsesPort*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/clientRecvBuf*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/clientSendBuf*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/noRangeCheck*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/noTokenWarnings*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_client_behaviour/reverseEncodeBER*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/snmp_snmp_snmpv3_settings**
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defSecurityName*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defSecurityLevel*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defPassphrase*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defAuthPassphrase*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defPrivPassphrase*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defAuthType*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defPrivType*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defContext*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defSecurityModel*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defAuthMasterKey*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defPrivMasterKey*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defAuthLocalizedKey*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/defPrivLocalizedKey*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/sshtosnmpsocketperms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_snmpv3_settings/sshtosnmpsocketperms*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmp_server_behaviour**
+    - */software/components/metaconfig/snmp_snmp_server_behaviour/persistentDir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_server_behaviour/noPersistentLoad*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_server_behaviour/noPersistentSave*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_server_behaviour/tempFilePattern*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_server_behaviour/serverRecvBuf*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmp_server_behaviour/serverSendBuf*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/snmp_snmp_mib_handling**
+    - */software/components/metaconfig/snmp_snmp_mib_handling/mibfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_mib_handling/showMibErrors*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_mib_handling/commentToEOL*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_mib_handling/mibAllowUnderline*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_mib_handling/mibWarningLevel*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/snmp_snmp_output_configuration**
+    - */software/components/metaconfig/snmp_snmp_output_configuration/logTimestamp*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/printNumericEnums*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/printNumericOids*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/dontBreakdownOids*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/escapeQuotes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/quickPrinting*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/printValueOnly*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/dontPrintUnits*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/numericTimeticks*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/printHexText*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/hexOutputLength*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/snmp_snmp_output_configuration/suffixPrinting*
+        - Optional
+        - Type: long
+        - Range: 0..2
+    - */software/components/metaconfig/snmp_snmp_output_configuration/oidOutputFormat*
+        - Optional
+        - Type: long
+        - Range: 0..6
+    - */software/components/metaconfig/snmp_snmp_output_configuration/extendedIndex*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmp_output_configuration/noDisplayHint*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/snmp_snmp_conf_main**
+ - **/software/components/metaconfig/snmp_snmp_conf**
+    - */software/components/metaconfig/snmp_snmp_conf/main*
+        - Optional
+        - Type: snmp_snmp_conf_main
+    - */software/components/metaconfig/snmp_snmp_conf/mibdirs*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_conf/mibdirsprefix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_conf/mibs*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmp_conf/mibsprefix*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmpd_agent_behaviour**
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/agentaddress*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/agentgroup*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/agentuser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/leave_pidfile*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/maxGetbulkRepeats*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/maxGetbulkResponses*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/engineID*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/engineIDType*
+        - Optional
+        - Type: long
+        - Range: 0..3
+    - */software/components/metaconfig/snmp_snmpd_agent_behaviour/engineIDNic*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmpd_snmpv3_authentication**
+    - */software/components/metaconfig/snmp_snmpd_snmpv3_authentication/createUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_snmpv3_authentication/defX509ServerPub*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_snmpv3_authentication/defX509ServerPriv*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_snmpv3_authentication/defX509ClientCerts*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmpd_access_control**
+    - */software/components/metaconfig/snmp_snmpd_access_control/rouser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/rwuser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/rocommunity*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/rwcommunity*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/rocommunity6*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/rwcommunity6*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/com2sec*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/com2sec6*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/com2secunix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/view*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/access*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/authcommunity*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/authuser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/authgroup*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/authaccess*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_access_control/setaccess*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmpd_system_information**
+    - */software/components/metaconfig/snmp_snmpd_system_information/sysLocation*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/sysContact*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/sysName*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/sysServices*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/snmp_snmpd_system_information/sysDescr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/sysObjectID*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/interface*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/interface_fadeout*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/interface_replace_old*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_system_information/ignoreDisk*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/skipNFSInHostResources*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_system_information/storageUseNFS*
+        - Optional
+        - Type: long
+        - Range: 1..2
+    - */software/components/metaconfig/snmp_snmpd_system_information/realStorageUnits*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/proc*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/procfix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/disk*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/includeAllDisks*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/load*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/swap*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_system_information/logmatch*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmpd_active_monitoring**
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/trapcommunity*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/trapsink*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/trap2sink*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/informsink*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/trapsess*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/authtrapenable*
+        - Optional
+        - Type: long
+        - Range: 1..2
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/v1trapaddress*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/iquerySecName*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/agentSecName*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/monitor*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/notificationEvent*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/setEvent*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/strictDisman*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/linkUpDownNotifications*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/defaultMonitors*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/repeat*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/cron*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_active_monitoring/at*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmpd_extending_agent**
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/exec*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/sh*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/execfix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/extend*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/extendfix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/pass*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/pass_persist*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/disablePerl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/perlInitFile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/perl*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/dlmod*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/proxy*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/smuxpeer*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/smuxsocket*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/master*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/agentXPerms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/agentXPingInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/agentXSocket*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/agentXTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmpd_extending_agent/agentXRetries*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/snmp_snmpd_other**
+    - */software/components/metaconfig/snmp_snmpd_other/override*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_other/injectHandler*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_other/dontLogTCPWrappersConnects*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmpd_other/table*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmpd_other/add_row*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmpd_conf_main**
+ - **/software/components/metaconfig/snmp_snmpd_conf**
+    - */software/components/metaconfig/snmp_snmpd_conf/main*
+        - Optional
+        - Type: snmp_snmpd_conf_main
+    - */software/components/metaconfig/snmp_snmpd_conf/group*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmptrapd_behaviour**
+    - */software/components/metaconfig/snmp_snmptrapd_behaviour/snmpTrapdAddr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_behaviour/doNotRetainNotificationLogs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmptrapd_behaviour/doNotLogTraps*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmptrapd_behaviour/doNotFork*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmptrapd_behaviour/pidFile*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmptrapd_access_control**
+    - */software/components/metaconfig/snmp_snmptrapd_access_control/authCommunity*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_access_control/authUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_access_control/authGroup*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_access_control/authAccess*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_access_control/setAccess*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_access_control/createUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_access_control/disableAuthorization*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/snmp_snmptrapd_logging**
+    - */software/components/metaconfig/snmp_snmptrapd_logging/format1*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_logging/format2*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_logging/ignoreAuthFailure*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/snmp_snmptrapd_logging/logOption*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/snmp_snmptrapd_logging/outputOption*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmptrapd_mysql_logging**
+    - */software/components/metaconfig/snmp_snmptrapd_mysql_logging/sqlMaxQueue*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/snmp_snmptrapd_mysql_logging/sqlSaveInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/snmp_snmptrapd_notification_processing**
+    - */software/components/metaconfig/snmp_snmptrapd_notification_processing/forward*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/snmp_snmptrapd_main**
+ - **/software/components/metaconfig/snmp_snmptrapd_conf**
+    - */software/components/metaconfig/snmp_snmptrapd_conf/main*
+        - Optional
+        - Type: snmp_snmptrapd_main
+    - */software/components/metaconfig/snmp_snmptrapd_conf/traphandle*
+        - Optional
+        - Type: string

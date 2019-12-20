@@ -1,0 +1,530 @@
+####################################################
+NCM\::Component\::metaconfig\::logstash - schema_1.2
+####################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/logstash_port_range**
+ - **/software/components/metaconfig/logstash_ssl**
+    - */software/components/metaconfig/logstash_ssl/ssl_cacert*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_ssl/ssl_cert*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_ssl/ssl_key*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_ssl/ssl_key_passphrase*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_ssl/ssl_enable*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_ssl/ssl_verify*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/logstash_conditional_expression**
+    - */software/components/metaconfig/logstash_conditional_expression/join*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_conditional_expression/left*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_conditional_expression/test*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_conditional_expression/right*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_conditional**
+    - */software/components/metaconfig/logstash_conditional/type*
+        - Required
+        - Type: string
+        - Default value: if
+    - */software/components/metaconfig/logstash_conditional/expr*
+        - Required
+        - Type: logstash_conditional_expression
+ - **/software/components/metaconfig/logstash_plugin_common**
+    - Description: Common portion for all plugins
+    - */software/components/metaconfig/logstash_plugin_common/_conditional*
+        - Description: using _conditional to avoid name clash with plugin option name. The conditional is only for the single plugin and has to be type 'if' (the default).
+        - Optional
+        - Type: logstash_conditional
+ - **/software/components/metaconfig/logstash_codec_charset**
+ - **/software/components/metaconfig/logstash_codec_common**
+ - **/software/components/metaconfig/logstash_codec_plain**
+    - */software/components/metaconfig/logstash_codec_plain/charset*
+        - Optional
+        - Type: logstash_codec_charset
+    - */software/components/metaconfig/logstash_codec_plain/format*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_codec_json**
+    - */software/components/metaconfig/logstash_codec_json/charset*
+        - Optional
+        - Type: logstash_codec_charset
+ - **/software/components/metaconfig/logstash_input_codec**
+    - */software/components/metaconfig/logstash_input_codec/json*
+        - Optional
+        - Type: logstash_codec_json
+    - */software/components/metaconfig/logstash_input_codec/plain*
+        - Optional
+        - Type: logstash_codec_plain
+ - **/software/components/metaconfig/logstash_input_plugin_common**
+    - Description: Common portion for all input plugins
+    - */software/components/metaconfig/logstash_input_plugin_common/type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_input_plugin_common/debug*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_input_plugin_common/tags*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_plugin_common/add_field*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_plugin_common/codec*
+        - Optional
+        - Type: logstash_input_codec
+ - **/software/components/metaconfig/logstash_input_file**
+    - Description: File-based input
+    - */software/components/metaconfig/logstash_input_file/path*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_input_file/exclude*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_file/sincedb_path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_file/sincedb_write_interval*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/logstash_input_file/stat_interval*
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 1
+    - */software/components/metaconfig/logstash_input_file/start_position*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_input_tcp**
+    - Description: Collecting from tcp
+    - */software/components/metaconfig/logstash_input_tcp/port*
+        - Required
+        - Type: type_port
+    - */software/components/metaconfig/logstash_input_tcp/host*
+        - Optional
+        - Type: type_hostname
+ - **/software/components/metaconfig/logstash_input_udp**
+    - Description: Collecting from udp
+    - */software/components/metaconfig/logstash_input_udp/port*
+        - Required
+        - Type: type_port
+    - */software/components/metaconfig/logstash_input_udp/host*
+        - Optional
+        - Type: type_hostname
+ - **/software/components/metaconfig/logstash_input_gelf**
+    - Description: GELF input
+    - */software/components/metaconfig/logstash_input_gelf/port*
+        - Required
+        - Type: type_port
+        - Default value: 12201
+    - */software/components/metaconfig/logstash_input_gelf/host*
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/logstash_input_gelf/remap*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/logstash_input_lumberjack**
+    - Description: Lumberjack/logstash-forwarder input
+    - */software/components/metaconfig/logstash_input_lumberjack/port*
+        - Required
+        - Type: type_port
+        - Default value: 12201
+    - */software/components/metaconfig/logstash_input_lumberjack/host*
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/logstash_input_lumberjack/ssl_certificate*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_input_lumberjack/ssl_key*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_input_lumberjack/ssl_key_passphrase*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_input_beats**
+    - Description: beats input
+    - */software/components/metaconfig/logstash_input_beats/ssl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_input_beats/congestion_threshold*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/logstash_input_plugin**
+    - */software/components/metaconfig/logstash_input_plugin/file*
+        - Optional
+        - Type: logstash_input_file
+    - */software/components/metaconfig/logstash_input_plugin/gelf*
+        - Optional
+        - Type: logstash_input_gelf
+    - */software/components/metaconfig/logstash_input_plugin/tcp*
+        - Optional
+        - Type: logstash_input_tcp
+    - */software/components/metaconfig/logstash_input_plugin/udp*
+        - Optional
+        - Type: logstash_input_udp
+    - */software/components/metaconfig/logstash_input_plugin/lumberjack*
+        - Optional
+        - Type: logstash_input_lumberjack
+    - */software/components/metaconfig/logstash_input_plugin/beats*
+        - Optional
+        - Type: logstash_input_beats
+ - **/software/components/metaconfig/logstash_name_pattern**
+    - Description: Base for all filters
+    - */software/components/metaconfig/logstash_name_pattern/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_name_pattern/pattern*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/logstash_name_patterns**
+    - */software/components/metaconfig/logstash_name_patterns/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_name_patterns/pattern*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_name_patterdict**
+    - Description: A name_patterdict is rendered differently than a name_patterns
+    - */software/components/metaconfig/logstash_filter_name_patterdict/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_name_patterdict/pattern*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_plugin_common**
+    - */software/components/metaconfig/logstash_filter_plugin_common/add_field*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_plugin_common/add_tag*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_plugin_common/remove_field*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_plugin_common/remove_tag*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_grok**
+    - */software/components/metaconfig/logstash_filter_grok/match*
+        - Optional
+        - Type: logstash_name_patterns
+    - */software/components/metaconfig/logstash_filter_grok/break_on_match*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/logstash_filter_grok/drop_if_match*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_filter_grok/keep_empty_captures*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_filter_grok/named_captures_only*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/logstash_filter_grok/patterns_dir*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_bytes2human**
+    - */software/components/metaconfig/logstash_filter_bytes2human/convert*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_date**
+    - */software/components/metaconfig/logstash_filter_date/match*
+        - Required
+        - Type: logstash_filter_name_patterdict
+ - **/software/components/metaconfig/logstash_filter_grep**
+    - */software/components/metaconfig/logstash_filter_grep/match*
+        - Optional
+        - Type: logstash_name_pattern
+    - */software/components/metaconfig/logstash_filter_grep/drop*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/logstash_filter_grep/negate*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/logstash_filter_drop**
+    - */software/components/metaconfig/logstash_filter_drop/percentage*
+        - Optional
+        - Type: long
+        - Range: 0..100
+    - */software/components/metaconfig/logstash_filter_drop/periodic_flush*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/logstash_filter_mutate_convert**
+ - **/software/components/metaconfig/logstash_filter_mutate**
+    - */software/components/metaconfig/logstash_filter_mutate/convert*
+        - Optional
+        - Type: logstash_filter_mutate_convert
+    - */software/components/metaconfig/logstash_filter_mutate/replace*
+        - Optional
+        - Type: logstash_name_pattern
+    - */software/components/metaconfig/logstash_filter_mutate/rename*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_mutate/split*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_mutate/update*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_mutate/exclude_tags*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_kv**
+    - */software/components/metaconfig/logstash_filter_kv/default_keys*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/exclude_keys*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/include_keys*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/prefix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/source*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/target*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/trim*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/trimkey*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_kv/value_split*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_plugin**
+    - */software/components/metaconfig/logstash_filter_plugin/grok*
+        - Optional
+        - Type: logstash_filter_grok
+    - */software/components/metaconfig/logstash_filter_plugin/date*
+        - Optional
+        - Type: logstash_filter_date
+    - */software/components/metaconfig/logstash_filter_plugin/grep*
+        - Optional
+        - Type: logstash_filter_grep
+    - */software/components/metaconfig/logstash_filter_plugin/drop*
+        - Optional
+        - Type: logstash_filter_drop
+    - */software/components/metaconfig/logstash_filter_plugin/mutate*
+        - Optional
+        - Type: logstash_filter_mutate
+    - */software/components/metaconfig/logstash_filter_plugin/kv*
+        - Optional
+        - Type: logstash_filter_kv
+    - */software/components/metaconfig/logstash_filter_plugin/bytes2human*
+        - Optional
+        - Type: logstash_filter_bytes2human
+ - **/software/components/metaconfig/logstash_output_codec**
+    - Description: Common output
+    - */software/components/metaconfig/logstash_output_codec/plain*
+        - Optional
+        - Type: logstash_codec_plain
+ - **/software/components/metaconfig/logstash_output_plugin_common**
+    - */software/components/metaconfig/logstash_output_plugin_common/codec*
+        - Optional
+        - Type: logstash_output_codec
+    - */software/components/metaconfig/logstash_output_plugin_common/workers*
+        - Optional
+        - Type: long
+        - Range: 1..
+ - **/software/components/metaconfig/logstash_output_gelf**
+    - Description: GELF-based output
+    - */software/components/metaconfig/logstash_output_gelf/host*
+        - Required
+        - Type: type_fqdn
+    - */software/components/metaconfig/logstash_output_gelf/level*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_output_gelf/port*
+        - Required
+        - Type: type_port
+        - Default value: 12201
+    - */software/components/metaconfig/logstash_output_gelf/custom_fields*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_gelf/ship_metadata*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/logstash_output_gelf/ship_tags*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/logstash_output_gelf/facility*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_gelf/sender*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_output_stdout**
+    - Description: stdout-based output
+    - */software/components/metaconfig/logstash_output_stdout/debug*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/logstash_output_elasticsearch**
+    - Description: elasticsearch-based output
+    - */software/components/metaconfig/logstash_output_elasticsearch/bind_host*
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/logstash_output_elasticsearch/hosts*
+        - Optional
+        - Type: type_hostport
+    - */software/components/metaconfig/logstash_output_elasticsearch/host*
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/logstash_output_elasticsearch/port*
+        - Optional
+        - Type: logstash_port_range
+    - */software/components/metaconfig/logstash_output_elasticsearch/cluster*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/embedded*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/logstash_output_elasticsearch/index*
+        - Required
+        - Type: string
+        - Default value: logstash-%{+YYYY.MM.dd}
+    - */software/components/metaconfig/logstash_output_elasticsearch/flush_size*
+        - Required
+        - Type: long
+        - Default value: 5000
+    - */software/components/metaconfig/logstash_output_elasticsearch/index_type*
+        - Optional
+        - Type: string
+        - Default value: %{@type}
+    - */software/components/metaconfig/logstash_output_elasticsearch/document_type*
+        - Required
+        - Type: string
+        - Default value: %{@type}
+    - */software/components/metaconfig/logstash_output_elasticsearch/template_overwrite*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/logstash_output_plugin**
+    - */software/components/metaconfig/logstash_output_plugin/gelf*
+        - Optional
+        - Type: logstash_output_gelf
+    - */software/components/metaconfig/logstash_output_plugin/stdout*
+        - Optional
+        - Type: logstash_output_stdout
+    - */software/components/metaconfig/logstash_output_plugin/elasticsearch*
+        - Optional
+        - Type: logstash_output_elasticsearch
+ - **/software/components/metaconfig/logstash_input_conditional**
+    - */software/components/metaconfig/logstash_input_conditional/plugins*
+        - Optional
+        - Type: logstash_input_plugin
+ - **/software/components/metaconfig/logstash_filter_conditional**
+    - */software/components/metaconfig/logstash_filter_conditional/plugins*
+        - Optional
+        - Type: logstash_filter_plugin
+ - **/software/components/metaconfig/logstash_output_conditional**
+    - */software/components/metaconfig/logstash_output_conditional/plugins*
+        - Optional
+        - Type: logstash_output_plugin
+ - **/software/components/metaconfig/logstash_input**
+    - */software/components/metaconfig/logstash_input/plugins*
+        - Optional
+        - Type: logstash_input_plugin
+    - */software/components/metaconfig/logstash_input/conditionals*
+        - Optional
+        - Type: logstash_input_conditional
+ - **/software/components/metaconfig/logstash_filter**
+    - */software/components/metaconfig/logstash_filter/plugins*
+        - Optional
+        - Type: logstash_filter_plugin
+    - */software/components/metaconfig/logstash_filter/conditionals*
+        - Optional
+        - Type: logstash_filter_conditional
+ - **/software/components/metaconfig/logstash_output**
+    - */software/components/metaconfig/logstash_output/plugins*
+        - Optional
+        - Type: logstash_output_plugin
+    - */software/components/metaconfig/logstash_output/conditionals*
+        - Optional
+        - Type: logstash_output_conditional
+ - **/software/components/metaconfig/type_logstash**
+    - Description: The configuration is made of input, filter and output section
+    - */software/components/metaconfig/type_logstash/input*
+        - Required
+        - Type: logstash_input
+    - */software/components/metaconfig/type_logstash/filter*
+        - Optional
+        - Type: logstash_filter
+    - */software/components/metaconfig/type_logstash/output*
+        - Required
+        - Type: logstash_output
+ - **/software/components/metaconfig/type_logstash_forwarder_network_server**
+    - Description: logstash-forwarder type
+    - */software/components/metaconfig/type_logstash_forwarder_network_server/host*
+        - Required
+        - Type: type_hostname
+    - */software/components/metaconfig/type_logstash_forwarder_network_server/port*
+        - Required
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/type_logstash_forwarder_network**
+    - */software/components/metaconfig/type_logstash_forwarder_network/servers*
+        - Required
+        - Type: type_logstash_forwarder_network_server
+    - */software/components/metaconfig/type_logstash_forwarder_network/ssl_certificate*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_logstash_forwarder_network/ssl_key*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_logstash_forwarder_network/ssl_ca*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_logstash_forwarder_network/timeout*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 15
+ - **/software/components/metaconfig/type_logstash_forwarder_file_fields**
+    - */software/components/metaconfig/type_logstash_forwarder_file_fields/type*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/type_logstash_forwarder_file**
+    - */software/components/metaconfig/type_logstash_forwarder_file/paths*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/type_logstash_forwarder_file/fields*
+        - Required
+        - Type: type_logstash_forwarder_file_fields
+ - **/software/components/metaconfig/type_logstash_forwarder**
+    - */software/components/metaconfig/type_logstash_forwarder/network*
+        - Required
+        - Type: type_logstash_forwarder_network
+    - */software/components/metaconfig/type_logstash_forwarder/files*
+        - Required
+        - Type: type_logstash_forwarder_file

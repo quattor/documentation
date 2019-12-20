@@ -1,0 +1,91 @@
+#################################################
+NCM\::Component\::metaconfig\::zookeeper - schema
+#################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/zookeeper_main**
+    - */software/components/metaconfig/zookeeper_main/tickTime*
+        - Required
+        - Type: long
+        - Default value: 2000
+    - */software/components/metaconfig/zookeeper_main/dataDir*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/zookeeper_main/clientPort*
+        - Required
+        - Type: long
+        - Default value: 2181
+    - */software/components/metaconfig/zookeeper_main/dataLogDir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/zookeeper_main/globalOutstandingLimit*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/preAllocSize*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/snapCount*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/traceFile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/zookeeper_main/maxClientCnxns*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/clientPortAddress*
+        - Optional
+        - Type: type_network_name
+    - */software/components/metaconfig/zookeeper_main/minSessionTimeout*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/maxSessionTimeout*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/fsync.warningthresholdms*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/autopurge.snapRetainCount*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/autopurge.purgeInterval*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/syncEnabled*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/zookeeper_main/initLimit*
+        - Required
+        - Type: long
+        - Default value: 10
+    - */software/components/metaconfig/zookeeper_main/syncLimit*
+        - Required
+        - Type: long
+        - Default value: 5
+    - */software/components/metaconfig/zookeeper_main/electionAlg*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/zookeeper_main/leaderServes*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/zookeeper_servers**
+    - */software/components/metaconfig/zookeeper_servers/hostname*
+        - Required
+        - Type: type_network_name
+    - */software/components/metaconfig/zookeeper_servers/port*
+        - Required
+        - Type: long
+        - Default value: 2888
+    - */software/components/metaconfig/zookeeper_servers/leaderport*
+        - Required
+        - Type: long
+        - Default value: 3888
+ - **/software/components/metaconfig/zookeeper_server_config**
+    - */software/components/metaconfig/zookeeper_server_config/main*
+        - Required
+        - Type: zookeeper_main
+    - */software/components/metaconfig/zookeeper_server_config/servers*
+        - Required
+        - Type: zookeeper_servers

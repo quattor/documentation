@@ -1,0 +1,103 @@
+###############################################
+NCM\::Component\::metaconfig\::ncm-ncd - schema
+###############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/ncm_ncd**
+    - */software/components/metaconfig/ncm_ncd/all*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/allowbrokencomps*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/autodeps*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/cache_root*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/check-noquattor*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/chroot*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/configure*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/facility*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/forcelock*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/ignore-errors-from-dependencies*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/ignorelock*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/include*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/log_group_readable*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/log_world_readable*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/logdir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/logpid*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/multilog*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/noaction*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/nodeps*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/post-hook*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/post-hook-timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/ncm_ncd/pre-hook*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/pre-hook-timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/ncm_ncd/retries*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/ncm_ncd/skip*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ncm_ncd/state*
+        - Required
+        - Type: string
+        - Default value: /var/run/quattor-components
+    - */software/components/metaconfig/ncm_ncd/timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/ncm_ncd/unconfigure*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ncm_ncd/useprofile*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/ncm_ncd/verbose_logfile*
+        - Optional
+        - Type: boolean

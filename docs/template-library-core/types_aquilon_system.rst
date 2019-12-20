@@ -1,0 +1,348 @@
+########################
+types\::aquilon\::system
+########################
+
+Types
+-----
+
+ - **structure_fsdata**
+    - Description: aquilon-related structures
+    - *structure_fsdata/mountpoint*
+        - Required
+        - Type: string
+    - *structure_fsdata/mountopts*
+        - Optional
+        - Type: string
+    - *structure_fsdata/type*
+        - Required
+        - Type: string
+    - *structure_fsdata/mount*
+        - Optional
+        - Type: boolean
+    - *structure_fsdata/pass*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - *structure_fsdata/freq*
+        - Optional
+        - Type: long
+        - Range: 0..2
+    - *structure_fsdata/block_device_path*
+        - Required
+        - Type: string
+ - **structure_virtual_machine**
+    - *structure_virtual_machine/name*
+        - Required
+        - Type: string
+    - *structure_virtual_machine/hardware*
+        - Required
+        - Type: structure_hardware
+ - **structure_resources**
+    - *structure_resources/application*
+        - Optional
+        - Type: list
+    - *structure_resources/auto_start_list*
+        - Optional
+        - Type: list
+    - *structure_resources/filesystem*
+        - Optional
+        - Type: structure_fsdata
+    - *structure_resources/hostlink*
+        - Optional
+        - Type: list
+    - *structure_resources/intervention*
+        - Optional
+        - Type: list
+    - *structure_resources/reboot_iv*
+        - Optional
+        - Type: list
+    - *structure_resources/reboot_schedule*
+        - Optional
+        - Type: list
+    - *structure_resources/resourcegroup*
+        - Optional
+        - Type: list
+    - *structure_resources/service_address*
+        - Optional
+        - Type: list
+    - *structure_resources/share*
+        - Optional
+        - Type: list
+    - *structure_resources/system_list*
+        - Optional
+        - Type: list
+    - *structure_resources/virtual_machine*
+        - Optional
+        - Type: structure_virtual_machine
+ - **structure_cluster**
+    - *structure_cluster/name*
+        - Required
+        - Type: string
+    - *structure_cluster/type*
+        - Optional
+        - Type: string
+    - *structure_cluster/resources*
+        - Optional
+        - Type: structure_resources
+    - *structure_cluster/members*
+        - Optional
+        - Type: type_hostname
+    - *structure_cluster/campus*
+        - Optional
+        - Type: string
+    - *structure_cluster/sysloc*
+        - Optional
+        - Type: structure_sysloc
+    - *structure_cluster/rack*
+        - Optional
+        - Type: structure_rack
+    - *structure_cluster/down_hosts_threshold*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - *structure_cluster/node_index*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - *structure_cluster/max_hosts*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **structure_archetype**
+    - Description: Details of operating system as defined by aquilon broker
+    - *structure_archetype/name*
+        - Optional
+        - Type: string
+    - *structure_archetype/os*
+        - Required
+        - Type: string
+    - *structure_archetype/os_lifecycle*
+        - Required
+        - Type: string
+    - *structure_archetype/model*
+        - Required
+        - Type: string
+    - *structure_archetype/filesystem-layout*
+        - Optional
+        - Type: string
+    - *structure_archetype/archlist*
+        - Optional
+        - Type: string
+ - **structure_event**
+    - *structure_event/timeout*
+        - Optional
+        - Type: long
+    - *structure_event/actions*
+        - Optional
+        - Type: string
+ - **structure_events**
+    - *structure_events/shutdown*
+        - Optional
+        - Type: structure_event
+    - *structure_events/startup*
+        - Optional
+        - Type: structure_event
+    - *structure_events/maintenance*
+        - Optional
+        - Type: structure_event
+ - **structure_action_dependency**
+    - *structure_action_dependency/pre*
+        - Optional
+        - Type: string
+    - *structure_action_dependency/post*
+        - Optional
+        - Type: string
+ - **structure_action**
+    - *structure_action/user*
+        - Required
+        - Type: string
+    - *structure_action/command*
+        - Required
+        - Type: string
+    - *structure_action/timeout*
+        - Optional
+        - Type: long
+    - *structure_action/priority*
+        - Optional
+        - Type: long
+    - *structure_action/dependencies*
+        - Optional
+        - Type: structure_action_dependency
+ - **structure_maintenance**
+    - *structure_maintenance/day*
+        - Required
+        - Type: string
+    - *structure_maintenance/start*
+        - Required
+        - Type: string
+    - *structure_maintenance/duration*
+        - Required
+        - Type: long
+        - Range: 1..100
+ - **structure_espinfo**
+    - *structure_espinfo/description*
+        - Optional
+        - Type: string
+    - *structure_espinfo/class*
+        - Optional
+        - Type: string
+    - *structure_espinfo/infrafunction*
+        - Optional
+        - Type: string
+    - *structure_espinfo/escalation*
+        - Optional
+        - Type: string
+    - *structure_espinfo/notifyrules*
+        - Optional
+        - Type: string
+    - *structure_espinfo/notifyhours*
+        - Optional
+        - Type: string
+ - **structure_personality**
+    - *structure_personality/name*
+        - Required
+        - Type: string
+    - *structure_personality/description*
+        - Optional
+        - Type: string
+    - *structure_personality/class*
+        - Optional
+        - Type: string
+    - *structure_personality/users*
+        - Optional
+        - Type: string
+    - *structure_personality/escalation*
+        - Optional
+        - Type: string
+    - *structure_personality/notifyrules*
+        - Optional
+        - Type: string
+    - *structure_personality/notifyhours*
+        - Optional
+        - Type: string
+    - *structure_personality/function*
+        - Optional
+        - Type: string
+    - *structure_personality/threshold*
+        - Optional
+        - Type: long
+        - Range: 0..100
+    - *structure_personality/maintenance_threshold*
+        - Optional
+        - Type: long
+        - Range: 0..100
+        - Default value: 50
+    - *structure_personality/backups*
+        - Optional
+        - Type: string
+    - *structure_personality/host_environment*
+        - Required
+        - Type: string
+    - *structure_personality/owner_eon_id*
+        - Required
+        - Type: long
+    - *structure_personality/stage*
+        - Required
+        - Type: string
+    - *structure_personality/esp*
+        - Optional
+        - Type: structure_espinfo
+ - **structure_sys_components**
+    - *structure_sys_components/namespace*
+        - Optional
+        - Type: string
+ - **structure_services**
+    - *structure_services/instance*
+        - Required
+        - Type: string
+    - *structure_services/servers*
+        - Optional
+        - Type: string
+    - *structure_services/server_ips*
+        - Optional
+        - Type: string
+ - **structure_provides**
+    - *structure_provides/instance*
+        - Required
+        - Type: string
+    - *structure_provides/clients*
+        - Optional
+        - Type: string
+ - **structure_security**
+    - *structure_security/class*
+        - Required
+        - Type: string
+    - *structure_security/svcwhitelist*
+        - Optional
+        - Type: list
+ - **structure_entitlement_user**
+    - *structure_entitlement_user/type*
+        - Required
+        - Type: string
+    - *structure_entitlement_user/value*
+        - Required
+        - Type: valid_user
+ - **structure_entitlement_eon_id**
+    - *structure_entitlement_eon_id/value*
+        - Required
+        - Type: long
+ - **structure_entitlements**
+    - *structure_entitlements/eon_id*
+        - Optional
+        - Type: structure_entitlement_eon_id
+    - *structure_entitlements/user*
+        - Optional
+        - Type: structure_entitlement_user
+ - **structure_system_aquilon**
+    - *structure_system_aquilon/advertise_status*
+        - Optional
+        - Type: boolean
+    - *structure_system_aquilon/archetype*
+        - Optional
+        - Type: structure_archetype
+    - *structure_system_aquilon/build*
+        - Optional
+        - Type: string
+    - *structure_system_aquilon/cluster*
+        - Optional
+        - Type: structure_cluster
+    - *structure_system_aquilon/enclosure*
+        - Optional
+        - Type: structure_enclosure
+    - *structure_system_aquilon/filesystems*
+        - Description: Filesystems to be configured. Mountpoints and blockdevices must be unique.
+        - Optional
+        - Type: structure_filesystem
+    - *structure_system_aquilon/security*
+        - Optional
+        - Type: structure_security
+    - *structure_system_aquilon/users*
+        - Optional
+        - Type: nlist
+    - *structure_system_aquilon/eon_ids*
+        - Optional
+        - Type: long
+    - *structure_system_aquilon/eon_id_maps*
+        - Optional
+        - Type: nlist
+    - *structure_system_aquilon/owner_eon_id*
+        - Optional
+        - Type: long
+    - *structure_system_aquilon/entitlements*
+        - Optional
+        - Type: structure_entitlements
+    - *structure_system_aquilon/provides*
+        - Optional
+        - Type: nlist
+    - *structure_system_aquilon/services*
+        - Optional
+        - Type: structure_services
+    - *structure_system_aquilon/personality*
+        - Optional
+        - Type: structure_personality
+    - *structure_system_aquilon/host_environment*
+        - Optional
+        - Type: string
+    - *structure_system_aquilon/features*
+        - Optional
+        - Type: nlist

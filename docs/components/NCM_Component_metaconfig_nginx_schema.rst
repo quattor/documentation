@@ -1,0 +1,246 @@
+#############################################
+NCM\::Component\::metaconfig\::nginx - schema
+#############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/cipherstring**
+    - Description: Data types for an nginx server, with proxy and SSL support
+ - **/software/components/metaconfig/basic_ssl**
+    - */software/components/metaconfig/basic_ssl/options*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/basic_ssl/requiressl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/basic_ssl/verify_client*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/basic_ssl/require*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_ssl**
+    - Description: SSL nginx configuration
+    - */software/components/metaconfig/httpd_ssl/active*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/httpd_ssl/ciphersuite*
+        - Required
+        - Type: cipherstring
+    - */software/components/metaconfig/httpd_ssl/protocol*
+        - Required
+        - Type: cipherstring
+    - */software/components/metaconfig/httpd_ssl/certificate*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl/key*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl/ca*
+        - Description: ca sets ssl_client_certificate which specifies a file with trusted CA certificates in the PEM format used to verify client certificates and OCSP responses if ssl_stapling is enabled
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl/certificate_chain_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl/revocation_file*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/nginx_global**
+    - Description: Basic nginx declarations. So far we only need to declare how many processes and how many connections per process.
+    - */software/components/metaconfig/nginx_global/worker_processes*
+        - Required
+        - Type: long
+        - Default value: 4
+    - */software/components/metaconfig/nginx_global/worker_connections*
+        - Required
+        - Type: long
+        - Default value: 1024
+ - **/software/components/metaconfig/nginx_cache_path**
+    - Description: Description of a proxy_cache_path line
+    - */software/components/metaconfig/nginx_cache_path/path*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/nginx_cache_path/levels*
+        - Required
+        - Type: long
+        - Range: 1..2
+    - */software/components/metaconfig/nginx_cache_path/keys_zone*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/nginx_cache_path/max_size*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/nginx_cache_path/inactive*
+        - Optional
+        - Type: long
+        - Default value: 60
+ - **/software/components/metaconfig/nginx_cache_valid_period**
+    - */software/components/metaconfig/nginx_cache_valid_period/codes*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/nginx_cache_valid_period/period*
+        - Required
+        - Type: long
+ - **/software/components/metaconfig/nginx_proxy_cache**
+    - Description: Configuration entries related to a caching proxy
+    - */software/components/metaconfig/nginx_proxy_cache/valid*
+        - Optional
+        - Type: nginx_cache_valid_period
+    - */software/components/metaconfig/nginx_proxy_cache/redirect*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/nginx_proxy_cache/cache*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/nginx_proxy_location**
+    - Description: Configuration entries for a proxy, that should lie in a "location" section.
+    - */software/components/metaconfig/nginx_proxy_location/set_header*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_proxy_location/redirect*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_proxy_location/next_upstream*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_proxy_location/cache*
+        - Optional
+        - Type: nginx_proxy_cache
+    - */software/components/metaconfig/nginx_proxy_location/pass*
+        - Required
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/nginx_proxy_location/http_version*
+        - Description: Sets the HTTP protocol version for proxying. By default, version 1.0 is used. Version 1.1 is recommended for use with keepalive connections and NTLM authentication
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_proxy_location/read_timeout*
+        - Description: Defines a timeout for reading a response from the proxied server. The timeout is set only between two successive read operations, not for the transmission of the whole response. If the proxied server does not transmit anything within this time, the connection is closed
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/nginx_return**
+    - Description: nginx return diretcive
+    - */software/components/metaconfig/nginx_return/code*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/nginx_return/url*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_return/text*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/nginx_location**
+    - Description: Structure of a location entry
+    - */software/components/metaconfig/nginx_location/root*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_location/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/nginx_location/operator*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_location/proxy*
+        - Optional
+        - Type: nginx_proxy_location
+    - */software/components/metaconfig/nginx_location/return*
+        - Optional
+        - Type: nginx_return
+ - **/software/components/metaconfig/nginx_error_page**
+    - Description: Description of an nginx error_page line
+    - */software/components/metaconfig/nginx_error_page/error_codes*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/nginx_error_page/file*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/nginx_addr**
+    - Description: nginx addr: either a hostport or a port (as string)
+ - **/software/components/metaconfig/nginx_listen**
+    - */software/components/metaconfig/nginx_listen/addr*
+        - Optional
+        - Type: nginx_addr
+    - */software/components/metaconfig/nginx_listen/default*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/nginx_listen/ssl*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/nginx_server_name**
+    - Description: nginx_server_name: either a valid hostname or _ (an invalid domain name which never intersect with any real name)
+ - **/software/components/metaconfig/nginx_server**
+    - Description: An nginx server entry.
+    - */software/components/metaconfig/nginx_server/includes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/nginx_server/listen*
+        - Required
+        - Type: nginx_listen
+    - */software/components/metaconfig/nginx_server/name*
+        - Required
+        - Type: nginx_server_name
+    - */software/components/metaconfig/nginx_server/location*
+        - Optional
+        - Type: nginx_location
+    - */software/components/metaconfig/nginx_server/error_page*
+        - Required
+        - Type: nginx_error_page
+    - */software/components/metaconfig/nginx_server/ssl*
+        - Optional
+        - Type: httpd_ssl
+    - */software/components/metaconfig/nginx_server/return*
+        - Optional
+        - Type: nginx_return
+ - **/software/components/metaconfig/nginx_upstream**
+    - Description: An upstream declaration for reverse proxies
+    - */software/components/metaconfig/nginx_upstream/host*
+        - Required
+        - Type: type_hostport
+    - */software/components/metaconfig/nginx_upstream/ip_hash*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/nginx_http**
+    - Description: Configuration of an HTTP instance. Some basic things will not change and are hardcoded in the TT template, anyways.
+    - */software/components/metaconfig/nginx_http/includes*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/nginx_http/default_type*
+        - Required
+        - Type: string
+        - Default value: application/octet-stream
+    - */software/components/metaconfig/nginx_http/gzip*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/nginx_http/proxy_cache_path*
+        - Optional
+        - Type: nginx_cache_path
+    - */software/components/metaconfig/nginx_http/server*
+        - Required
+        - Type: nginx_server
+    - */software/components/metaconfig/nginx_http/keepalive_timeout*
+        - Required
+        - Type: long
+        - Default value: 65
+    - */software/components/metaconfig/nginx_http/upstream*
+        - Optional
+        - Type: nginx_upstream
+    - */software/components/metaconfig/nginx_http/client_max_body_size*
+        - Description: Sets the maximum allowed size of the client request body, specified in the "Content-Length" request header field. If the size in a request exceeds the configured value, the 413 (Request Entity Too Large) error is returned to the client. Please be aware that browsers cannot correctly display this error. Setting size to 0 disables checking of client request body size
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/type_nginx**
+    - */software/components/metaconfig/type_nginx/global*
+        - Required
+        - Type: nginx_global
+    - */software/components/metaconfig/type_nginx/http*
+        - Required
+        - Type: nginx_http

@@ -1,0 +1,635 @@
+###############################################
+NCM\::Component\::metaconfig\::ganesha - schema
+###############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/ganesha_nfs_protocol**
+ - **/software/components/metaconfig/ganesha_transport_protocol**
+ - **/software/components/metaconfig/ganesha_sec_type**
+ - **/software/components/metaconfig/ganesha_export_client**
+    - */software/components/metaconfig/ganesha_export_client/Root_Access*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export_client/RW_Access*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export_client/R_Access*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export_client/MDONLY_Access*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export_client/MDONLY_RO_Access*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export_client/Access*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export_client/Access_Type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export_client/Squash*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/ganesha_export**
+    - */software/components/metaconfig/ganesha_export/clients*
+        - Optional
+        - Type: ganesha_export_client
+    - */software/components/metaconfig/ganesha_export/Export_Id*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/ganesha_export/Path*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ganesha_export/Pseudo*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ganesha_export/Tag*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export/Anonymous_uid*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/ganesha_export/Anonymous_gid*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/ganesha_export/Make_All_Users_Anonymous*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_export/NOSUID*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_export/NOSGID*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_export/NFS_Protocols*
+        - Optional
+        - Type: ganesha_nfs_protocol
+    - */software/components/metaconfig/ganesha_export/Transport_Protocols*
+        - Optional
+        - Type: ganesha_transport_protocol
+    - */software/components/metaconfig/ganesha_export/SecType*
+        - Optional
+        - Type: ganesha_sec_type
+    - */software/components/metaconfig/ganesha_export/MaxRead*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 32768
+    - */software/components/metaconfig/ganesha_export/MaxWrite*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 32768
+    - */software/components/metaconfig/ganesha_export/PrefRead*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 16384
+    - */software/components/metaconfig/ganesha_export/PrefWrite*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 16384
+    - */software/components/metaconfig/ganesha_export/PrefReaddir*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/ganesha_export/Filesystem_id*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export/PrivilegedPort*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ganesha_export/Cache_Data*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ganesha_export/FS_Specific*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_export/Use_NFS_Commit*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_export/Use_Ganesha_Write_Buffer*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_export/Use_FSAL_UP*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_export/FSAL_UP_Type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ganesha_export/FSAL_UP_Timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 30
+ - **/software/components/metaconfig/ganesha_fsal**
+    - */software/components/metaconfig/ganesha_fsal/Max_FS_calls*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+ - **/software/components/metaconfig/ganesha_filesystem**
+    - */software/components/metaconfig/ganesha_filesystem/MaxRead*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1048576
+    - */software/components/metaconfig/ganesha_filesystem/MaxWrite*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1048576
+    - */software/components/metaconfig/ganesha_filesystem/Umask*
+        - Optional
+        - Type: string
+        - Default value: 0002
+    - */software/components/metaconfig/ganesha_filesystem/umask*
+        - Required
+        - Type: string
+        - Default value: 0
+    - */software/components/metaconfig/ganesha_filesystem/xattr_access_rights*
+        - Required
+        - Type: string
+        - Default value: 0400
+    - */software/components/metaconfig/ganesha_filesystem/Link_support*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_filesystem/Symlink_support*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_filesystem/CanSetTime*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_filesystem/auth_xdev_export*
+        - Optional
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/ganesha_GPFS**
+ - **/software/components/metaconfig/ganesha_cacheinode_hash**
+    - */software/components/metaconfig/ganesha_cacheinode_hash/Index_Size*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 37
+    - */software/components/metaconfig/ganesha_cacheinode_hash/Alphabet_Length*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+ - **/software/components/metaconfig/ganesha_cacheinode**
+    - */software/components/metaconfig/ganesha_cacheinode/Attr_Expiration_Time*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/ganesha_cacheinode/Symlink_Expiration_Time*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/ganesha_cacheinode/Directory_Expiration_Time*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/ganesha_cacheinode/Use_Test_Access*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1
+    - */software/components/metaconfig/ganesha_cacheinode/Use_Getattr_Directory_Invalidation*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+    - */software/components/metaconfig/ganesha_cacheinode/Use_FSAL_Hash*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1
+ - **/software/components/metaconfig/ganesha_cacheinode_gc_policy**
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/Entries_HWMark*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 100000
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/Entries_LWMark*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 50000
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/Cache_FDs*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/LRU_Run_Interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 600
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/FD_HWMark_Percent*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 90
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/FD_LWMark_Percent*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 50
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/FD_Limit_Percent*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 99
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/Reaper_Work*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1000
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/Biggest_Window*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 40
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/Required_Progress*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 5
+    - */software/components/metaconfig/ganesha_cacheinode_gc_policy/Futility_Count*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 8
+ - **/software/components/metaconfig/ganesha_nfsworker_param**
+    - */software/components/metaconfig/ganesha_nfsworker_param/Nb_Before_GC*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 50
+ - **/software/components/metaconfig/ganesha_nfs_core_param**
+    - */software/components/metaconfig/ganesha_nfs_core_param/Nb_Worker*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 16
+    - */software/components/metaconfig/ganesha_nfs_core_param/NFS_Port*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 2049
+    - */software/components/metaconfig/ganesha_nfs_core_param/MNT_Port*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+    - */software/components/metaconfig/ganesha_nfs_core_param/NLM_Port*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+    - */software/components/metaconfig/ganesha_nfs_core_param/RQOTA_Port*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+    - */software/components/metaconfig/ganesha_nfs_core_param/NFS_Program*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 100003
+    - */software/components/metaconfig/ganesha_nfs_core_param/MNT_Program*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 100005
+    - */software/components/metaconfig/ganesha_nfs_core_param/NLM_Program*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 100021
+    - */software/components/metaconfig/ganesha_nfs_core_param/RQOTA_Program*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 100011
+    - */software/components/metaconfig/ganesha_nfs_core_param/Bind_Addr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_nfs_core_param/Nb_Call_Before_Queue_Avg*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1000
+    - */software/components/metaconfig/ganesha_nfs_core_param/Dispatch_Max_Reqs*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1024
+    - */software/components/metaconfig/ganesha_nfs_core_param/Dispatch_Max_Reqs_Xprt*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 50
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_Disabled*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_TCP_Npart*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_TCP_Size*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1024
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_TCP_Cachesz*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 127
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_TCP_Hiwat*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 64
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_TCP_Recycle_Npart*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 7
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_TCP_Recycle_Expire_S*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 600
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_TCP_Checksum*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_UDP_Npart*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 17
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_UDP_Size*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 32768
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_UDP_Cachesz*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 599
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_UDP_Hiwat*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 16384
+    - */software/components/metaconfig/ganesha_nfs_core_param/DRC_UDP_Checksum*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_nfs_core_param/Drop_IO_Errors*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_nfs_core_param/Drop_Inval_Errors*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_nfs_core_param/Drop_Delay_Errors*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_nfs_core_param/Core_Dump_Size*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/ganesha_nfs_core_param/Nb_Max_Fd*
+        - Optional
+        - Type: long
+        - Default value: 1024
+    - */software/components/metaconfig/ganesha_nfs_core_param/Stats_File_Path*
+        - Required
+        - Type: string
+        - Default value: /tmp/ganesha.stats
+    - */software/components/metaconfig/ganesha_nfs_core_param/Stats_Update_Delay*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 600
+    - */software/components/metaconfig/ganesha_nfs_core_param/Long_Processing_Threshold*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+    - */software/components/metaconfig/ganesha_nfs_core_param/TCP_Fridge_Expiration_Delay*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/ganesha_nfs_core_param/Dump_Stats_Per_Client*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_nfs_core_param/Stats_Per_Client_Directory*
+        - Optional
+        - Type: string
+        - Default value: /tmp
+    - */software/components/metaconfig/ganesha_nfs_core_param/NSM_Use_Caller_Name*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_nfs_core_param/Clustered*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_nfs_core_param/MaxRPCSendBufferSize*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 32768
+    - */software/components/metaconfig/ganesha_nfs_core_param/MaxRPCRecvBufferSize*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 32768
+    - */software/components/metaconfig/ganesha_nfs_core_param/NFS_Protocols*
+        - Optional
+        - Type: ganesha_nfs_protocol
+ - **/software/components/metaconfig/ganesha_nfs_dupreq_hash**
+    - */software/components/metaconfig/ganesha_nfs_dupreq_hash/Index_Size*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 17
+    - */software/components/metaconfig/ganesha_nfs_dupreq_hash/Alphabet_Length*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+ - **/software/components/metaconfig/ganesha_nfs_ip_name**
+    - */software/components/metaconfig/ganesha_nfs_ip_name/Index_Size*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 17
+    - */software/components/metaconfig/ganesha_nfs_ip_name/Alphabet_Length*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+    - */software/components/metaconfig/ganesha_nfs_ip_name/Expiration_Time*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 3600
+ - **/software/components/metaconfig/ganesha_snmp_adm**
+    - */software/components/metaconfig/ganesha_snmp_adm/snmp_agentx_socket*
+        - Required
+        - Type: string
+        - Default value: tcp:localhost:761
+    - */software/components/metaconfig/ganesha_snmp_adm/product_id*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2
+    - */software/components/metaconfig/ganesha_snmp_adm/snmp_adm_log*
+        - Required
+        - Type: string
+        - Default value: /tmp/snmp_adm.log
+    - */software/components/metaconfig/ganesha_snmp_adm/export_cache_stats*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_snmp_adm/export_requests_stats*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ganesha_snmp_adm/export_maps_stats*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_snmp_adm/export_nfs_calls_detail*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_snmp_adm/export_cache_inode_calls_detail*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_snmp_adm/export_fsal_calls_detail*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/ganesha_stat_exporter**
+    - */software/components/metaconfig/ganesha_stat_exporter/Access*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ganesha_stat_exporter/Port*
+        - Required
+        - Type: long
+        - Default value: 10401
+ - **/software/components/metaconfig/ganesha_nfsv4**
+    - */software/components/metaconfig/ganesha_nfsv4/Lease_Lifetime*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 90
+    - */software/components/metaconfig/ganesha_nfsv4/FH_Expire*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ganesha_nfsv4/Returns_ERR_FH_EXPIRED*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/ganesha_nfsv4_client_cache**
+    - */software/components/metaconfig/ganesha_nfsv4_client_cache/Index_Size*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 17
+    - */software/components/metaconfig/ganesha_nfsv4_client_cache/Alphabet_Length*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+ - **/software/components/metaconfig/ganesha_nfs_krb5**
+    - */software/components/metaconfig/ganesha_nfs_krb5/PrincipalName*
+        - Optional
+        - Type: string
+        - Default value: nfs
+    - */software/components/metaconfig/ganesha_nfs_krb5/KeytabPath*
+        - Optional
+        - Type: string
+        - Default value: /etc/krb5.keytab
+    - */software/components/metaconfig/ganesha_nfs_krb5/Active_krb5*
+        - Optional
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/ganesha_main**
+    - */software/components/metaconfig/ganesha_main/FSAL*
+        - Required
+        - Type: ganesha_fsal
+    - */software/components/metaconfig/ganesha_main/NFS_KRB5*
+        - Required
+        - Type: ganesha_nfs_krb5
+    - */software/components/metaconfig/ganesha_main/NFSv4_ClientId_Cache*
+        - Required
+        - Type: ganesha_nfsv4_client_cache
+    - */software/components/metaconfig/ganesha_main/NFSv4*
+        - Required
+        - Type: ganesha_nfsv4
+    - */software/components/metaconfig/ganesha_main/STAT_EXPORTER*
+        - Required
+        - Type: ganesha_stat_exporter
+    - */software/components/metaconfig/ganesha_main/SNMP_ADM*
+        - Required
+        - Type: ganesha_snmp_adm
+    - */software/components/metaconfig/ganesha_main/FileSystem*
+        - Required
+        - Type: ganesha_filesystem
+    - */software/components/metaconfig/ganesha_main/GPFS*
+        - Required
+        - Type: ganesha_GPFS
+    - */software/components/metaconfig/ganesha_main/CacheInode_Hash*
+        - Required
+        - Type: ganesha_cacheinode_hash
+    - */software/components/metaconfig/ganesha_main/NFS_IP_Name*
+        - Required
+        - Type: ganesha_nfs_ip_name
+    - */software/components/metaconfig/ganesha_main/NFS_DupReq_Hash*
+        - Required
+        - Type: ganesha_nfs_dupreq_hash
+    - */software/components/metaconfig/ganesha_main/CacheInode*
+        - Required
+        - Type: ganesha_cacheinode
+    - */software/components/metaconfig/ganesha_main/CacheInode_GC_Policy*
+        - Required
+        - Type: ganesha_cacheinode_gc_policy
+    - */software/components/metaconfig/ganesha_main/NFS_Worker_Param*
+        - Required
+        - Type: ganesha_nfsworker_param
+    - */software/components/metaconfig/ganesha_main/NFS_Core_Param*
+        - Required
+        - Type: ganesha_nfs_core_param
+ - **/software/components/metaconfig/ganesha_config**
+    - */software/components/metaconfig/ganesha_config/includes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ganesha_config/exports*
+        - Required
+        - Type: ganesha_export
+    - */software/components/metaconfig/ganesha_config/main*
+        - Required
+        - Type: ganesha_main

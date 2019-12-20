@@ -1,0 +1,554 @@
+###################################
+NCM\::Component\::openldap - schema
+###################################
+
+Types
+-----
+
+ - **/software/components/openldap/long_pow2**
+    - Description: power of 2 (up to 64k)
+ - **/software/components/openldap/ldap_hash**
+    - Description: Possible acceptable values
+ - **/software/components/openldap/ldap_sizelimit**
+    - */software/components/openldap/ldap_sizelimit/soft*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_sizelimit/hard*
+        - Optional
+        - Type: long
+ - **/software/components/openldap/ldap_buffer_size**
+    - */software/components/openldap/ldap_buffer_size/listener*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/openldap/ldap_buffer_size/read*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_buffer_size/write*
+        - Optional
+        - Type: long
+ - **/software/components/openldap/ldap_access_item**
+    - */software/components/openldap/ldap_access_item/who*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_access_item/access*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_access_item/control*
+        - Optional
+        - Type: string
+ - **/software/components/openldap/ldap_access**
+    - */software/components/openldap/ldap_access/what*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_access/attrs*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_access/by*
+        - Required
+        - Type: string
+ - **/software/components/openldap/auth_regexp**
+    - */software/components/openldap/auth_regexp/match*
+        - Required
+        - Type: string
+    - */software/components/openldap/auth_regexp/replace*
+        - Required
+        - Type: string
+ - **/software/components/openldap/ldap_syntax**
+ - **/software/components/openldap/tls_options**
+    - */software/components/openldap/tls_options/CipherSuite*
+        - Required
+        - Type: string
+        - Default value: HIGH
+    - */software/components/openldap/tls_options/CACertificateFile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/CACertificatePath*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/CertificateFile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/CertificateKeyFile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/DHParamFile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/RandFile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/VerifyClient*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/CRLCheck*
+        - Optional
+        - Type: string
+    - */software/components/openldap/tls_options/CRLFile*
+        - Optional
+        - Type: string
+ - **/software/components/openldap/ldap_checkpoint**
+    - */software/components/openldap/ldap_checkpoint/size*
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/openldap/ldap_checkpoint/minutes*
+        - Required
+        - Type: long
+        - Range: 0..
+ - **/software/components/openldap/ldap_global**
+    - */software/components/openldap/ldap_global/access*
+        - Required
+        - Type: ldap_access
+    - */software/components/openldap/ldap_global/allow*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/argsfile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/attributeoptions*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/attributetype*
+        - Optional
+        - Type: ldap_syntax
+    - */software/components/openldap/ldap_global/authid-rewrite*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/authz-policy*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/authz-regexp*
+        - Required
+        - Type: auth_regexp
+    - */software/components/openldap/ldap_global/concurrency*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_global/conn_max_pending_auth*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_global/defaultsearchbase*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/disallow*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/ditcontentrule*
+        - Optional
+        - Type: ldap_syntax
+    - */software/components/openldap/ldap_global/gentlehup*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openldap/ldap_global/idletimeout*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_global/include*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/ldapsyntax*
+        - Optional
+        - Type: ldap_syntax
+    - */software/components/openldap/ldap_global/listener-threads*
+        - Optional
+        - Type: long_pow2
+    - */software/components/openldap/ldap_global/localSSF*
+        - Required
+        - Type: long
+        - Default value: 71
+    - */software/components/openldap/ldap_global/logfile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/loglevel*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_global/moduleload*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/modulepath*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/objectclass*
+        - Optional
+        - Type: ldap_syntax
+    - */software/components/openldap/ldap_global/password-hash*
+        - Required
+        - Type: ldap_hash
+        - Default value: {SSHA}
+    - */software/components/openldap/ldap_global/password-crypt-salt-format*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/pidfile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/referral*
+        - Optional
+        - Type: type_URI
+    - */software/components/openldap/ldap_global/require*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/reverse-lookup*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openldap/ldap_global/rootDSE*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/sasl-auxprops*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/sasl-host*
+        - Optional
+        - Type: type_fqdn
+    - */software/components/openldap/ldap_global/sasl-ream*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/sasl-secprops*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/schemadn*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/security*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/serverID*
+        - Optional
+        - Type: long
+        - Range: 0..4095
+    - */software/components/openldap/ldap_global/sizelimit*
+        - Optional
+        - Type: ldap_sizelimit
+    - */software/components/openldap/ldap_global/sockbuf_max_incoming*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_global/sockbuf_max_incoming_auth*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_global/sortvals*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_global/tcp-buffer*
+        - Optional
+        - Type: ldap_buffer_size
+    - */software/components/openldap/ldap_global/threads*
+        - Required
+        - Type: long
+        - Range: 2..
+        - Default value: 16
+    - */software/components/openldap/ldap_global/tls*
+        - Optional
+        - Type: tls_options
+    - */software/components/openldap/ldap_global/timelimit*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_global/tool-threads*
+        - Required
+        - Type: long
+        - Default value: 1
+    - */software/components/openldap/ldap_global/writetimeout*
+        - Optional
+        - Type: long
+ - **/software/components/openldap/ldap_database_string**
+ - **/software/components/openldap/ldap_ops**
+ - **/software/components/openldap/ldap_replica_retries**
+    - */software/components/openldap/ldap_replica_retries/interval*
+        - Required
+        - Type: string
+    - */software/components/openldap/ldap_replica_retries/retries*
+        - Required
+        - Type: long
+ - **/software/components/openldap/ldap_replica_cfg**
+    - */software/components/openldap/ldap_replica_cfg/rid*
+        - Required
+        - Type: long
+        - Range: 0..999
+    - */software/components/openldap/ldap_replica_cfg/provider*
+        - Required
+        - Type: type_absoluteURI
+    - */software/components/openldap/ldap_replica_cfg/searchbase*
+        - Required
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/type*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/interval*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/retry*
+        - Optional
+        - Type: ldap_replica_retries
+    - */software/components/openldap/ldap_replica_cfg/scope*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/attrs*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/attrsonly*
+        - Optional
+        - Type: boolean
+    - */software/components/openldap/ldap_replica_cfg/sizelimit*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_replica_cfg/timelimit*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_replica_cfg/schemachecking*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openldap/ldap_replica_cfg/network-timeout*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_replica_cfg/timeout*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_replica_cfg/bindmethod*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/binddn*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/saslmech*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/authcid*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/authzid*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/credentials*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/realm*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/secprops*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/keepalive*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/starttls*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/tls_cert*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/tls_key*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/tls_cacert*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/tls_cacertdir*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/tls_reqcert*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/tls_ciphersuite*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/tls_crlcheck*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/suffixmassage*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/logbase*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/logfilter*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/syncdata*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_replica_cfg/filter*
+        - Optional
+        - Type: string
+ - **/software/components/openldap/ldap_overlay_syncprov**
+    - */software/components/openldap/ldap_overlay_syncprov/checkpoint*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_overlay_syncprov/sessionlog*
+        - Optional
+        - Type: long
+    - */software/components/openldap/ldap_overlay_syncprov/nopresent*
+        - Optional
+        - Type: boolean
+    - */software/components/openldap/ldap_overlay_syncprov/reloadhint*
+        - Optional
+        - Type: boolean
+ - **/software/components/openldap/type_ldap_overlay**
+    - */software/components/openldap/type_ldap_overlay/syncprov*
+        - Optional
+        - Type: ldap_overlay_syncprov
+ - **/software/components/openldap/type_db_config**
+    - */software/components/openldap/type_db_config/cachesize*
+        - Optional
+        - Type: long
+    - */software/components/openldap/type_db_config/lg_regionmax*
+        - Optional
+        - Type: long
+        - Default value: 262144
+    - */software/components/openldap/type_db_config/lg_bsize*
+        - Optional
+        - Type: long
+        - Default value: 2097152
+    - */software/components/openldap/type_db_config/lg_max*
+        - Optional
+        - Type: long
+        - Default value: 10485760
+ - **/software/components/openldap/ldap_database_limits**
+    - */software/components/openldap/ldap_database_limits/size*
+        - Optional
+        - Type: ldap_sizelimit
+    - */software/components/openldap/ldap_database_limits/time*
+        - Optional
+        - Type: ldap_sizelimit
+ - **/software/components/openldap/ldap_monitoring**
+    - */software/components/openldap/ldap_monitoring/default*
+        - Optional
+        - Type: boolean
+        - Default value: true
+ - **/software/components/openldap/ldap_database**
+    - */software/components/openldap/ldap_database/class*
+        - Required
+        - Type: ldap_database_string
+    - */software/components/openldap/ldap_database/add_content_acl*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openldap/ldap_database/checkpoint*
+        - Optional
+        - Type: ldap_checkpoint
+    - */software/components/openldap/ldap_database/db_config*
+        - Optional
+        - Type: type_db_config
+    - */software/components/openldap/ldap_database/directory*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_database/extra_attrs*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_database/index*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_database/hidden*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openldap/ldap_database/lastmod*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openldap/ldap_database/limits*
+        - Optional
+        - Type: ldap_database_limits
+    - */software/components/openldap/ldap_database/maxderefdepth*
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/openldap/ldap_database/mirrormode*
+        - Optional
+        - Type: boolean
+    - */software/components/openldap/ldap_database/monitoring*
+        - Optional
+        - Type: boolean
+    - */software/components/openldap/ldap_database/overlay*
+        - Optional
+        - Type: type_ldap_overlay
+    - */software/components/openldap/ldap_database/readonly*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openldap/ldap_database/restrict*
+        - Optional
+        - Type: ldap_ops
+    - */software/components/openldap/ldap_database/rootdn*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_database/rootpw*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_database/suffix*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_database/subordinate*
+        - Optional
+        - Type: boolean
+    - */software/components/openldap/ldap_database/sync_use_subentry*
+        - Optional
+        - Type: boolean
+    - */software/components/openldap/ldap_database/syncrepl*
+        - Optional
+        - Type: ldap_replica_cfg
+    - */software/components/openldap/ldap_database/updatedn*
+        - Optional
+        - Type: string
+    - */software/components/openldap/ldap_database/updateref*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/openldap/ldap_database/backend_specific*
+        - Optional
+        - Type: string
+ - **/software/components/openldap/component_openldap**
+    - */software/components/openldap/component_openldap/conf_file*
+        - Required
+        - Type: string
+        - Default value: /etc/openldap/slapd.conf
+    - */software/components/openldap/component_openldap/include_schema*
+        - Required
+        - Type: string
+    - */software/components/openldap/component_openldap/loglevel*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/openldap/component_openldap/pidfile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/component_openldap/argsfile*
+        - Optional
+        - Type: string
+    - */software/components/openldap/component_openldap/database*
+        - Required
+        - Type: string
+    - */software/components/openldap/component_openldap/suffix*
+        - Required
+        - Type: string
+    - */software/components/openldap/component_openldap/rootdn*
+        - Required
+        - Type: string
+    - */software/components/openldap/component_openldap/rootpw*
+        - Required
+        - Type: string
+    - */software/components/openldap/component_openldap/directory*
+        - Required
+        - Type: string
+    - */software/components/openldap/component_openldap/index*
+        - Optional
+        - Type: string
+    - */software/components/openldap/component_openldap/global*
+        - Optional
+        - Type: ldap_global
+    - */software/components/openldap/component_openldap/backends*
+        - Optional
+        - Type: ldap_database
+    - */software/components/openldap/component_openldap/databases*
+        - Optional
+        - Type: ldap_database
+    - */software/components/openldap/component_openldap/monitoring*
+        - Optional
+        - Type: ldap_monitoring
+    - */software/components/openldap/component_openldap/move_slapdd*
+        - Optional
+        - Type: boolean
+        - Default value: true
+
+Functions
+---------
+
+ - openldap_loglevels_to_long
+    - Description: converts a list of named loglevels to its numeric value returns undef in case of unknown entry returns (whichever comes first in list) 0 if one of the values is 'nologging' -1 if one of the values is 'any'

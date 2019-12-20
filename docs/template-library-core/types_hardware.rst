@@ -1,0 +1,317 @@
+################
+types\::hardware
+################
+
+Types
+-----
+
+ - **structure_ram**
+    - Description: RAM definition
+    - *structure_ram/size*
+        - Required
+        - Type: long
+    - *structure_ram/data_rate*
+        - Optional
+        - Type: string
+ - **structure_cpu**
+    - Description: CPU definition
+    - *structure_cpu/speed*
+        - Description: CPU clock speed in MHz
+        - Required
+        - Type: long
+    - *structure_cpu/cores*
+        - Description: Number of cores on each CPU chip
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 1
+    - *structure_cpu/max_threads*
+        - Description: Number of execution threads on each CPU chip, e.g. a hyperthreaded eight core chip would have 16 threads
+        - Optional
+        - Type: long
+        - Range: 1..
+    - *structure_cpu/hyperthreading*
+        - Optional
+        - Type: boolean
+ - **structure_nic**
+    - Description: NIC definition
+    - *structure_nic/hwaddr*
+        - Required
+        - Type: type_hwaddr
+    - *structure_nic/driver*
+        - Optional
+        - Type: string
+    - *structure_nic/driverrpms*
+        - Optional
+        - Type: string
+    - *structure_nic/media*
+        - Optional
+        - Type: string
+    - *structure_nic/name*
+        - Optional
+        - Type: string
+    - *structure_nic/pxe*
+        - Optional
+        - Type: boolean
+    - *structure_nic/boot*
+        - Optional
+        - Type: boolean
+    - *structure_nic/maxspeed*
+        - Optional
+        - Type: long
+    - *structure_nic/role*
+        - Optional
+        - Type: string
+ - **fcahwaddr**
+    - Description: Fiber channel definition
+ - **structure_fca**
+    - *structure_fca/hwaddr*
+        - Optional
+        - Type: fcahwaddr
+    - *structure_fca/active*
+        - Optional
+        - Type: boolean
+ - **structure_bmc**
+    - Description: BMC controller
+    - *structure_bmc/hwaddr*
+        - Optional
+        - Type: type_hwaddr
+ - **structure_pci**
+    - Description: PCI addresses
+    - *structure_pci/vendor*
+        - Optional
+        - Type: long
+    - *structure_pci/device*
+        - Optional
+        - Type: long
+    - *structure_pci/class*
+        - Optional
+        - Type: long
+ - **ibhwaddr**
+ - **ibguid**
+    - Description: The Infiniband guid is a series of 16 chars preceded by 0x. Ex.: 0x0002c9030002fb06 Both upper and lower-case hex digits are accepted.
+ - **structure_ibhca**
+    - Description: IB HCA
+    - *structure_ibhca/driver*
+        - Optional
+        - Type: string
+    - *structure_ibhca/media*
+        - Optional
+        - Type: string
+    - *structure_ibhca/name*
+        - Optional
+        - Type: string
+    - *structure_ibhca/pxe*
+        - Optional
+        - Type: boolean
+    - *structure_ibhca/boot*
+        - Optional
+        - Type: boolean
+    - *structure_ibhca/ca_name*
+        - Optional
+        - Type: string
+    - *structure_ibhca/portnum*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - *structure_ibhca/hwaddr*
+        - Optional
+        - Type: ibhwaddr
+    - *structure_ibhca/active*
+        - Optional
+        - Type: boolean
+    - *structure_ibhca/pci*
+        - Optional
+        - Type: structure_pci
+    - *structure_ibhca/guid*
+        - Optional
+        - Type: ibguid
+ - **structure_gpu**
+    - *structure_gpu/driver*
+        - Optional
+        - Type: string
+    - *structure_gpu/pci*
+        - Optional
+        - Type: structure_pci
+    - *structure_gpu/ram*
+        - Optional
+        - Type: structure_ram
+ - **structure_cards**
+    - Description: Card and/or addon
+    - *structure_cards/nic*
+        - Description: Indexed by device name (eth0, venet0...)
+        - Required
+        - Type: structure_nic
+    - *structure_cards/fca*
+        - Description: Fiber channel
+        - Optional
+        - Type: structure_fca
+    - *structure_cards/raid*
+        - Description: For hardware RAID controllers
+        - Optional
+        - Type: structure_raid
+    - *structure_cards/ide*
+        - Description: For describing IDE controllers
+        - Optional
+        - Type: structure_raid
+    - *structure_cards/sata*
+        - Description: For describing SATA controllers
+        - Optional
+        - Type: structure_raid
+    - *structure_cards/scsi*
+        - Description: For describing Parallel SCSI controllers
+        - Optional
+        - Type: structure_raid
+    - *structure_cards/sas*
+        - Description: For describing SAS controllers
+        - Optional
+        - Type: structure_raid
+    - *structure_cards/bmc*
+        - Description: For describing BMC controllers
+        - Optional
+        - Type: structure_bmc
+    - *structure_cards/ib*
+        - Description: For describing IB HCA's
+        - Optional
+        - Type: structure_ibhca
+    - *structure_cards/gpu*
+        - Description: For describing GPUs
+        - Optional
+        - Type: structure_gpu
+ - **structure_serial_console**
+    - Description: Serial console
+    - *structure_serial_console/parity*
+        - Optional
+        - Type: string
+    - *structure_serial_console/speed*
+        - Optional
+        - Type: long
+    - *structure_serial_console/unit*
+        - Optional
+        - Type: long
+    - *structure_serial_console/word*
+        - Optional
+        - Type: long
+        - Range: 7..8
+ - **structure_telnet_console**
+    - Description: Telnet console
+    - *structure_telnet_console/port*
+        - Required
+        - Type: long
+        - Default value: 23
+    - *structure_telnet_console/fqdn*
+        - Required
+        - Type: string
+ - **structure_generic_network_console**
+    - Description: generic network console
+    - *structure_generic_network_console/fqdn*
+        - Optional
+        - Type: string
+    - *structure_generic_network_console/hwaddr*
+        - Required
+        - Type: type_hwaddr
+ - **structure_ipmi_console**
+    - Description: IPMI console
+ - **structure_ssh_console**
+    - Description: SSH console
+ - **structure_bmc_console**
+    - Description: BMC console
+ - **structure_dpc_console**
+    - Description: DPC console
+ - **structure_console**
+    - Description: console definition
+    - *structure_console/serial*
+        - Optional
+        - Type: structure_serial_console
+    - *structure_console/telnet*
+        - Optional
+        - Type: structure_telnet_console
+    - *structure_console/ssh*
+        - Optional
+        - Type: structure_ssh_console
+    - *structure_console/ipmi*
+        - Optional
+        - Type: structure_ipmi_console
+    - *structure_console/dpc*
+        - Optional
+        - Type: structure_dpc_console
+    - *structure_console/bmc*
+        - Optional
+        - Type: structure_bmc_console
+    - *structure_console/preferred*
+        - Optional
+        - Type: string
+ - **structure_benchmark**
+    - Description: System benchmark results benchmarks is used to hold the performance benchmark for the machine i.e. HEPSpec06 score this might be used to scale things such as the wall time example of using this might be : variable CONDOR_WN_SCALING_FACTOR = value('/hardware/benchmarks/hepspec06') / ( 4 * get_num_of_cores()) ;
+    - *structure_benchmark/hepspec06*
+        - Optional
+        - Type: double
+    - *structure_benchmark/HPL*
+        - Description: unit: Gflops
+        - Optional
+        - Type: double
+    - *structure_benchmark/stream*
+        - Description: unit: MB/s TRIAD
+        - Optional
+        - Type: double
+ - **structure_bios**
+    - Description: BIOS definition
+    - *structure_bios/version*
+        - Required
+        - Type: string
+    - *structure_bios/releasedate*
+        - Required
+        - Type: string
+ - **structure_hardware**
+    - Description: Hardware definition
+    - *structure_hardware/cpu*
+        - Optional
+        - Type: structure_cpu
+    - *structure_hardware/ram*
+        - Optional
+        - Type: structure_ram
+    - *structure_hardware/bios*
+        - Optional
+        - Type: structure_bios
+    - *structure_hardware/cards*
+        - Optional
+        - Type: structure_cards
+    - *structure_hardware/console*
+        - Optional
+        - Type: structure_console
+    - *structure_hardware/nodename*
+        - Optional
+        - Type: string
+    - *structure_hardware/benchmarks*
+        - Optional
+        - Type: structure_benchmark
+    - *structure_hardware/sensors*
+        - Optional
+        - Type: structure_sensor_types
+    - *structure_hardware/support*
+        - Description: Date at which the hardware support runs out.
+        - Optional
+        - Type: type_isodate
+    - *structure_hardware/procured*
+        - Description: Date at which the hardware is procured.
+        - Optional
+        - Type: type_isodate
+    - *structure_hardware/harddisks*
+        - Optional
+        - Type: structure_raidport
+ - **structure_enclosure**
+    - Description: describe a "box" as a collection of several nodes. We distinguish 3 types of enclosures: blade -> physical boxes with intelligence, such as, NIC, disk, etc dump -> physical boxes with no intelligence (just power unit) hypervisor -> virtual machines Each enclosure describes a parent-child relation, where "children" lists profile names which must exist. Warning! If you have a node called 'foo', use 'foo' as a profile name, *not* 'profile_foo' which raises a validation error; however, to allow a smooth transition, each name will be transparently matched against 'foo' and 'profile_foo', which are considered to be the same. The optional "maxchildren", if set, is used for validating the children list's size when defined: it must satisfy "maxchildren" >= length("children") this allow to describe an empty enclosure by defining *only* "/system/enclosure/type" = "..."; "/system/enclosure/maxchildren" = 0;
+    - *structure_enclosure/type*
+        - Required
+        - Type: string
+    - *structure_enclosure/children*
+        - Optional
+        - Type: string
+    - *structure_enclosure/maxchildren*
+        - Optional
+        - Type: long
+
+Variables
+---------
+
+ - ENC_TYPES

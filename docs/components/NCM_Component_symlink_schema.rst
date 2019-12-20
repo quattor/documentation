@@ -1,0 +1,80 @@
+##################################
+NCM\::Component\::symlink - schema
+##################################
+
+Types
+-----
+
+ - **/software/components/symlink/structure_symlink_replace_option_entry**
+    - */software/components/symlink/structure_symlink_replace_option_entry/all*
+        - Description: Use when renaming a given object type or to enable replacement for a specific object type.
+        - Optional
+        - Type: string
+    - */software/components/symlink/structure_symlink_replace_option_entry/dir*
+        - Description: Any directory
+        - Optional
+        - Type: string
+    - */software/components/symlink/structure_symlink_replace_option_entry/dirempty*
+        - Description: An empty directory only
+        - Optional
+        - Type: string
+    - */software/components/symlink/structure_symlink_replace_option_entry/file*
+        - Optional
+        - Type: string
+    - */software/components/symlink/structure_symlink_replace_option_entry/link*
+        - Optional
+        - Type: string
+    - */software/components/symlink/structure_symlink_replace_option_entry/none*
+        - Description: Use when renaming a given object type or to prevent replacement for a specific object type
+        - Optional
+        - Type: string
+ - **/software/components/symlink/structure_symlink_entry**
+    - */software/components/symlink/structure_symlink_entry/name*
+        - Description: symbolic link name (path).
+        - Required
+        - Type: string
+    - */software/components/symlink/structure_symlink_entry/target*
+        - Description: The target path can be built using a command output with the command string (can include valid command options) to execute between a pair of '@@' or a contextual variable (variables are defined in "/software/components/symlinks/context"). Unless the shell command between '@@' must be reevaluated for each link, it is better to associate the shell command with a contextual variable and use the variable in the target definition, as a contextual variable is evaluated once (global).
+        - Required
+        - Type: string
+    - */software/components/symlink/structure_symlink_entry/exists*
+        - Description: Check that the target exists when creating it or check that the symlink name exists when deleting it.
+        - Optional
+        - Type: boolean
+    - */software/components/symlink/structure_symlink_entry/delete*
+        - Description: Delete the symlink (not its target) rather than creating it. "target" can be ommitted in this case and if present, it is not checked to be this value before deletion. If "exists" is true, raise an error, if the link is not found else just silently ignore it.
+        - Optional
+        - Type: boolean
+    - */software/components/symlink/structure_symlink_entry/replace*
+        - Description: Option used to specify the action to take when an object with the same name as the symlink already exists, depending on the object type. Possible actions are: do not define the symlink, replace the object by the symlink or define the symlink after renaming the object.
+        - Optional
+        - Type: structure_symlink_replace_option_entry
+ - **/software/components/symlink/structure_symlink_context_entry**
+    - */software/components/symlink/structure_symlink_context_entry/name*
+        - Required
+        - Type: string
+    - */software/components/symlink/structure_symlink_context_entry/value*
+        - Required
+        - Type: string
+ - **/software/components/symlink/structure_symlink_option_entry**
+    - */software/components/symlink/structure_symlink_option_entry/exists*
+        - Description: Action applying to the object type. Can be "true" (replacement of the object by the symlink allowed), "false" (replacement of the object by the symlink disabled) or any other string. In this latter case, replacement of the object by the symlink is enabled after renaming the object by appending the string to its name.
+        - Optional
+        - Type: boolean
+    - */software/components/symlink/structure_symlink_option_entry/replace*
+        - Description: "replace" option allows a lot of flexibility in specifying what should be done in case of conflict with an existing object.
+        - Optional
+        - Type: structure_symlink_replace_option_entry
+ - **/software/components/symlink/symlink_component**
+    - */software/components/symlink/symlink_component/links*
+        - Description: A list of symbolic links to create or delete.
+        - Optional
+        - Type: structure_symlink_entry
+    - */software/components/symlink/symlink_component/context*
+        - Description: A list of contextual variables to use in target definitions. Each entry is a key/value pair with the variable name as the key. The value can contain a command output, as link target definition: see "target" description above. Contextual variables are global. They are evaluated once, before starting to define symlinks.
+        - Optional
+        - Type: structure_symlink_context_entry
+    - */software/components/symlink/symlink_component/options*
+        - Description: A list of global options used as default for all links creation/deletion. Supported options are the same as options supported in the link definition (see above), with the exception of "delete".
+        - Optional
+        - Type: structure_symlink_option_entry

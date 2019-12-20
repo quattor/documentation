@@ -1,0 +1,65 @@
+####################################
+NCM\::Component\::mkgridmap - schema
+####################################
+
+Types
+-----
+
+ - **/software/components/mkgridmap/structure_mkgridmap_local**
+    - */software/components/mkgridmap/structure_mkgridmap_local/cert*
+        - Required
+        - Type: string
+    - */software/components/mkgridmap/structure_mkgridmap_local/user*
+        - Required
+        - Type: string
+ - **/software/components/mkgridmap/structure_mkgridmap_lcmaps**
+    - */software/components/mkgridmap/structure_mkgridmap_lcmaps/flavor*
+        - Required
+        - Type: string
+        - Default value: glite
+    - */software/components/mkgridmap/structure_mkgridmap_lcmaps/gridmapfile*
+        - Required
+        - Type: string
+        - Default value: /opt/edg/etc/lcmaps/gridmapfile
+    - */software/components/mkgridmap/structure_mkgridmap_lcmaps/groupmapfile*
+        - Required
+        - Type: string
+        - Default value: /opt/edg/etc/lcmaps/groupmapfile
+ - **/software/components/mkgridmap/mkgridmap_component_entry**
+    - */software/components/mkgridmap/mkgridmap_component_entry/mkgridmapconf*
+        - Required
+        - Type: string
+    - */software/components/mkgridmap/mkgridmap_component_entry/format*
+        - Required
+        - Type: string
+    - */software/components/mkgridmap/mkgridmap_component_entry/command*
+        - Optional
+        - Type: string
+    - */software/components/mkgridmap/mkgridmap_component_entry/lcuser*
+        - Optional
+        - Type: string
+    - */software/components/mkgridmap/mkgridmap_component_entry/allow*
+        - Optional
+        - Type: string
+    - */software/components/mkgridmap/mkgridmap_component_entry/deny*
+        - Optional
+        - Type: string
+    - */software/components/mkgridmap/mkgridmap_component_entry/overwrite*
+        - Required
+        - Type: boolean
+    - */software/components/mkgridmap/mkgridmap_component_entry/authURIs*
+        - Optional
+        - Type: type_hostURI
+    - */software/components/mkgridmap/mkgridmap_component_entry/locals*
+        - Optional
+        - Type: structure_mkgridmap_local
+ - **/software/components/mkgridmap/mkgridmap_component**
+    - */software/components/mkgridmap/mkgridmap_component/entries*
+        - Required
+        - Type: mkgridmap_component_entry
+    - */software/components/mkgridmap/mkgridmap_component/lcmaps*
+        - Optional
+        - Type: structure_mkgridmap_lcmaps
+    - */software/components/mkgridmap/mkgridmap_component/voList*
+        - Optional
+        - Type: string

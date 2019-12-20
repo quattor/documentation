@@ -1,0 +1,85 @@
+############################################
+NCM\::Component\::openstack\::image - glance
+############################################
+
+Types
+-----
+
+ - **/software/components/openstack/openstack_glance_store**
+    - Description: The Glance configuration options in the "glance_store" Section. From glance.api
+    - */software/components/openstack/openstack_glance_store/stores*
+        - Description: List of enabled Glance stores. Register the storage backends to use for storing disk images as a comma separated list. The default stores enabled for storing disk images with Glance are "file" and "http"
+        - Required
+        - Type: openstack_storagebackend
+    - */software/components/openstack/openstack_glance_store/default_store*
+        - Description: The default scheme to use for storing images. Provide a string value representing the default scheme to use for storing images. If not set, Glance uses ``file`` as the default scheme to store images with the ``file`` store. NOTE: The value given for this configuration option must be a valid scheme for a store registered with the ``stores`` configuration option.
+        - Required
+        - Type: choice
+        - Default value: file
+    - */software/components/openstack/openstack_glance_store/filesystem_store_datadir*
+        - Description: Directory to which the filesystem backend store writes images. Upon start up, Glance creates the directory if it does not already exist and verifies write access to the user under which "glance-api" runs. If the write access is not available, a BadStoreConfiguration`` exception is raised and the filesystem store may not be available for adding new images. NOTE: This directory is used only when filesystem store is used as a storage backend. Either ``filesystem_store_datadir`` or filesystem_store_datadirs`` option must be specified in "glance-api.conf". If both options are specified, a BadStoreConfiguration will be raised and the filesystem store may not be available for adding new images
+        - Required
+        - Type: absolute_file_path
+        - Default value: /var/lib/glance/images
+    - */software/components/openstack/openstack_glance_store/rbd_store_pool*
+        - Description: This option is specific to the RBD storage backend. Default: rbd Sets the RADOS pool in which images are stored
+        - Optional
+        - Type: string
+        - Default value: images
+    - */software/components/openstack/openstack_glance_store/rbd_store_chunk_size*
+        - Description: This option is specific to the RBD storage backend. Default: 4 Images will be chunked into objects of this size (in megabytes). For best performance, this should be a power of two
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/openstack/openstack_glance_store/rados_connect_timeout*
+        - Description: This option is specific to the RBD storage backend. Default: 0 Prevents glance-api hangups during the connection to RBD. Sets the time to wait (in seconds) for glance-api before closing the connection. Setting rados_connect_timeout<=0 means no timeout
+        - Optional
+        - Type: long
+    - */software/components/openstack/openstack_glance_store/rbd_store_ceph_conf*
+        - Description: This option is specific to the RBD storage backend. Default: /etc/ceph/ceph.conf, ~/.ceph/config, and ./ceph.conf Sets the Ceph configuration file to use
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /etc/ceph/ceph.conf
+    - */software/components/openstack/openstack_glance_store/rbd_store_user*
+        - Description: This option is specific to the RBD storage backend. Default: admin Sets the RADOS user to authenticate as. This is only needed when RADOS authentication is enabled
+        - Optional
+        - Type: string
+        - Default value: images
+ - **/software/components/openstack/openstack_glance_DEFAULTS**
+    - Description: list of Glance Default sections
+    - */software/components/openstack/openstack_glance_DEFAULTS/show_image_direct_url*
+        - Description: Show direct image location when returning an image. This configuration option indicates whether to show the direct image location when returning image details to the user. The direct image location is where the image data is stored in backend storage. This image location is shown under the image property "direct_url". When multiple image locations exist for an image, the best location is displayed based on the location strategy indicated by the configuration option "location_strategy". This option enables the copy-on-write feature using Ceph as storage backend. NOTES: Revealing image locations can present a GRAVE SECURITY RISK as image locations can sometimes include credentials. Hence, this is set to "False" by default. Set this to "True" with EXTREME CAUTION and ONLY IF you know what you are doing!
+        - Optional
+        - Type: boolean
+ - **/software/components/openstack/openstack_glance_service_config**
+    - Description: list of Glance configuration sections
+    - */software/components/openstack/openstack_glance_service_config/DEFAULT*
+        - Optional
+        - Type: openstack_glance_DEFAULTS
+    - */software/components/openstack/openstack_glance_service_config/database*
+        - Required
+        - Type: openstack_database
+    - */software/components/openstack/openstack_glance_service_config/keystone_authtoken*
+        - Required
+        - Type: openstack_keystone_authtoken
+    - */software/components/openstack/openstack_glance_service_config/paste_deploy*
+        - Required
+        - Type: openstack_keystone_paste_deploy
+    - */software/components/openstack/openstack_glance_service_config/glance_store*
+        - Optional
+        - Type: openstack_glance_store
+    - */software/components/openstack/openstack_glance_service_config/cors*
+        - Optional
+        - Type: openstack_cors
+ - **/software/components/openstack/openstack_quattor_glance**
+ - **/software/components/openstack/openstack_glance_config**
+    - Description: list of Glance service configuration sections
+    - */software/components/openstack/openstack_glance_config/service*
+        - Optional
+        - Type: openstack_glance_service_config
+    - */software/components/openstack/openstack_glance_config/registry*
+        - Optional
+        - Type: openstack_glance_service_config
+    - */software/components/openstack/openstack_glance_config/quattor*
+        - Required
+        - Type: openstack_quattor_glance

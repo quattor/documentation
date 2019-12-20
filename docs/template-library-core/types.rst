@@ -1,0 +1,91 @@
+#####
+types
+#####
+
+Types
+-----
+
+ - **type_asndate**
+ - **type_isodate**
+ - **type_hwaddr**
+ - **type_ipv4**
+ - **type_ipv6**
+ - **type_ip**
+ - **type_fqdn**
+ - **type_hostname**
+ - **type_shorthostname**
+ - **type_port**
+ - **type_hostport**
+ - **type_URI**
+ - **type_absoluteURI**
+ - **type_hostURI**
+ - **type_email**
+ - **type_lowercase**
+ - **type_uppercase**
+ - **type_top_level_domain**
+ - **type_ipv4_prefix_length**
+ - **type_ipv6_prefix_length**
+ - **type_ipv4_netmask_pair**
+ - **type_ipv6_network_block**
+ - **type_network_name**
+ - **type_uuid**
+ - **absolute_file_path**
+ - **valid_interface**
+    - Description: Type that enforces the existence of a named interface.
+ - **cpu_architecture**
+    - Description: CPU architectures understood by Quattor
+ - **linux_capability**
+    - Description: Linux capabilities, see CAPABILITIES(7)
+
+Functions
+---------
+
+ - is_asndate
+    - Description: This type implements a date/time format consistent with ASN.1 typically used by LDAP. The actual specification is the "GeneralizedTime" format as specified on page 38 of the X.208 ITU-T recommendation and references within. Ex: 20040825120123Z 20040825120123+0100 20040825120123,5 20040825120123.5 20040825120123.5-0123
+ - is_isodate
+    - Description: This type implements a date/time format consistent with the W3C use of the datetime format. See the document: http://www.w3.org/TR/NOTE-datetime This is a subset of the ISO8601 specification. This type allows a short form with just a complete date or a full date/time. For the time (if given) only the fractions of a second field is optional. Comparison function not yet implemented. Ex: 2004-08-25 2004-08-25T12:32:00.01+05:00 2004-08-25T12:32:00Z
+ - is_hwaddr
+    - Description: The hardware address is a series of six bytes encoded as hex values and separated with a colon or a hyphen. Within a value you must use a consistent separator. Ex.: 00:D0:59:33:F6:30 00-D0-59-33-F6-30 Both upper and lower-case hex digits are accepted.
+ - is_ipv4
+    - Description: Function to validate an IPv4 address in dotted-decimal notation.
+ - is_ipv6
+    - Description: Function to validate an IPv6 address. Check that this is a valid full or shortened IPv6 address.
+ - is_ipv6_full
+    - Description: Check that argument is a valid full IPv6 address. This is eight, 16-bit numbers represented in hexadecimal notation and separated by colons. Leading zeros of each field can be suppressed.
+ - is_ipv6_short
+    - Description: Check that argument is a valid short IPv6 address. The shortened form of the IPv6 address allows a single instance of a double colon (::) to replace any number of contiguous zero fields.
+ - is_ip
+    - Description: Checks that the given address is a valid IPv4 or IPv6 address.
+ - is_fqdn
+    - Description: Function to validate a fully-qualified domain name. Each part of the domain name is separated by a period. The individual parts must begin with a letter or digit, end with a letter or digit, and may contain letters, digits, or hyphens in the middle. The relevant RFC's for host name syntax are 952, 1053, and 1123 (section 2.1).
+ - is_hostname
+    - Description: Validates a hostname to be either ip or fqdn.
+ - is_shorthostname
+    - Description: Verifies that the argument is a valid short hostname.
+ - is_port
+    - Description: Defines a valid port number.
+ - is_hostport
+    - Description: Defines a host and port of the form hostname:port.
+ - is_URI
+    - Description: This defines an URI according to RFC2396. Note that this is the most general URI which allows opaque URIs, hostbased URIs, and relative URIs. You may want a more specific-type for a particular value.
+ - is_absoluteURI
+    - Description: This defines an absolute URI according to RFC2396. This is just a valid URI with the scheme explicitly included.
+ - is_hostURI
+    - Description: This defines an URI according to RFC2396. A host-based URI is an absolute URI with a non-empty host field.
+ - is_email
+ - is_lowercase
+    - Description: If the string contains any upper case characters, return false
+ - is_uppercase
+    - Description: If the string contains any lower case characters, return false
+ - is_top_level_domain
+    - Description: Checks if the argument is a valid top level domain name (e.g. .example)
+ - is_ipv4_prefix_length
+ - is_ipv6_prefix_length
+ - is_ipv4_netmask_pair
+ - is_ipv6_network_block
+ - is_network_name
+    - Description: Checks if the argument is in the form host.name.domain or IP, or .domain or IP/mask.
+ - is_uuid
+    - Description: Defines a valid UUID according to RFC4122.
+ - is_absolute_file_path
+    - Description: Checks that a string represents a valid absolute path to a file (not a directory), prints explanatory errors if invalid

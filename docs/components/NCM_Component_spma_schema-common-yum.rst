@@ -1,0 +1,85 @@
+##########################################
+NCM\::Component\::spma - schema-common-yum
+##########################################
+
+Types
+-----
+
+ - **/software/components/spma/spma_yum_plugin_fastestmirror**
+    - */software/components/spma/spma_yum_plugin_fastestmirror/enabled*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/spma/spma_yum_plugin_fastestmirror/verbose*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/spma/spma_yum_plugin_fastestmirror/always_print_best_host*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/spma_yum_plugin_fastestmirror/socket_timeout*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 3
+    - */software/components/spma/spma_yum_plugin_fastestmirror/hostfilepath*
+        - Required
+        - Type: string
+        - Default value: timedhosts.txt
+    - */software/components/spma/spma_yum_plugin_fastestmirror/maxhostfileage*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+    - */software/components/spma/spma_yum_plugin_fastestmirror/maxthreads*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 15
+    - */software/components/spma/spma_yum_plugin_fastestmirror/exclude*
+        - Optional
+        - Type: string
+    - */software/components/spma/spma_yum_plugin_fastestmirror/include_only*
+        - Optional
+        - Type: string
+ - **/software/components/spma/spma_yum_plugin_versionlock**
+    - */software/components/spma/spma_yum_plugin_versionlock/enabled*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/spma_yum_plugin_versionlock/locklist*
+        - Required
+        - Type: string
+        - Default value: /etc/yum/pluginconf.d/versionlock.list
+    - */software/components/spma/spma_yum_plugin_versionlock/follow_obsoletes*
+        - Optional
+        - Type: boolean
+ - **/software/components/spma/spma_yum_plugin_priorities**
+    - */software/components/spma/spma_yum_plugin_priorities/enabled*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/spma_yum_plugin_priorities/check_obsoletes*
+        - Optional
+        - Type: boolean
+ - **/software/components/spma/spma_yum_plugins**
+    - */software/components/spma/spma_yum_plugins/fastestmirror*
+        - Optional
+        - Type: spma_yum_plugin_fastestmirror
+    - */software/components/spma/spma_yum_plugins/versionlock*
+        - Optional
+        - Type: spma_yum_plugin_versionlock
+    - */software/components/spma/spma_yum_plugins/priorities*
+        - Optional
+        - Type: spma_yum_plugin_priorities
+ - **/software/components/spma/component_spma_common_yum**
+    - */software/components/spma/component_spma_common_yum/proxy*
+        - Optional
+        - Type: legacy_binary_affirmation_string
+    - */software/components/spma/component_spma_common_yum/proxyhost*
+        - Optional
+        - Type: string
+    - */software/components/spma/component_spma_common_yum/proxyport*
+        - Optional
+        - Type: string

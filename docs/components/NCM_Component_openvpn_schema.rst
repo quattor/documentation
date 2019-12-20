@@ -1,0 +1,216 @@
+##################################
+NCM\::Component\::openvpn - schema
+##################################
+
+Types
+-----
+
+ - **/software/components/openvpn/structure_component_openvpn_all**
+    - */software/components/openvpn/structure_component_openvpn_all/configfile*
+        - Required
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/port*
+        - Required
+        - Type: type_port
+        - Default value: 1194
+    - */software/components/openvpn/structure_component_openvpn_all/proto*
+        - Required
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/dev*
+        - Required
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/ca*
+        - Required
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/cert*
+        - Required
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/key*
+        - Required
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/tls-auth*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/verb*
+        - Optional
+        - Type: long
+        - Range: 0..11
+    - */software/components/openvpn/structure_component_openvpn_all/cipher*
+        - Required
+        - Type: string
+        - Default value: BF-CBC
+    - */software/components/openvpn/structure_component_openvpn_all/cd*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/ifconfig*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_all/tun-mtu*
+        - Required
+        - Type: long
+        - Default value: 1500
+    - */software/components/openvpn/structure_component_openvpn_all/comp-lzo*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_all/comp-noadapt*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_all/user*
+        - Required
+        - Type: string
+        - Default value: nobody
+    - */software/components/openvpn/structure_component_openvpn_all/group*
+        - Required
+        - Type: string
+        - Default value: nobody
+    - */software/components/openvpn/structure_component_openvpn_all/daemon*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_all/nobind*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/openvpn/structure_component_openvpn_server**
+    - */software/components/openvpn/structure_component_openvpn_server/server*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/server-bridge*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/local*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/tls-server*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_server/passtos*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_server/crl-verify*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/dh*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/tls-verify*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/push*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/up*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/ifconfig-pool*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/ifconfig-pool-linear*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_server/ifconfig-pool-persist*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/client-config-dir*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/client-to-client*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_server/duplicate-cn*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_server/max-clients*
+        - Optional
+        - Type: long
+    - */software/components/openvpn/structure_component_openvpn_server/persist-key*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_server/persist-tun*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_server/log-append*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/management*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/topology*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/tls-remote*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/tcp-queue-limit*
+        - Optional
+        - Type: long
+    - */software/components/openvpn/structure_component_openvpn_server/ccd-exclusive*
+        - Optional
+        - Type: boolean
+    - */software/components/openvpn/structure_component_openvpn_server/script-security*
+        - Optional
+        - Type: long
+        - Range: 0..3
+    - */software/components/openvpn/structure_component_openvpn_server/keepalive*
+        - Required
+        - Type: long
+    - */software/components/openvpn/structure_component_openvpn_server/client-connect*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_server/client-disconnect*
+        - Optional
+        - Type: string
+ - **/software/components/openvpn/structure_component_openvpn_client**
+    - */software/components/openvpn/structure_component_openvpn_client/client*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_client/remote*
+        - Required
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_client/tls-exit*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_client/ns-cert-type*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_client/persist-key*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_client/persist-tun*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_client/remote-random*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_client/resolv-retry*
+        - Optional
+        - Type: string
+    - */software/components/openvpn/structure_component_openvpn_client/tls-client*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openvpn/structure_component_openvpn_client/max-routes*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/openvpn/structure_component_openvpn**
+    - */software/components/openvpn/structure_component_openvpn/server*
+        - Optional
+        - Type: structure_component_openvpn_server
+    - */software/components/openvpn/structure_component_openvpn/clients*
+        - Optional
+        - Type: structure_component_openvpn_client

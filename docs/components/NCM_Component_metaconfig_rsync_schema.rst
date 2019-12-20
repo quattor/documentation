@@ -1,0 +1,90 @@
+#############################################
+NCM\::Component\::metaconfig\::rsync - schema
+#############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/rsync_section**
+    - */software/components/metaconfig/rsync_section/comment*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_section/path*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_section/auth_users*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_section/lock_file*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_section/secrets_file*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_section/hosts_allow*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_section/max_connections*
+        - Required
+        - Type: long
+        - Default value: 2
+    - */software/components/metaconfig/rsync_section/path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsync_section/use_chroot*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/rsync_section/read_only*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/rsync_section/list*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/rsync_section/strict_modes*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/rsync_section/ignore_errors*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/rsync_section/ignore_nonreadable*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/rsync_section/transfer_logging*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/rsync_section/uid*
+        - Required
+        - Type: string
+        - Default value: rsyncd
+    - */software/components/metaconfig/rsync_section/gid*
+        - Required
+        - Type: string
+        - Default value: rsyncd
+    - */software/components/metaconfig/rsync_section/timeout*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 600
+    - */software/components/metaconfig/rsync_section/refuse_options*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_section/dont_compress*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/rsync_file**
+    - */software/components/metaconfig/rsync_file/sections*
+        - Required
+        - Type: rsync_section
+    - */software/components/metaconfig/rsync_file/log*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsync_file/facility*
+        - Required
+        - Type: string

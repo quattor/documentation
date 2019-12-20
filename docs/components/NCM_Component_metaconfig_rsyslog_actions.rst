@@ -1,0 +1,320 @@
+################################################
+NCM\::Component\::metaconfig\::rsyslog - actions
+################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/rsyslog_action_options**
+    - Description: Action/output module schema configuration options
+    - */software/components/metaconfig/rsyslog_action_options/writeAllMarkMessages*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_options/execOnlyEveryNthTime*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_options/execOnlyEveryNthTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_options/execOnlyOnceEveryInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_options/execOnlyWhenPreviousIsSuspended*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_options/repeatedmsgcontainsoriginalmsg*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_options/resumeRetryCount*
+        - Optional
+        - Type: long
+        - Range: -1..
+    - */software/components/metaconfig/rsyslog_action_options/resumeInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_options/reportSuspension*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_options/reportSuspensionContinuation*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_options/copyMsg*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/rsyslog_action_common**
+    - */software/components/metaconfig/rsyslog_action_common/name*
+        - Description: name (useful for debugging)
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_common/options*
+        - Description: action options
+        - Optional
+        - Type: rsyslog_action_options
+ - **/software/components/metaconfig/rsyslog_action_file_common_module**
+    - Description: output file common module and action parameters
+    - */software/components/metaconfig/rsyslog_action_file_common_module/template*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_file_common_module/dirCreateMode*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file_common_module/fileCreateMode*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file_common_module/fileOwner*
+        - Optional
+        - Type: defined_user
+    - */software/components/metaconfig/rsyslog_action_file_common_module/fileOwnerNum*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file_common_module/fileGroup*
+        - Optional
+        - Type: defined_group
+    - */software/components/metaconfig/rsyslog_action_file_common_module/fileGroupNum*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file_common_module/dirOwner*
+        - Optional
+        - Type: defined_user
+    - */software/components/metaconfig/rsyslog_action_file_common_module/dirOwnerNum*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file_common_module/dirGroup*
+        - Optional
+        - Type: defined_group
+    - */software/components/metaconfig/rsyslog_action_file_common_module/dirGroupNum*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/rsyslog_action_file**
+    - */software/components/metaconfig/rsyslog_action_file/file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_file/dynaFile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_file/closeTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file/dynaFileCacheSize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file/zipLevel*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file/veryRobustZip*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_file/flushInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file/asyncWriting*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_file/flushOnTXEnd*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_file/ioBufferSize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_file/failOnChOwnFailure*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_file/createDirs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_file/sync*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_file/sig.provider*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_file/cry.provider*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rsyslog_action_prog**
+    - */software/components/metaconfig/rsyslog_action_prog/binary*
+        - Description: The binary (and command line options; make sure to esacpe the double quotes)
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_prog/hup.signal*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_prog/signalOnClose*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/rsyslog_action_fwd**
+    - */software/components/metaconfig/rsyslog_action_fwd/Target*
+        - Required
+        - Type: type_hostname
+    - */software/components/metaconfig/rsyslog_action_fwd/Port*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/Protocol*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/NetworkNamespace*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/Device*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/TCP_Framing*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/ZipLevel*
+        - Optional
+        - Type: long
+        - Range: 0..9
+    - */software/components/metaconfig/rsyslog_action_fwd/maxErrorMessages*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/compression.mode*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/compression.stream.flushOnTXEnd*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_fwd/RebindInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/KeepAlive*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_fwd/KeepAlive.Probes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/KeepAlive.Interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/KeepAlive.Time*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/StreamDriver*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/StreamDriverMode*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/StreamDriverAuthMode*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/StreamDriverPermittedPeers*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_fwd/ResendLastMSGOnReconnect*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_fwd/udp.sendToAll*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_fwd/udp.sendDelay*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_fwd/template*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rsyslog_action_czmq**
+    - */software/components/metaconfig/rsyslog_action_czmq/endpoints*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_czmq/socktype*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_czmq/sendtimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_czmq/sendhwm*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_czmq/connecttimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_czmq/heartbeativl*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_czmq/heartbeattimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_czmq/heartbeatttl*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_czmq/topicframe*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_czmq/topics*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_czmq/dynatopic*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_action_czmq/template*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rsyslog_action_usrmsg**
+    - Description: Writes emergency messages to (alll) users
+    - */software/components/metaconfig/rsyslog_action_usrmsg/users*
+        - Description: Use '*' for all users
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_usrmsg/template*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rsyslog_action**
+    - */software/components/metaconfig/rsyslog_action/file*
+        - Optional
+        - Type: rsyslog_action_file
+    - */software/components/metaconfig/rsyslog_action/fwd*
+        - Optional
+        - Type: rsyslog_action_fwd
+    - */software/components/metaconfig/rsyslog_action/prog*
+        - Optional
+        - Type: rsyslog_action_prog
+    - */software/components/metaconfig/rsyslog_action/czmq*
+        - Optional
+        - Type: rsyslog_action_czmq
+    - */software/components/metaconfig/rsyslog_action/usrmsg*
+        - Optional
+        - Type: rsyslog_action_usrmsg
+    - */software/components/metaconfig/rsyslog_action/stop*
+        - Description: If the string is the empty string, a simple stop action is defined. A non-empty string is the conditional to use (if expr then stop).
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action/prifile*
+        - Description: A dict with key the (escaped) filename and value a list of prifilt values. For each file a conditional omfile action is generated with the prifilt or'ed; and all files are joined in one if/elsif,.. block. If the oneof the elements of the prifilt list is 'stop', the stop action will be added after the omfile action. The files are sorted alphabetically, so be careful when the prifilt statements have overlap.
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rsyslog_module_file_action**
+ - **/software/components/metaconfig/rsyslog_module_action**
+    - */software/components/metaconfig/rsyslog_module_action/file*
+        - Optional
+        - Type: rsyslog_module_file_action

@@ -1,0 +1,90 @@
+###############################
+NCM\::Component\::nrpe - schema
+###############################
+
+Types
+-----
+
+ - **/software/components/nrpe/component_nrpe_options**
+    - */software/components/nrpe/component_nrpe_options/log_facility*
+        - Description: The syslog facility that should be used for logging purposes.
+        - Required
+        - Type: string
+        - Default value: daemon
+    - */software/components/nrpe/component_nrpe_options/pid_file*
+        - Description: File in which the NRPE daemon should write it's process ID number.
+        - Required
+        - Type: string
+        - Default value: /var/run/nrpe.pid
+    - */software/components/nrpe/component_nrpe_options/server_port*
+        - Description: The port the daemon will listen to.
+        - Required
+        - Type: type_port
+        - Default value: 5666
+    - */software/components/nrpe/component_nrpe_options/server_address*
+        - Description: Address that nrpe should bind to if you do not want nrpe to bind on all interfaces.
+        - Optional
+        - Type: string
+    - */software/components/nrpe/component_nrpe_options/nrpe_user*
+        - Description: User the daemon will run as.
+        - Required
+        - Type: string
+        - Default value: nagios
+    - */software/components/nrpe/component_nrpe_options/nrpe_group*
+        - Description: Group the daemon will run as.
+        - Required
+        - Type: string
+        - Default value: nagios
+    - */software/components/nrpe/component_nrpe_options/allowed_hosts*
+        - Description: List of hosts allowed to order the NRPE daemon to run commands.
+        - Required
+        - Type: type_hostname
+    - */software/components/nrpe/component_nrpe_options/dont_blame_nrpe*
+        - Description: Whether or not the remote hosts are allowed to pass arguments to the commands offered by NRPE.
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nrpe/component_nrpe_options/command_prefix*
+        - Description: Optional prefix for every single command to be run (e.g. /usr/bin/sudo).
+        - Optional
+        - Type: string
+    - */software/components/nrpe/component_nrpe_options/debug*
+        - Description: Whether or not debugging messages are logged to the syslog facility.
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nrpe/component_nrpe_options/command_timeout*
+        - Description: Timeout for commands, in seconds.
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/nrpe/component_nrpe_options/connection_timeout*
+        - Description: Timeout for connections, in seconds.
+        - Required
+        - Type: long
+        - Default value: 300
+    - */software/components/nrpe/component_nrpe_options/allow_weak_random_seed*
+        - Description: Whether or not allow weak random number generation.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/nrpe/component_nrpe_options/command*
+        - Description: Dict with the command lines to be run. Keys are the command identifiers. Check Nagios' documentation for more information on command definitions.
+        - Required
+        - Type: string
+    - */software/components/nrpe/component_nrpe_options/include*
+        - Description: List of external file names that should be included.
+        - Optional
+        - Type: string
+    - */software/components/nrpe/component_nrpe_options/include_dir*
+        - Description: List of directory names that should be included.
+        - Optional
+        - Type: string
+ - **/software/components/nrpe/nrpe_component**
+    - */software/components/nrpe/nrpe_component/mode*
+        - Required
+        - Type: long
+        - Default value: 416
+    - */software/components/nrpe/nrpe_component/options*
+        - Required
+        - Type: component_nrpe_options

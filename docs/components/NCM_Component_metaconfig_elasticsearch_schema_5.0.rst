@@ -1,0 +1,114 @@
+#########################################################
+NCM\::Component\::metaconfig\::elasticsearch - schema_5.0
+#########################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/elasticsearch_bootstrap**
+    - Description: version specific types for Elasticsearch version 5.0 and later
+    - */software/components/metaconfig/elasticsearch_bootstrap/memory_lock*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/elasticsearch_path**
+    - */software/components/metaconfig/elasticsearch_path/repo*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/elasticsearch_thread_pool_fixed**
+    - Description: fixed thread pool
+    - */software/components/metaconfig/elasticsearch_thread_pool_fixed/size*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/elasticsearch_thread_pool_fixed/queue_size*
+        - Optional
+        - Type: long
+        - Range: -1..
+ - **/software/components/metaconfig/elasticsearch_thread_pool_scaling**
+    - Description: scaling thread pool
+    - */software/components/metaconfig/elasticsearch_thread_pool_scaling/core*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/elasticsearch_thread_pool_scaling/max*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/elasticsearch_thread_pool_scaling/keep_alive*
+        - Description: time in seconds to keep idle thread in thread pool
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/elasticsearch_threadpool**
+    - Description: Thread pool management. See http://www.elasticsearch.org/guide/reference/modules/threadpool/ @
+    - */software/components/metaconfig/elasticsearch_threadpool/generic*
+        - Optional
+        - Type: elasticsearch_thread_pool_scaling
+    - */software/components/metaconfig/elasticsearch_threadpool/search*
+        - Optional
+        - Type: elasticsearch_thread_pool_fixed
+    - */software/components/metaconfig/elasticsearch_threadpool/index*
+        - Optional
+        - Type: elasticsearch_thread_pool_fixed
+    - */software/components/metaconfig/elasticsearch_threadpool/get*
+        - Optional
+        - Type: elasticsearch_thread_pool_fixed
+    - */software/components/metaconfig/elasticsearch_threadpool/bulk*
+        - Optional
+        - Type: elasticsearch_thread_pool_fixed
+    - */software/components/metaconfig/elasticsearch_threadpool/percolate*
+        - Optional
+        - Type: elasticsearch_thread_pool_fixed
+    - */software/components/metaconfig/elasticsearch_threadpool/snapshot*
+        - Optional
+        - Type: elasticsearch_thread_pool_scaling
+    - */software/components/metaconfig/elasticsearch_threadpool/warmer*
+        - Optional
+        - Type: elasticsearch_thread_pool_scaling
+    - */software/components/metaconfig/elasticsearch_threadpool/refresh*
+        - Optional
+        - Type: elasticsearch_thread_pool_scaling
+    - */software/components/metaconfig/elasticsearch_threadpool/listener*
+        - Optional
+        - Type: elasticsearch_thread_pool_scaling
+ - **/software/components/metaconfig/elasticsearch_service**
+    - */software/components/metaconfig/elasticsearch_service/node*
+        - Optional
+        - Type: elasticsearch_node
+    - */software/components/metaconfig/elasticsearch_service/index*
+        - Optional
+        - Type: elasticsearch_index
+    - */software/components/metaconfig/elasticsearch_service/gateway*
+        - Optional
+        - Type: elasticsearch_gw
+    - */software/components/metaconfig/elasticsearch_service/indices*
+        - Optional
+        - Type: elasticsearch_indices
+    - */software/components/metaconfig/elasticsearch_service/network*
+        - Required
+        - Type: elasticsearch_network
+    - */software/components/metaconfig/elasticsearch_service/monitor.jvm.gc*
+        - Required
+        - Type: elasticsearch_monitoring
+    - */software/components/metaconfig/elasticsearch_service/thread_pool*
+        - Optional
+        - Type: elasticsearch_threadpool
+    - */software/components/metaconfig/elasticsearch_service/bootstrap*
+        - Optional
+        - Type: elasticsearch_bootstrap
+    - */software/components/metaconfig/elasticsearch_service/cluster*
+        - Optional
+        - Type: elasticsearch_cluster
+    - */software/components/metaconfig/elasticsearch_service/transport*
+        - Optional
+        - Type: elasticsearch_transport
+    - */software/components/metaconfig/elasticsearch_service/discovery*
+        - Optional
+        - Type: elasticsearch_discovery
+    - */software/components/metaconfig/elasticsearch_service/path*
+        - Optional
+        - Type: elasticsearch_path
+    - */software/components/metaconfig/elasticsearch_service/processors*
+        - Optional
+        - Type: long
+        - Range: 1..

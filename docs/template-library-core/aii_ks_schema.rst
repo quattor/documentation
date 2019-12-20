@@ -1,0 +1,272 @@
+#################
+aii\::ks\::schema
+#################
+
+Types
+-----
+
+ - **structure_ks_ksxinfo**
+    - Description: X configuration on the KS file.
+    - *structure_ks_ksxinfo/card*
+        - Description: Graphics card driver
+        - Optional
+        - Type: string
+    - *structure_ks_ksxinfo/monitor*
+        - Optional
+        - Type: string
+    - *structure_ks_ksxinfo/noprobe*
+        - Optional
+        - Type: string
+    - *structure_ks_ksxinfo/vsync*
+        - Optional
+        - Type: long
+    - *structure_ks_ksxinfo/hsync*
+        - Optional
+        - Type: long
+    - *structure_ks_ksxinfo/defaultdesktop*
+        - Optional
+        - Type: string
+    - *structure_ks_ksxinfo/resolution*
+        - Optional
+        - Type: string
+    - *structure_ks_ksxinfo/videoram*
+        - Optional
+        - Type: long
+    - *structure_ks_ksxinfo/startxonboot*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - *structure_ks_ksxinfo/depth*
+        - Optional
+        - Type: long
+        - Range: 1..32
+ - **string_ksservice**
+ - **structure_ks_ksfirewall**
+    - Description: Configure the firewall at installation-time.
+    - *structure_ks_ksfirewall/enabled*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - *structure_ks_ksfirewall/trusted*
+        - Optional
+        - Type: string
+    - *structure_ks_ksfirewall/services*
+        - Required
+        - Type: string_ksservice
+    - *structure_ks_ksfirewall/ports*
+        - Required
+        - Type: long
+ - **structure_ks_logging**
+    - Description: Log to syslog. Anaconda syslog uses UDP
+    - *structure_ks_logging/host*
+        - Description: when host is defined, anaconda syslog will be configured
+        - Optional
+        - Type: type_hostname
+    - *structure_ks_logging/port*
+        - Required
+        - Type: type_port
+        - Default value: 514
+    - *structure_ks_logging/level*
+        - Optional
+        - Type: string
+    - *structure_ks_logging/console*
+        - Description: redirect AII ks logfile to console
+        - Required
+        - Type: boolean
+        - Default value: true
+    - *structure_ks_logging/send_aiilogs*
+        - Description: send AII ks logfile to host/port
+        - Required
+        - Type: boolean
+        - Default value: false
+    - *structure_ks_logging/method*
+        - Description: send_aiilogs via bash or netcat
+        - Required
+        - Type: string
+        - Default value: netcat
+    - *structure_ks_logging/protocol*
+        - Description: send_aiilogs via tcp or udp
+        - Required
+        - Type: string
+        - Default value: udp
+ - **structure_ks_mail**
+    - Description: Configure email settings
+    - *structure_ks_mail/success*
+        - Description: Send email on succesful install
+        - Required
+        - Type: boolean
+        - Default value: false
+    - *structure_ks_mail/smtp*
+        - Description: SMTP server to use (requires mailx)
+        - Optional
+        - Type: type_hostname
+ - **structure_ks_ks_info**
+    - Description: Information needed for creating the Kickstart file Optional hooks pre_install, post_install, post_reboot and install for user customization are under /system/ks/hooks/.
+    - *structure_ks_ks_info/ackurl*
+        - Required
+        - Type: type_absoluteURI
+    - *structure_ks_ks_info/acklist*
+        - Optional
+        - Type: type_absoluteURI
+    - *structure_ks_ks_info/auth*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/bootloader_location*
+        - Required
+        - Type: string
+        - Default value: mbr
+    - *structure_ks_ks_info/bootloader_append*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/bootloader_password*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/bootdisk_order*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/clearmbr*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - *structure_ks_ks_info/enable_service*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/enable_sshd*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - *structure_ks_ks_info/clearpart*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/driverdisk*
+        - Optional
+        - Type: type_absoluteURI
+    - *structure_ks_ks_info/email_success*
+        - Description: deprecated boolean. when defined, precedes value of mail/success.
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/firewall*
+        - Optional
+        - Type: structure_ks_ksfirewall
+    - *structure_ks_ks_info/installtype*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/installnumber*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/lang*
+        - Required
+        - Type: string
+        - Default value: en_US.UTF-8
+    - *structure_ks_ks_info/langsupport*
+        - Description: If you use more than one language, mark the default one with --default your_lang
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/logging*
+        - Optional
+        - Type: structure_ks_logging
+    - *structure_ks_ks_info/mouse*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/bootproto*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/mail*
+        - Required
+        - Type: structure_ks_mail
+    - *structure_ks_ks_info/keyboard*
+        - Required
+        - Type: string
+        - Default value: us
+    - *structure_ks_ks_info/node_profile*
+        - Required
+        - Type: type_absoluteURI
+    - *structure_ks_ks_info/rootpw*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/osinstall_protocol*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/packages*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/pre_install_script*
+        - Optional
+        - Type: type_absoluteURI
+    - *structure_ks_ks_info/post_install_script*
+        - Optional
+        - Type: type_absoluteURI
+    - *structure_ks_ks_info/post_reboot_script*
+        - Optional
+        - Type: type_absoluteURI
+    - *structure_ks_ks_info/repo*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/timezone*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/ntpservers*
+        - Description: NTP servers used by Anaconda
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/selinux*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/xwindows*
+        - Optional
+        - Type: structure_ks_ksxinfo
+    - *structure_ks_ks_info/disable_service*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/ignoredisk*
+        - Optional
+        - Type: string
+    - *structure_ks_ks_info/base_packages*
+        - Description: Base packages needed for a Quattor client to run (CAF, CCM...)
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/disabled_repos*
+        - Description: Repositories to disable while SPMA is not available
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/packages_args*
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/part_label*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - *structure_ks_ks_info/volgroup_required*
+        - Description: Set to true if volgroup statement is required in KS config file (must not be present for SL6+)
+        - Required
+        - Type: boolean
+        - Default value: false
+    - *structure_ks_ks_info/version*
+        - Description: anaconda version, default is for EL5.0 support
+        - Required
+        - Type: string
+        - Default value: 11.1
+    - *structure_ks_ks_info/cmdline*
+        - Description: use cmdline instead of text mode
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/eula*
+        - Description: agree with EULA (EL7+)
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/packagesinpost*
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/bonding*
+        - Description: configure bonding (when not defined, it will be tried best-effort depending on OS version and configuration)
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/lvmforce*
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/init_spma_ignore_deps*
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/leavebootorder*
+        - Optional
+        - Type: boolean

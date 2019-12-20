@@ -1,0 +1,250 @@
+##################################
+NCM\::Component\::ganglia - schema
+##################################
+
+Types
+-----
+
+ - **/software/components/ganglia/daemon_ganglia**
+    - */software/components/ganglia/daemon_ganglia/config_file*
+        - Required
+        - Type: string
+        - Default value: /etc/ganglia/gmetad.conf
+    - */software/components/ganglia/daemon_ganglia/data_source*
+        - Required
+        - Type: string
+    - */software/components/ganglia/daemon_ganglia/gridname*
+        - Required
+        - Type: string
+        - Default value: unspecified
+    - */software/components/ganglia/daemon_ganglia/case_sensitive_hostnames*
+        - Required
+        - Type: long
+        - Default value: 1
+ - **/software/components/ganglia/metric_collection_groups_client_ganglia**
+    - */software/components/ganglia/metric_collection_groups_client_ganglia/name*
+        - Required
+        - Type: string
+    - */software/components/ganglia/metric_collection_groups_client_ganglia/title*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/metric_collection_groups_client_ganglia/value_threshold*
+        - Optional
+        - Type: string
+ - **/software/components/ganglia/collection_groups_client_ganglia**
+    - */software/components/ganglia/collection_groups_client_ganglia/collect_once*
+        - Optional
+        - Type: boolean
+    - */software/components/ganglia/collection_groups_client_ganglia/time_threshold*
+        - Optional
+        - Type: long
+    - */software/components/ganglia/collection_groups_client_ganglia/metric*
+        - Required
+        - Type: metric_collection_groups_client_ganglia
+    - */software/components/ganglia/collection_groups_client_ganglia/collect_every*
+        - Optional
+        - Type: long
+ - **/software/components/ganglia/modules_client_ganglia**
+    - */software/components/ganglia/modules_client_ganglia/name*
+        - Required
+        - Type: string
+    - */software/components/ganglia/modules_client_ganglia/path*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/modules_client_ganglia/enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/ganglia/modules_client_ganglia/params*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/modules_client_ganglia/param*
+        - Optional
+        - Type: string
+ - **/software/components/ganglia/access_acl_client_ganglia**
+    - */software/components/ganglia/access_acl_client_ganglia/ip*
+        - Required
+        - Type: string
+    - */software/components/ganglia/access_acl_client_ganglia/mask*
+        - Required
+        - Type: string
+    - */software/components/ganglia/access_acl_client_ganglia/action*
+        - Required
+        - Type: string
+ - **/software/components/ganglia/acl_client_ganglia**
+    - */software/components/ganglia/acl_client_ganglia/default*
+        - Required
+        - Type: string
+    - */software/components/ganglia/acl_client_ganglia/access*
+        - Optional
+        - Type: access_acl_client_ganglia
+ - **/software/components/ganglia/udp_accept_channel_client_ganglia**
+    - */software/components/ganglia/udp_accept_channel_client_ganglia/port*
+        - Required
+        - Type: long
+        - Default value: 8649
+    - */software/components/ganglia/udp_accept_channel_client_ganglia/bind*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_accept_channel_client_ganglia/interface*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_accept_channel_client_ganglia/family*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_accept_channel_client_ganglia/timeout*
+        - Optional
+        - Type: long
+    - */software/components/ganglia/udp_accept_channel_client_ganglia/acl*
+        - Optional
+        - Type: acl_client_ganglia
+ - **/software/components/ganglia/udp_recv_channel_client_ganglia**
+    - */software/components/ganglia/udp_recv_channel_client_ganglia/port*
+        - Required
+        - Type: long
+        - Default value: 8649
+    - */software/components/ganglia/udp_recv_channel_client_ganglia/mcast_join*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_recv_channel_client_ganglia/mcast_if*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_recv_channel_client_ganglia/bind*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_recv_channel_client_ganglia/family*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_recv_channel_client_ganglia/acl*
+        - Optional
+        - Type: acl_client_ganglia
+ - **/software/components/ganglia/udp_send_channel_client_ganglia**
+    - */software/components/ganglia/udp_send_channel_client_ganglia/host*
+        - Required
+        - Type: string
+    - */software/components/ganglia/udp_send_channel_client_ganglia/port*
+        - Required
+        - Type: long
+        - Default value: 8649
+    - */software/components/ganglia/udp_send_channel_client_ganglia/ttl*
+        - Required
+        - Type: long
+        - Default value: 1
+    - */software/components/ganglia/udp_send_channel_client_ganglia/mcast_join*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/udp_send_channel_client_ganglia/mcast_if*
+        - Optional
+        - Type: string
+ - **/software/components/ganglia/host_client_ganglia**
+    - */software/components/ganglia/host_client_ganglia/location*
+        - Required
+        - Type: string
+        - Default value: unspecified
+ - **/software/components/ganglia/cluster_client_ganglia**
+    - */software/components/ganglia/cluster_client_ganglia/name*
+        - Required
+        - Type: string
+    - */software/components/ganglia/cluster_client_ganglia/owner*
+        - Required
+        - Type: string
+        - Default value: unspecified
+    - */software/components/ganglia/cluster_client_ganglia/latlong*
+        - Required
+        - Type: string
+        - Default value: unspecified
+    - */software/components/ganglia/cluster_client_ganglia/url*
+        - Required
+        - Type: string
+        - Default value: unspecified
+ - **/software/components/ganglia/globals_client_ganglia**
+    - */software/components/ganglia/globals_client_ganglia/daemonize*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/ganglia/globals_client_ganglia/setuid*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/ganglia/globals_client_ganglia/user*
+        - Required
+        - Type: string
+        - Default value: nobody
+    - */software/components/ganglia/globals_client_ganglia/debug_level*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/ganglia/globals_client_ganglia/max_udp_msg_len*
+        - Required
+        - Type: long
+        - Default value: 1472
+    - */software/components/ganglia/globals_client_ganglia/mute*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/ganglia/globals_client_ganglia/deaf*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/ganglia/globals_client_ganglia/allow_extra_data*
+        - Optional
+        - Type: boolean
+    - */software/components/ganglia/globals_client_ganglia/host_dmax*
+        - Required
+        - Type: long
+        - Default value: 1209600
+    - */software/components/ganglia/globals_client_ganglia/cleanup_threshold*
+        - Required
+        - Type: long
+        - Default value: 300
+    - */software/components/ganglia/globals_client_ganglia/send_metadata_interval*
+        - Optional
+        - Type: long
+    - */software/components/ganglia/globals_client_ganglia/gexec*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/ganglia/globals_client_ganglia/module_dir*
+        - Optional
+        - Type: string
+ - **/software/components/ganglia/client_ganglia**
+    - */software/components/ganglia/client_ganglia/config_file*
+        - Required
+        - Type: string
+        - Default value: /etc/ganglia/gmond.conf
+    - */software/components/ganglia/client_ganglia/globals*
+        - Required
+        - Type: globals_client_ganglia
+    - */software/components/ganglia/client_ganglia/cluster*
+        - Required
+        - Type: cluster_client_ganglia
+    - */software/components/ganglia/client_ganglia/host*
+        - Required
+        - Type: host_client_ganglia
+    - */software/components/ganglia/client_ganglia/udp_send_channel*
+        - Required
+        - Type: udp_send_channel_client_ganglia
+    - */software/components/ganglia/client_ganglia/udp_recv_channel*
+        - Required
+        - Type: udp_recv_channel_client_ganglia
+    - */software/components/ganglia/client_ganglia/tcp_accept_channel*
+        - Required
+        - Type: udp_accept_channel_client_ganglia
+    - */software/components/ganglia/client_ganglia/modules*
+        - Optional
+        - Type: modules_client_ganglia
+    - */software/components/ganglia/client_ganglia/includes*
+        - Optional
+        - Type: string
+    - */software/components/ganglia/client_ganglia/collection_groups*
+        - Required
+        - Type: collection_groups_client_ganglia
+ - **/software/components/ganglia/component_ganglia**
+    - */software/components/ganglia/component_ganglia/package*
+        - Required
+        - Type: string
+    - */software/components/ganglia/component_ganglia/daemon*
+        - Optional
+        - Type: daemon_ganglia
+    - */software/components/ganglia/component_ganglia/client*
+        - Optional
+        - Type: client_ganglia

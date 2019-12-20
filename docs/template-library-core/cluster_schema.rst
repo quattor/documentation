@@ -1,0 +1,66 @@
+################
+cluster\::schema
+################
+
+Types
+-----
+
+ - **structure_metacluster**
+    - *structure_metacluster/name*
+        - Required
+        - Type: string
+    - *structure_metacluster/clusters*
+        - Optional
+        - Type: string
+ - **structure_preferred_location**
+    - *structure_preferred_location/building*
+        - Optional
+        - Type: string
+ - **structure_cluster_archetype**
+    - *structure_cluster_archetype/name*
+        - Required
+        - Type: string
+ - **structure_system_aquilon_cluster**
+    - *structure_system_aquilon_cluster/archetype*
+        - Required
+        - Type: structure_cluster_archetype
+    - *structure_system_aquilon_cluster/components*
+        - Optional
+        - Type: structure_sys_components
+    - *structure_system_aquilon_cluster/services*
+        - Optional
+        - Type: structure_services
+    - *structure_system_aquilon_cluster/provides*
+        - Optional
+        - Type: structure_provides
+    - *structure_system_aquilon_cluster/personality*
+        - Required
+        - Type: structure_personality
+    - *structure_system_aquilon_cluster/maintenance*
+        - Optional
+        - Type: structure_maintenance
+    - *structure_system_aquilon_cluster/cluster*
+        - Optional
+        - Type: structure_cluster
+    - *structure_system_aquilon_cluster/build*
+        - Optional
+        - Type: string
+    - *structure_system_aquilon_cluster/security*
+        - Optional
+        - Type: structure_security
+    - *structure_system_aquilon_cluster/features*
+        - Optional
+        - Type: nlist
+    - *structure_system_aquilon_cluster/resources*
+        - Optional
+        - Type: structure_resources
+ - **structure_profile_aquilon_cluster**
+    - *structure_profile_aquilon_cluster/software*
+        - Optional
+        - Type: structure_software
+    - *structure_profile_aquilon_cluster/system*
+        - Required
+        - Type: structure_system_aquilon_cluster
+    - *structure_profile_aquilon_cluster/metadata*
+        - Optional
+        - Type: structure_metadata

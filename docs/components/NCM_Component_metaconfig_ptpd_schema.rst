@@ -1,0 +1,141 @@
+############################################
+NCM\::Component\::metaconfig\::ptpd - schema
+############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/usable_network_interface**
+ - **/software/components/metaconfig/ptpd_service_ptpengine**
+    - */software/components/metaconfig/ptpd_service_ptpengine/interface*
+        - Description: interface has to be specified
+        - Required
+        - Type: usable_network_interface
+    - */software/components/metaconfig/ptpd_service_ptpengine/domain*
+        - Description: PTP domain
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+    - */software/components/metaconfig/ptpd_service_ptpengine/preset*
+        - Description: available presets are slaveonly, masteronly and masterslave (full IEEE 1588 implementation)
+        - Optional
+        - Type: string
+        - Default value: slaveonly
+    - */software/components/metaconfig/ptpd_service_ptpengine/ip_mode*
+        - Description: multicast for both sync and delay requests - use hybrid for unicast delay requests
+        - Optional
+        - Type: string
+        - Default value: multicast
+    - */software/components/metaconfig/ptpd_service_ptpengine/use_libpcap*
+        - Description: when enabled, sniffing is used instead of sockets to send and receive packets
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ptpd_service_ptpengine/panic_mode*
+        - Description: go into panic mode for number of minutes instead of resetting the clock
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ptpd_service_ptpengine/panic_mode_duration*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+    - */software/components/metaconfig/ptpd_service_ptpengine/sync_outlier_filter_enable*
+        - Description: uncomment this to enable outlier filters
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ptpd_service_ptpengine/delay_outlier_filter_enable*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ptpd_service_ptpengine/calibration_delay*
+        - Description: wait 5 statistics intervals for one-way delay to stabilise
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 5
+    - */software/components/metaconfig/ptpd_service_ptpengine/log_delayreq_interval*
+        - Description: required if ip_mode is set to hybrid
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+    - */software/components/metaconfig/ptpd_service_ptpengine/ip_dscp*
+        - Description: use DSCP 46 for expedited forwarding over ipv4 networks
+        - Optional
+        - Type: long
+        - Range: 0..63
+        - Default value: 46
+ - **/software/components/metaconfig/ptpd_service_global**
+    - */software/components/metaconfig/ptpd_service_global/statistics_update_interval*
+        - Description: update online statistics every 5 seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 5
+    - */software/components/metaconfig/ptpd_service_global/log_file*
+        - Description: log file, event log only. if timing statistics are needed, see statistics_file
+        - Optional
+        - Type: string
+        - Default value: /var/log/ptpd2.log
+    - */software/components/metaconfig/ptpd_service_global/log_file_max_size*
+        - Description: log file in kB
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 5000
+    - */software/components/metaconfig/ptpd_service_global/log_file_max_files*
+        - Description: rotate logs number of rotations
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 5
+    - */software/components/metaconfig/ptpd_service_global/log_status*
+        - Description: provide an overview of ptpd's operation and statistics (via enviroment variable PTPD_STATUS_FILE, default /var/run/ptpd2.status
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ptpd_service_global/statistics_file*
+        - Description: log a timing log like in previous ptpd versions
+        - Optional
+        - Type: string
+        - Default value: /var/log/ptpd2.stats
+    - */software/components/metaconfig/ptpd_service_global/cpuaffinity_cpucore*
+        - Description: on multi-core systems it is recommended to bind ptpd to a single core
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+ - **/software/components/metaconfig/ptpd_service_clock**
+    - */software/components/metaconfig/ptpd_service_clock/drift_handling*
+        - Description: store observed drift in a file
+        - Optional
+        - Type: string
+        - Default value: file
+    - */software/components/metaconfig/ptpd_service_clock/drift_file*
+        - Optional
+        - Type: string
+        - Default value: /var/log/ptpd2_kernelclock.drift
+    - */software/components/metaconfig/ptpd_service_clock/step_startup*
+        - Description: step clock on startup only if offset more than 1 second, ignoring panic mode and no_reset
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/ptpd_service_clock/set_rtc_on_step*
+        - Description: attempt setting the RTC when stepping clock
+        - Optional
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/ptpd_service**
+    - */software/components/metaconfig/ptpd_service/ptpengine*
+        - Required
+        - Type: ptpd_service_ptpengine
+    - */software/components/metaconfig/ptpd_service/global*
+        - Optional
+        - Type: ptpd_service_global
+    - */software/components/metaconfig/ptpd_service/clock*
+        - Optional
+        - Type: ptpd_service_clock

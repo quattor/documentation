@@ -1,0 +1,507 @@
+################################################
+NCM\::Component\::metaconfig\::libvirtd - schema
+################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/type_libvirtd_network**
+    - */software/components/metaconfig/type_libvirtd_network/listen_tls*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/type_libvirtd_network/listen_tcp*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/type_libvirtd_network/tls_port*
+        - Optional
+        - Type: type_port
+        - Default value: 16514
+    - */software/components/metaconfig/type_libvirtd_network/tcp_port*
+        - Optional
+        - Type: type_port
+        - Default value: 16509
+    - */software/components/metaconfig/type_libvirtd_network/listen_addr*
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/type_libvirtd_network/mdns_adv*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/type_libvirtd_network/mdns_name*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_libvirtd_socket**
+    - */software/components/metaconfig/type_libvirtd_socket/unix_sock_group*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_socket/unix_sock_ro_perms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_socket/unix_sock_rw_perms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_socket/unix_sock_dir*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_auth_unix_libvirtd**
+ - **/software/components/metaconfig/type_auth_libvirtd**
+ - **/software/components/metaconfig/type_libvirtd_authn**
+    - */software/components/metaconfig/type_libvirtd_authn/auth_unix_ro*
+        - Optional
+        - Type: type_auth_unix_libvirtd
+    - */software/components/metaconfig/type_libvirtd_authn/auth_unix_rw*
+        - Optional
+        - Type: type_auth_unix_libvirtd
+    - */software/components/metaconfig/type_libvirtd_authn/auth_tcp*
+        - Optional
+        - Type: type_auth_libvirtd
+    - */software/components/metaconfig/type_libvirtd_authn/auth_tls*
+        - Optional
+        - Type: type_auth_libvirtd
+    - */software/components/metaconfig/type_libvirtd_authn/access_drivers*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_libvirtd_tls**
+    - */software/components/metaconfig/type_libvirtd_tls/key_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_tls/cert_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_tls/ca_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_tls/crl_file*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_libvirtd_authz**
+    - */software/components/metaconfig/type_libvirtd_authz/tls_no_verify_certificate*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_libvirtd_authz/tls_no_sanity_certificate*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_libvirtd_authz/tls_allowed_dn_list*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_authz/sasl_allowed_username_list*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_libvirtd_processing**
+    - */software/components/metaconfig/type_libvirtd_processing/max_clients*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_processing/min_workers*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_processing/max_workers*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_processing/max_requests*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_processing/max_client_requests*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_processing/max_queued_clients*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_processing/max_anonymous_clients*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_processing/prio_workers*
+        - Optional
+        - Type: long
+        - Range: 1..
+ - **/software/components/metaconfig/type_libvirtd_logging**
+    - */software/components/metaconfig/type_libvirtd_logging/log_level*
+        - Optional
+        - Type: long
+        - Range: 0..4
+    - */software/components/metaconfig/type_libvirtd_logging/log_filters*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_libvirtd_logging/log_outputs*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_libvirtd_keepalive**
+    - */software/components/metaconfig/type_libvirtd_keepalive/keepalive_interval*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_keepalive/keepalive_count*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/type_libvirtd_keepalive/keepalive_required*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/type_libvirtd_audit**
+    - */software/components/metaconfig/type_libvirtd_audit/audit_level*
+        - Optional
+        - Type: long
+        - Range: 0..2
+    - */software/components/metaconfig/type_libvirtd_audit/audit_logging*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/type_qemu_vnc**
+    - */software/components/metaconfig/type_qemu_vnc/vnc_listen*
+        - Optional
+        - Type: type_ip
+    - */software/components/metaconfig/type_qemu_vnc/vnc_auto_unix_socket*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_qemu_vnc/vnc_tls*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_qemu_vnc/vnc_tls_x509_cert_dir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_qemu_vnc/vnc_tls_x509_verify*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_qemu_vnc/vnc_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_qemu_vnc/vnc_sasl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_qemu_vnc/vnc_sasl_dir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_qemu_vnc/vnc_allow_host_audio*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/type_qemu_spice**
+    - */software/components/metaconfig/type_qemu_spice/spice_listen*
+        - Optional
+        - Type: type_ip
+    - */software/components/metaconfig/type_qemu_spice/spice_tls*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_qemu_spice/spice_tls_x509_cert_dir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_qemu_spice/spice_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_qemu_spice/spice_sasl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_qemu_spice/spice_sasl_dir*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_qemu_remote**
+    - */software/components/metaconfig/type_qemu_remote/remote_display_port_min*
+        - Optional
+        - Type: long
+        - Range: 5900..65535
+    - */software/components/metaconfig/type_qemu_remote/remote_display_port_max*
+        - Optional
+        - Type: long
+        - Range: 5900..65535
+    - */software/components/metaconfig/type_qemu_remote/remote_websocket_port_min*
+        - Optional
+        - Type: long
+        - Range: 5700..65535
+    - */software/components/metaconfig/type_qemu_remote/remote_websocket_port_max*
+        - Optional
+        - Type: long
+        - Range: 5700..65535
+ - **/software/components/metaconfig/type_qemu_security**
+    - */software/components/metaconfig/type_qemu_security/security_driver*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_qemu_security/security_default_confined*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/type_qemu_security/security_require_confined*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/type_qemu_cgroup**
+    - */software/components/metaconfig/type_qemu_cgroup/cgroup_controllers*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/type_qemu_cgroup/cgroup_device_acl*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_image_format**
+ - **/software/components/metaconfig/type_qemu_image_format**
+    - */software/components/metaconfig/type_qemu_image_format/save_image_format*
+        - Optional
+        - Type: type_image_format
+    - */software/components/metaconfig/type_qemu_image_format/dump_image_format*
+        - Optional
+        - Type: type_image_format
+    - */software/components/metaconfig/type_qemu_image_format/snapshot_image_format*
+        - Optional
+        - Type: type_image_format
+ - **/software/components/metaconfig/type_qemu_keepalive**
+    - */software/components/metaconfig/type_qemu_keepalive/keepalive_interval*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/type_qemu_keepalive/keepalive_count*
+        - Optional
+        - Type: long
+ - **/software/components/metaconfig/type_qemu_migration**
+    - */software/components/metaconfig/type_qemu_migration/migration_address*
+        - Optional
+        - Type: type_ip
+    - */software/components/metaconfig/type_qemu_migration/migration_host*
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/type_qemu_migration/migration_port_min*
+        - Optional
+        - Type: long
+        - Range: 1..65535
+    - */software/components/metaconfig/type_qemu_migration/migration_port_max*
+        - Optional
+        - Type: long
+        - Range: 1..65535
+ - **/software/components/metaconfig/service_libvirtd**
+    - Description: libvirtd.conf settings
+    - */software/components/metaconfig/service_libvirtd/host_uuid*
+        - Optional
+        - Type: type_uuid
+ - **/software/components/metaconfig/service_sasl2**
+    - Description: sasl2 conf for libvirtd
+    - */software/components/metaconfig/service_sasl2/mech_list*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_sasl2/keytab*
+        - Optional
+        - Type: string
+        - Default value: /etc/libvirt/krb5.tab
+    - */software/components/metaconfig/service_sasl2/sasldb_path*
+        - Optional
+        - Type: string
+        - Default value: /etc/libvirt/passwd.db
+ - **/software/components/metaconfig/service_qemu**
+    - Description: QEMU conf for libvirtd
+    - */software/components/metaconfig/service_qemu/user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_qemu/group*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_qemu/dynamic_ownership*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/nographics_allow_host_audio*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/auto_dump_path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_qemu/auto_dump_bypass_cache*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/auto_start_bypass_cache*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/hugetlbfs_mount*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_qemu/bridge_helper*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_qemu/clear_emulator_capabilities*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/set_process_name*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/max_processes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/max_files*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/mac_filter*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/relaxed_acs_check*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/allow_disk_format_probing*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/lock_manager*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_qemu/max_queued*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/service_qemu/seccomp_sandbox*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_qemu/log_timestamp*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_qemu/nvram*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/service_sysconfig_libvirtd**
+    - Description: Override the default config file NOTE: This setting is no longer honoured if using systemd. Set '--config /etc/libvirt/libvirtd.conf'
+    - */software/components/metaconfig/service_sysconfig_libvirtd/libvirtd_config*
+        - Optional
+        - Type: string
+        - Default value: /etc/libvirt/libvirtd.conf
+    - */software/components/metaconfig/service_sysconfig_libvirtd/libvirtd_args*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_sysconfig_libvirtd/krb5_ktname*
+        - Optional
+        - Type: string
+        - Default value: /etc/libvirt/krb5.tab
+    - */software/components/metaconfig/service_sysconfig_libvirtd/qemu_audio_drv*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_sysconfig_libvirtd/sdl_audiodriver*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_sysconfig_libvirtd/libvirtd_nofiles_limit*
+        - Optional
+        - Type: long
+        - Range: 1..
+ - **/software/components/metaconfig/service_sysconfig_guests**
+    - Description: Override the default config file libvirt-guests to change VMs behaviour
+    - */software/components/metaconfig/service_sysconfig_guests/uris*
+        - Description: URIs to check for running guests example: URIS='default xen:/// vbox+tcp://host/system lxc:///'
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/service_sysconfig_guests/on_boot*
+        - Description: action taken on host boot start: all guests which were running on shutdown are started on boot regardless on their autostart settings. ignore: libvirt-guests init script wont start any guest on boot, however, guests marked as autostart will still be automatically started by libvirtd.
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/service_sysconfig_guests/start_delay*
+        - Description: Number of seconds to wait between each guest start. Set to 0 to allow parallel startup
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/service_sysconfig_guests/on_shutdown*
+        - Description: action taken on host shutdown suspend: all running guests are suspended using virsh managedsave. shutdown: all running guests are asked to shutdown. Please be careful with this settings since there is no way to distinguish between a guest which is stuck or ignores shutdown requests and a guest which just needs a long time to shutdown. When setting ON_SHUTDOWN=shutdown, you must also set SHUTDOWN_TIMEOUT to a value suitable for your guests.
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/service_sysconfig_guests/parallel_shutdown*
+        - Description: Number of guests will be shutdown concurrently, taking effect when "ON_SHUTDOWN" is set to "shutdown". If Set to 0, guests will be shutdown one after another. Number of guests on shutdown at any time will not exceed number set in this variable
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/service_sysconfig_guests/shutdown_timeout*
+        - Description: Number of seconds we are willing to wait for a guest to shut down. If parallel shutdown is enabled, this timeout applies as a timeout for shutting down all guests on a single URI defined in the variable URIS. If this is 0, then there is no time out (use with caution, as guests might not respond to a shutdown request). The default value is 300 seconds (5 minutes)
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/service_sysconfig_guests/bypass_cache*
+        - Description: If true, try to bypass the file system cache when saving and restoring guests, even though this may give slower operation for some file systems
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/service_sysconfig_guests/sync_time*
+        - Description: If true, try to sync guest time on domain resume. Be aware, that this requires guest agent with support for time synchronization running in the guest. For instance, qemu-ga does not support guest time synchronization on Windows guests, but Linux ones. By default, this functionality is turned off
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/type_kvmvm_network**
+    - */software/components/metaconfig/type_kvmvm_network/bridge*
+        - Description: linux or OVS bridge name required by the network interface
+        - Required
+        - Type: string
+    - */software/components/metaconfig/type_kvmvm_network/mac*
+        - Description: mac address required by the VM
+        - Required
+        - Type: type_hwaddr
+    - */software/components/metaconfig/type_kvmvm_network/type*
+        - Description: only required to use a Open vSwitch bridge
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/type_kvmvm_rbd**
+    - */software/components/metaconfig/type_kvmvm_rbd/name*
+        - Description: name of the block device available from the storage pool. it should include the relative path to the storage pool, as example: "one/disk1.vda"
+        - Required
+        - Type: string
+    - */software/components/metaconfig/type_kvmvm_rbd/ceph_hosts*
+        - Description: list of Ceph monitors
+        - Required
+        - Type: type_fqdn
+ - **/software/components/metaconfig/type_kvmvm_ceph_disk**
+    - Description: Parameters required to use a Ceph storage backend
+    - */software/components/metaconfig/type_kvmvm_ceph_disk/uuid*
+        - Description: uuid of the libvird secret generated from Ceph secret.xml file more info: http://docs.ceph.com/docs/master/rbd/libvirt/
+        - Required
+        - Type: type_uuid
+    - */software/components/metaconfig/type_kvmvm_ceph_disk/rbd*
+        - Description: protocol attributes required by Ceph rados block device
+        - Required
+        - Type: type_kvmvm_rbd
+    - */software/components/metaconfig/type_kvmvm_ceph_disk/dev*
+        - Description: device assigend to the storage. Use vdx to enable virtio drivers.
+        - Required
+        - Type: string
+    - */software/components/metaconfig/type_kvmvm_ceph_disk/cache*
+        - Description: control cache mechanism. unsafe: host may cache all disk IO, and sync requests from guest are ignored
+        - Required
+        - Type: string
+        - Default value: none
+ - **/software/components/metaconfig/type_kvmvm_graphics**
+    - Description: A graphics device allows for graphical interaction with the guest OS. A guest will typically have either a framebuffer or a text console configured to allow interaction with the admin.
+    - */software/components/metaconfig/type_kvmvm_graphics/type*
+        - Description: The graphics element that should be started
+        - Required
+        - Type: string
+        - Default value: vnc
+    - */software/components/metaconfig/type_kvmvm_graphics/listen*
+        - Description: listen address to get access to the display server
+        - Required
+        - Type: type_ip
+        - Default value: 0.0.0.0
+    - */software/components/metaconfig/type_kvmvm_graphics/port*
+        - Description: port used by the display server
+        - Required
+        - Type: long
+        - Range: 5900..
+        - Default value: 5900
+ - **/software/components/metaconfig/type_kvmvm_devices**
+    - Description: libvirt devices section
+    - */software/components/metaconfig/type_kvmvm_devices/network*
+        - Optional
+        - Type: type_kvmvm_network
+    - */software/components/metaconfig/type_kvmvm_devices/ceph_disk*
+        - Optional
+        - Type: type_kvmvm_ceph_disk
+    - */software/components/metaconfig/type_kvmvm_devices/graphics*
+        - Required
+        - Type: type_kvmvm_graphics
+ - **/software/components/metaconfig/service_kvmvm**
+    - Description: KVM libvirt xml template that can be instantiated by a KVM hypervisor.
+    - */software/components/metaconfig/service_kvmvm/name*
+        - Description: name of the VM displayed by virsh command
+        - Required
+        - Type: type_fqdn
+    - */software/components/metaconfig/service_kvmvm/memory*
+        - Description: memory required by the VM (in Mb)
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/service_kvmvm/cpus*
+        - Description: number of cpus required by the VM
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/service_kvmvm/devices*
+        - Description: XML devices section, it includes storage (Ceph) and network resources
+        - Optional
+        - Type: type_kvmvm_devices
+
+Functions
+---------
+
+ - is_image_format

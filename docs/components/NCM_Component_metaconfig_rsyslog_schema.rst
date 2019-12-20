@@ -1,0 +1,69 @@
+###############################################
+NCM\::Component\::metaconfig\::rsyslog - schema
+###############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/rsyslog_ruleset**
+    - */software/components/metaconfig/rsyslog_ruleset/action*
+        - Description: Actions, generate simple rules (ie no filters)
+        - Optional
+        - Type: rsyslog_action
+    - */software/components/metaconfig/rsyslog_ruleset/queue*
+        - Description: Per ruleset queue
+        - Optional
+        - Type: rsyslog_queue
+ - **/software/components/metaconfig/rsyslog_module_type**
+    - */software/components/metaconfig/rsyslog_module_type/input*
+        - Optional
+        - Type: rsyslog_module_input
+    - */software/components/metaconfig/rsyslog_module_type/action*
+        - Optional
+        - Type: rsyslog_module_action
+ - **/software/components/metaconfig/rsyslog_template**
+    - */software/components/metaconfig/rsyslog_template/string*
+        - Description: string type tmplate
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/rsyslog_debug**
+    - */software/components/metaconfig/rsyslog_debug/file*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_debug/level*
+        - Optional
+        - Type: long
+        - Range: 0..2
+ - **/software/components/metaconfig/rsyslog_service**
+    - */software/components/metaconfig/rsyslog_service/input*
+        - Description: Named input modules
+        - Optional
+        - Type: rsyslog_input
+    - */software/components/metaconfig/rsyslog_service/ruleset*
+        - Description: Ruleset
+        - Optional
+        - Type: rsyslog_ruleset
+    - */software/components/metaconfig/rsyslog_service/debug*
+        - Description: debugging
+        - Optional
+        - Type: rsyslog_debug
+    - */software/components/metaconfig/rsyslog_service/global*
+        - Description: global parameters
+        - Optional
+        - Type: rsyslog_global
+    - */software/components/metaconfig/rsyslog_service/main_queue*
+        - Description: main queue
+        - Optional
+        - Type: rsyslog_queue
+    - */software/components/metaconfig/rsyslog_service/module*
+        - Description: module load parameters. By default, all input types are loaded (once). Modules defined here precede those. Key is input name, value is a dict with key/vaue pairs.
+        - Optional
+        - Type: rsyslog_module_type
+    - */software/components/metaconfig/rsyslog_service/template*
+        - Description: Named templates
+        - Optional
+        - Type: rsyslog_template
+    - */software/components/metaconfig/rsyslog_service/defaultruleset*
+        - Description: Default ruleset: use this ruleset as default ruleset
+        - Optional
+        - Type: string

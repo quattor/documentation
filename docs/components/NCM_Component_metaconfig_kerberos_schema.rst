@@ -1,0 +1,123 @@
+################################################
+NCM\::Component\::metaconfig\::kerberos - schema
+################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/krb5_logging**
+    - */software/components/metaconfig/krb5_logging/default*
+        - Required
+        - Type: string
+        - Default value: FILE:/var/log/krb5libs.log
+    - */software/components/metaconfig/krb5_logging/kdc*
+        - Required
+        - Type: string
+        - Default value: FILE:/var/log/krb5kdc.log
+    - */software/components/metaconfig/krb5_logging/admin_server*
+        - Required
+        - Type: string
+        - Default value: FILE:/var/log/kadmind.log
+ - **/software/components/metaconfig/krb5_realm**
+    - */software/components/metaconfig/krb5_realm/kdc*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/krb5_realm/admin_server*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/krb5_libdefaults**
+    - */software/components/metaconfig/krb5_libdefaults/default_realm*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/krb5_libdefaults/dns_lookup_realm*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/krb5_libdefaults/dns_lookup_kdc*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/krb5_libdefaults/ticket_lifetime*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/krb5_libdefaults/renew_lifetime*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/krb5_libdefaults/forwardable*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/krb5_libdefaults/default_keytab_name*
+        - Required
+        - Type: string
+        - Default value: FILE:/etc/krb5.keytab
+ - **/software/components/metaconfig/krb5_conf_file**
+    - */software/components/metaconfig/krb5_conf_file/logging*
+        - Required
+        - Type: krb5_logging
+    - */software/components/metaconfig/krb5_conf_file/libdefaults*
+        - Required
+        - Type: krb5_libdefaults
+    - */software/components/metaconfig/krb5_conf_file/realms*
+        - Required
+        - Type: krb5_realm
+    - */software/components/metaconfig/krb5_conf_file/domain_realms*
+        - Required
+        - Type: type_fqdn
+ - **/software/components/metaconfig/kdc_defaults**
+    - */software/components/metaconfig/kdc_defaults/ports*
+        - Required
+        - Type: type_port
+        - Default value: 88
+    - */software/components/metaconfig/kdc_defaults/tcp_ports*
+        - Required
+        - Type: type_port
+        - Default value: 884
+ - **/software/components/metaconfig/kdc_realm**
+    - */software/components/metaconfig/kdc_realm/acl_file*
+        - Required
+        - Type: string
+        - Default value: /var/kerberos/krb5kdc/kadm5.acl
+    - */software/components/metaconfig/kdc_realm/dict_file*
+        - Required
+        - Type: string
+        - Default value: /usr/share/dict/words
+    - */software/components/metaconfig/kdc_realm/admin_keytab*
+        - Required
+        - Type: string
+        - Default value: /var/kerberos/krb5kdc/krb5kdc/kadm5.keytab
+    - */software/components/metaconfig/kdc_realm/supported_enctypes*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/kdc_conf_file**
+    - */software/components/metaconfig/kdc_conf_file/defaults*
+        - Required
+        - Type: kdc_defaults
+    - */software/components/metaconfig/kdc_conf_file/realms*
+        - Required
+        - Type: kdc_realm
+ - **/software/components/metaconfig/kdc_acl_principal**
+    - */software/components/metaconfig/kdc_acl_principal/instance*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kdc_acl_principal/realm*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/kdc_acl_principal/primary*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/kdc_permissions**
+ - **/software/components/metaconfig/kdc_acl**
+    - */software/components/metaconfig/kdc_acl/subject*
+        - Required
+        - Type: kdc_acl_principal
+    - */software/components/metaconfig/kdc_acl/permissions*
+        - Required
+        - Type: kdc_permissions
+    - */software/components/metaconfig/kdc_acl/target*
+        - Optional
+        - Type: kdc_acl_principal
+ - **/software/components/metaconfig/kdc_acl_file**
+    - */software/components/metaconfig/kdc_acl_file/acls*
+        - Required
+        - Type: kdc_acl

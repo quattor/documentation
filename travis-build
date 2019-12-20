@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -e # halt script on error
 
-mkdocs build
-bundle exec htmlproofer  --check-html ./site/ --file-ignore ./site/base.html,./site/breadcrumbs.html,./site/footer.html,./site/toc.html,./site/versions.html --url-ignore "/readthedocs.org/"
+cd docs
+make clean html
+bundle exec htmlproofer --check-html ./.build/html/ --allow-hash-href --file-ignore ./.build/html/search.html --url-ignore /localhost/,/0.0.0.0/,/horizon.example/
+

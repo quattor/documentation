@@ -1,0 +1,86 @@
+#################################
+NCM\::Component\::spma - software
+#################################
+
+Types
+-----
+
+ - **/software/components/spma/software_repository_url**
+ - **/software/components/spma/SOFTWARE_PACKAGE_REP**
+ - **/software/components/spma/SOFTWARE_PACKAGE**
+    - */software/components/spma/SOFTWARE_PACKAGE/arch*
+        - Optional
+        - Type: string
+ - **/software/components/spma/SOFTWARE_REPOSITORY_PACKAGE**
+    - */software/components/spma/SOFTWARE_REPOSITORY_PACKAGE/arch*
+        - Required
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY_PACKAGE/name*
+        - Required
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY_PACKAGE/version*
+        - Required
+        - Type: string
+ - **/software/components/spma/SOFTWARE_REPOSITORY_PROTOCOL**
+    - */software/components/spma/SOFTWARE_REPOSITORY_PROTOCOL/name*
+        - Required
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY_PROTOCOL/url*
+        - Required
+        - Type: software_repository_url
+    - */software/components/spma/SOFTWARE_REPOSITORY_PROTOCOL/cacert*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY_PROTOCOL/clientcert*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY_PROTOCOL/clientkey*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY_PROTOCOL/verify*
+        - Optional
+        - Type: boolean
+ - **/software/components/spma/SOFTWARE_REPOSITORY**
+    - */software/components/spma/SOFTWARE_REPOSITORY/enabled*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/SOFTWARE_REPOSITORY/gpgcheck*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/spma/SOFTWARE_REPOSITORY/repo_gpgcheck*
+        - Optional
+        - Type: boolean
+    - */software/components/spma/SOFTWARE_REPOSITORY/gpgkey*
+        - Optional
+        - Type: software_repository_url
+    - */software/components/spma/SOFTWARE_REPOSITORY/gpgcakey*
+        - Optional
+        - Type: software_repository_url
+    - */software/components/spma/SOFTWARE_REPOSITORY/excludepkgs*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY/includepkgs*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY/name*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY/owner*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY/priority*
+        - Optional
+        - Type: long
+        - Range: 1..99
+    - */software/components/spma/SOFTWARE_REPOSITORY/protocols*
+        - Optional
+        - Type: SOFTWARE_REPOSITORY_PROTOCOL
+    - */software/components/spma/SOFTWARE_REPOSITORY/proxy*
+        - Optional
+        - Type: string
+    - */software/components/spma/SOFTWARE_REPOSITORY/skip_if_unavailable*
+        - Required
+        - Type: boolean
+        - Default value: false

@@ -1,0 +1,284 @@
+###############################
+NCM\::Component\::sudo - schema
+###############################
+
+Types
+-----
+
+ - **/software/components/sudo/sudo_host**
+    - Description: a valid hostname, possibly preceeded by an '!'
+ - **/software/components/sudo/sudo_user_alias**
+ - **/software/components/sudo/sudo_cmd_alias**
+ - **/software/components/sudo/sudo_host_alias**
+ - **/software/components/sudo/sudo_privilege_line**
+    - Description: Each privilege line in a sudoers has the following format: 'user host = (run_as_user) OPTIONS: command' Remember that the built-in alias ALL is valid for users, run_as users, hosts and commands.
+    - */software/components/sudo/sudo_privilege_line/user*
+        - Description: The user allowed to 'sudo <command>'. Can be an user, an user_alias, or a group (with a leading '%').
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_privilege_line/run_as*
+        - Description: The user to be supplanted. Can be an user, a run_as_alias or a group (with a leading '%').
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_privilege_line/host*
+        - Description: The host from where the user can invoke sudo. Can be a host or a host_alias.
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_privilege_line/options*
+        - Description: Specific options for this command
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_privilege_line/cmd*
+        - Description: The command being run
+        - Required
+        - Type: string
+ - **/software/components/sudo/sudo_default_options**
+    - Description: Can have any of the documented atomic (non-list!!) values for the Defaults section in man(5) sudoers
+    - */software/components/sudo/sudo_default_options/long_otp_prompt*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/ignore_dot*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/mail_always*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/mail_badpass*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/mail_no_user*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/mail_no_host*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/mail_no_perms*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/tty_tickets*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/lecture*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/authenticate*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/root_sudo*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/log_host*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/log_year*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/shell_noargs*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/set_home*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/always_set_home*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/path_info*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/preserve_groups*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/fqdn*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/insults*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/requiretty*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/env_editor*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/rootpw*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/runaspw*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/targetpw*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/set_logname*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/stay_setuid*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/env_reset*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/use_loginclass*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/visiblepw*
+        - Optional
+        - Type: boolean
+    - */software/components/sudo/sudo_default_options/passwd_tries*
+        - Optional
+        - Type: long
+    - */software/components/sudo/sudo_default_options/loglinelen*
+        - Optional
+        - Type: long
+    - */software/components/sudo/sudo_default_options/timestamp_timeout*
+        - Optional
+        - Type: long
+    - */software/components/sudo/sudo_default_options/passwd_timeout*
+        - Optional
+        - Type: long
+    - */software/components/sudo/sudo_default_options/umask*
+        - Optional
+        - Type: long
+    - */software/components/sudo/sudo_default_options/mailsub*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/env_keep*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/env_delete*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/badpass_message*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/timestampdir*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/timestampowner*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/passprompt*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/runas_default*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/syslog_goodpri*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/syslog_badpri*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/editor*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/logfile*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/syslog*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/mailerpath*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/mailerflags*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/mailto*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/exempt_group*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/verifypw*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/listpw*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_default_options/secure_path*
+        - Optional
+        - Type: string
+ - **/software/components/sudo/sudo_defaults**
+    - Description: sudo defaults, i.e. an optional user, an optional host, an optional run_as user (to be supplanted) And a set of default settings.
+    - */software/components/sudo/sudo_defaults/user*
+        - Description: The user the settings apply to.
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_defaults/run_as*
+        - Description: The supplanted user the settings apply to.
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_defaults/host*
+        - Description: The host the settings apply to.
+        - Optional
+        - Type: sudo_host
+    - */software/components/sudo/sudo_defaults/cmd*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_defaults/options*
+        - Description: The named list of options that can be specified. Currently, only atomic options are supported. Boolean, integer and string values are handled correctly.
+        - Required
+        - Type: sudo_default_options
+ - **/software/components/sudo/sudo_ldap**
+    - Description: Configuration for the sudoers.ldap
+    - */software/components/sudo/sudo_ldap/dn*
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_ldap/objectClass*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_ldap/sudoOption*
+        - Optional
+        - Type: sudo_default_options
+    - */software/components/sudo/sudo_ldap/description*
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_ldap/sudoUser*
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_ldap/sudoRunAsUser*
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_ldap/sudoHost*
+        - Required
+        - Type: string
+    - */software/components/sudo/sudo_ldap/sudoCommand*
+        - Required
+        - Type: string
+ - **/software/components/sudo/sudo_component**
+    - Description: Structure for the component. See man sudoers for information on user_aliases, host_aliases, run_as_aliases and cmd_aliases All alias names must be in capitals.
+    - */software/components/sudo/sudo_component/general_options*
+        - Description: Set default behaviour either for users or hosts, or for the whole sudo application.
+        - Optional
+        - Type: sudo_defaults
+    - */software/components/sudo/sudo_component/user_aliases*
+        - Description: dicts of lists of strings containing the alias information. The name of each named list must start with a letter, and contain only letters, numbers and underscores. All the letters must be capitals. i.e. the name must match ^[A-Z][A-Z0-9\_]*$. They can be preceeded by an '!', indicating the alias must *not* match that name. The contents may be preceeded by an '!', indicating that item must not be part of the alias. The contents of host aliases can be either host names, IP addresses or network specifications (IP/netmask). A valid example: "/software/components/sudo/user_aliases/FOO" = list ("bar", "%wheel", "!root");
+        - Optional
+        - Type: sudo_user_alias
+    - */software/components/sudo/sudo_component/run_as_aliases*
+        - Description: see user_aliases
+        - Optional
+        - Type: sudo_user_alias
+    - */software/components/sudo/sudo_component/host_aliases*
+        - Description: see user_aliases
+        - Optional
+        - Type: sudo_host_alias
+    - */software/components/sudo/sudo_component/cmd_aliases*
+        - Description: see user_aliases
+        - Optional
+        - Type: sudo_cmd_alias
+    - */software/components/sudo/sudo_component/privilege_lines*
+        - Description: A list of structures, each one specifying a way for a normal user to elevate its privileges.
+        - Optional
+        - Type: sudo_privilege_line
+    - */software/components/sudo/sudo_component/includes*
+        - Description: The sudoers file allows to include other configuration files, to keep the configurations simpler. The 'includes' field allows to specify a list of files that should be included.
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_component/includes_dirs*
+        - Optional
+        - Type: string
+    - */software/components/sudo/sudo_component/ldap*
+        - Optional
+        - Type: sudo_ldap

@@ -1,0 +1,256 @@
+###############################################
+NCM\::Component\::metaconfig\::openvpn - schema
+###############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/config_openvpn_all**
+    - Description: All options shared between client and server.
+    - */software/components/metaconfig/config_openvpn_all/ca*
+        - Description: Certificate authority (CA) file in .pem format.
+        - Required
+        - Type: absolute_file_path
+    - */software/components/metaconfig/config_openvpn_all/cd*
+        - Description: Change directory to dir prior to reading any files such as configuration files.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_all/cert*
+        - Description: Local peer's signed certificate in .pem format.
+        - Required
+        - Type: absolute_file_path
+    - */software/components/metaconfig/config_openvpn_all/cipher*
+        - Description: Encrypt data channel packets with cipher algorithm alg.
+        - Required
+        - Type: string
+        - Default value: AES-256-CBC
+    - */software/components/metaconfig/config_openvpn_all/compress*
+        - Description: Enable a compression algorithm.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_all/comp-lzo*
+        - Description: Use LZO compression, deprecated since 2.4.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_all/comp-noadapt*
+        - Description: this option will disable OpenVPN's adaptive compression algorithm.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_all/daemon*
+        - Description: Become a daemon after all initialization functions are completed.
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_all/dev*
+        - Description: TUN/TAP virtual network device.
+        - Required
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_all/group*
+        - Description: this option changes the group ID of the OpenVPN process to group after initialization.
+        - Required
+        - Type: string
+        - Default value: nobody
+    - */software/components/metaconfig/config_openvpn_all/ifconfig*
+        - Description: Set TUN/TAP adapter parameters.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_all/key*
+        - Description: Local peer's private key in .pem format.
+        - Required
+        - Type: absolute_file_path
+    - */software/components/metaconfig/config_openvpn_all/nobind*
+        - Description: Do not bind to local address and port.
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_all/persist-key*
+        - Description: Don't re-read key files across SIGUSR1 or --ping-restart.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_all/persist-tun*
+        - Description: Don't close and reopen TUN/TAP device or run up/down scripts across SIGUSR1 or --ping-restart.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_all/port*
+        - Description: TCP/UDP port number or port name for both local and remote.
+        - Required
+        - Type: type_port
+        - Default value: 1194
+    - */software/components/metaconfig/config_openvpn_all/proto*
+        - Description: Use protocol p for communicating with remote host.
+        - Required
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_all/tls-auth*
+        - Description: Add an additional layer of HMAC authentication on top of the TLS control channel.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_all/tun-mtu*
+        - Description: Take the TUN device MTU to be n and derive the link MTU from it.
+        - Required
+        - Type: long
+        - Default value: 1500
+    - */software/components/metaconfig/config_openvpn_all/user*
+        - Description: Change the user ID of the OpenVPN process to user after initialization.
+        - Required
+        - Type: string
+        - Default value: nobody
+    - */software/components/metaconfig/config_openvpn_all/verb*
+        - Description: Set output verbosity
+        - Optional
+        - Type: long
+        - Range: 0..11
+ - **/software/components/metaconfig/config_openvpn_server**
+    - Description: All options only available to a server.
+    - */software/components/metaconfig/config_openvpn_server/ccd-exclusive*
+        - Description: Require, as a condition of authentication, that a connecting client has a client-config-dir file.
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/config_openvpn_server/client-config-dir*
+        - Description: Specify a directory dir for custom client config files.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/client-connect*
+        - Description: Run command cmd on client connection.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/client-disconnect*
+        - Description: Run command cmd on client disconnection.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/client-to-client*
+        - Description: Tells OpenVPN to internally route client-to-client traffic.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_server/crl-verify*
+        - Description: Check peer certificate against the file crl in PEM format.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/dh*
+        - Description: File containing Diffie Hellman parameters in .pem format.
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/config_openvpn_server/duplicate-cn*
+        - Description: Allow multiple clients with the same common name to concurrently connect.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_server/ifconfig-pool*
+        - Description: Set aside a pool of subnets to be dynamically allocated to connecting clients.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/ifconfig-pool-linear*
+        - Description: Modifies the --ifconfig-pool directive to allocate individual TUN interface addresses for clients.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_server/ifconfig-pool-persist*
+        - Description: Persist/unpersist ifconfig-pool data to file.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/keepalive*
+        - Description: define keepalive interval and timeout.
+        - Required
+        - Type: long
+    - */software/components/metaconfig/config_openvpn_server/local*
+        - Description: Local host name or IP address for bind.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/log-append*
+        - Description: Append logging messages to file.
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/config_openvpn_server/management*
+        - Description: Enable a TCP server on IP:port to handle daemon management functions.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/max-clients*
+        - Description: Limit server to a maximum of n concurrent clients.
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/config_openvpn_server/passtos*
+        - Description: Set the TOS field of the tunnel packet to what the payload's TOS is.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_server/push*
+        - Description: Push a config file option back to the client for remote execution.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/script-security*
+        - Description: This directive offers policy-level control over OpenVPN's usage of external programs and scripts.
+        - Optional
+        - Type: long
+        - Range: 0..3
+    - */software/components/metaconfig/config_openvpn_server/server*
+        - Description: A helper directive designed to simplify the configuration of OpenVPN's server mode.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/server-bridge*
+        - Description: A helper directive to simplify the config of OpenVPN's server in eth bridging configurations.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/tcp-queue-limit*
+        - Description: Maximum number of output packets queued before TCP.
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/config_openvpn_server/tls-server*
+        - Description: Enable TLS and assume server role during TLS handshake.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_server/tls-verify*
+        - Description: Run command cmd to verify the X509 name of a pending TLS connection.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/topology*
+        - Description: Configure virtual addressing topology when running in --dev tun mode.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_server/up*
+        - Description: Run command cmd after successful TUN/TAP device open.
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/config_openvpn_client**
+    - Description: All options only available to a client.
+    - */software/components/metaconfig/config_openvpn_client/client*
+        - Description: A helper directive designed to simplify the configuration of OpenVPN's client mode.
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_client/max-routes*
+        - Description: Maximum rumber of routes.
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/config_openvpn_client/remote-cert-tls*
+        - Description: Require that peer certificate was signed with an explicit key usage and extended key usage.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_client/remote*
+        - Description: Remote host name or IP address.
+        - Required
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_client/remote-random*
+        - Description: When multiple --remote address are specified, initially randomize the order of the list.
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_client/resolv-retry*
+        - Description: If hostname resolve fails for --remote, retry resolve before failing.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/config_openvpn_client/tls-client*
+        - Description: Enable TLS and assume client role during TLS handshake.
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/config_openvpn_client/tls-exit*
+        - Description: Exit on TLS negotiation failure.
+        - Optional
+        - Type: boolean
+        - Default value: false

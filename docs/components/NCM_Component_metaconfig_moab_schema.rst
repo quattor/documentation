@@ -1,0 +1,116 @@
+############################################
+NCM\::Component\::metaconfig\::moab - schema
+############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/moab_fairshare_configuration**
+    - Description: The moab_service_legacy type corresponds to the schema for the old ncm-moab, except for the include attribute, which is now a list of absolute filenames (and setting the content of the include files is not supported anymore)
+    - */software/components/metaconfig/moab_fairshare_configuration/fsdecay*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/moab_fairshare_configuration/fsdepth*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_fairshare_configuration/fsinterval*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_fairshare_configuration/fspolicy*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_fairshare_configuration/fsuserweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_fairshare_configuration/fsgroupweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_fairshare_configuration/fsaccountweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_fairshare_configuration/fsgaccountweight*
+        - Optional
+        - Type: long
+ - **/software/components/metaconfig/moab_priority_configuration**
+    - Description: moab priority configuration attributes
+    - */software/components/metaconfig/moab_priority_configuration/classweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_priority_configuration/credweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_priority_configuration/fsweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_priority_configuration/queuetimeweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_priority_configuration/userweight*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_priority_configuration/xfactorweight*
+        - Optional
+        - Type: long
+ - **/software/components/metaconfig/moab_policy_configuration**
+    - Description: moab policy configuration attributes
+    - */software/components/metaconfig/moab_policy_configuration/enablenegjobpriority*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/moab_policy_configuration/backfillpolicy*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_policy_configuration/backfilldepth*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/moab_policy_configuration/nodeallocationpolicy*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_policy_configuration/reservationpolicy*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/moab_service_legacy**
+    - */software/components/metaconfig/moab_service_legacy/sched*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/rm*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/am*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/id*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/group*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/node*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/account*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/class*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/qos*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/main*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/moab_service_legacy/priority*
+        - Optional
+        - Type: moab_priority_configuration
+    - */software/components/metaconfig/moab_service_legacy/fairshare*
+        - Optional
+        - Type: moab_fairshare_configuration
+    - */software/components/metaconfig/moab_service_legacy/policy*
+        - Optional
+        - Type: moab_policy_configuration
+    - */software/components/metaconfig/moab_service_legacy/include*
+        - Optional
+        - Type: string

@@ -1,0 +1,1047 @@
+#################################
+NCM\::Component\::nagios - schema
+#################################
+
+Types
+-----
+
+ - **/software/components/nagios/nagios_hoststring**
+ - **/software/components/nagios/nagios_hostgroupstring**
+ - **/software/components/nagios/nagios_commandstrings**
+ - **/software/components/nagios/nagios_timeperiodstring**
+ - **/software/components/nagios/nagios_contactgroupstring**
+ - **/software/components/nagios/nagios_contactstring**
+ - **/software/components/nagios/nagios_servicegroupstring**
+ - **/software/components/nagios/nagios_servicestring**
+ - **/software/components/nagios/nagios_service_notification_string**
+ - **/software/components/nagios/nagios_host_notification_string**
+ - **/software/components/nagios/nagios_stalking_string**
+ - **/software/components/nagios/nagios_execution_failure_string**
+ - **/software/components/nagios/nagios_notification_failure_string**
+ - **/software/components/nagios/structure_nagios_host_generic**
+    - */software/components/nagios/structure_nagios_host_generic/name*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_host_generic/check_command*
+        - Required
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_host_generic/max_check_attempts*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_host_generic/check_interval*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host_generic/retry_interval*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host_generic/active_checks_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/passive_checks_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/check_period*
+        - Required
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_host_generic/obsess_over_host*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/check_freshness*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/freshness_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host_generic/event_handler*
+        - Optional
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_host_generic/event_handler_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/low_flap_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host_generic/high_flap_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host_generic/flap_detection_enabled*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_host_generic/process_perf_data*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/retain_status_information*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/retain_nonstatus_information*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/contact_groups*
+        - Required
+        - Type: nagios_contactgroupstring
+    - */software/components/nagios/structure_nagios_host_generic/notification_interval*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_host_generic/notification_period*
+        - Required
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_host_generic/notification_options*
+        - Required
+        - Type: nagios_host_notification_string
+    - */software/components/nagios/structure_nagios_host_generic/notifications_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host_generic/stalking_options*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_host_generic/register*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/nagios/structure_nagios_host**
+    - */software/components/nagios/structure_nagios_host/alias*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_host/use*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_host/address*
+        - Optional
+        - Type: type_ip
+    - */software/components/nagios/structure_nagios_host/parents*
+        - Optional
+        - Type: nagios_hoststring
+    - */software/components/nagios/structure_nagios_host/hostgroups*
+        - Optional
+        - Type: nagios_hostgroupstring
+    - */software/components/nagios/structure_nagios_host/check_command*
+        - Required
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_host/max_check_attempts*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_host/check_interval*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host/active_checks_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/passive_checks_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/check_period*
+        - Required
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_host/obsess_over_host*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/check_freshness*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/freshness_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host/event_handler*
+        - Optional
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_host/event_handler_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/low_flap_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host/high_flap_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_host/flap_detection_enabled*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_host/process_perf_data*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/retain_status_information*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/retain_nonstatus_information*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/contact_groups*
+        - Required
+        - Type: nagios_contactgroupstring
+    - */software/components/nagios/structure_nagios_host/notification_interval*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_host/notification_period*
+        - Required
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_host/notification_options*
+        - Required
+        - Type: nagios_host_notification_string
+    - */software/components/nagios/structure_nagios_host/notifications_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_host/stalking_options*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_host/register*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_host/action_url*
+        - Optional
+        - Type: string
+ - **/software/components/nagios/structure_nagios_hostgroup**
+    - */software/components/nagios/structure_nagios_hostgroup/alias*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_hostgroup/members*
+        - Optional
+        - Type: nagios_hoststring
+ - **/software/components/nagios/structure_nagios_hostdependency**
+    - */software/components/nagios/structure_nagios_hostdependency/dependent_host_name*
+        - Required
+        - Type: nagios_hoststring
+    - */software/components/nagios/structure_nagios_hostdependency/notification_failure_criteria*
+        - Required
+        - Type: nagios_host_notification_string
+ - **/software/components/nagios/structure_nagios_service**
+    - */software/components/nagios/structure_nagios_service/name*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_service/use*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_service/host_name*
+        - Optional
+        - Type: nagios_hoststring
+    - */software/components/nagios/structure_nagios_service/hostgroup_name*
+        - Optional
+        - Type: nagios_hostgroupstring
+    - */software/components/nagios/structure_nagios_service/servicegroups*
+        - Optional
+        - Type: nagios_servicegroupstring
+    - */software/components/nagios/structure_nagios_service/is_volatile*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/check_command*
+        - Optional
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_service/max_check_attempts*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_service/normal_check_interval*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_service/retry_check_interval*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_service/active_checks_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/passive_checks_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/check_period*
+        - Optional
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_service/parallelize_check*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/obsess_over_service*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/check_freshness*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/freshness_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_service/event_handler*
+        - Optional
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_service/event_handler_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/low_flap_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_service/high_flap_threshold*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_service/flap_detection_enabled*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_service/process_perf_data*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/retain_status_information*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/retain_nonstatus_information*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/notification_interval*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_service/notification_period*
+        - Required
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_service/notification_options*
+        - Required
+        - Type: nagios_service_notification_string
+    - */software/components/nagios/structure_nagios_service/notifications_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/contact_groups*
+        - Required
+        - Type: nagios_contactgroupstring
+    - */software/components/nagios/structure_nagios_service/stalking_options*
+        - Optional
+        - Type: nagios_stalking_string
+    - */software/components/nagios/structure_nagios_service/register*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_service/failure_prediction_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_service/action_url*
+        - Optional
+        - Type: string
+ - **/software/components/nagios/structure_nagios_servicegroup**
+    - */software/components/nagios/structure_nagios_servicegroup/alias*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_servicegroup/members*
+        - Optional
+        - Type: nagios_servicestring
+    - */software/components/nagios/structure_nagios_servicegroup/servicegroup_members*
+        - Optional
+        - Type: nagios_servicegroupstring
+    - */software/components/nagios/structure_nagios_servicegroup/notes*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_servicegroup/notes_url*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/nagios/structure_nagios_servicegroup/action_url*
+        - Optional
+        - Type: type_absoluteURI
+ - **/software/components/nagios/structure_nagios_servicedependency**
+    - */software/components/nagios/structure_nagios_servicedependency/dependent_host_name*
+        - Required
+        - Type: nagios_hoststring
+    - */software/components/nagios/structure_nagios_servicedependency/dependent_hostgroup_name*
+        - Optional
+        - Type: nagios_hostgroupstring
+    - */software/components/nagios/structure_nagios_servicedependency/dependent_service_description*
+        - Required
+        - Type: nagios_servicestring
+    - */software/components/nagios/structure_nagios_servicedependency/host_name*
+        - Optional
+        - Type: nagios_hoststring
+    - */software/components/nagios/structure_nagios_servicedependency/hostgroup_name*
+        - Optional
+        - Type: nagios_hostgroupstring
+    - */software/components/nagios/structure_nagios_servicedependency/service_description*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_servicedependency/inherits_parent*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_servicedependency/execution_failure_criteria*
+        - Optional
+        - Type: nagios_execution_failure_string
+    - */software/components/nagios/structure_nagios_servicedependency/notification_failure_criteria*
+        - Optional
+        - Type: nagios_notification_failure_string
+    - */software/components/nagios/structure_nagios_servicedependency/dependency_period*
+        - Optional
+        - Type: nagios_timeperiodstring
+ - **/software/components/nagios/structure_nagios_contact**
+    - */software/components/nagios/structure_nagios_contact/alias*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_contact/contactgroups*
+        - Required
+        - Type: nagios_contactgroupstring
+    - */software/components/nagios/structure_nagios_contact/host_notification_period*
+        - Required
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_contact/service_notification_period*
+        - Required
+        - Type: nagios_timeperiodstring
+    - */software/components/nagios/structure_nagios_contact/host_notification_options*
+        - Required
+        - Type: nagios_host_notification_string
+    - */software/components/nagios/structure_nagios_contact/service_notification_options*
+        - Required
+        - Type: nagios_service_notification_string
+    - */software/components/nagios/structure_nagios_contact/host_notification_commands*
+        - Required
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_contact/service_notification_commands*
+        - Required
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_contact/email*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_contact/pager*
+        - Required
+        - Type: string
+ - **/software/components/nagios/structure_nagios_contactgroup**
+    - */software/components/nagios/structure_nagios_contactgroup/alias*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_contactgroup/members*
+        - Required
+        - Type: nagios_contactstring
+ - **/software/components/nagios/nagios_timerange**
+ - **/software/components/nagios/structure_nagios_timeperiod**
+    - */software/components/nagios/structure_nagios_timeperiod/alias*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_timeperiod/monday*
+        - Optional
+        - Type: nagios_timerange
+    - */software/components/nagios/structure_nagios_timeperiod/tuesday*
+        - Optional
+        - Type: nagios_timerange
+    - */software/components/nagios/structure_nagios_timeperiod/wednesday*
+        - Optional
+        - Type: nagios_timerange
+    - */software/components/nagios/structure_nagios_timeperiod/thursday*
+        - Optional
+        - Type: nagios_timerange
+    - */software/components/nagios/structure_nagios_timeperiod/friday*
+        - Optional
+        - Type: nagios_timerange
+    - */software/components/nagios/structure_nagios_timeperiod/saturday*
+        - Optional
+        - Type: nagios_timerange
+    - */software/components/nagios/structure_nagios_timeperiod/sunday*
+        - Optional
+        - Type: nagios_timerange
+ - **/software/components/nagios/structure_nagios_serviceextinfo**
+    - */software/components/nagios/structure_nagios_serviceextinfo/host_name*
+        - Optional
+        - Type: nagios_hoststring
+    - */software/components/nagios/structure_nagios_serviceextinfo/service_description*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_nagios_serviceextinfo/hostgroup_name*
+        - Optional
+        - Type: nagios_hostgroupstring
+    - */software/components/nagios/structure_nagios_serviceextinfo/notes*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_serviceextinfo/notes_url*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/nagios/structure_nagios_serviceextinfo/action_url*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/nagios/structure_nagios_serviceextinfo/icon_image*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_serviceextinfo/icon_image_alt*
+        - Optional
+        - Type: string
+ - **/software/components/nagios/structure_nagios_cgi_cfg**
+    - */software/components/nagios/structure_nagios_cgi_cfg/physical_html_path*
+        - Required
+        - Type: string
+        - Default value: /usr/share/nagios
+    - */software/components/nagios/structure_nagios_cgi_cfg/url_html_path*
+        - Required
+        - Type: string
+        - Default value: /nagios
+    - */software/components/nagios/structure_nagios_cgi_cfg/show_context_help*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_cgi_cfg/nagios_check_command*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/use_authentication*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_cgi_cfg/default_user_name*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/authorized_for_system_information*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/authorized_for_configuration_information*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/authorized_for_system_commands*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/authorized_for_all_services*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/authorized_for_all_hosts*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/authorized_for_all_service_commands*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/authorized_for_all_host_commands*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/statusmap_background_image*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/default_statusmap_layout*
+        - Required
+        - Type: long
+        - Default value: 5
+    - */software/components/nagios/structure_nagios_cgi_cfg/default_statuswrl_layout*
+        - Required
+        - Type: long
+        - Default value: 4
+    - */software/components/nagios/structure_nagios_cgi_cfg/statuswrl_include*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/ping_syntax*
+        - Required
+        - Type: string
+        - Default value: /bin/ping -n -U -c 5 $HOSTADDRESS$
+    - */software/components/nagios/structure_nagios_cgi_cfg/refresh_rate*
+        - Required
+        - Type: long
+        - Default value: 90
+    - */software/components/nagios/structure_nagios_cgi_cfg/host_unreachable_sound*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/host_down_sound*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/service_critical_sound*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/service_warning_sound*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/service_unknown_sound*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_cgi_cfg/normal_sound*
+        - Optional
+        - Type: string
+ - **/software/components/nagios/structure_nagios_nagios_cfg**
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/nagios.log
+    - */software/components/nagios/structure_nagios_nagios_cfg/object_cache_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/objects.cache
+    - */software/components/nagios/structure_nagios_nagios_cfg/resource_file*
+        - Required
+        - Type: string
+        - Default value: /etc/nagios/resource.cfg
+    - */software/components/nagios/structure_nagios_nagios_cfg/status_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/status.dat
+    - */software/components/nagios/structure_nagios_nagios_cfg/nagios_user*
+        - Required
+        - Type: string
+        - Default value: nagios
+    - */software/components/nagios/structure_nagios_nagios_cfg/nagios_group*
+        - Required
+        - Type: string
+        - Default value: nagios
+    - */software/components/nagios/structure_nagios_nagios_cfg/check_external_commands*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/command_check_interval*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/command_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/rw/nagios.cmd
+    - */software/components/nagios/structure_nagios_nagios_cfg/external_command_buffer_slots*
+        - Required
+        - Type: long
+        - Default value: 4096
+    - */software/components/nagios/structure_nagios_nagios_cfg/comment_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/comments.dat
+    - */software/components/nagios/structure_nagios_nagios_cfg/downtime_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/downtime.dat
+    - */software/components/nagios/structure_nagios_nagios_cfg/lock_file*
+        - Required
+        - Type: string
+        - Default value: /var/run/nagios.pid
+    - */software/components/nagios/structure_nagios_nagios_cfg/temp_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/nagios.tmp
+    - */software/components/nagios/structure_nagios_nagios_cfg/event_broker_options*
+        - Required
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_rotation_method*
+        - Required
+        - Type: string
+        - Default value: d
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_archive_path*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/archives
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_syslog*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_notifications*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_service_retries*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_host_retries*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_event_handlers*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_initial_states*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_external_commands*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/log_passive_checks*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/global_host_event_handler*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_inter_check_delay_method*
+        - Required
+        - Type: string
+        - Default value: s
+    - */software/components/nagios/structure_nagios_nagios_cfg/max_service_check_spread*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_interleave_factor*
+        - Required
+        - Type: string
+        - Default value: s
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_inter_check_delay_method*
+        - Required
+        - Type: string
+        - Default value: s
+    - */software/components/nagios/structure_nagios_nagios_cfg/max_host_check_spread*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/nagios/structure_nagios_nagios_cfg/max_concurrent_checks*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_reaper_frequency*
+        - Required
+        - Type: long
+        - Default value: 10
+    - */software/components/nagios/structure_nagios_nagios_cfg/check_result_reaper_frequency*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/max_check_result_reaper_time*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/check_result_buffer_slots*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/auto_reschedule_checks*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/auto_rescheduling_interval*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/nagios/structure_nagios_nagios_cfg/auto_rescheduling_window*
+        - Required
+        - Type: long
+        - Default value: 180
+    - */software/components/nagios/structure_nagios_nagios_cfg/sleep_time*
+        - Required
+        - Type: string
+        - Default value: 0.25
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_check_timeout*
+        - Required
+        - Type: long
+        - Default value: 40
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_check_timeout*
+        - Required
+        - Type: long
+        - Default value: 20
+    - */software/components/nagios/structure_nagios_nagios_cfg/event_handler_timeout*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/nagios/structure_nagios_nagios_cfg/notification_timeout*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/nagios/structure_nagios_nagios_cfg/ocsp_timeout*
+        - Required
+        - Type: long
+        - Default value: 5
+    - */software/components/nagios/structure_nagios_nagios_cfg/perfdata_timeout*
+        - Required
+        - Type: long
+        - Default value: 5
+    - */software/components/nagios/structure_nagios_nagios_cfg/retain_state_information*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/state_retention_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/retention.dat
+    - */software/components/nagios/structure_nagios_nagios_cfg/retention_update_interval*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_retained_program_state*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_retained_scheduling_info*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/interval_length*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_aggressive_host_checking*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/execute_service_checks*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/accept_passive_service_checks*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/execute_host_checks*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/accept_passive_host_checks*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/enable_notifications*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/enable_event_handlers*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/process_performance_data*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_perfdata_command*
+        - Required
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_perfdata_command*
+        - Required
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_perfdata_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/host-perf.dat
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_perfdata_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/nagios/service-perf.dat
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_perfdata_file_template*
+        - Required
+        - Type: string
+        - Default value: [HOSTPERFDATA]	$TIMET$	$HOSTNAME$	$HOSTEXECUTIONTIME$	$HOSTOUTPUT$	$HOSTPERFDATA$
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_perfdata_file_template*
+        - Required
+        - Type: string
+        - Default value: [SERVICEPERFDATA]	$TIMET$	$HOSTNAME$	$SERVICEDESC$	$SERVICEEXECUTIONTIME$	$SERVICELATENCY$	$SERVICEOUTPUT$	$SERVICEPERFDATA$
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_perfdata_file_mode*
+        - Required
+        - Type: string
+        - Default value: a
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_perfdata_file_mode*
+        - Required
+        - Type: string
+        - Default value: a
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_perfdata_file_processing_interval*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_perfdata_file_processing_interval*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_perfdata_file_processing_command*
+        - Optional
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_perfdata_file_processing_command*
+        - Optional
+        - Type: nagios_commandstrings
+    - */software/components/nagios/structure_nagios_nagios_cfg/obsess_over_services*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/check_for_orphaned_services*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/check_service_freshness*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/service_freshness_check_interval*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/nagios/structure_nagios_nagios_cfg/check_host_freshness*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/host_freshness_check_interval*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/nagios/structure_nagios_nagios_cfg/aggregate_status_updates*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/status_update_interval*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/nagios/structure_nagios_nagios_cfg/enable_flap_detection*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/low_service_flap_threshold*
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/nagios/structure_nagios_nagios_cfg/high_service_flap_threshold*
+        - Required
+        - Type: long
+        - Default value: 25
+    - */software/components/nagios/structure_nagios_nagios_cfg/low_host_flap_threshold*
+        - Required
+        - Type: long
+        - Default value: 5
+    - */software/components/nagios/structure_nagios_nagios_cfg/high_host_flap_threshold*
+        - Required
+        - Type: long
+        - Default value: 20
+    - */software/components/nagios/structure_nagios_nagios_cfg/date_format*
+        - Required
+        - Type: string
+        - Default value: euro
+    - */software/components/nagios/structure_nagios_nagios_cfg/p1_file*
+        - Required
+        - Type: string
+        - Default value: /usr/bin/p1.pl
+    - */software/components/nagios/structure_nagios_nagios_cfg/illegal_object_name_chars*
+        - Required
+        - Type: string
+        - Default value: \`~!$%^&*|'<>?,()"
+    - */software/components/nagios/structure_nagios_nagios_cfg/illegal_macro_output_chars*
+        - Required
+        - Type: string
+        - Default value: \`~$^&|'<>"
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_regexp_matching*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_true_regexp_matching*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/admin_email*
+        - Required
+        - Type: string
+        - Default value: nagios
+    - */software/components/nagios/structure_nagios_nagios_cfg/admin_pager*
+        - Required
+        - Type: string
+        - Default value: pagenagios
+    - */software/components/nagios/structure_nagios_nagios_cfg/daemon_dumps_core*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/nagios/structure_nagios_nagios_cfg/check_result_path*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/precached_object_file*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/temp_path*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/retained_host_attribute_mask*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/retained_service_attribute_mask*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/retained_process_host_attribute_mask*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/retained_process_service_attribute_mask*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/retained_contact_host_attribute_mask*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/retained_contact_service_attribute_mask*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/max_check_result_file_age*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/translate_passive_host_checks*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/passive_host_checks_are_soft*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/enable_predictive_host_dependency_checks*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/enable_predictive_service_dependency_checks*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/cached_host_check_horizon*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/cached_service_check_horizon*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_large_installation_tweaks*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/free_child_process_memory*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/child_processes_fork_twice*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/enable_environment_macros*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/soft_state_dependencies*
+        - Optional
+        - Type: boolean
+    - */software/components/nagios/structure_nagios_nagios_cfg/ochp_timeout*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/ochp_command*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/use_timezone*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/broker_module*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/debug_file*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_nagios_nagios_cfg/debug_level*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/debug_verbosity*
+        - Optional
+        - Type: long
+        - Range: 0..2
+    - */software/components/nagios/structure_nagios_nagios_cfg/max_debug_file_size*
+        - Optional
+        - Type: long
+    - */software/components/nagios/structure_nagios_nagios_cfg/ocsp_command*
+        - Optional
+        - Type: string
+ - **/software/components/nagios/structure_nagios_service_list**
+ - **/software/components/nagios/structure_component_nagios**
+    - */software/components/nagios/structure_component_nagios/hosts*
+        - Required
+        - Type: structure_nagios_host
+    - */software/components/nagios/structure_component_nagios/hosts_generic*
+        - Optional
+        - Type: structure_nagios_host_generic
+    - */software/components/nagios/structure_component_nagios/hostgroups*
+        - Optional
+        - Type: structure_nagios_hostgroup
+    - */software/components/nagios/structure_component_nagios/hostdependencies*
+        - Optional
+        - Type: structure_nagios_hostdependency
+    - */software/components/nagios/structure_component_nagios/services*
+        - Required
+        - Type: structure_nagios_service_list
+    - */software/components/nagios/structure_component_nagios/servicegroups*
+        - Optional
+        - Type: structure_nagios_servicegroup
+    - */software/components/nagios/structure_component_nagios/general*
+        - Required
+        - Type: structure_nagios_nagios_cfg
+    - */software/components/nagios/structure_component_nagios/cgi*
+        - Optional
+        - Type: structure_nagios_cgi_cfg
+    - */software/components/nagios/structure_component_nagios/serviceextinfo*
+        - Optional
+        - Type: structure_nagios_serviceextinfo
+    - */software/components/nagios/structure_component_nagios/servicedependencies*
+        - Optional
+        - Type: structure_nagios_servicedependency
+    - */software/components/nagios/structure_component_nagios/timeperiods*
+        - Required
+        - Type: structure_nagios_timeperiod
+    - */software/components/nagios/structure_component_nagios/contacts*
+        - Required
+        - Type: structure_nagios_contact
+    - */software/components/nagios/structure_component_nagios/contactgroups*
+        - Required
+        - Type: structure_nagios_contactgroup
+    - */software/components/nagios/structure_component_nagios/commands*
+        - Required
+        - Type: string
+    - */software/components/nagios/structure_component_nagios/macros*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_component_nagios/external_files*
+        - Optional
+        - Type: string
+    - */software/components/nagios/structure_component_nagios/external_dirs*
+        - Optional
+        - Type: string

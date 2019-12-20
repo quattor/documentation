@@ -1,0 +1,290 @@
+###############################################
+NCM\::Component\::metaconfig\::haproxy - schema
+###############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/haproxy_service_global_logs**
+    - Description: list of syslog facilities
+    - */software/components/metaconfig/haproxy_service_global_logs/_2fdev_2flog*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_global_logs/_3127_2e0_2e0_2e1*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/haproxy_service_global_config**
+    - Description: Define the Global config options
+    - */software/components/metaconfig/haproxy_service_global_config/tune.ssl.default-dh-param*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/haproxy_service_global_config/user*
+        - Required
+        - Type: string
+        - Default value: haproxy
+    - */software/components/metaconfig/haproxy_service_global_config/group*
+        - Required
+        - Type: string
+        - Default value: haproxy
+    - */software/components/metaconfig/haproxy_service_global_config/maxconn*
+        - Required
+        - Type: long
+        - Default value: 4000
+    - */software/components/metaconfig/haproxy_service_global_config/daemon*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_global_config/pidfile*
+        - Required
+        - Type: string
+        - Default value: /var/run/haproxy.pid
+    - */software/components/metaconfig/haproxy_service_global_config/chroot*
+        - Required
+        - Type: string
+        - Default value: /var/lib/haproxy
+ - **/software/components/metaconfig/haproxy_service_global_stats**
+    - Description: options for the stats line in the Global section
+    - */software/components/metaconfig/haproxy_service_global_stats/socket*
+        - Required
+        - Type: string
+        - Default value: /var/lib/haproxy/stats
+ - **/software/components/metaconfig/haproxy_service_global**
+    - Description: The global section
+    - */software/components/metaconfig/haproxy_service_global/logs*
+        - Required
+        - Type: haproxy_service_global_logs
+    - */software/components/metaconfig/haproxy_service_global/config*
+        - Required
+        - Type: haproxy_service_global_config
+    - */software/components/metaconfig/haproxy_service_global/stats*
+        - Required
+        - Type: haproxy_service_global_stats
+ - **/software/components/metaconfig/haproxy_service_defaults_config**
+    - Description: Configuration in the Default section
+    - */software/components/metaconfig/haproxy_service_defaults_config/log*
+        - Required
+        - Type: string
+        - Default value: global
+    - */software/components/metaconfig/haproxy_service_defaults_config/mode*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_defaults_config/retries*
+        - Required
+        - Type: long
+        - Default value: 3
+    - */software/components/metaconfig/haproxy_service_defaults_config/maxconn*
+        - Required
+        - Type: long
+        - Default value: 4000
+ - **/software/components/metaconfig/haproxy_service_timeouts**
+    - Description: Timeouts in ms
+    - */software/components/metaconfig/haproxy_service_timeouts/check*
+        - Required
+        - Type: long
+        - Default value: 3500
+    - */software/components/metaconfig/haproxy_service_timeouts/queue*
+        - Required
+        - Type: long
+        - Default value: 3500
+    - */software/components/metaconfig/haproxy_service_timeouts/connect*
+        - Required
+        - Type: long
+        - Default value: 3500
+    - */software/components/metaconfig/haproxy_service_timeouts/client*
+        - Required
+        - Type: long
+        - Default value: 10000
+    - */software/components/metaconfig/haproxy_service_timeouts/server*
+        - Required
+        - Type: long
+        - Default value: 10000
+ - **/software/components/metaconfig/haproxy_service_defaults**
+    - Description: The Default Section
+    - */software/components/metaconfig/haproxy_service_defaults/config*
+        - Required
+        - Type: haproxy_service_defaults_config
+    - */software/components/metaconfig/haproxy_service_defaults/timeouts*
+        - Required
+        - Type: haproxy_service_timeouts
+ - **/software/components/metaconfig/haproxy_service_stats_options**
+    - Description: options in the stats section
+    - */software/components/metaconfig/haproxy_service_stats_options/enabled*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_stats_options/hide-version*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_stats_options/uri*
+        - Required
+        - Type: string
+        - Default value: /
+    - */software/components/metaconfig/haproxy_service_stats_options/refresh*
+        - Required
+        - Type: long
+        - Default value: 5
+ - **/software/components/metaconfig/haproxy_service_stats**
+    - Description: configuration in the stats section
+    - */software/components/metaconfig/haproxy_service_stats/mode*
+        - Required
+        - Type: string
+        - Default value: http
+    - */software/components/metaconfig/haproxy_service_stats/options*
+        - Optional
+        - Type: haproxy_service_stats_options
+ - **/software/components/metaconfig/haproxy_service_proxy_config**
+    - Description: per proxy configuration
+    - */software/components/metaconfig/haproxy_service_proxy_config/mode*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_proxy_config/capture*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_proxy_config/cookie*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_proxy_config/rspidel*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_proxy_config/balance*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/haproxy_service_proxy_defaultoptions**
+    - Description: options against the default server line in the proxy
+    - */software/components/metaconfig/haproxy_service_proxy_defaultoptions/inter*
+        - Required
+        - Type: long
+        - Default value: 2
+    - */software/components/metaconfig/haproxy_service_proxy_defaultoptions/downinter*
+        - Required
+        - Type: long
+        - Default value: 5
+    - */software/components/metaconfig/haproxy_service_proxy_defaultoptions/rise*
+        - Required
+        - Type: long
+        - Default value: 3
+    - */software/components/metaconfig/haproxy_service_proxy_defaultoptions/fall*
+        - Required
+        - Type: long
+        - Default value: 2
+    - */software/components/metaconfig/haproxy_service_proxy_defaultoptions/slowstart*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/metaconfig/haproxy_service_proxy_defaultoptions/maxqueue*
+        - Required
+        - Type: long
+        - Default value: 128
+    - */software/components/metaconfig/haproxy_service_proxy_defaultoptions/weight*
+        - Required
+        - Type: long
+        - Default value: 100
+ - **/software/components/metaconfig/haproxy_service_proxy_serveroptions**
+    - Description: options to be added to each server in the proxy
+    - */software/components/metaconfig/haproxy_service_proxy_serveroptions/cookie*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/haproxy_service_proxy**
+    - Description: configuration of a proxy
+    - */software/components/metaconfig/haproxy_service_proxy/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_proxy/port*
+        - Required
+        - Type: type_port
+    - */software/components/metaconfig/haproxy_service_proxy/binds*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_proxy/config*
+        - Required
+        - Type: haproxy_service_proxy_config
+    - */software/components/metaconfig/haproxy_service_proxy/options*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_proxy/defaultoptions*
+        - Required
+        - Type: haproxy_service_proxy_defaultoptions
+    - */software/components/metaconfig/haproxy_service_proxy/servers*
+        - Required
+        - Type: dict
+    - */software/components/metaconfig/haproxy_service_proxy/serveroptions*
+        - Optional
+        - Type: haproxy_service_proxy_serveroptions
+    - */software/components/metaconfig/haproxy_service_proxy/timeouts*
+        - Optional
+        - Type: haproxy_service_timeouts
+ - **/software/components/metaconfig/haproxy_service_bind_server_params**
+    - */software/components/metaconfig/haproxy_service_bind_server_params/ssl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/haproxy_service_bind_server_params/ca-file*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/haproxy_service_bind_server_params/crt*
+        - Description: combined cert and key in pem format
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/haproxy_service_server_params**
+    - */software/components/metaconfig/haproxy_service_server_params/check*
+        - Description: enable health check
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/haproxy_service_server_params/port*
+        - Description: different health check port
+        - Optional
+        - Type: type_port
+ - **/software/components/metaconfig/haproxy_service_bind_params**
+ - **/software/components/metaconfig/haproxy_service_frontend**
+    - */software/components/metaconfig/haproxy_service_frontend/bind*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_frontend/port*
+        - Optional
+        - Type: type_port
+    - */software/components/metaconfig/haproxy_service_frontend/default_backend*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_frontend/params*
+        - Optional
+        - Type: haproxy_service_bind_params
+ - **/software/components/metaconfig/haproxy_service_backend_server**
+    - */software/components/metaconfig/haproxy_service_backend_server/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_backend_server/ip*
+        - Required
+        - Type: type_ip
+    - */software/components/metaconfig/haproxy_service_backend_server/port*
+        - Optional
+        - Type: type_port
+    - */software/components/metaconfig/haproxy_service_backend_server/params*
+        - Optional
+        - Type: haproxy_service_server_params
+ - **/software/components/metaconfig/haproxy_service_backend**
+    - */software/components/metaconfig/haproxy_service_backend/options*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_backend/tcpchecks*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_backend/servers*
+        - Required
+        - Type: haproxy_service_backend_server
+ - **/software/components/metaconfig/haproxy_service**
+    - Description: haproxy config see: http://www.haproxy.org/download/1.4/doc/configuration.txt
+    - */software/components/metaconfig/haproxy_service/global*
+        - Required
+        - Type: haproxy_service_global
+    - */software/components/metaconfig/haproxy_service/defaults*
+        - Required
+        - Type: haproxy_service_defaults
+    - */software/components/metaconfig/haproxy_service/stats*
+        - Optional
+        - Type: haproxy_service_stats
+    - */software/components/metaconfig/haproxy_service/proxys*
+        - Optional
+        - Type: haproxy_service_proxy
+    - */software/components/metaconfig/haproxy_service/frontends*
+        - Optional
+        - Type: haproxy_service_frontend
+    - */software/components/metaconfig/haproxy_service/backends*
+        - Optional
+        - Type: haproxy_service_backend

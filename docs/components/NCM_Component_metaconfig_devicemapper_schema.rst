@@ -1,0 +1,166 @@
+####################################################
+NCM\::Component\::metaconfig\::devicemapper - schema
+####################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/multipath_defaults_path_selector**
+    - Description: devicemapper multipath
+ - **/software/components/metaconfig/multipath_defaults_features**
+ - **/software/components/metaconfig/multipath_types_shared**
+    - */software/components/metaconfig/multipath_types_shared/path_grouping_policy*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_shared/path_selector*
+        - Description: The default path selector algorithm
+        - Optional
+        - Type: multipath_defaults_path_selector
+    - */software/components/metaconfig/multipath_types_shared/prio*
+        - Description: how to get default path prio, default const
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_shared/failback*
+        - Description: how to manage path group failback, default manual
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_shared/rr_min_io*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/multipath_types_shared/rr_min_io_rq*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/multipath_types_shared/rr_weight*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_shared/no_path_retry*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_shared/flush_on_last_del*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/multipath_types_shared/max_sectors_kb*
+        - Description: Set max_sectors_kb on multipath and paths (requires device-mapper-multipath gt 0.4.9-99)
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/multipath_types_multipaths_only**
+    - */software/components/metaconfig/multipath_types_multipaths_only/reservation_key*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/multipath_types_devices_only**
+    - */software/components/metaconfig/multipath_types_devices_only/getuid_callout*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_devices_only/path_checker*
+        - Description: detemine path state, default readsector0
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_devices_only/features*
+        - Optional
+        - Type: multipath_defaults_features
+    - */software/components/metaconfig/multipath_types_devices_only/fast_io_fail_tmo*
+        - Description: default timeout in seconds determined by OS
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_types_devices_only/dev_loss_tmo*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/multipath_types_devices_only/retain_attached_hw_handler*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/multipath_types_devices_only/detect_prio*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/multipath_multipaths**
+    - */software/components/metaconfig/multipath_multipaths/wwid*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/multipath_multipaths/alias*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/multipath_device_blacklist**
+    - */software/components/metaconfig/multipath_device_blacklist/vendor*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/multipath_device_blacklist/product*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/multipath_device**
+    - */software/components/metaconfig/multipath_device/revision*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_device/product_blacklist*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_device/hardware_handler*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/multipath_blacklist**
+    - */software/components/metaconfig/multipath_blacklist/wwid*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_blacklist/devnode*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_blacklist/device*
+        - Optional
+        - Type: multipath_device_blacklist
+ - **/software/components/metaconfig/multipath_defaults**
+    - */software/components/metaconfig/multipath_defaults/polling_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/multipath_defaults/udev_dir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_defaults/multipath_dir*
+        - Description: directory where the dynamic shared objects are stored; default is system dependent, commonly /lib/multipath
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_defaults/find_multipaths*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/multipath_defaults/verbosity*
+        - Optional
+        - Type: long
+        - Range: 0..6
+    - */software/components/metaconfig/multipath_defaults/user_friendly_names*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/multipath_defaults/queue_without_daemon*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/multipath_defaults/max_fds*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/multipath_defaults/checker_timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/multipath_defaults/log_checker_err*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/multipath_defaults/hwtable_regex_match*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/multipath_config**
+    - */software/components/metaconfig/multipath_config/defaults*
+        - Optional
+        - Type: multipath_defaults
+    - */software/components/metaconfig/multipath_config/blacklist*
+        - Optional
+        - Type: multipath_blacklist
+    - */software/components/metaconfig/multipath_config/blacklist_exceptions*
+        - Optional
+        - Type: multipath_blacklist
+    - */software/components/metaconfig/multipath_config/multipaths*
+        - Optional
+        - Type: multipath_multipaths
+    - */software/components/metaconfig/multipath_config/devices*
+        - Optional
+        - Type: multipath_device

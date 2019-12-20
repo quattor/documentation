@@ -1,0 +1,241 @@
+############
+blockdevices
+############
+
+Types
+-----
+
+ - **blockdev_string**
+ - **physdev_string**
+ - **parttype_string**
+ - **vg_string**
+ - **lv_string**
+ - **blockdevices_partition_flags**
+    - Description: parted partition flags (from "info parted")
+    - *blockdevices_partition_flags/bios_grub*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/boot*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/esp*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/lba*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/legacy_boot*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/root*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/swap*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/hidden*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/raid*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/LVM*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/PALO*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/PREP*
+        - Optional
+        - Type: boolean
+    - *blockdevices_partition_flags/DIAG*
+        - Optional
+        - Type: boolean
+ - **blockdevices_partition_type**
+    - *blockdevices_partition_type/holding_dev*
+        - Required
+        - Type: physdev_string
+    - *blockdevices_partition_type/size*
+        - Optional
+        - Type: long
+    - *blockdevices_partition_type/ksopts*
+        - Optional
+        - Type: string
+    - *blockdevices_partition_type/type*
+        - Required
+        - Type: parttype_string
+        - Default value: primary
+    - *blockdevices_partition_type/offset*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - *blockdevices_partition_type/flags*
+        - Optional
+        - Type: blockdevices_partition_flags
+    - *blockdevices_partition_type/aii*
+        - Description: When defined and false, AII will ignore this partition
+        - Optional
+        - Type: boolean
+ - **blockdevices_md_type**
+    - Description: Software RAID using the MD device
+    - *blockdevices_md_type/device_list*
+        - Required
+        - Type: blockdev_string
+    - *blockdevices_md_type/raid_level*
+        - Required
+        - Type: string
+    - *blockdevices_md_type/stripe_size*
+        - Required
+        - Type: long
+        - Default value: 64
+    - *blockdevices_md_type/num_spares*
+        - Optional
+        - Type: long
+    - *blockdevices_md_type/metadata*
+        - Optional
+        - Type: string
+        - Default value: 0.90
+ - **blockdevices_logicalvolumes_cache_type**
+    - Description: lvm cache volume and mode
+    - *blockdevices_logicalvolumes_cache_type/cache_lv*
+        - Required
+        - Type: lv_string
+    - *blockdevices_logicalvolumes_cache_type/cachemode*
+        - Optional
+        - Type: string
+ - **blockdevices_logicalvolumes_type**
+    - Description: LVM
+    - *blockdevices_logicalvolumes_type/size*
+        - Optional
+        - Type: long
+    - *blockdevices_logicalvolumes_type/volume_group*
+        - Required
+        - Type: vg_string
+    - *blockdevices_logicalvolumes_type/stripe_size*
+        - Optional
+        - Type: long
+    - *blockdevices_logicalvolumes_type/chunksize*
+        - Optional
+        - Type: long
+        - Default value: 64
+    - *blockdevices_logicalvolumes_type/devices*
+        - Optional
+        - Type: blockdev_string
+    - *blockdevices_logicalvolumes_type/cache*
+        - Optional
+        - Type: blockdevices_logicalvolumes_cache_type
+    - *blockdevices_logicalvolumes_type/type*
+        - Optional
+        - Type: string
+ - **blockdevices_lvm_type**
+    - *blockdevices_lvm_type/device_list*
+        - Required
+        - Type: blockdev_string
+ - **blockdevices_file_type**
+    - Description: Files containing filesystems, to be mounted with loopback option.
+    - *blockdevices_file_type/size*
+        - Required
+        - Type: long
+    - *blockdevices_file_type/owner*
+        - Required
+        - Type: string
+        - Default value: root
+    - *blockdevices_file_type/group*
+        - Required
+        - Type: string
+        - Default value: root
+    - *blockdevices_file_type/permissions*
+        - Optional
+        - Type: long
+ - **raid_device_path**
+    - Description: String defining either a port or a hardware RAID unit.
+ - **blockdevices_validate_size**
+    - Description: blockdevice validation check based on device size
+    - *blockdevices_validate_size/diff*
+        - Description: allowed absolute margin (in MiB) compared to configured size
+        - Optional
+        - Type: long
+        - Range: 0..
+    - *blockdevices_validate_size/fraction*
+        - Description: allowed relative margin compared to configured size
+        - Optional
+        - Type: double
+ - **blockdevices_validate**
+    - Description: blockdevice validation check
+    - *blockdevices_validate/size*
+        - Description: size-based validation
+        - Optional
+        - Type: blockdevices_validate_size
+ - **blockdevices_disk_type**
+    - *blockdevices_disk_type/device_path*
+        - Optional
+        - Type: raid_device_path
+    - *blockdevices_disk_type/label*
+        - Required
+        - Type: string
+    - *blockdevices_disk_type/readahead*
+        - Optional
+        - Type: long
+    - *blockdevices_disk_type/validate*
+        - Description: enable validation checks
+        - Optional
+        - Type: blockdevices_validate
+ - **card_port_string**
+ - **blockdevices_hwraid_type**
+    - Description: New block device describing hardware RAID.
+    - *blockdevices_hwraid_type/device_list*
+        - Required
+        - Type: card_port_string
+    - *blockdevices_hwraid_type/raid_level*
+        - Optional
+        - Type: string
+    - *blockdevices_hwraid_type/num_spares*
+        - Optional
+        - Type: long
+    - *blockdevices_hwraid_type/stripe_size*
+        - Optional
+        - Type: long
+ - **blockdevices_vxvm_type**
+    - Description: VXVM devices
+    - *blockdevices_vxvm_type/dev_path*
+        - Required
+        - Type: string
+    - *blockdevices_vxvm_type/disk_group*
+        - Required
+        - Type: string
+    - *blockdevices_vxvm_type/volume*
+        - Required
+        - Type: string
+    - *blockdevices_vxvm_type/size*
+        - Optional
+        - Type: long
+ - **blockdevices_tmpfs_type**
+    - Description: TMPFS devices (dummy devices)
+ - **structure_blockdevices**
+    - *structure_blockdevices/physical_devs*
+        - Optional
+        - Type: blockdevices_disk_type
+    - *structure_blockdevices/volume_groups*
+        - Optional
+        - Type: blockdevices_lvm_type
+    - *structure_blockdevices/logical_volumes*
+        - Optional
+        - Type: blockdevices_logicalvolumes_type
+    - *structure_blockdevices/md*
+        - Optional
+        - Type: blockdevices_md_type
+    - *structure_blockdevices/partitions*
+        - Optional
+        - Type: blockdevices_partition_type
+    - *structure_blockdevices/files*
+        - Optional
+        - Type: blockdevices_file_type
+    - *structure_blockdevices/hwraid*
+        - Optional
+        - Type: blockdevices_hwraid_type
+    - *structure_blockdevices/vxvm*
+        - Optional
+        - Type: blockdevices_vxvm_type
+    - *structure_blockdevices/tmpfs*
+        - Optional
+        - Type: blockdevices_tmpfs_type

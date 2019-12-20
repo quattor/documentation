@@ -1,0 +1,88 @@
+##############################################
+NCM\::Component\::metaconfig\::kibana - schema
+##############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/kibana_service**
+    - */software/components/metaconfig/kibana_service/port*
+        - Required
+        - Type: type_port
+        - Default value: 5601
+    - */software/components/metaconfig/kibana_service/host*
+        - Required
+        - Type: type_hostname
+        - Default value: localhost.localdomain
+    - */software/components/metaconfig/kibana_service/elasticsearch_url*
+        - Required
+        - Type: type_absoluteURI
+        - Default value: http://localhost:9200
+    - */software/components/metaconfig/kibana_service/elasticsearch_preserve_host*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/kibana_service/kibana_index*
+        - Required
+        - Type: string
+        - Default value: .kibana
+    - */software/components/metaconfig/kibana_service/kibana_elasticsearch_username*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kibana_service/kibana_elasticsearch_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kibana_service/kibana_elasticsearch_client_crt*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kibana_service/kibana_elasticsearch_client_key*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kibana_service/ca*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kibana_service/default_app_id*
+        - Required
+        - Type: string
+        - Default value: discover
+    - */software/components/metaconfig/kibana_service/ping_timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 1500
+    - */software/components/metaconfig/kibana_service/request_timeout*
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 300000
+    - */software/components/metaconfig/kibana_service/shard_timeout*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 0
+    - */software/components/metaconfig/kibana_service/startup_timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 5000
+    - */software/components/metaconfig/kibana_service/verify_ssl*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/kibana_service/ssl_key_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kibana_service/ssl_cert_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kibana_service/pid_file*
+        - Optional
+        - Type: string
+        - Default value: /var/run/kibana.pid
+    - */software/components/metaconfig/kibana_service/log_file*
+        - Optional
+        - Type: string
+        - Default value: ./kibana.log
+    - */software/components/metaconfig/kibana_service/bundled_plugin_ids*
+        - Required
+        - Type: list

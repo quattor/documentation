@@ -1,0 +1,63 @@
+#########################################################################
+NCM\::Component\::metaconfig\::perfsonar\::lookup\::registration - schema
+#########################################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/ls_service**
+    - */software/components/metaconfig/ls_service/type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ls_service/port*
+        - Optional
+        - Type: type_port
+ - **/software/components/metaconfig/ls_reg_site**
+    - */software/components/metaconfig/ls_reg_site/site_name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ls_reg_site/site_location*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ls_reg_site/is_local*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ls_reg_site/site_project*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/ls_reg_site/address*
+        - Required
+        - Type: type_fqdn
+    - */software/components/metaconfig/ls_reg_site/service*
+        - Required
+        - Type: ls_service
+ - **/software/components/metaconfig/ls_registration**
+    - */software/components/metaconfig/ls_registration/site*
+        - Required
+        - Type: ls_reg_site
+    - */software/components/metaconfig/ls_registration/check_interval*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 60
+    - */software/components/metaconfig/ls_registration/ls_interval*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 6
+    - */software/components/metaconfig/ls_registration/require_site_name*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ls_registration/require_site_location*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/ls_registration/ls_instance*
+        - Required
+        - Type: type_URI
+    - */software/components/metaconfig/ls_registration/allow_internal_addresses*
+        - Required
+        - Type: boolean
+        - Default value: false

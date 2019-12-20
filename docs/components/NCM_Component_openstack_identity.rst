@@ -1,0 +1,161 @@
+######################################
+NCM\::Component\::openstack - identity
+######################################
+
+Types
+-----
+
+ - **/software/components/openstack/openstack_valid_domain**
+ - **/software/components/openstack/openstack_valid_project**
+ - **/software/components/openstack/openstack_valid_user**
+ - **/software/components/openstack/openstack_valid_group**
+ - **/software/components/openstack/openstack_valid_role**
+ - **/software/components/openstack/openstack_identity_region**
+    - Description: openstack identity v3 region
+    - */software/components/openstack/openstack_identity_region/description*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_identity_region/parent_region_id*
+        - Optional
+        - Type: openstack_valid_region
+ - **/software/components/openstack/openstack_identity_domain**
+    - Description: openstack identity v3 domain
+    - */software/components/openstack/openstack_identity_domain/description*
+        - Optional
+        - Type: string
+ - **/software/components/openstack/openstack_identity_project**
+    - Description: openstack identity v3 project. The is_domain boolean is not supported (no update/delete equivalent).
+    - */software/components/openstack/openstack_identity_project/description*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_identity_project/domain_id*
+        - Optional
+        - Type: openstack_valid_domain
+    - */software/components/openstack/openstack_identity_project/parent_id*
+        - Optional
+        - Type: openstack_valid_project
+ - **/software/components/openstack/openstack_identity_user**
+    - Description: openstack identity v3 user. One can add as many "extra" items as one wishes, e.g. description
+    - */software/components/openstack/openstack_identity_user/domain_id*
+        - Optional
+        - Type: openstack_valid_domain
+    - */software/components/openstack/openstack_identity_user/default_project_id*
+        - Optional
+        - Type: openstack_valid_project
+    - */software/components/openstack/openstack_identity_user/password*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_identity_user/description*
+        - Description: description is part of the "extra" attributes
+        - Optional
+        - Type: string
+ - **/software/components/openstack/openstack_identity_group**
+    - Description: openstack identity v3 group
+    - */software/components/openstack/openstack_identity_group/domain_id*
+        - Optional
+        - Type: openstack_valid_domain
+    - */software/components/openstack/openstack_identity_group/description*
+        - Optional
+        - Type: string
+ - **/software/components/openstack/openstack_identity_role**
+    - Description: openstack identity v3 role
+    - */software/components/openstack/openstack_identity_role/domain_id*
+        - Optional
+        - Type: openstack_valid_domain
+ - **/software/components/openstack/openstack_identity_rolemap_ug**
+    - */software/components/openstack/openstack_identity_rolemap_ug/group*
+        - Description: group for role assigment; key is group name
+        - Optional
+        - Type: openstack_valid_role
+    - */software/components/openstack/openstack_identity_rolemap_ug/user*
+        - Description: user for role assigment; key is user name
+        - Optional
+        - Type: openstack_valid_role
+ - **/software/components/openstack/openstack_identity_rolemap**
+    - Description: openstack identity v3 role assignment
+    - */software/components/openstack/openstack_identity_rolemap/domain*
+        - Description: domain for role assigment; key is domain name
+        - Optional
+        - Type: openstack_identity_rolemap_ug
+    - */software/components/openstack/openstack_identity_rolemap/project*
+        - Description: project for role assigment; key is project name
+        - Optional
+        - Type: openstack_identity_rolemap_ug
+ - **/software/components/openstack/openstack_identity_service**
+    - Description: openstack identity v3 service
+    - */software/components/openstack/openstack_identity_service/description*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_identity_service/type*
+        - Required
+        - Type: string
+ - **/software/components/openstack/openstack_identity_endpoint_interface**
+    - Description: openstack identity v3 interface configuration
+    - */software/components/openstack/openstack_identity_endpoint_interface/url*
+        - Description: list of endpoint urls
+        - Required
+        - Type: type_absoluteURI
+    - */software/components/openstack/openstack_identity_endpoint_interface/region*
+        - Description: endpoint region (for all urls)
+        - Optional
+        - Type: openstack_valid_region
+ - **/software/components/openstack/openstack_identity_endpoint**
+    - Description: openstack identity v3 endpoint
+    - */software/components/openstack/openstack_identity_endpoint/internal*
+        - Description: internal interface
+        - Required
+        - Type: openstack_identity_endpoint_interface
+    - */software/components/openstack/openstack_identity_endpoint/public*
+        - Description: public interface
+        - Required
+        - Type: openstack_identity_endpoint_interface
+    - */software/components/openstack/openstack_identity_endpoint/admin*
+        - Description: admin interface
+        - Required
+        - Type: openstack_identity_endpoint_interface
+ - **/software/components/openstack/openstack_identity_client**
+    - Description: identity configuration via API client
+    - */software/components/openstack/openstack_identity_client/region*
+        - Description: region, key is used as region id
+        - Optional
+        - Type: openstack_identity_region
+    - */software/components/openstack/openstack_identity_client/domain*
+        - Description: domain, key is used as domain name
+        - Optional
+        - Type: openstack_identity_domain
+    - */software/components/openstack/openstack_identity_client/project*
+        - Description: project, key is used as project name
+        - Optional
+        - Type: openstack_identity_project
+    - */software/components/openstack/openstack_identity_client/user*
+        - Description: user, key is used as user name
+        - Optional
+        - Type: openstack_identity_user
+    - */software/components/openstack/openstack_identity_client/group*
+        - Description: group, key is used as group name
+        - Optional
+        - Type: openstack_identity_group
+    - */software/components/openstack/openstack_identity_client/role*
+        - Description: role, key is used as role name
+        - Optional
+        - Type: openstack_identity_role
+    - */software/components/openstack/openstack_identity_client/rolemap*
+        - Description: role assignment
+        - Optional
+        - Type: openstack_identity_rolemap
+    - */software/components/openstack/openstack_identity_client/service*
+        - Description: service, key is used as service name
+        - Optional
+        - Type: openstack_identity_service
+    - */software/components/openstack/openstack_identity_client/endpoint*
+        - Description: endpoint, key is the service name
+        - Optional
+        - Type: openstack_identity_endpoint
+ - **/software/components/openstack/openstack_identity_config**
+    - Description: Type to define OpenStack identity v3 services.
+    - */software/components/openstack/openstack_identity_config/keystone*
+        - Optional
+        - Type: openstack_keystone_config
+    - */software/components/openstack/openstack_identity_config/client*
+        - Optional
+        - Type: openstack_identity_client

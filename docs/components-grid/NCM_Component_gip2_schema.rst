@@ -1,0 +1,85 @@
+###############################
+NCM\::Component\::gip2 - schema
+###############################
+
+Types
+-----
+
+ - **/software/components/gip2/structure_gip2_attribute**
+ - **/software/components/gip2/structure_gip2_ldif**
+    - */software/components/gip2/structure_gip2_ldif/confFile*
+        - Optional
+        - Type: string
+    - */software/components/gip2/structure_gip2_ldif/template*
+        - Optional
+        - Type: string
+    - */software/components/gip2/structure_gip2_ldif/ldifFile*
+        - Required
+        - Type: string
+    - */software/components/gip2/structure_gip2_ldif/entries*
+        - Optional
+        - Type: structure_gip2_attribute
+    - */software/components/gip2/structure_gip2_ldif/staticInfoCmd*
+        - Optional
+        - Type: string
+ - **/software/components/gip2/gip2_component**
+    - */software/components/gip2/gip2_component/user*
+        - Required
+        - Type: string
+    - */software/components/gip2/gip2_component/group*
+        - Required
+        - Type: string
+        - Default value: root
+    - */software/components/gip2/gip2_component/flavor*
+        - Required
+        - Type: string
+        - Default value: lcg
+    - */software/components/gip2/gip2_component/basedir*
+        - Required
+        - Type: string
+    - */software/components/gip2/gip2_component/etcDir*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/ldifDir*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/pluginDir*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/providerDir*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/workDirs*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/staticInfoCmd*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/bdiiRestartAllowed*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/gip2/gip2_component/confFiles*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/ldif*
+        - Optional
+        - Type: structure_gip2_ldif
+    - */software/components/gip2/gip2_component/ldifConfEntries*
+        - Optional
+        - Type: structure_gip2_attribute
+    - */software/components/gip2/gip2_component/plugin*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/provider*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/scripts*
+        - Optional
+        - Type: string
+    - */software/components/gip2/gip2_component/stubs*
+        - Optional
+        - Type: structure_gip2_attribute
+    - */software/components/gip2/gip2_component/external*
+        - Optional
+        - Type: string

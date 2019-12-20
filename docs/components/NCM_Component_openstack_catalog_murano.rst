@@ -1,0 +1,91 @@
+##############################################
+NCM\::Component\::openstack\::catalog - murano
+##############################################
+
+Types
+-----
+
+ - **/software/components/openstack/openstack_murano_authtoken**
+    - Description: Murano authtoken section
+    - */software/components/openstack/openstack_murano_authtoken/admin_tenant_name*
+        - Description: Service tenant name (aka project) Murano should be included within service project with admin role
+        - Required
+        - Type: string
+        - Default value: service
+    - */software/components/openstack/openstack_murano_authtoken/admin_user*
+        - Description: Service username
+        - Required
+        - Type: string
+        - Default value: murano
+    - */software/components/openstack/openstack_murano_authtoken/admin_password*
+        - Description: Service user password
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_murano_authtoken/identity_uri*
+        - Description: Complete admin Identity API endpoint. This should specify the unversioned root endpoint e.g. https://localhost:35357/
+        - Required
+        - Type: type_absoluteURI
+ - **/software/components/openstack/openstack_murano_rabbitmq**
+    - Description: Murano rabbitmq section
+    - */software/components/openstack/openstack_murano_rabbitmq/host*
+        - Description: The RabbitMQ broker address which used for communication with Murano guest agents
+        - Required
+        - Type: type_hostname
+    - */software/components/openstack/openstack_murano_rabbitmq/login*
+        - Description: The RabbitMQ login
+        - Required
+        - Type: string
+        - Default value: openstack
+    - */software/components/openstack/openstack_murano_rabbitmq/password*
+        - Description: The RabbitMQ password
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_murano_rabbitmq/virtual_host*
+        - Description: The RabbitMQ virtual host
+        - Required
+        - Type: string
+        - Default value: /
+ - **/software/components/openstack/openstack_murano_networking**
+    - Description: Murano networking section
+    - */software/components/openstack/openstack_murano_networking/default_dns*
+        - Description: List of default DNS nameservers to be assigned to created Networks. Set to 8.8.8.8 by default in case openstack neutron has no default DNS configured
+        - Required
+        - Type: type_ip
+    - */software/components/openstack/openstack_murano_networking/driver*
+        - Description: Network driver to use. Options are neutron or nova. If not provided, the driver will be detected
+        - Optional
+        - Type: choice
+    - */software/components/openstack/openstack_murano_networking/create_router*
+        - Description: This option will create a router when one with "router_name" does not exist
+        - Optional
+        - Type: boolean
+ - **/software/components/openstack/openstack_murano**
+    - Description: Murano section
+    - */software/components/openstack/openstack_murano/url*
+        - Description: Optional murano url in format like http://0.0.0.0:8082 used by Murano engine
+        - Required
+        - Type: type_absoluteURI
+ - **/software/components/openstack/openstack_quattor_murano**
+ - **/software/components/openstack/openstack_murano_config**
+    - Description: list of Murano configuration sections
+    - */software/components/openstack/openstack_murano_config/DEFAULT*
+        - Optional
+        - Type: openstack_DEFAULTS
+    - */software/components/openstack/openstack_murano_config/database*
+        - Required
+        - Type: openstack_database
+    - */software/components/openstack/openstack_murano_config/keystone_authtoken*
+        - Required
+        - Type: openstack_murano_authtoken
+    - */software/components/openstack/openstack_murano_config/rabbitmq*
+        - Required
+        - Type: openstack_murano_rabbitmq
+    - */software/components/openstack/openstack_murano_config/murano*
+        - Required
+        - Type: openstack_murano
+    - */software/components/openstack/openstack_murano_config/networking*
+        - Optional
+        - Type: openstack_murano_networking
+    - */software/components/openstack/openstack_murano_config/quattor*
+        - Required
+        - Type: openstack_quattor_murano

@@ -1,0 +1,290 @@
+####################################
+NCM\::Component\::openstack - common
+####################################
+
+Types
+-----
+
+ - **/software/components/openstack/openstack_storagebackend**
+ - **/software/components/openstack/openstack_neutrondriver**
+ - **/software/components/openstack/openstack_neutronextension**
+ - **/software/components/openstack/openstack_valid_region**
+ - **/software/components/openstack/openstack_tunnel_types**
+ - **/software/components/openstack/openstack_neutron_mechanism_drivers**
+ - **/software/components/openstack/openstack_neutron_firewall_driver**
+ - **/software/components/openstack/openstack_share_backends**
+ - **/software/components/openstack/openstack_share_protocols**
+ - **/software/components/openstack/openstack_domains_common**
+    - Description: OpenStack common domains section
+    - */software/components/openstack/openstack_domains_common/project_domain_name*
+        - Description: Domain name containing project
+        - Required
+        - Type: string
+        - Default value: Default
+    - */software/components/openstack/openstack_domains_common/project_name*
+        - Description: Project name to scope to
+        - Required
+        - Type: string
+        - Default value: service
+    - */software/components/openstack/openstack_domains_common/auth_type*
+        - Description: The type of authentication credential to create. Required if no context is passed to the credential factory
+        - Required
+        - Type: string
+        - Default value: password
+    - */software/components/openstack/openstack_domains_common/user_domain_name*
+        - Description: Users domain name
+        - Required
+        - Type: string
+        - Default value: Default
+    - */software/components/openstack/openstack_domains_common/auth_url*
+        - Description: Keystone authentication URL http(s)://host:port
+        - Required
+        - Type: type_absoluteURI
+    - */software/components/openstack/openstack_domains_common/username*
+        - Description: OpenStack service username
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_domains_common/password*
+        - Description: OpenStack service user password
+        - Required
+        - Type: string
+ - **/software/components/openstack/openstack_region_common**
+    - Description: OpenStack common region section
+    - */software/components/openstack/openstack_region_common/os_region_name*
+        - Required
+        - Type: string
+        - Default value: RegionOne
+ - **/software/components/openstack/openstack_database**
+    - Description: The configuration options in the database Section
+    - */software/components/openstack/openstack_database/connection*
+        - Description: The SQLAlchemy connection string to use to connect to the database
+        - Required
+        - Type: string
+ - **/software/components/openstack/openstack_oslo_concurrency**
+    - Description: The configuration options in 'oslo_concurrency' Section.
+    - */software/components/openstack/openstack_oslo_concurrency/lock_path*
+        - Description: Directory to use for lock files. For security, the specified directory should only be writable by the user running the processes that need locking. Defaults to environment variable OSLO_LOCK_PATH. If external locks are used, a lock path must be set
+        - Required
+        - Type: absolute_file_path
+ - **/software/components/openstack/openstack_DEFAULTS**
+    - Description: The configuration options in the DEFAULTS Section
+    - */software/components/openstack/openstack_DEFAULTS/admin_token*
+        - Description: Using this feature is *NOT* recommended. Instead, use the "keystone-manage bootstrap" command. The value of this option is treated as a "shared secret" that can be used to bootstrap Keystone through the API. This "token" does not represent a user (it has no identity), and carries no explicit authorization (it effectively bypasses most authorization checks). If set to "None", the value is ignored and the "admin_token" middleware is effectively disabled. However, to completely disable "admin_token" in production (highly recommended, as it presents a security risk), remove AdminTokenAuthMiddleware (the "admin_token_auth" filter) from your paste application pipelines (for example, in "keystone-paste.ini")
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/notifications*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/debug*
+        - Description: From oslo.log If set to true, the logging level will be set to DEBUG instead of the default INFO level. Note: This option can be changed without restarting
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_DEFAULTS/use_syslog*
+        - Description: Use syslog for logging. Existing syslog format is DEPRECATED and will be changed later to honor RFC5424. This option is ignored if log_config_append is set
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_DEFAULTS/syslog_log_facility*
+        - Description: Syslog facility to receive log lines. This option is ignored if log_config_append is set
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/auth_strategy*
+        - Description: From nova.conf This determines the strategy to use for authentication: keystone or noauth2. "noauth2" is designed for testing only, as it does no actual credential checking. "noauth2" provides administrative credentials only if "admin" is specified as the username
+        - Optional
+        - Type: string
+        - Default value: keystone
+    - */software/components/openstack/openstack_DEFAULTS/my_ip*
+        - Description: From nova.conf The IP address which the host is using to connect to the management network. Default is IPv4 address of this host
+        - Optional
+        - Type: type_ip
+    - */software/components/openstack/openstack_DEFAULTS/enabled_apis*
+        - Description: From nova.conf List of APIs to be enabled by default
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/state_path*
+        - Description: From cinder.conf Top-level directory for maintaining cinder state
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /var/lib/cinder
+    - */software/components/openstack/openstack_DEFAULTS/enabled_backends*
+        - Description: From glance.conf A list of backend names to use. These backend names should be backed by a unique [CONFIG] group with its options
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/glance_api_servers*
+        - Description: From glance.conf A list of the URLs of glance API servers available to cinder
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/openstack/openstack_DEFAULTS/transport_url*
+        - Description: From nova.conf An URL representing the messaging driver to use and its full configuration. Example: rabbit://openstack:<rabbit_password>@<fqdn>
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/rootwrap_config*
+        - Description: Path to the rootwrap configuration file. Goal of the root wrapper is to allow a service-specific unprivileged user to run a number of actions as the root user in the safest manner possible. The configuration file used here must match the one defined in the sudoers entry. Be sure to include into sudoers these lines: nova ALL = (root) NOPASSWD: /usr/bin/nova-rootwrap /etc/nova/rootwrap.conf * more info https://wiki.openstack.org/wiki/Rootwrap
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/openstack/openstack_DEFAULTS/core_plugin*
+        - Description: From neutron.conf The core plugin Neutron will use
+        - Optional
+        - Type: string
+        - Default value: ml2
+    - */software/components/openstack/openstack_DEFAULTS/service_plugins*
+        - Description: From neutron.conf The service plugins Neutron will use
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/allow_overlapping_ips*
+        - Description: From neutron.conf Allow overlapping IP support in Neutron. Attention: the following parameter MUST be set to False if Neutron is being used in conjunction with Nova security groups
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_DEFAULTS/notify_nova_on_port_status_changes*
+        - Description: From neutron.conf Send notification to nova when port status changes
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_DEFAULTS/notify_nova_on_port_data_changes*
+        - Description: From neutron.conf Send notification to nova when port data (fixed_ips/floatingip) changes so nova can update its cache
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_DEFAULTS/interface_driver*
+        - Description: From Neutron l3_agent.ini and dhcp_agent.ini The driver used to manage the virtual interface
+        - Optional
+        - Type: string
+        - Default value: linuxbridge
+    - */software/components/openstack/openstack_DEFAULTS/dhcp_driver*
+        - Description: From Neutron dhcp_agent.ini The driver used to manage the DHCP server
+        - Optional
+        - Type: string
+        - Default value: neutron.agent.linux.dhcp.Dnsmasq
+    - */software/components/openstack/openstack_DEFAULTS/dhcp_agents_per_network*
+        - Description: Number of DHCP agents scheduled to host a tenant network. If this number is greater than 1, the scheduler automatically assigns multiple DHCP agents for a given tenant network, providing high availability for DHCP service
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/openstack/openstack_DEFAULTS/enable_isolated_metadata*
+        - Description: From Neutron dhcp_agent.ini The DHCP server can assist with providing metadata support on isolated networks. Setting this value to True will cause the DHCP server to append specific host routes to the DHCP request. The metadata service will only be activated when the subnet does not contain any router port. The guest instance must be configured to request host routes via DHCP (Option 121). This option does not have any effect when force_metadata is set to True
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_DEFAULTS/force_metadata*
+        - Description: From Neutron dhcp_agent.ini In some cases the Neutron router is not present to provide the metadata IP but the DHCP server can be used to provide this info. Setting this value will force the DHCP server to append specific host routes to the DHCP request. If this option is set, then the metadata service will be activated for all the networks
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_DEFAULTS/metadata_proxy_shared_secret*
+        - Description: From Neutron metadata_agent.ini When proxying metadata requests, Neutron signs the Instance-ID header with a shared secret to prevent spoofing. You may select any string for a secret, but it must match here and in the configuration used by the Nova Metadata Server. NOTE: Nova uses the same config key, but in [neutron] section
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/nova_metadata_host*
+        - Description: From Neutron metadata_agent.ini IP address or DNS name of Nova metadata server
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_DEFAULTS/firewall_driver*
+        - Description: Driver for security groups
+        - Optional
+        - Type: string
+        - Default value: neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+    - */software/components/openstack/openstack_DEFAULTS/use_neutron*
+        - Description: Use neutron and disable the default firewall setup
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_DEFAULTS/default_share_type*
+        - Description: From manila.conf Default share type to use. The default_share_type option specifies the default share type to be used when shares are created without specifying the share type in the request. The default share type that is specified in the configuration file has to be created with the necessary required extra-specs (such as driver_handles_share_servers) set appropriately with reference to the driver mode used
+        - Optional
+        - Type: string
+        - Default value: default
+    - */software/components/openstack/openstack_DEFAULTS/share_name_template*
+        - Description: From manila.conf Template string to be used to generate share names
+        - Optional
+        - Type: string
+        - Default value: share-%s
+    - */software/components/openstack/openstack_DEFAULTS/api_paste_config*
+        - Description: From manila.conf File name for the paste.deploy config for manila-api
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /etc/manila/api-paste.ini
+    - */software/components/openstack/openstack_DEFAULTS/enabled_share_backends*
+        - Description: From manila.conf A list of share backend names to use. These backend names should be backed by a unique [CONFIG] group with its options
+        - Optional
+        - Type: openstack_share_backends
+    - */software/components/openstack/openstack_DEFAULTS/enabled_share_protocols*
+        - Description: From manila.conf Specify list of protocols to be allowed for share creation
+        - Optional
+        - Type: openstack_share_protocols
+ - **/software/components/openstack/openstack_cors**
+    - Description: The configuration options for CORS middleware. This middleware provides a comprehensive, configurable implementation of the CORS (Cross Origin Resource Sharing) specification as oslo-supported python wsgi middleware.
+    - */software/components/openstack/openstack_cors/allowed_origin*
+        - Description: Indicate whether this resource may be shared with the domain received in the requests "origin" header. Format: "<protocol>://<host>[:<port>]", no trailing slash. Example: https://horizon.example.com
+        - Required
+        - Type: type_absoluteURI
+    - */software/components/openstack/openstack_cors/max_age*
+        - Description: Maximum cache age of CORS preflight requests
+        - Optional
+        - Type: long
+        - Range: 1..
+        - Default value: 3600
+    - */software/components/openstack/openstack_cors/allow_credentials*
+        - Description: Indicate that the actual request can include user credentials
+        - Optional
+        - Type: boolean
+ - **/software/components/openstack/openstack_quattor_endpoint**
+    - */software/components/openstack/openstack_quattor_endpoint/host*
+        - Description: endpoint host (proto://host:port/suffix)
+        - Optional
+        - Type: type_hostname
+    - */software/components/openstack/openstack_quattor_endpoint/proto*
+        - Description: endpoint protocol (proto://host:port/suffix)
+        - Optional
+        - Type: choice
+    - */software/components/openstack/openstack_quattor_endpoint/port*
+        - Description: endpoint port (proto://host:port/suffix) (mandatory for internal endpoint)
+        - Optional
+        - Type: type_port
+    - */software/components/openstack/openstack_quattor_endpoint/suffix*
+        - Description: endpoint suffix (proto://host:port/suffix)
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_quattor_endpoint/region*
+        - Description: region that the service/endpoint belongs to
+        - Optional
+        - Type: openstack_valid_region
+ - **/software/components/openstack/openstack_quattor_service_common**
+    - */software/components/openstack/openstack_quattor_service_common/public*
+        - Description: public endpoint (on top of internal endpoint configuration)
+        - Optional
+        - Type: openstack_quattor_endpoint
+    - */software/components/openstack/openstack_quattor_service_common/admin*
+        - Description: admin endpoint (on top of internal endpoint configuration)
+        - Optional
+        - Type: openstack_quattor_endpoint
+ - **/software/components/openstack/openstack_quattor_service**
+    - */software/components/openstack/openstack_quattor_service/internal*
+        - Description: internal endpoint (is also default for public and/or admin)
+        - Required
+        - Type: openstack_quattor_endpoint
+    - */software/components/openstack/openstack_quattor_service/name*
+        - Description: service name (default is current openstack flavour name)
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_quattor_service/type*
+        - Description: service type (default is current openstack service name)
+        - Optional
+        - Type: string
+ - **/software/components/openstack/openstack_quattor_service_extra**
+    - */software/components/openstack/openstack_quattor_service_extra/internal*
+        - Description: internal endpoint (is also default for public and/or admin)
+        - Required
+        - Type: openstack_quattor_endpoint
+    - */software/components/openstack/openstack_quattor_service_extra/type*
+        - Required
+        - Type: string
+ - **/software/components/openstack/openstack_quattor**
+    - Description: Custom configuration type. This is data that is not picked up as configuration data, but used to e.g. build up the service endpoints. (Any section named quattor is also not rendered) It is to be used as e.g. type openstack_quattor_servicex = openstack_quattor = dict('quattor', dict('port', 123)) And then this custom service type is included in the service configuration. type openstack_servicex = { 'quattor' : openstack_quattor_servicex ...
+    - */software/components/openstack/openstack_quattor/service*
+        - Description: default service/endpoint
+        - Optional
+        - Type: openstack_quattor_service
+    - */software/components/openstack/openstack_quattor/services*
+        - Description: other services; key is name. Default values like public/internal are taken from service
+        - Optional
+        - Type: openstack_quattor_service_extra

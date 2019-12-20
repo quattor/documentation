@@ -1,0 +1,88 @@
+###############################
+NCM\::Component\::gpfs - schema
+###############################
+
+Types
+-----
+
+ - **/software/components/gpfs/gpfs_curl**
+    - */software/components/gpfs/gpfs_curl/usecurl*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/gpfs/gpfs_curl/usegss*
+        - Description: use kerberos token form host keytab
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/gpfs/gpfs_curl/usesindesgetcertcertwithcurl*
+        - Description: get certificate information from SINDES getcert component configuration
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/gpfs/gpfs_curl/useccmcertwithcurl*
+        - Description: get certificate information from CCM component configuration
+        - Optional
+        - Type: boolean
+        - Default value: false
+ - **/software/components/gpfs/gpfs_cfg**
+    - */software/components/gpfs/gpfs_cfg/url*
+        - Required
+        - Type: string
+    - */software/components/gpfs/gpfs_cfg/keyData*
+        - Optional
+        - Type: string
+    - */software/components/gpfs/gpfs_cfg/sdrrestore*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/gpfs/gpfs_cfg/subnet*
+        - Required
+        - Type: string
+ - **/software/components/gpfs/gpfs_base**
+    - */software/components/gpfs/gpfs_base/rpms*
+        - Required
+        - Type: string
+    - */software/components/gpfs/gpfs_base/baseurl*
+        - Required
+        - Type: string
+    - */software/components/gpfs/gpfs_base/useproxy*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/gpfs/gpfs_base/useyum*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/gpfs/gpfs_sysmon_common**
+    - */software/components/gpfs/gpfs_sysmon_common/monitorinterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/gpfs/gpfs_sysmon_common/monitoroffset*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/gpfs/gpfs_sysmon_common/clockalign*
+        - Optional
+        - Type: boolean
+ - **/software/components/gpfs/gpfs_sysmon_network**
+ - **/software/components/gpfs/gpfs_sysmon**
+    - */software/components/gpfs/gpfs_sysmon/network*
+        - Optional
+        - Type: gpfs_sysmon_network
+ - **/software/components/gpfs/gpfs_component**
+    - */software/components/gpfs/gpfs_component/base*
+        - Required
+        - Type: gpfs_base
+    - */software/components/gpfs/gpfs_component/cfg*
+        - Required
+        - Type: gpfs_cfg
+    - */software/components/gpfs/gpfs_component/sysmon*
+        - Description: GPFS mmsysmonitor configuration. When defined, existing configuration is read and only configured values are modified/added, keeping any other existing ones.
+        - Optional
+        - Type: gpfs_sysmon
+    - */software/components/gpfs/gpfs_component/skiprpm*
+        - Required
+        - Type: boolean
+        - Default value: false

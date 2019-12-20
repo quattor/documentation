@@ -1,0 +1,79 @@
+#####################################
+NCM\::Component\::spma\::yum - schema
+#####################################
+
+Types
+-----
+
+ - **/software/components/spma/SOFTWARE_GROUP**
+    - */software/components/spma/SOFTWARE_GROUP/default*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/SOFTWARE_GROUP/mandatory*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/SOFTWARE_GROUP/optional*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/spma/spma_yum_main_options**
+    - Description: Main configuration options for yum.conf. The cleanup_on_remove, obsoletes, reposdir and pluginpath are set internally.
+    - */software/components/spma/spma_yum_main_options/exclude*
+        - Optional
+        - Type: string
+    - */software/components/spma/spma_yum_main_options/installonly_limit*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 3
+    - */software/components/spma/spma_yum_main_options/keepcache*
+        - Optional
+        - Type: boolean
+    - */software/components/spma/spma_yum_main_options/retries*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+    - */software/components/spma/spma_yum_main_options/timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 30
+ - **/software/components/spma/component_spma_yum**
+    - */software/components/spma/component_spma_yum/fullsearch*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/spma/component_spma_yum/main_options*
+        - Optional
+        - Type: spma_yum_main_options
+    - */software/components/spma/component_spma_yum/plugins*
+        - Optional
+        - Type: spma_yum_plugins
+    - */software/components/spma/component_spma_yum/process_obsoletes*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/spma/component_spma_yum/proxytype*
+        - Optional
+        - Type: string
+    - */software/components/spma/component_spma_yum/run*
+        - Optional
+        - Type: legacy_binary_affirmation_string
+    - */software/components/spma/component_spma_yum/userpkgs_retry*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/component_spma_yum/userpkgs*
+        - Optional
+        - Type: legacy_binary_affirmation_string
+    - */software/components/spma/component_spma_yum/reposdirs*
+        - Description: List of external repo dirs to be included in addition to the one managed by this component.
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/spma/component_spma_yum/filter*
+        - Description: regexp pattern to install only matching (unescaped) package names. This is an advanced setting, and typically only used in a 2-stage software install like spmalight. When userpkgs is not defined, it runs as if userpkgs is true. (Caution: is userpkgs is false, it will very likely remove all non-matching packages. It is advised to remove the userpkgs attribute). Versionlocking is not affected by the filter (i.e. all packages are considered for version locking, not only the filtered ones).
+        - Optional
+        - Type: string

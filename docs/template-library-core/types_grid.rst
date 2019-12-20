@@ -1,0 +1,149 @@
+############
+types\::grid
+############
+
+Types
+-----
+
+ - **structure_edg_config**
+    - Description: type definition for EDG (legacy support for DataGrid)
+    - *structure_edg_config/EDG_LOCATION*
+        - Optional
+        - Type: string
+    - *structure_edg_config/EDG_LOCATION_VAR*
+        - Optional
+        - Type: string
+    - *structure_edg_config/EDG_TMP*
+        - Optional
+        - Type: string
+    - *structure_edg_config/CERTDIR*
+        - Optional
+        - Type: string
+    - *structure_edg_config/X509_USER_CERT*
+        - Optional
+        - Type: string
+    - *structure_edg_config/X509_USER_KEY*
+        - Optional
+        - Type: string
+    - *structure_edg_config/GRIDMAP*
+        - Optional
+        - Type: string
+    - *structure_edg_config/GRIDMAPDIR*
+        - Optional
+        - Type: string
+    - *structure_edg_config/EDG_WL_BKSERVERD_ADDOPTS*
+        - Optional
+        - Type: string
+    - *structure_edg_config/EDG_WL_RGMA_FILE*
+        - Optional
+        - Type: string
+    - *structure_edg_config/EDG_WL_RGMA_SOCK*
+        - Optional
+        - Type: string
+ - **structure_edg**
+    - *structure_edg/config*
+        - Optional
+        - Type: structure_edg_config
+ - **structure_glite_config**
+    - Description: type definition for gLite
+    - *structure_glite_config/GLITE_LOCATION*
+        - Required
+        - Type: string
+        - Default value: /opt/glite
+    - *structure_glite_config/GLITE_LOCATION_VAR*
+        - Required
+        - Type: string
+        - Default value: /var/glite
+    - *structure_glite_config/GLITE_LOCATION_LOG*
+        - Required
+        - Type: string
+        - Default value: /var/log/glite
+    - *structure_glite_config/GLITE_TMP*
+        - Required
+        - Type: string
+        - Default value: /tmp
+    - *structure_glite_config/GLITE_USER*
+        - Optional
+        - Type: string
+    - *structure_glite_config/GLITE_GROUP*
+        - Optional
+        - Type: string
+    - *structure_glite_config/GLITE_X509_PROXY*
+        - Optional
+        - Type: string
+ - **structure_glite**
+    - *structure_glite/config*
+        - Optional
+        - Type: structure_glite_config
+ - **structure_lcg_config**
+    - Description: type definition for LCG
+    - *structure_lcg_config/LCG_LOCATION*
+        - Optional
+        - Type: string
+    - *structure_lcg_config/LCG_LOCATION_VAR*
+        - Optional
+        - Type: string
+    - *structure_lcg_config/LCG_TMP*
+        - Optional
+        - Type: string
+ - **structure_lcg**
+    - *structure_lcg/config*
+        - Optional
+        - Type: structure_lcg_config
+ - **structure_vo_auth**
+    - Description: type definition for Virtual Organisation (VO)
+    - *structure_vo_auth/uri*
+        - Required
+        - Type: type_hostURI
+    - *structure_vo_auth/user*
+        - Required
+        - Type: string
+ - **structure_vo_voms**
+    - *structure_vo_voms/fqan*
+        - Required
+        - Type: string
+    - *structure_vo_voms/user*
+        - Optional
+        - Type: string
+    - *structure_vo_voms/group*
+        - Optional
+        - Type: string
+ - **structure_vo_services_wms**
+    - *structure_vo_services_wms/lbhosts*
+        - Required
+        - Type: type_hostport
+    - *structure_vo_services_wms/nshosts*
+        - Optional
+        - Type: type_hostport
+    - *structure_vo_services_wms/wmproxies*
+        - Required
+        - Type: type_hostURI
+ - **structure_vo_services**
+    - *structure_vo_services/myproxy*
+        - Optional
+        - Type: type_hostname
+    - *structure_vo_services/hlr*
+        - Optional
+        - Type: type_hostname
+    - *structure_vo_services/nshosts*
+        - Optional
+        - Type: type_hostport
+    - *structure_vo_services/lbhosts*
+        - Optional
+        - Type: type_hostport
+    - *structure_vo_services/wms*
+        - Optional
+        - Type: structure_vo_services_wms
+ - **structure_vo**
+    - *structure_vo/name*
+        - Required
+        - Type: string
+    - *structure_vo/auth*
+        - Optional
+        - Type: structure_vo_auth
+    - *structure_vo/services*
+        - Optional
+        - Type: structure_vo_services
+    - *structure_vo/voms*
+        - Optional
+        - Type: structure_vo_voms

@@ -1,0 +1,321 @@
+################################################
+NCM\::Component\::metaconfig\::graphite - schema
+################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/carbon_storage_schema**
+    - */software/components/metaconfig/carbon_storage_schema/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_storage_schema/pattern*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_storage_schema/retentions*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/carbon_cache_storage_schemas**
+    - */software/components/metaconfig/carbon_cache_storage_schemas/main*
+        - Required
+        - Type: carbon_storage_schema
+ - **/software/components/metaconfig/carbon_relay_rule**
+    - */software/components/metaconfig/carbon_relay_rule/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_relay_rule/default*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_relay_rule/pattern*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_relay_rule/destinations*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_relay_rule/continue*
+        - Optional
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/carbon_relay_relay_rules**
+    - */software/components/metaconfig/carbon_relay_relay_rules/main*
+        - Required
+        - Type: carbon_relay_rule
+ - **/software/components/metaconfig/carbon_aggregation_rule**
+    - */software/components/metaconfig/carbon_aggregation_rule/output*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_aggregation_rule/frequency*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_aggregation_rule/method*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_aggregation_rule/input*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/carbon_aggregator_aggregation_rules**
+    - */software/components/metaconfig/carbon_aggregator_aggregation_rules/main*
+        - Required
+        - Type: carbon_aggregation_rule
+ - **/software/components/metaconfig/carbon_common**
+    - */software/components/metaconfig/carbon_common/line_receiver_interface*
+        - Required
+        - Type: type_hostname
+        - Default value: 0.0.0.0
+    - */software/components/metaconfig/carbon_common/pickle_receiver_interface*
+        - Required
+        - Type: type_hostname
+        - Default value: 0.0.0.0
+    - */software/components/metaconfig/carbon_common/use_flow_control*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/carbon_common/use_whitelist*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_common/carbon_metric_prefix*
+        - Optional
+        - Type: string
+        - Default value: carbon
+    - */software/components/metaconfig/carbon_common/carbon_metric_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 60
+ - **/software/components/metaconfig/carbon_cache**
+    - */software/components/metaconfig/carbon_cache/line_receiver_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2003
+    - */software/components/metaconfig/carbon_cache/pickle_receiver_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2004
+    - */software/components/metaconfig/carbon_cache/storage_dir*
+        - Required
+        - Type: string
+        - Default value: /var/lib/carbon/
+    - */software/components/metaconfig/carbon_cache/local_data_dir*
+        - Required
+        - Type: string
+        - Default value: /var/lib/carbon/whisper/
+    - */software/components/metaconfig/carbon_cache/whitelists_dir*
+        - Required
+        - Type: string
+        - Default value: /var/lib/carbon/lists/
+    - */software/components/metaconfig/carbon_cache/conf_dir*
+        - Required
+        - Type: string
+        - Default value: /etc/carbon/
+    - */software/components/metaconfig/carbon_cache/log_dir*
+        - Required
+        - Type: string
+        - Default value: /var/log/carbon/
+    - */software/components/metaconfig/carbon_cache/pid_dir*
+        - Required
+        - Type: string
+        - Default value: /var/run/
+    - */software/components/metaconfig/carbon_cache/user*
+        - Required
+        - Type: string
+        - Default value: carbon
+    - */software/components/metaconfig/carbon_cache/max_cache_size*
+        - Required
+        - Type: string
+        - Default value: inf
+    - */software/components/metaconfig/carbon_cache/max_updates_per_second*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2000
+    - */software/components/metaconfig/carbon_cache/max_creates_per_minute*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 200
+    - */software/components/metaconfig/carbon_cache/enable_udp_listener*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/udp_receiver_interface*
+        - Required
+        - Type: type_hostname
+        - Default value: 0.0.0.0
+    - */software/components/metaconfig/carbon_cache/udp_receiver_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2003
+    - */software/components/metaconfig/carbon_cache/use_insecure_unpickler*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/cache_query_interface*
+        - Required
+        - Type: string
+        - Default value: 0.0.0.0
+    - */software/components/metaconfig/carbon_cache/cache_query_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 7002
+    - */software/components/metaconfig/carbon_cache/log_updates*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/bind_patterns*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/carbon_cache/whisper_autoflush*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/whisper_sparse_create*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/whisper_lock_writes*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/enable_amqp*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/amqp_verbose*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/amqp_host*
+        - Optional
+        - Type: type_hostname
+        - Default value: localhost
+    - */software/components/metaconfig/carbon_cache/amqp_port*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 5672
+    - */software/components/metaconfig/carbon_cache/amqp_vhost*
+        - Optional
+        - Type: string
+        - Default value: /
+    - */software/components/metaconfig/carbon_cache/amqp_user*
+        - Optional
+        - Type: string
+        - Default value: guest
+    - */software/components/metaconfig/carbon_cache/amqp_password*
+        - Optional
+        - Type: string
+        - Default value: guest
+    - */software/components/metaconfig/carbon_cache/amqp_exchange*
+        - Optional
+        - Type: string
+        - Default value: graphite
+    - */software/components/metaconfig/carbon_cache/amqp_metric_name_in_body*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/enable_manhole*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/carbon_cache/manhole_interface*
+        - Optional
+        - Type: type_hostname
+        - Default value: 127.0.0.1
+    - */software/components/metaconfig/carbon_cache/manhole_port*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 7222
+    - */software/components/metaconfig/carbon_cache/manhole_user*
+        - Optional
+        - Type: string
+        - Default value: admin
+    - */software/components/metaconfig/carbon_cache/manhole_public_key*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/carbon_relay**
+    - */software/components/metaconfig/carbon_relay/line_receiver_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2013
+    - */software/components/metaconfig/carbon_relay/pickle_receiver_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2014
+    - */software/components/metaconfig/carbon_relay/relay_method*
+        - Required
+        - Type: string
+        - Default value: rules
+    - */software/components/metaconfig/carbon_relay/replication_factor*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 1
+    - */software/components/metaconfig/carbon_relay/destinations*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_relay/max_datapoints_per_message*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 500
+    - */software/components/metaconfig/carbon_relay/max_queue_size*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10000
+ - **/software/components/metaconfig/carbon_aggregator**
+    - */software/components/metaconfig/carbon_aggregator/line_receiver_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2023
+    - */software/components/metaconfig/carbon_aggregator/pickle_receiver_port*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 2024
+    - */software/components/metaconfig/carbon_aggregator/destinations*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_aggregator/replication_factor*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 1
+    - */software/components/metaconfig/carbon_aggregator/max_queue_size*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10000
+    - */software/components/metaconfig/carbon_aggregator/max_datapoints_per_message*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 500
+    - */software/components/metaconfig/carbon_aggregator/max_aggregation_intervals*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 5
+ - **/software/components/metaconfig/carbon_config**
+    - */software/components/metaconfig/carbon_config/cache*
+        - Required
+        - Type: carbon_cache
+    - */software/components/metaconfig/carbon_config/cache_instances*
+        - Optional
+        - Type: carbon_cache
+    - */software/components/metaconfig/carbon_config/relay*
+        - Required
+        - Type: carbon_relay
+    - */software/components/metaconfig/carbon_config/aggregator*
+        - Required
+        - Type: carbon_aggregator

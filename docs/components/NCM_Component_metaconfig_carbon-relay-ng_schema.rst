@@ -1,0 +1,112 @@
+#######################################################
+NCM\::Component\::metaconfig\::carbon-relay-ng - schema
+#######################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/carbon_relay_ng_addblack**
+    - Description: blacklist all matching metrics
+    - */software/components/metaconfig/carbon_relay_ng_addblack/match*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/carbon_relay_ng_addroute_opts**
+    - Description: route options prefix=str only take in metrics that have this prefix sub=str only take in metrics that match this substring regex=regex only take in metrics that match this regex (expensive!)
+    - */software/components/metaconfig/carbon_relay_ng_addroute_opts/prefix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/carbon_relay_ng_addroute_opts/sub*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/carbon_relay_ng_addroute_opts/regex*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/carbon_relay_ng_addroute_dest_opts**
+    - Description: route destination options the route options and flush=int flush interval in ms reconn=int reconnection interval in ms pickle=true,false pickle output format instead of the default text protocol spool=true,false enable spooling for this endpoint
+    - */software/components/metaconfig/carbon_relay_ng_addroute_dest_opts/flush*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/carbon_relay_ng_addroute_dest_opts/reconn*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/carbon_relay_ng_addroute_dest_opts/pickle*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/carbon_relay_ng_addroute_dest_opts/spool*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/carbon_relay_ng_addroute_dest**
+    - Description: route destination: addr and opts
+    - */software/components/metaconfig/carbon_relay_ng_addroute_dest/addr*
+        - Required
+        - Type: type_hostport
+    - */software/components/metaconfig/carbon_relay_ng_addroute_dest/opts*
+        - Optional
+        - Type: carbon_relay_ng_addroute_dest_opts
+ - **/software/components/metaconfig/carbon_relay_ng_addroute**
+    - Description: route
+    - */software/components/metaconfig/carbon_relay_ng_addroute/type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_relay_ng_addroute/key*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/carbon_relay_ng_addroute/opts*
+        - Optional
+        - Type: carbon_relay_ng_addroute_opts
+    - */software/components/metaconfig/carbon_relay_ng_addroute/dest*
+        - Required
+        - Type: carbon_relay_ng_addroute_dest
+ - **/software/components/metaconfig/carbon_relay_ng_init**
+    - Description: Init are initialisation commands passed during startup. (No modification possible)
+    - */software/components/metaconfig/carbon_relay_ng_init/addRoute*
+        - Optional
+        - Type: carbon_relay_ng_addroute
+    - */software/components/metaconfig/carbon_relay_ng_init/addBlack*
+        - Optional
+        - Type: carbon_relay_ng_addblack
+ - **/software/components/metaconfig/carbon_relay_ng_instrumentation**
+    - Description: Configure the instrumentation section (i.e. where to send ti's own metrics)
+    - */software/components/metaconfig/carbon_relay_ng_instrumentation/graphite_addr*
+        - Required
+        - Type: type_hostport
+        - Default value: localhost:2003
+    - */software/components/metaconfig/carbon_relay_ng_instrumentation/graphite_interval*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 1000
+ - **/software/components/metaconfig/carbon_relay_ng_service**
+    - Description: Configure the carbon-relay-ng conifg file (typically /etc/carbon-relay-ng.ini)
+    - */software/components/metaconfig/carbon_relay_ng_service/instance*
+        - Required
+        - Type: string
+        - Default value: default
+    - */software/components/metaconfig/carbon_relay_ng_service/listen_addr*
+        - Required
+        - Type: type_hostport
+        - Default value: 0.0.0.0:2003
+    - */software/components/metaconfig/carbon_relay_ng_service/admin_addr*
+        - Required
+        - Type: type_hostport
+        - Default value: 0.0.0.0:2004
+    - */software/components/metaconfig/carbon_relay_ng_service/http_addr*
+        - Required
+        - Type: type_hostport
+        - Default value: localhost.localdomain:8081
+    - */software/components/metaconfig/carbon_relay_ng_service/spool_dir*
+        - Required
+        - Type: string
+        - Default value: /var/spool/carbon-relay-ng
+    - */software/components/metaconfig/carbon_relay_ng_service/log_level*
+        - Required
+        - Type: string
+        - Default value: notice
+    - */software/components/metaconfig/carbon_relay_ng_service/init*
+        - Required
+        - Type: carbon_relay_ng_init
+    - */software/components/metaconfig/carbon_relay_ng_service/instrumentation*
+        - Optional
+        - Type: carbon_relay_ng_instrumentation

@@ -1,0 +1,443 @@
+###################################
+NCM\::Component\::syslogng - schema
+###################################
+
+Types
+-----
+
+ - **/software/components/syslogng/filterstring**
+ - **/software/components/syslogng/srcstring**
+ - **/software/components/syslogng/dststring**
+ - **/software/components/syslogng/prioritystring**
+ - **/software/components/syslogng/structure_syslogng_dstcommon**
+    - */software/components/syslogng/structure_syslogng_dstcommon/log_fifo_size*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_dstcommon/fsync*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_dstcommon/flush_lines*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_dstcommon/flush_timeout*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_dstcommon/template*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_dstcommon/template_escape*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_dstcommon/timezone*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_dstcommon/ts_format*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_dstcommon/frac_digits*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_dstcommon/throttle*
+        - Optional
+        - Type: long
+ - **/software/components/syslogng/structure_syslogng_filepipe**
+    - */software/components/syslogng/structure_syslogng_filepipe/path*
+        - Required
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_filepipe/owner*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_filepipe/group*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_filepipe/perm*
+        - Optional
+        - Type: string
+ - **/software/components/syslogng/structure_syslogng_file_dest**
+    - */software/components/syslogng/structure_syslogng_file_dest/create_dirs*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_file_dest/dir_owner*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_file_dest/dir_group*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_file_dest/overwrite_if_older*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_file_dest/remove_if_older*
+        - Optional
+        - Type: long
+ - **/software/components/syslogng/structure_syslogng_pipe_dest**
+ - **/software/components/syslogng/structure_syslogng_sock_dest**
+    - */software/components/syslogng/structure_syslogng_sock_dest/so_broadcast*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_sock_dest/so_rcvbuf*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_sock_dest/so_sndbuf*
+        - Optional
+        - Type: long
+ - **/software/components/syslogng/structure_syslogng_unixdgram_dest**
+    - */software/components/syslogng/structure_syslogng_unixdgram_dest/so_broadcast*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_unixdgram_dest/so_rcvbuf*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_unixdgram_dest/so_sndbuf*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_unixdgram_dest/path*
+        - Required
+        - Type: string
+ - **/software/components/syslogng/structure_syslogng_network_dest**
+    - */software/components/syslogng/structure_syslogng_network_dest/localip*
+        - Optional
+        - Type: type_ip
+    - */software/components/syslogng/structure_syslogng_network_dest/localport*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_network_dest/spoof_source*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_network_dest/ip_ttl*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_network_dest/ip_tos*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_network_dest/ip*
+        - Required
+        - Type: type_ip
+    - */software/components/syslogng/structure_syslogng_network_dest/port*
+        - Required
+        - Type: long
+ - **/software/components/syslogng/structure_syslogng_tty_dest**
+    - */software/components/syslogng/structure_syslogng_tty_dest/path*
+        - Required
+        - Type: string
+ - **/software/components/syslogng/structure_syslogng_program_dest**
+    - */software/components/syslogng/structure_syslogng_program_dest/commandline*
+        - Required
+        - Type: string
+ - **/software/components/syslogng/structure_syslogng_destinations**
+    - */software/components/syslogng/structure_syslogng_destinations/files*
+        - Optional
+        - Type: structure_syslogng_file_dest
+    - */software/components/syslogng/structure_syslogng_destinations/pipes*
+        - Optional
+        - Type: structure_syslogng_pipe_dest
+    - */software/components/syslogng/structure_syslogng_destinations/unixdgram*
+        - Optional
+        - Type: structure_syslogng_unixdgram_dest
+    - */software/components/syslogng/structure_syslogng_destinations/unixstream*
+        - Optional
+        - Type: structure_syslogng_unixdgram_dest
+    - */software/components/syslogng/structure_syslogng_destinations/udp*
+        - Optional
+        - Type: structure_syslogng_network_dest
+    - */software/components/syslogng/structure_syslogng_destinations/tcp*
+        - Optional
+        - Type: structure_syslogng_network_dest
+ - **/software/components/syslogng/structure_syslogng_log_rule_flags**
+    - */software/components/syslogng/structure_syslogng_log_rule_flags/final*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_log_rule_flags/fallback*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_log_rule_flags/catchall*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_log_rule_flags/flow-control*
+        - Optional
+        - Type: boolean
+ - **/software/components/syslogng/structure_syslogng_srccommon**
+    - */software/components/syslogng/structure_syslogng_srccommon/flags*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_srccommon/log_msg_size*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_srccommon/log_iw_size*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_srccommon/log_fetch_limit*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_srccommon/log_prefix*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_srccommon/pad_size*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_srccommon/follow_freq*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_srccommon/time_zone*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_srccommon/optional*
+        - Optional
+        - Type: boolean
+    - */software/components/syslogng/structure_syslogng_srccommon/keep_timestamp*
+        - Optional
+        - Type: boolean
+ - **/software/components/syslogng/structure_syslogng_internal_src**
+ - **/software/components/syslogng/structure_syslogng_socksrc**
+    - */software/components/syslogng/structure_syslogng_socksrc/so_broadcast*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/syslogng/structure_syslogng_socksrc/so_rcvbuf*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/syslogng/structure_syslogng_socksrc/so_sndbuf*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/syslogng/structure_syslogng_socksrc/so_keepalive*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/syslogng/structure_syslogng_unixsock_src**
+    - */software/components/syslogng/structure_syslogng_unixsock_src/owner*
+        - Required
+        - Type: string
+        - Default value: root
+    - */software/components/syslogng/structure_syslogng_unixsock_src/group*
+        - Required
+        - Type: string
+        - Default value: root
+    - */software/components/syslogng/structure_syslogng_unixsock_src/perm*
+        - Required
+        - Type: long
+        - Default value: 438
+    - */software/components/syslogng/structure_syslogng_unixsock_src/path*
+        - Required
+        - Type: string
+ - **/software/components/syslogng/structure_syslogng_network_src**
+    - */software/components/syslogng/structure_syslogng_network_src/ip_ttl*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_network_src/ip_tos*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_network_src/ip*
+        - Required
+        - Type: type_ip
+    - */software/components/syslogng/structure_syslogng_network_src/port*
+        - Required
+        - Type: long
+        - Range: 0..65536
+        - Default value: 514
+ - **/software/components/syslogng/structure_syslogng_network_tcp_src**
+    - */software/components/syslogng/structure_syslogng_network_tcp_src/keep-alive*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/syslogng/structure_syslogng_network_tcp_src/max-connections*
+        - Required
+        - Type: long
+        - Default value: 256
+ - **/software/components/syslogng/structure_syslogng_filepipe_src**
+    - */software/components/syslogng/structure_syslogng_filepipe_src/path*
+        - Required
+        - Type: string
+ - **/software/components/syslogng/structure_syslogng_sources**
+    - */software/components/syslogng/structure_syslogng_sources/files*
+        - Optional
+        - Type: structure_syslogng_filepipe_src
+    - */software/components/syslogng/structure_syslogng_sources/pipes*
+        - Optional
+        - Type: structure_syslogng_filepipe_src
+    - */software/components/syslogng/structure_syslogng_sources/internal*
+        - Optional
+        - Type: structure_syslogng_internal_src
+    - */software/components/syslogng/structure_syslogng_sources/unixdgram*
+        - Optional
+        - Type: structure_syslogng_unixsock_src
+    - */software/components/syslogng/structure_syslogng_sources/unixstream*
+        - Optional
+        - Type: structure_syslogng_unixsock_src
+    - */software/components/syslogng/structure_syslogng_sources/udp*
+        - Optional
+        - Type: structure_syslogng_network_src
+    - */software/components/syslogng/structure_syslogng_sources/tcp*
+        - Optional
+        - Type: structure_syslogng_network_tcp_src
+ - **/software/components/syslogng/structure_syslogng_filter**
+    - */software/components/syslogng/structure_syslogng_filter/facility*
+        - Optional
+        - Type: long
+    - */software/components/syslogng/structure_syslogng_filter/level*
+        - Optional
+        - Type: prioritystring
+    - */software/components/syslogng/structure_syslogng_filter/program*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_filter/host*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_filter/match*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_filter/filter*
+        - Optional
+        - Type: filterstring
+    - */software/components/syslogng/structure_syslogng_filter/netmask*
+        - Optional
+        - Type: type_ip
+    - */software/components/syslogng/structure_syslogng_filter/exclude_filters*
+        - Optional
+        - Type: filterstring
+ - **/software/components/syslogng/structure_syslogng_filters**
+ - **/software/components/syslogng/structure_syslogng_log_rule**
+    - */software/components/syslogng/structure_syslogng_log_rule/sources*
+        - Required
+        - Type: srcstring
+    - */software/components/syslogng/structure_syslogng_log_rule/destinations*
+        - Required
+        - Type: dststring
+    - */software/components/syslogng/structure_syslogng_log_rule/filters*
+        - Optional
+        - Type: filterstring
+    - */software/components/syslogng/structure_syslogng_log_rule/flags*
+        - Optional
+        - Type: structure_syslogng_log_rule_flags
+ - **/software/components/syslogng/structure_syslogng_options**
+    - */software/components/syslogng/structure_syslogng_options/time_reopen*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/syslogng/structure_syslogng_options/time_reap*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/syslogng/structure_syslogng_options/time_sleep*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/syslogng/structure_syslogng_options/stats_freq*
+        - Required
+        - Type: long
+        - Default value: 600
+    - */software/components/syslogng/structure_syslogng_options/log_fifo_size*
+        - Required
+        - Type: long
+        - Default value: 100
+    - */software/components/syslogng/structure_syslogng_options/chain_hostnames*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/syslogng/structure_syslogng_options/normalize_hostnames*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/syslogng/structure_syslogng_options/keep_hostname*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/syslogng/structure_syslogng_options/bad_hostname*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_options/create_dirs*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/syslogng/structure_syslogng_options/owner*
+        - Required
+        - Type: string
+        - Default value: root
+    - */software/components/syslogng/structure_syslogng_options/group*
+        - Required
+        - Type: string
+        - Default value: root
+    - */software/components/syslogng/structure_syslogng_options/perm*
+        - Required
+        - Type: long
+        - Default value: 384
+    - */software/components/syslogng/structure_syslogng_options/dir_owner*
+        - Required
+        - Type: string
+        - Default value: root
+    - */software/components/syslogng/structure_syslogng_options/dir_group*
+        - Required
+        - Type: string
+        - Default value: root
+    - */software/components/syslogng/structure_syslogng_options/dir_perm*
+        - Required
+        - Type: long
+        - Default value: 448
+    - */software/components/syslogng/structure_syslogng_options/ts_format*
+        - Required
+        - Type: string
+        - Default value: rfc3164
+    - */software/components/syslogng/structure_syslogng_options/use_dns*
+        - Required
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_options/dns_cache*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/syslogng/structure_syslogng_options/dns_cache_size*
+        - Required
+        - Type: long
+        - Default value: 1007
+    - */software/components/syslogng/structure_syslogng_options/dns_cache_expire*
+        - Required
+        - Type: long
+        - Default value: 3600
+    - */software/components/syslogng/structure_syslogng_options/dns_cache_hosts*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_options/log_msg_size*
+        - Required
+        - Type: long
+        - Default value: 8192
+    - */software/components/syslogng/structure_syslogng_options/use_fqdn*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/syslogng/structure_syslogng_options/flush_lines*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/syslogng/structure_syslogng_options/flush_timeout*
+        - Required
+        - Type: long
+        - Default value: 10000
+    - */software/components/syslogng/structure_syslogng_options/recv_time_zone*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_options/send_time_zone*
+        - Optional
+        - Type: string
+    - */software/components/syslogng/structure_syslogng_options/frac_digits*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/syslogng/structure_syslogng_options/sync*
+        - Optional
+        - Type: boolean
+        - Default value: false
+ - **/software/components/syslogng/structure_component_syslogng**
+    - */software/components/syslogng/structure_component_syslogng/options*
+        - Required
+        - Type: structure_syslogng_options
+    - */software/components/syslogng/structure_component_syslogng/sources*
+        - Required
+        - Type: structure_syslogng_sources
+    - */software/components/syslogng/structure_component_syslogng/destinations*
+        - Required
+        - Type: structure_syslogng_destinations
+    - */software/components/syslogng/structure_component_syslogng/filters*
+        - Optional
+        - Type: structure_syslogng_filters
+    - */software/components/syslogng/structure_component_syslogng/log_rules*
+        - Required
+        - Type: structure_syslogng_log_rule

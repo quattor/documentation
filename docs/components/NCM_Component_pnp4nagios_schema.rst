@@ -1,0 +1,423 @@
+#####################################
+NCM\::Component\::pnp4nagios - schema
+#####################################
+
+Types
+-----
+
+ - **/software/components/pnp4nagios/pnp4nagios_php_view_type**
+    - */software/components/pnp4nagios/pnp4nagios_php_view_type/title*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_view_type/start*
+        - Required
+        - Type: long
+ - **/software/components/pnp4nagios/pnp4nagios_npcd_log_type**
+ - **/software/components/pnp4nagios/pnp4nagios_php_paper_size**
+ - **/software/components/pnp4nagios/pnp4nagios_php_ui_theme**
+ - **/software/components/pnp4nagios/pnp4nagios_php_lang**
+ - **/software/components/pnp4nagios/pnp4nagios_perfdata_RRD_storage_type**
+ - **/software/components/pnp4nagios/pnp4nagios_npcd_config**
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/user*
+        - Required
+        - Type: string
+        - Default value: nagios
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/group*
+        - Required
+        - Type: string
+        - Default value: nagios
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/log_type*
+        - Required
+        - Type: pnp4nagios_npcd_log_type
+        - Default value: syslog
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/log_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/pnp4nagios/npcd.log
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/max_logfile_size*
+        - Required
+        - Type: long
+        - Default value: 10485760
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/log_level*
+        - Required
+        - Type: long
+        - Range: 0..2
+        - Default value: 0
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/perfdata_spool_dir*
+        - Required
+        - Type: string
+        - Default value: /var/spool/pnp4nagios/
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/perfdata_file_run_cmd*
+        - Required
+        - Type: string
+        - Default value: /usr/libexec/pnp4nagios/process_perfdata.pl
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/perfdata_file_run_cmd_args*
+        - Required
+        - Type: string
+        - Default value: -b
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/identify_npcd*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/npcd_max_threads*
+        - Required
+        - Type: long
+        - Default value: 5
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/sleep_time*
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/load_threshold*
+        - Required
+        - Type: double
+        - Default value: 0.0
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/pid_file*
+        - Required
+        - Type: string
+        - Default value: /var/run/npcd.pid
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/perfdata_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/pnp4nagios/perfdata.dump
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/perfdata_spool_filename*
+        - Required
+        - Type: string
+        - Default value: perfdata
+    - */software/components/pnp4nagios/pnp4nagios_npcd_config/perfdata_file_processing_interval*
+        - Required
+        - Type: long
+        - Default value: 15
+ - **/software/components/pnp4nagios/pnp4nagios_php_config**
+    - */software/components/pnp4nagios/pnp4nagios_php_config/use_url_rewriting*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_php_config/rrdtool*
+        - Required
+        - Type: string
+        - Default value: /usr/bin/rrdtool
+    - */software/components/pnp4nagios/pnp4nagios_php_config/graph_width*
+        - Required
+        - Type: long
+        - Default value: 500
+    - */software/components/pnp4nagios/pnp4nagios_php_config/graph_height*
+        - Required
+        - Type: long
+        - Default value: 100
+    - */software/components/pnp4nagios/pnp4nagios_php_config/zgraph_width*
+        - Required
+        - Type: long
+        - Default value: 500
+    - */software/components/pnp4nagios/pnp4nagios_php_config/zgraph_height*
+        - Required
+        - Type: long
+        - Default value: 100
+    - */software/components/pnp4nagios/pnp4nagios_php_config/right_zoom_offset*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/pnp4nagios/pnp4nagios_php_config/pdf_width*
+        - Required
+        - Type: long
+        - Default value: 675
+    - */software/components/pnp4nagios/pnp4nagios_php_config/pdf_height*
+        - Required
+        - Type: long
+        - Default value: 100
+    - */software/components/pnp4nagios/pnp4nagios_php_config/pdf_page_size*
+        - Required
+        - Type: pnp4nagios_php_paper_size
+        - Default value: A4
+    - */software/components/pnp4nagios/pnp4nagios_php_config/pdf_margin_top*
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/pnp4nagios/pnp4nagios_php_config/pdf_margin_left*
+        - Required
+        - Type: double
+        - Default value: 17.5
+    - */software/components/pnp4nagios/pnp4nagios_php_config/pdf_margin_right*
+        - Required
+        - Type: long
+        - Default value: 10
+    - */software/components/pnp4nagios/pnp4nagios_php_config/graph_opt*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_config/pdf_graph_opt*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_config/rrdbase*
+        - Required
+        - Type: string
+        - Default value: /var/lib/pnp4nagios/
+    - */software/components/pnp4nagios/pnp4nagios_php_config/page_dir*
+        - Required
+        - Type: string
+        - Default value: /etc/pnp4nagios/pages/
+    - */software/components/pnp4nagios/pnp4nagios_php_config/refresh*
+        - Required
+        - Type: long
+        - Default value: 90
+    - */software/components/pnp4nagios/pnp4nagios_php_config/max_age*
+        - Required
+        - Type: long
+        - Default value: 21600
+    - */software/components/pnp4nagios/pnp4nagios_php_config/temp*
+        - Required
+        - Type: string
+        - Default value: /var/tmp
+    - */software/components/pnp4nagios/pnp4nagios_php_config/nagios_base*
+        - Required
+        - Type: string
+        - Default value: /nagios/cgi-bin
+    - */software/components/pnp4nagios/pnp4nagios_php_config/multisite_base_url*
+        - Required
+        - Type: string
+        - Default value: /check_mk
+    - */software/components/pnp4nagios/pnp4nagios_php_config/multisite_site*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_config/auth_enabled*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/pnp4nagios/pnp4nagios_php_config/livestatus_socket*
+        - Required
+        - Type: string
+        - Default value: unix:/usr/local/nagios/var/rw/live
+    - */software/components/pnp4nagios/pnp4nagios_php_config/allowed_for_all_services*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_config/allowed_for_all_hosts*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_config/allowed_for_service_links*
+        - Required
+        - Type: string
+        - Default value: EVERYONE
+    - */software/components/pnp4nagios/pnp4nagios_php_config/allowed_for_host_search*
+        - Required
+        - Type: string
+        - Default value: EVERYONE
+    - */software/components/pnp4nagios/pnp4nagios_php_config/allowed_for_host_overview*
+        - Required
+        - Type: string
+        - Default value: EVERYONE
+    - */software/components/pnp4nagios/pnp4nagios_php_config/allowed_for_pages*
+        - Required
+        - Type: string
+        - Default value: EVERYONE
+    - */software/components/pnp4nagios/pnp4nagios_php_config/overview-range*
+        - Required
+        - Type: long
+        - Default value: 1
+    - */software/components/pnp4nagios/pnp4nagios_php_config/popup-width*
+        - Required
+        - Type: string
+        - Default value: 300px
+    - */software/components/pnp4nagios/pnp4nagios_php_config/ui-theme*
+        - Required
+        - Type: pnp4nagios_php_ui_theme
+        - Default value: smoothness
+    - */software/components/pnp4nagios/pnp4nagios_php_config/lang*
+        - Required
+        - Type: pnp4nagios_php_lang
+        - Default value: en_US
+    - */software/components/pnp4nagios/pnp4nagios_php_config/date_fmt*
+        - Required
+        - Type: string
+        - Default value: d.m.y G:i
+    - */software/components/pnp4nagios/pnp4nagios_php_config/enable_recursive_template_search*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_php_config/show_xml_icon*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_php_config/use_fpdf*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_php_config/background_pdf*
+        - Required
+        - Type: string
+        - Default value: /etc/pnp4nagios/background.pdf
+    - */software/components/pnp4nagios/pnp4nagios_php_config/use_calendar*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_php_config/views*
+        - Required
+        - Type: pnp4nagios_php_view_type
+    - */software/components/pnp4nagios/pnp4nagios_php_config/rrd_daemon_opts*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_config/template_dirs*
+        - Required
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_php_config/special_template_dir*
+        - Required
+        - Type: string
+        - Default value: /usr/share/icinga/html/pnp4nagios/templates.special
+    - */software/components/pnp4nagios/pnp4nagios_php_config/mobile_devices*
+        - Required
+        - Type: string
+        - Default value: iPhone|iPod|iPad|android
+ - **/software/components/pnp4nagios/pnp4nagios_nagios_config**
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/process_performance_data*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/service_perfdata_command*
+        - Required
+        - Type: string
+        - Default value: process-service-perfdata
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/process_performance_data*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/service_perfdata_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/pnp4nagios/service-perfdata
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/service_perfdata_file_template*
+        - Required
+        - Type: string
+        - Default value: DATATYPE::SERVICEPERFDATA\tTIMET::$TIMET$\tHOSTNAME::$HOSTNAME$\tSERVICEDESC::$SERVICEDESC$\tSERVICEPERFDATA::$SERVICEPERFDATA$\tSERVICECHECKCOMMAND::$SERVICECHECKCOMMAND$\tHOSTSTATE::$HOSTSTATE$\tHOSTSTATETYPE::$HOSTSTATETYPE$\tSERVICESTATE::$SERVICESTATE$\tSERVICESTATETYPE::$SERVICESTATETYPE$
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/service_perfdata_file_mode*
+        - Required
+        - Type: string
+        - Default value: a
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/service_perfdata_file_processing_interval*
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/service_perfdata_file_processing_command*
+        - Required
+        - Type: string
+        - Default value: process-service-perfdata-file
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/host_perfdata_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/pnp4nagios//host-perfdata
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/host_perfdata_file_template*
+        - Required
+        - Type: string
+        - Default value: DATATYPE::HOSTPERFDATA\tTIMET::$TIMET$\tHOSTNAME::$HOSTNAME$\tHOSTPERFDATA::$HOSTPERFDATA$\tHOSTCHECKCOMMAND::$HOSTCHECKCOMMAND$\tHOSTSTATE::$HOSTSTATE$\tHOSTSTATETYPE::$HOSTSTATETYPE$
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/host_perfdata_file_mode*
+        - Required
+        - Type: string
+        - Default value: a
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/host_perfdata_file_processing_interval*
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/host_perfdata_file_processing_command*
+        - Required
+        - Type: string
+        - Default value: process-host-perfdata-file
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/process_performance_data*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_nagios_config/broker_module*
+        - Required
+        - Type: string
+ - **/software/components/pnp4nagios/pnp4nagios_perfdata_config**
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/timeout*
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/use_rrds*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/rrdpath*
+        - Required
+        - Type: string
+        - Default value: /var/lib/pnp4nagios/
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/rrdtool*
+        - Required
+        - Type: string
+        - Default value: /usr/bin/rrdtool
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/cfg_dir*
+        - Required
+        - Type: string
+        - Default value: /etc/pnp4nagios/
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/rrd_storage_type*
+        - Required
+        - Type: pnp4nagios_perfdata_RRD_storage_type
+        - Default value: SINGLE
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/rrd_heartbeat*
+        - Required
+        - Type: long
+        - Default value: 8460
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/rra_cfg*
+        - Required
+        - Type: string
+        - Default value: /etc/pnp4nagios/rra.cfg
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/rra_step*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/log_file*
+        - Required
+        - Type: string
+        - Default value: /var/log/pnp4nagios/perfdata.log
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/log_level*
+        - Required
+        - Type: long
+        - Range: 0..2
+        - Default value: 0
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/xml_enc*
+        - Required
+        - Type: string
+        - Default value: UTF-8
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/xml_update_delay*
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/rrd_daemon_opts*
+        - Optional
+        - Type: string
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/stats_dir*
+        - Required
+        - Type: string
+        - Default value: /var/log/pnp4nagios/stats
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/prefork*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/gearman_host*
+        - Required
+        - Type: string
+        - Default value: localhost:4730
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/requests_per_child*
+        - Required
+        - Type: long
+        - Default value: 10000
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/encryption*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/key*
+        - Required
+        - Type: string
+        - Default value: should_be_changed
+    - */software/components/pnp4nagios/pnp4nagios_perfdata_config/key_file*
+        - Optional
+        - Type: string
+ - **/software/components/pnp4nagios/structure_component_pnp4nagios**
+    - */software/components/pnp4nagios/structure_component_pnp4nagios/npcd*
+        - Required
+        - Type: pnp4nagios_npcd_config
+    - */software/components/pnp4nagios/structure_component_pnp4nagios/php*
+        - Required
+        - Type: pnp4nagios_php_config
+    - */software/components/pnp4nagios/structure_component_pnp4nagios/perfdata*
+        - Required
+        - Type: pnp4nagios_perfdata_config
+    - */software/components/pnp4nagios/structure_component_pnp4nagios/nagios*
+        - Required
+        - Type: pnp4nagios_nagios_config

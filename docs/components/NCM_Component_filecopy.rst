@@ -1,0 +1,82 @@
+
+##########################
+NCM\::Component\::filecopy
+##########################
+
+
+****
+NAME
+****
+
+
+ncm-filecopy: NCM component to manage simple configuration files and services.
+
+DESCRIPTION
+===========
+
+
+The \ *filecopy*\  component manages services which have
+configuration files that can be representated as strings in pan or built by copying
+a template already present on the machine (eg. provided by a RPM).  A "restart"
+command can be given which will be run whenever the configuration
+changes.
+
+Note: that this does not do any validation checking on the content of
+the service configuration.  If this is desired, a service-specific
+component should be written.
+
+Note2: "restart" commands are executed after all the files have been updated. There is intentionally no
+guarantee on the order of execution if different commands must be executed: this is not necessarily the same
+as for checking the files. If two files specify the same restart command, it will be executed only once. If
+one of these restrictions is not convenient in your context, a service-specific
+component should be written.
+
+
+EXAMPLE
+=======
+
+
+scenario 1 : Create a file
+--------------------------
+
+
+
+.. code-block:: perl
+
+  prefix '/software/components/filecopy/services/{/tmp/test}';
+  'config'='Contents of the file';
+  'owner'='root:root';
+  'perms'='0644';
+
+
+
+scenario 2 : Create a script and execute it
+-------------------------------------------
+
+
+
+.. code-block:: perl
+
+  prefix '/software/components/filecopy/services/{/tmp/test.sh}';
+  'config' = "#!/bin/bash\n echo Hello World";
+  'restart' = '/tmp/test.sh';
+  'owner'='root:root';
+  'perms'='0755';
+
+
+
+scenario 3 : Copy a file (/tmp/source)
+--------------------------------------
+
+
+
+.. code-block:: perl
+
+  prefix '/software/components/filecopy/services/{/tmp/second-file}';
+  'source'='/tmp/source';
+  'owner'='root:root';
+  'perms'='0644';
+
+
+
+

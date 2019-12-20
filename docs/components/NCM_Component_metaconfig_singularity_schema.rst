@@ -1,0 +1,173 @@
+###################################################
+NCM\::Component\::metaconfig\::singularity - schema
+###################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/singularity_absolute_path**
+ - **/software/components/metaconfig/singularity_allow_ns**
+    - */software/components/metaconfig/singularity_allow_ns/ns*
+        - Description: Should we allow users to request the PID namespace?
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/singularity_allow**
+    - */software/components/metaconfig/singularity_allow/setuid*
+        - Description: Should we allow users to utilize the setuid binary for launching singularity? The majority of features require this to be set to yes, but newer Fedora and Ubuntu kernels can provide limited functionality in unprivileged mode
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_allow/pid*
+        - Required
+        - Type: singularity_allow_ns
+ - **/software/components/metaconfig/singularity_user**
+    - */software/components/metaconfig/singularity_user/passwd*
+        - Description: If /etc/passwd exists within the container, this will automatically append an entry for the calling user
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_user/group*
+        - Description: If /etc/group exists within the container, this will automatically append an entry for the calling user
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_user/resolv_conf*
+        - Description: If there is a bind point within the container, use the host's /etc/resolv.conf
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/singularity_overlay**
+    - */software/components/metaconfig/singularity_overlay/overlay*
+        - Description: Enabling this option will make it possible to specify bind paths to locations that do not currently exist within the container. Some limitations still exist when running in completely non-privileged mode. (note: this option is only supported on hosts that support overlay file systems)
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/singularity_mount**
+    - */software/components/metaconfig/singularity_mount/proc*
+        - Description: Should we automatically bind mount /proc within the container?
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_mount/sys*
+        - Description: Should we automatically bind mount /sys within the container?
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_mount/dev*
+        - Description: Should we automatically bind mount /dev within the container? If you select minimal, and if overlay is enabled, then Singularity will attempt to create the following devices inside the container: null, zero, random and urandom
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_mount/home*
+        - Description: Should we automatically determine the calling user's home directory and attempt to mount it's base path into the container? If the --contain option is used, the home directory will be created within the session directory or can be overridden with the SINGULARITY_HOME or SINGULARITY_WORKDIR environment variables (or their corresponding command line options)
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_mount/tmp*
+        - Description: Should we automatically bind mount /tmp and /var/tmp into the container? If the --contain option is used, both tmp locations will be created in the session directory or can be specified via the SINGULARITY_WORKDIR environment variable (or the --workingdir command line option)
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/singularity_mount/hostfs*
+        - Description: Probe for all mounted file systems that are mounted on the host, and bind those into the container?
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/singularity_mount/slave*
+        - Description: Should we automatically propagate file-system changes from the host? This should be set to 'true' when autofs mounts in the system should show up in the container
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/singularity_bind_path**
+    - */software/components/metaconfig/singularity_bind_path/path*
+        - Description: Define a list of files/directories that should be made available from within the container. The file or directory must exist within the container on which to attach to. you can specify a different source and destination path (respectively) with a colon; otherwise source and dest are the same
+        - Optional
+        - Type: singularity_absolute_path
+ - **/software/components/metaconfig/singularity_bind_user_control**
+    - */software/components/metaconfig/singularity_bind_user_control/control*
+        - Description: Allow users to influence and/or define bind points at runtime? This will allow users to specify bind points, scratch and tmp locations. (note: User bind control is only allowed if the host also supports PR_SET_NO_NEW_PRIVS)
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/singularity_bind_user**
+    - */software/components/metaconfig/singularity_bind_user/bind*
+        - Required
+        - Type: singularity_bind_user_control
+ - **/software/components/metaconfig/singularity_container**
+    - */software/components/metaconfig/singularity_container/dir*
+        - Description: This path specifies the location to use for mounting the container, overlays and other necessary file systems for the container. Note, this location absolutely must be local on this host
+        - Required
+        - Type: absolute_file_path
+        - Default value: /var/singularity/mnt
+ - **/software/components/metaconfig/singularity_sessiondir_max_size**
+    - */software/components/metaconfig/singularity_sessiondir_max_size/size*
+        - Description: This specifies how large the default sessiondir should be (in MB) and it will only affect users who use the "--contain" options and do not also specify a location to do default read/writes to (e.g. "--workdir" or "--home")
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 16
+ - **/software/components/metaconfig/singularity_sessiondir**
+    - */software/components/metaconfig/singularity_sessiondir/prefix*
+        - Description: This specifies the prefix for the session directory. Appended to this string is an identification string unique to each user and container. Note, this location absolutely must be local on this host. If the default location of /tmp/ does not work for your system, /var/singularity/sessions maybe a better option
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/singularity_sessiondir/max*
+        - Required
+        - Type: singularity_sessiondir_max_size
+ - **/software/components/metaconfig/singularity_max_loop_devices**
+    - */software/components/metaconfig/singularity_max_loop_devices/devices*
+        - Description: Set the maximum number of loop devices that Singularity should ever attempt to utilize
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 256
+ - **/software/components/metaconfig/singularity_max_loop**
+    - */software/components/metaconfig/singularity_max_loop/loop*
+        - Required
+        - Type: singularity_max_loop_devices
+ - **/software/components/metaconfig/singularity_limit_container**
+    - */software/components/metaconfig/singularity_limit_container/owners*
+        - Description: Only allow containers to be used that are owned by a given user. If this configuration is undefined (commented or set to NULL), all containers are allowed to be used. This feature only applies when Singularity is running in SUID mode and the user is non-root
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/singularity_limit_container/paths*
+        - Description: Only allow containers to be used that are located within an allowed path prefix. If this configuration is undefined (commented or set to NULL), containers will be allowed to run from anywhere on the file system. This feature only applies when Singularity is running in SUID mode and the user is non-root
+        - Optional
+        - Type: singularity_absolute_path
+ - **/software/components/metaconfig/singularity_limit**
+    - */software/components/metaconfig/singularity_limit/container*
+        - Optional
+        - Type: singularity_limit_container
+ - **/software/components/metaconfig/service_singularity**
+    - Description: singularity.conf settings This is the global configuration file for Singularity. This file controls what the container is allowed to do on a particular host, and as a result this file must be owned by root.
+    - */software/components/metaconfig/service_singularity/allow*
+        - Required
+        - Type: singularity_allow
+    - */software/components/metaconfig/service_singularity/config*
+        - Required
+        - Type: singularity_user
+    - */software/components/metaconfig/service_singularity/enable*
+        - Required
+        - Type: singularity_overlay
+    - */software/components/metaconfig/service_singularity/mount*
+        - Required
+        - Type: singularity_mount
+    - */software/components/metaconfig/service_singularity/bind*
+        - Optional
+        - Type: singularity_bind_path
+    - */software/components/metaconfig/service_singularity/user*
+        - Required
+        - Type: singularity_bind_user
+    - */software/components/metaconfig/service_singularity/container*
+        - Required
+        - Type: singularity_container
+    - */software/components/metaconfig/service_singularity/sessiondir*
+        - Required
+        - Type: singularity_sessiondir
+    - */software/components/metaconfig/service_singularity/max*
+        - Required
+        - Type: singularity_max_loop
+    - */software/components/metaconfig/service_singularity/limit*
+        - Optional
+        - Type: singularity_limit

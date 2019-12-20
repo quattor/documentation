@@ -1,0 +1,1160 @@
+#############################################
+NCM\::Component\::metaconfig\::httpd - schema
+#############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/httpd_sslprotocol**
+ - **/software/components/metaconfig/httpd_ciphersuite**
+ - **/software/components/metaconfig/httpd_nss_protocol**
+ - **/software/components/metaconfig/httpd_nss_cipherstring**
+ - **/software/components/metaconfig/httpd_option_plusminus_none**
+    - Description: Either all Options must start with + or -, or no Option may.
+ - **/software/components/metaconfig/httpd_gssapi_credstore**
+ - **/software/components/metaconfig/httpd_gssapi_allowed_mech**
+ - **/software/components/metaconfig/httpd_gssapi**
+    - */software/components/metaconfig/httpd_gssapi/sslonly*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_gssapi/localname*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_gssapi/connectionbound*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_gssapi/signalpersistentauth*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_gssapi/usesessions*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_gssapi/sessionkey*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_gssapi/credstore*
+        - Optional
+        - Type: httpd_gssapi_credstore
+    - */software/components/metaconfig/httpd_gssapi/delegccachedir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_gssapi/uses4u2proxy*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_gssapi/basicauth*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_gssapi/allowedmech*
+        - Optional
+        - Type: httpd_gssapi_allowed_mech
+    - */software/components/metaconfig/httpd_gssapi/basicauthmech*
+        - Optional
+        - Type: httpd_gssapi_allowed_mech
+    - */software/components/metaconfig/httpd_gssapi/nameattributes*
+        - Description: for json nameattribute, use empty string as value
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_kerberos**
+    - */software/components/metaconfig/httpd_kerberos/keytab*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_kerberos/methodnegotiate*
+        - Required
+        - Type: boolean
+    - */software/components/metaconfig/httpd_kerberos/methodk5passwd*
+        - Required
+        - Type: boolean
+    - */software/components/metaconfig/httpd_kerberos/servicename*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_kerberos/authrealms*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_kerberos/savecredentials*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/httpd_oidc**
+    - Description: OpenID Connect configuration for mod_auth_openidc https://github.com/pingidentity/mod_auth_openidc
+    - */software/components/metaconfig/httpd_oidc/claimprefix*
+        - Required
+        - Type: string
+        - Default value: OIDC-
+    - */software/components/metaconfig/httpd_oidc/responsetype*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_oidc/scope*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_oidc/clientid*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_oidc/clientsecret*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_oidc/cryptopassphrase*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_oidc/redirecturi*
+        - Required
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/httpd_oidc/providermetadataurl*
+        - Description: typically the SERVICE/.well-known/openid-configuration. If not configured, then the other provider fields must be provided
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/httpd_oidc/providerissuer*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_oidc/providerauthorizationendpoint*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/httpd_oidc/providertokenendpoint*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/httpd_oidc/providertokenendpointauth*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/httpd_oidc/provideruserinfoendpoint*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/httpd_oidc/providerjwksuri*
+        - Optional
+        - Type: type_absoluteURI
+ - **/software/components/metaconfig/httpd_shibboleth**
+    - */software/components/metaconfig/httpd_shibboleth/useheaders*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_shibboleth/requestsetting*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_log_custom**
+    - */software/components/metaconfig/httpd_log_custom/location*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_log_custom/name*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_log_format**
+    - */software/components/metaconfig/httpd_log_format/expr*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_log_format/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_log_format/type*
+        - Required
+        - Type: choice
+ - **/software/components/metaconfig/httpd_log**
+    - */software/components/metaconfig/httpd_log/error*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_log/transfer*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_log/level*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_log/format*
+        - Optional
+        - Type: httpd_log_format
+    - */software/components/metaconfig/httpd_log/custom*
+        - Optional
+        - Type: httpd_log_custom
+ - **/software/components/metaconfig/httpd_icon_add**
+    - */software/components/metaconfig/httpd_icon_add/icon*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_icon_add/names*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_icon**
+    - */software/components/metaconfig/httpd_icon/default*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_icon/add*
+        - Optional
+        - Type: httpd_icon_add
+    - */software/components/metaconfig/httpd_icon/addbytype*
+        - Optional
+        - Type: httpd_icon_add
+    - */software/components/metaconfig/httpd_icon/addbyencoding*
+        - Optional
+        - Type: httpd_icon_add
+ - **/software/components/metaconfig/httpd_lang_add**
+    - */software/components/metaconfig/httpd_lang_add/lang*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_lang_add/names*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_lang**
+    - */software/components/metaconfig/httpd_lang/priority*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_lang/forcepriority*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_lang/default*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_lang/add*
+        - Optional
+        - Type: httpd_lang_add
+ - **/software/components/metaconfig/httpd_setenvif**
+    - */software/components/metaconfig/httpd_setenvif/attribute*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_setenvif/regex*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_setenvif/variables*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_setenvif/quotes*
+        - Required
+        - Type: string
+        - Default value: "
+ - **/software/components/metaconfig/httpd_env**
+    - */software/components/metaconfig/httpd_env/if*
+        - Optional
+        - Type: httpd_setenvif
+    - */software/components/metaconfig/httpd_env/set*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_env/unset*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_env/pass*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_ssl_nss_shared**
+    - */software/components/metaconfig/httpd_ssl_nss_shared/passphrasehelper*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_nss_shared/sessioncachetimeout*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ssl_nss_shared/randomseed*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_nss_shared/verifyclient*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_nss_shared/require*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_nss_shared/options*
+        - Optional
+        - Type: httpd_option_plusminus_none
+    - */software/components/metaconfig/httpd_ssl_nss_shared/requiressl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_ssl_nss_shared/passphrasedialog*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_nss_global**
+    - */software/components/metaconfig/httpd_nss_global/sessioncachesize*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_nss_global/session3cachetimeout*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_nss_global/renegotiation*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_nss_global/requiresafenegotiation*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/httpd_ssl_global**
+    - */software/components/metaconfig/httpd_ssl_global/sessioncache*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/mutex*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/cryptodevice*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/certificatefile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/certificatekeyfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/certificatechainfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/cacertificatepath*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/cacertificatefile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/carevocationfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/carevocationpath*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/verifydepth*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ssl_global/usestapling*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/staplingrespondertimeout*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ssl_global/staplingreturnrespondererrors*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/staplingcache*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_ssl_nss_vhost**
+    - */software/components/metaconfig/httpd_ssl_nss_vhost/engine*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/metaconfig/httpd_nss_vhost**
+    - */software/components/metaconfig/httpd_nss_vhost/protocol*
+        - Required
+        - Type: httpd_nss_protocol
+    - */software/components/metaconfig/httpd_nss_vhost/ciphersuite*
+        - Required
+        - Type: httpd_nss_cipherstring
+    - */software/components/metaconfig/httpd_nss_vhost/nickname*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_nss_vhost/eccnickname*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_nss_vhost/certificatedatabase*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_nss_vhost/dbprefix*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_nss_vhost/ocsp*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_nss_vhost/ocspdefaultresponder*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_nss_vhost/ocspdefaulturl*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_nss_vhost/ocspdefaultname*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_ssl_vhost**
+    - */software/components/metaconfig/httpd_ssl_vhost/protocol*
+        - Required
+        - Type: httpd_sslprotocol
+    - */software/components/metaconfig/httpd_ssl_vhost/ciphersuite*
+        - Required
+        - Type: httpd_ciphersuite
+    - */software/components/metaconfig/httpd_ssl_vhost/honorcipherorder*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_directory_allowoverride**
+ - **/software/components/metaconfig/httpd_acl_order**
+ - **/software/components/metaconfig/httpd_acl**
+    - */software/components/metaconfig/httpd_acl/order*
+        - Optional
+        - Type: httpd_acl_order
+    - */software/components/metaconfig/httpd_acl/allow*
+        - Optional
+        - Type: type_network_name
+    - */software/components/metaconfig/httpd_acl/deny*
+        - Optional
+        - Type: type_network_name
+    - */software/components/metaconfig/httpd_acl/allowoverride*
+        - Optional
+        - Type: httpd_directory_allowoverride
+    - */software/components/metaconfig/httpd_acl/satisfy*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_authz**
+    - Description: authz a.k.a. Require type. the keys are possible providers, each with their own syntax
+    - */software/components/metaconfig/httpd_authz/all*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_authz/valid-user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_authz/user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_authz/group*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_authz/ip*
+        - Optional
+        - Type: type_network_name
+    - */software/components/metaconfig/httpd_authz/env*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_authz/method*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_authz/expr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_authz/negate*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/httpd_limit_value**
+ - **/software/components/metaconfig/httpd_limit**
+    - */software/components/metaconfig/httpd_limit/name*
+        - Required
+        - Type: httpd_limit_value
+    - */software/components/metaconfig/httpd_limit/except*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_limit/access*
+        - Optional
+        - Type: httpd_acl
+    - */software/components/metaconfig/httpd_limit/authz*
+        - Optional
+        - Type: httpd_authz
+ - **/software/components/metaconfig/httpd_proxy_passreverse**
+    - */software/components/metaconfig/httpd_proxy_passreverse/path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_proxy_passreverse/url*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_proxy_pass**
+    - */software/components/metaconfig/httpd_proxy_pass/match*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_proxy_pass/regex*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_proxy_pass/url*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_proxy_pass/data*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_proxy_set**
+    - */software/components/metaconfig/httpd_proxy_set/url*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_proxy_set/data*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_proxy**
+    - */software/components/metaconfig/httpd_proxy/requests*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_proxy/set*
+        - Optional
+        - Type: httpd_proxy_set
+    - */software/components/metaconfig/httpd_proxy/pass*
+        - Optional
+        - Type: httpd_proxy_pass
+    - */software/components/metaconfig/httpd_proxy/passreverse*
+        - Optional
+        - Type: httpd_proxy_passreverse
+ - **/software/components/metaconfig/httpd_proxy_directive**
+    - */software/components/metaconfig/httpd_proxy_directive/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_proxy_directive/match*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_proxy_directive/proxy*
+        - Optional
+        - Type: httpd_proxy
+ - **/software/components/metaconfig/httpd_auth_require**
+    - */software/components/metaconfig/httpd_auth_require/type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_auth_require/who*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_name_virtual_host**
+    - */software/components/metaconfig/httpd_name_virtual_host/ip*
+        - Required
+        - Type: type_ip
+    - */software/components/metaconfig/httpd_name_virtual_host/port*
+        - Optional
+        - Type: type_port
+ - **/software/components/metaconfig/httpd_auth_type**
+ - **/software/components/metaconfig/httpd_auth**
+    - */software/components/metaconfig/httpd_auth/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_auth/require*
+        - Required
+        - Type: httpd_auth_require
+    - */software/components/metaconfig/httpd_auth/userfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_auth/groupfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_auth/basicprovider*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_auth/type*
+        - Required
+        - Type: httpd_auth_type
+        - Default value: Basic
+ - **/software/components/metaconfig/httpd_file**
+    - */software/components/metaconfig/httpd_file/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_file/regex*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_file/quotes*
+        - Required
+        - Type: string
+        - Default value: "
+    - */software/components/metaconfig/httpd_file/options*
+        - Optional
+        - Type: httpd_option_plusminus_none
+    - */software/components/metaconfig/httpd_file/enablesendfile*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_file/lang*
+        - Optional
+        - Type: httpd_lang
+    - */software/components/metaconfig/httpd_file/ssl*
+        - Optional
+        - Type: httpd_ssl_global
+    - */software/components/metaconfig/httpd_file/nss*
+        - Optional
+        - Type: httpd_nss_global
+    - */software/components/metaconfig/httpd_file/auth*
+        - Optional
+        - Type: httpd_auth
+    - */software/components/metaconfig/httpd_file/kerberos*
+        - Optional
+        - Type: httpd_kerberos
+    - */software/components/metaconfig/httpd_file/shibboleth*
+        - Optional
+        - Type: httpd_shibboleth
+    - */software/components/metaconfig/httpd_file/gssapi*
+        - Optional
+        - Type: httpd_gssapi
+    - */software/components/metaconfig/httpd_file/access*
+        - Optional
+        - Type: httpd_acl
+    - */software/components/metaconfig/httpd_file/authz*
+        - Optional
+        - Type: httpd_authz
+ - **/software/components/metaconfig/httpd_rewrite_cond**
+    - */software/components/metaconfig/httpd_rewrite_cond/test*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_rewrite_cond/pattern*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_rewrite_rule**
+    - */software/components/metaconfig/httpd_rewrite_rule/conditions*
+        - Optional
+        - Type: httpd_rewrite_cond
+    - */software/components/metaconfig/httpd_rewrite_rule/regexp*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_rewrite_rule/destination*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_rewrite_rule/flags*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_rewrite_map**
+    - */software/components/metaconfig/httpd_rewrite_map/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_rewrite_map/type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_rewrite_map/source*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_rewrite_option**
+ - **/software/components/metaconfig/httpd_rewrite**
+    - */software/components/metaconfig/httpd_rewrite/engine*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/httpd_rewrite/base*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_rewrite/rules*
+        - Optional
+        - Type: httpd_rewrite_rule
+    - */software/components/metaconfig/httpd_rewrite/maps*
+        - Optional
+        - Type: httpd_rewrite_map
+    - */software/components/metaconfig/httpd_rewrite/options*
+        - Optional
+        - Type: httpd_rewrite_option
+ - **/software/components/metaconfig/httpd_perl_handler**
+    - */software/components/metaconfig/httpd_perl_handler/responsehandler*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_wsgi_importscript**
+    - */software/components/metaconfig/httpd_wsgi_importscript/path*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_wsgi_importscript/process*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_wsgi_importscript/application*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_wsgi_daemonprocess**
+    - */software/components/metaconfig/httpd_wsgi_daemonprocess/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_wsgi_daemonprocess/options*
+        - Description: converted in list of key=value
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_wsgi_common**
+    - */software/components/metaconfig/httpd_wsgi_common/applicationgroup*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_wsgi_common/daemonprocess*
+        - Optional
+        - Type: httpd_wsgi_daemonprocess
+    - */software/components/metaconfig/httpd_wsgi_common/importscript*
+        - Optional
+        - Type: httpd_wsgi_importscript
+    - */software/components/metaconfig/httpd_wsgi_common/processgroup*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_wsgi_common/passauthorization*
+        - Optional
+        - Type: choice
+ - **/software/components/metaconfig/httpd_wsgi_vhost**
+ - **/software/components/metaconfig/httpd_wsgi_server**
+    - */software/components/metaconfig/httpd_wsgi_server/socketprefix*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_listen**
+    - */software/components/metaconfig/httpd_listen/port*
+        - Required
+        - Type: long
+    - */software/components/metaconfig/httpd_listen/name*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_listen/protocol*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_passenger_vhost**
+    - */software/components/metaconfig/httpd_passenger_vhost/maxinstances*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_passenger_vhost/maxinstancesperapp*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_passenger_vhost/mininstances*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_passenger_vhost/user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_passenger_vhost/group*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_passenger**
+    - */software/components/metaconfig/httpd_passenger/ruby*
+        - Required
+        - Type: string
+        - Default value: /usr/bin/ruby
+    - */software/components/metaconfig/httpd_passenger/root*
+        - Required
+        - Type: string
+        - Default value: /usr/share/rubygems/gems/passenger-latest
+    - */software/components/metaconfig/httpd_passenger/maxpoolsize*
+        - Required
+        - Type: long
+        - Default value: 6
+ - **/software/components/metaconfig/httpd_rails**
+    - */software/components/metaconfig/httpd_rails/baseuri*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_rails/env*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_shared**
+    - */software/components/metaconfig/httpd_shared/documentroot*
+        - Optional
+        - Type: string
+        - Default value: /does/not/exist
+    - */software/components/metaconfig/httpd_shared/hostnamelookups*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_shared/servername*
+        - Optional
+        - Type: type_hostport
+    - */software/components/metaconfig/httpd_shared/limitrequestbody*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/httpd_encoding**
+    - */software/components/metaconfig/httpd_encoding/mime*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_encoding/extensions*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_alias**
+    - */software/components/metaconfig/httpd_alias/url*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_alias/destination*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_alias/type*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_module_name**
+ - **/software/components/metaconfig/httpd_module**
+    - */software/components/metaconfig/httpd_module/name*
+        - Required
+        - Type: httpd_module_name
+    - */software/components/metaconfig/httpd_module/path*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_handler_add**
+    - */software/components/metaconfig/httpd_handler_add/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_handler_add/target*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_handler**
+    - */software/components/metaconfig/httpd_handler/set*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_handler/add*
+        - Optional
+        - Type: httpd_handler_add
+ - **/software/components/metaconfig/httpd_type_add**
+    - */software/components/metaconfig/httpd_type_add/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_type_add/target*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_type**
+    - */software/components/metaconfig/httpd_type/default*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_type/config*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_type/add*
+        - Optional
+        - Type: httpd_type_add
+ - **/software/components/metaconfig/httpd_outputfilter_add**
+    - */software/components/metaconfig/httpd_outputfilter_add/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_outputfilter_add/target*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_outputfilter**
+    - */software/components/metaconfig/httpd_outputfilter/add*
+        - Optional
+        - Type: httpd_outputfilter_add
+ - **/software/components/metaconfig/httpd_perl_vhost**
+    - */software/components/metaconfig/httpd_perl_vhost/modules*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_perl_vhost/options*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_perl_vhost/switches*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_browsermatch**
+    - */software/components/metaconfig/httpd_browsermatch/match*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_browsermatch/names*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_directory**
+    - */software/components/metaconfig/httpd_directory/rewrite*
+        - Optional
+        - Type: httpd_rewrite
+    - */software/components/metaconfig/httpd_directory/handler*
+        - Optional
+        - Type: httpd_handler
+    - */software/components/metaconfig/httpd_directory/outputfilter*
+        - Optional
+        - Type: httpd_outputfilter
+    - */software/components/metaconfig/httpd_directory/perl*
+        - Optional
+        - Type: httpd_perl_handler
+    - */software/components/metaconfig/httpd_directory/env*
+        - Optional
+        - Type: httpd_env
+    - */software/components/metaconfig/httpd_directory/limit*
+        - Optional
+        - Type: httpd_limit
+    - */software/components/metaconfig/httpd_directory/proxy*
+        - Optional
+        - Type: httpd_proxy
+    - */software/components/metaconfig/httpd_directory/directoryindex*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_directory/limitrequestbody*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/httpd_directory/wsgi*
+        - Optional
+        - Type: httpd_wsgi_vhost
+ - **/software/components/metaconfig/httpd_vhost_ip**
+ - **/software/components/metaconfig/httpd_header**
+    - */software/components/metaconfig/httpd_header/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_header/action*
+        - Required
+        - Type: choice
+    - */software/components/metaconfig/httpd_header/value*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_header/quotes*
+        - Required
+        - Type: string
+        - Default value: "
+ - **/software/components/metaconfig/httpd_vhost**
+    - */software/components/metaconfig/httpd_vhost/port*
+        - Required
+        - Type: type_port
+    - */software/components/metaconfig/httpd_vhost/ip*
+        - Optional
+        - Type: httpd_vhost_ip
+    - */software/components/metaconfig/httpd_vhost/ssl*
+        - Optional
+        - Type: httpd_ssl_vhost
+    - */software/components/metaconfig/httpd_vhost/nss*
+        - Optional
+        - Type: httpd_nss_vhost
+    - */software/components/metaconfig/httpd_vhost/locations*
+        - Optional
+        - Type: httpd_directory
+    - */software/components/metaconfig/httpd_vhost/files*
+        - Optional
+        - Type: httpd_file
+    - */software/components/metaconfig/httpd_vhost/aliases*
+        - Optional
+        - Type: httpd_alias
+    - */software/components/metaconfig/httpd_vhost/directories*
+        - Optional
+        - Type: httpd_directory
+    - */software/components/metaconfig/httpd_vhost/rewrite*
+        - Optional
+        - Type: httpd_rewrite
+    - */software/components/metaconfig/httpd_vhost/perl*
+        - Optional
+        - Type: httpd_perl_vhost
+    - */software/components/metaconfig/httpd_vhost/wsgi*
+        - Optional
+        - Type: httpd_wsgi_vhost
+    - */software/components/metaconfig/httpd_vhost/log*
+        - Optional
+        - Type: httpd_log
+    - */software/components/metaconfig/httpd_vhost/env*
+        - Optional
+        - Type: httpd_env
+    - */software/components/metaconfig/httpd_vhost/rails*
+        - Optional
+        - Type: httpd_rails
+    - */software/components/metaconfig/httpd_vhost/oidc*
+        - Optional
+        - Type: httpd_oidc
+    - */software/components/metaconfig/httpd_vhost/proxies*
+        - Optional
+        - Type: httpd_proxy_directive
+    - */software/components/metaconfig/httpd_vhost/browsermatch*
+        - Optional
+        - Type: httpd_browsermatch
+    - */software/components/metaconfig/httpd_vhost/passenger*
+        - Optional
+        - Type: httpd_passenger_vhost
+    - */software/components/metaconfig/httpd_vhost/header*
+        - Optional
+        - Type: httpd_header
+ - **/software/components/metaconfig/httpd_global_shared**
+    - */software/components/metaconfig/httpd_global_shared/directoryindex*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_global_shared/wsgipythonpath*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_global_system**
+    - */software/components/metaconfig/httpd_global_system/servertokens*
+        - Required
+        - Type: string
+        - Default value: Prod
+    - */software/components/metaconfig/httpd_global_system/serverroot*
+        - Required
+        - Type: string
+        - Default value: /etc/httpd
+    - */software/components/metaconfig/httpd_global_system/pidfile*
+        - Required
+        - Type: string
+        - Default value: run/httpd.pid
+    - */software/components/metaconfig/httpd_global_system/timeout*
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/metaconfig/httpd_global_system/keepalive*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_global_system/maxkeepaliverequests*
+        - Required
+        - Type: long
+        - Default value: 100
+    - */software/components/metaconfig/httpd_global_system/keepalivetimeout*
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/metaconfig/httpd_global_system/extendedstatus*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_global_system/user*
+        - Required
+        - Type: defined_user
+        - Default value: apache
+    - */software/components/metaconfig/httpd_global_system/group*
+        - Required
+        - Type: defined_group
+        - Default value: apache
+    - */software/components/metaconfig/httpd_global_system/serveradmin*
+        - Required
+        - Type: string
+        - Default value: root@localhost
+    - */software/components/metaconfig/httpd_global_system/usecanonicalname*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_global_system/accessfilename*
+        - Required
+        - Type: string
+        - Default value: .htaccess
+    - */software/components/metaconfig/httpd_global_system/enablemmap*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/httpd_global_system/enablesendfile*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/httpd_global_system/serversignature*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/httpd_global_system/indexoptions*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_global_system/indexignore*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_global_system/readmename*
+        - Required
+        - Type: string
+        - Default value: README.html
+    - */software/components/metaconfig/httpd_global_system/headername*
+        - Required
+        - Type: string
+        - Default value: HEADER.html
+    - */software/components/metaconfig/httpd_global_system/adddefaultcharset*
+        - Required
+        - Type: string
+        - Default value: UTF-8
+    - */software/components/metaconfig/httpd_global_system/limitrequestfieldsize*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_global_system/traceenable*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_ifmodule_parameters**
+    - */software/components/metaconfig/httpd_ifmodule_parameters/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_ifmodule_parameters/directories*
+        - Optional
+        - Type: httpd_directory
+    - */software/components/metaconfig/httpd_ifmodule_parameters/type*
+        - Optional
+        - Type: httpd_type
+    - */software/components/metaconfig/httpd_ifmodule_parameters/outputfilter*
+        - Optional
+        - Type: httpd_outputfilter
+    - */software/components/metaconfig/httpd_ifmodule_parameters/log*
+        - Optional
+        - Type: httpd_log
+    - */software/components/metaconfig/httpd_ifmodule_parameters/aliases*
+        - Optional
+        - Type: httpd_alias
+    - */software/components/metaconfig/httpd_ifmodule_parameters/modules*
+        - Optional
+        - Type: httpd_module
+    - */software/components/metaconfig/httpd_ifmodule_parameters/startservers*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/minspareservers*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/maxspareservers*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/serverlimit*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/maxclients*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/maxrequestsperchild*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/minsparethreads*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/maxsparethreads*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/threadsperchild*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_ifmodule_parameters/userdir*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ifmodule_parameters/davlockdb*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ifmodule_parameters/mimemagicfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ifmodule_parameters/directoryindex*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_ifmodule**
+    - */software/components/metaconfig/httpd_ifmodule/ifmodules*
+        - Optional
+        - Type: httpd_ifmodule_parameters
+ - **/software/components/metaconfig/httpd_global**
+    - */software/components/metaconfig/httpd_global/global*
+        - Required
+        - Type: httpd_global_system
+    - */software/components/metaconfig/httpd_global/aliases*
+        - Optional
+        - Type: httpd_alias
+    - */software/components/metaconfig/httpd_global/modules*
+        - Optional
+        - Type: httpd_module
+    - */software/components/metaconfig/httpd_global/ifmodules*
+        - Required
+        - Type: httpd_ifmodule
+    - */software/components/metaconfig/httpd_global/directories*
+        - Optional
+        - Type: httpd_directory
+    - */software/components/metaconfig/httpd_global/files*
+        - Optional
+        - Type: httpd_file
+    - */software/components/metaconfig/httpd_global/log*
+        - Optional
+        - Type: httpd_log
+    - */software/components/metaconfig/httpd_global/icon*
+        - Optional
+        - Type: httpd_icon
+    - */software/components/metaconfig/httpd_global/lang*
+        - Optional
+        - Type: httpd_lang
+    - */software/components/metaconfig/httpd_global/browsermatch*
+        - Optional
+        - Type: httpd_browsermatch
+    - */software/components/metaconfig/httpd_global/handler*
+        - Optional
+        - Type: httpd_handler
+    - */software/components/metaconfig/httpd_global/type*
+        - Optional
+        - Type: httpd_type
+    - */software/components/metaconfig/httpd_global/outputfilter*
+        - Optional
+        - Type: httpd_outputfilter
+    - */software/components/metaconfig/httpd_global/listen*
+        - Optional
+        - Type: httpd_listen
+    - */software/components/metaconfig/httpd_global/includes*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_global/includesoptional*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/httpd_vhosts**
+    - */software/components/metaconfig/httpd_vhosts/global*
+        - Optional
+        - Type: httpd_global_shared
+    - */software/components/metaconfig/httpd_vhosts/modules*
+        - Optional
+        - Type: httpd_module
+    - */software/components/metaconfig/httpd_vhosts/vhosts*
+        - Optional
+        - Type: httpd_vhost
+    - */software/components/metaconfig/httpd_vhosts/files*
+        - Optional
+        - Type: httpd_file
+    - */software/components/metaconfig/httpd_vhosts/aliases*
+        - Optional
+        - Type: httpd_alias
+    - */software/components/metaconfig/httpd_vhosts/directories*
+        - Optional
+        - Type: httpd_directory
+    - */software/components/metaconfig/httpd_vhosts/encodings*
+        - Optional
+        - Type: httpd_encoding
+    - */software/components/metaconfig/httpd_vhosts/listen*
+        - Optional
+        - Type: httpd_listen
+    - */software/components/metaconfig/httpd_vhosts/handler*
+        - Optional
+        - Type: httpd_handler
+    - */software/components/metaconfig/httpd_vhosts/ifmodules*
+        - Optional
+        - Type: httpd_ifmodule
+    - */software/components/metaconfig/httpd_vhosts/type*
+        - Optional
+        - Type: httpd_type
+    - */software/components/metaconfig/httpd_vhosts/env*
+        - Optional
+        - Type: httpd_env
+    - */software/components/metaconfig/httpd_vhosts/ssl*
+        - Optional
+        - Type: httpd_ssl_global
+    - */software/components/metaconfig/httpd_vhosts/nss*
+        - Optional
+        - Type: httpd_nss_global
+    - */software/components/metaconfig/httpd_vhosts/passenger*
+        - Optional
+        - Type: httpd_passenger
+    - */software/components/metaconfig/httpd_vhosts/namevirtualhost*
+        - Optional
+        - Type: httpd_name_virtual_host
+    - */software/components/metaconfig/httpd_vhosts/locations*
+        - Optional
+        - Type: httpd_directory
+    - */software/components/metaconfig/httpd_vhosts/wsgi*
+        - Optional
+        - Type: httpd_wsgi_server

@@ -1,0 +1,454 @@
+#################################################
+NCM\::Component\::openstack\::dashboard - horizon
+#################################################
+
+Types
+-----
+
+ - **/software/components/openstack/openstack_horizon_session_engine**
+ - **/software/components/openstack/openstack_horizon_caches**
+    - Description: The Horizon configuration options in "caches" Section.
+    - */software/components/openstack/openstack_horizon_caches/BACKEND*
+        - Description: We recommend you use memcached for development; otherwise after every reload of the django development server, you will have to login again
+        - Required
+        - Type: string
+        - Default value: django.core.cache.backends.memcached.MemcachedCache
+    - */software/components/openstack/openstack_horizon_caches/LOCATION*
+        - Description: location format <fqdn>:<port>
+        - Required
+        - Type: type_hostport
+ - **/software/components/openstack/openstack_horizon_api_versions**
+    - Description: The Horizon api versions section. Overrides for OpenStack API versions. Use this setting to force the OpenStack dashboard to use a specific API version for a given service API. Versions specified here should be integers or floats, not strings. NOTE: The version should be formatted as it appears in the URL for the service API. For example, The identity service APIs have inconsistent use of the decimal point, so valid options would be 2.0 or 3. Minimum compute version to get the instance locked status is 2.9.
+    - */software/components/openstack/openstack_horizon_api_versions/identity*
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 3
+    - */software/components/openstack/openstack_horizon_api_versions/image*
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 2
+    - */software/components/openstack/openstack_horizon_api_versions/volume*
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 2
+ - **/software/components/openstack/openstack_horizon_neutron_network**
+    - Description: The Horizon "OPENSTACK_NEUTRON_NETWORK" settings can be used to enable optional services provided by neutron. Options currently available are load balancer service, security groups, quotas, VPN service.
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_router*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_quotas*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_ipv6*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_distributed_router*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_ha_router*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_lb*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_firewall*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_vpn*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_neutron_network/enable_fip_topology_check*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/openstack/openstack_horizon_keystone_backend**
+    - Description: The OPENSTACK_KEYSTONE_BACKEND settings can be used to identify the capabilities of the auth backend for Keystone. If Keystone has been configured to use LDAP as the auth backend then set can_edit_user to False and name to 'ldap'. TODO(tres): Remove these once Keystone has an API to identify auth backend.
+    - */software/components/openstack/openstack_horizon_keystone_backend/name*
+        - Required
+        - Type: string
+        - Default value: native
+    - */software/components/openstack/openstack_horizon_keystone_backend/can_edit_user*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_keystone_backend/can_edit_group*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_keystone_backend/can_edit_project*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_keystone_backend/can_edit_domain*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_keystone_backend/can_edit_role*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/openstack/openstack_horizon_hypervisor_features**
+    - Description: The Xen Hypervisor has the ability to set the mount point for volumes attached to instances (other Hypervisors currently do not). Setting can_set_mount_point to True will add the option to set the mount point from the UI.
+    - */software/components/openstack/openstack_horizon_hypervisor_features/can_set_mount_point*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openstack/openstack_horizon_hypervisor_features/can_set_password*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openstack/openstack_horizon_hypervisor_features/requires_keypair*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openstack/openstack_horizon_hypervisor_features/enable_quotas*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/openstack/openstack_horizon_cinder_features**
+    - Description: The OPENSTACK_CINDER_FEATURES settings can be used to enable optional services provided by cinder that is not exposed by its extension API.
+    - */software/components/openstack/openstack_horizon_cinder_features/enable_backup*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/openstack/openstack_horizon_heat_stack**
+    - Description: The OPENSTACK_HEAT_STACK settings can be used to disable password field required while launching the stack.
+    - */software/components/openstack/openstack_horizon_heat_stack/enable_user_pass*
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/openstack/openstack_horizon_image_custom_titles**
+    - Description: The IMAGE_CUSTOM_PROPERTY_TITLES settings is used to customize the titles for image custom property attributes that appear on image detail pages.
+    - */software/components/openstack/openstack_horizon_image_custom_titles/architecture*
+        - Required
+        - Type: string
+        - Default value: Architecture
+    - */software/components/openstack/openstack_horizon_image_custom_titles/kernel_id*
+        - Required
+        - Type: string
+        - Default value: Kernel ID
+    - */software/components/openstack/openstack_horizon_image_custom_titles/ramdisk_id*
+        - Required
+        - Type: string
+        - Default value: Ramdisk ID
+    - */software/components/openstack/openstack_horizon_image_custom_titles/image_state*
+        - Required
+        - Type: string
+        - Default value: Euca2ools state
+    - */software/components/openstack/openstack_horizon_image_custom_titles/project_id*
+        - Required
+        - Type: string
+        - Default value: Project ID
+    - */software/components/openstack/openstack_horizon_image_custom_titles/image_type*
+        - Required
+        - Type: string
+        - Default value: Image Type
+ - **/software/components/openstack/openstack_horizon_logging_handlers**
+    - Description: Dashboard handlers logging levels.
+    - */software/components/openstack/openstack_horizon_logging_handlers/level*
+        - Required
+        - Type: string
+        - Default value: INFO
+    - */software/components/openstack/openstack_horizon_logging_handlers/class*
+        - Required
+        - Type: string
+        - Default value: logging.StreamHandler
+    - */software/components/openstack/openstack_horizon_logging_handlers/formatter*
+        - Optional
+        - Type: string
+        - Default value: operation
+ - **/software/components/openstack/openstack_horizon_logging_loggers**
+    - Description: Dashboard django loggers debug levels
+    - */software/components/openstack/openstack_horizon_logging_loggers/handlers*
+        - Required
+        - Type: string
+        - Default value: console
+    - */software/components/openstack/openstack_horizon_logging_loggers/level*
+        - Optional
+        - Type: string
+        - Default value: DEBUG
+    - */software/components/openstack/openstack_horizon_logging_loggers/propagate*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/openstack/openstack_horizon_logging_formatters**
+    - Description: Dashboard django logger formatters
+    - */software/components/openstack/openstack_horizon_logging_formatters/format*
+        - Description: The format of "%(message)s" is defined by OPERATION_LOG_OPTIONS['format']
+        - Required
+        - Type: string
+        - Default value: %(asctime)s %(message)s
+ - **/software/components/openstack/openstack_horizon_logging**
+    - Description: Horizon django logging options. Logging from django.db.backends is VERY verbose, send to null by default.
+    - */software/components/openstack/openstack_horizon_logging/version*
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 1
+    - */software/components/openstack/openstack_horizon_logging/disable_existing_loggers*
+        - Description: When set to True this will disable all logging except for loggers specified in this configuration dictionary. Note that if nothing is specified here and disable_existing_loggers is True, django.db.backends will still log unless it is disabled explicitly
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openstack/openstack_horizon_logging/handlers*
+        - Required
+        - Type: openstack_horizon_logging_handlers
+    - */software/components/openstack/openstack_horizon_logging/loggers*
+        - Required
+        - Type: openstack_horizon_logging_loggers
+    - */software/components/openstack/openstack_horizon_logging/formatters*
+        - Required
+        - Type: openstack_horizon_logging_formatters
+ - **/software/components/openstack/opentack_horizon_databases_options**
+    - Description: Dashboard database options.
+    - */software/components/openstack/opentack_horizon_databases_options/ENGINE*
+        - Description: Set django database engine
+        - Required
+        - Type: string
+        - Default value: django.db.backends.sqlite3
+    - */software/components/openstack/opentack_horizon_databases_options/NAME*
+        - Description: Set database location. This file must exist
+        - Required
+        - Type: absolute_file_path
+        - Default value: /var/cache/murano-dashboard/murano-dashboard.sqlite
+ - **/software/components/openstack/openstack_horizon_databases**
+    - Description: Horizon django databases configuration.
+    - */software/components/openstack/openstack_horizon_databases/default*
+        - Required
+        - Type: opentack_horizon_databases_options
+ - **/software/components/openstack/openstack_horizon_allowed_subnet**
+    - Description: Dictionary used to restrict user private subnet cidr range. An empty list means that user input will not be restricted for a corresponding IP version. By default, there is no restriction for IPv4 or IPv6. To restrict user private subnet cidr range set ALLOWED_PRIVATE_SUBNET_CIDR to something like: 'ipv4': ['10.0.0.0/8', '192.168.0.0/16'], 'ipv6': ['fc00::/7'],
+    - */software/components/openstack/openstack_horizon_allowed_subnet/ipv4*
+        - Optional
+        - Type: type_ipv4
+    - */software/components/openstack/openstack_horizon_allowed_subnet/ipv6*
+        - Optional
+        - Type: type_ipv6
+ - **/software/components/openstack/openstack_horizon_security_group**
+    - Description: "direction" should not be specified for all_tcp, udp or icmp.
+    - */software/components/openstack/openstack_horizon_security_group/name*
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_horizon_security_group/ip_protocol*
+        - Required
+        - Type: string
+        - Default value: tcp
+    - */software/components/openstack/openstack_horizon_security_group/from_port*
+        - Required
+        - Type: long
+        - Range: -1..65535
+    - */software/components/openstack/openstack_horizon_security_group/to_port*
+        - Required
+        - Type: long
+        - Range: -1..65535
+ - **/software/components/openstack/openstack_horizon_config_django**
+    - Description: list of Horizon service django configuration sections
+    - */software/components/openstack/openstack_horizon_config_django/debug*
+        - Description: Set Horizon debug mode
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/openstack/openstack_horizon_config_django/allowed_hosts*
+        - Description: If horizon is running in production (DEBUG is False), set this with the list of host/domain names that the application can serve. For more information see: https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
+        - Optional
+        - Type: string
+ - **/software/components/openstack/openstack_horizon_keystone_available_region**
+    - */software/components/openstack/openstack_horizon_keystone_available_region/name*
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_horizon_keystone_available_region/url*
+        - Required
+        - Type: type_absoluteURI
+ - **/software/components/openstack/openstack_horizon_config_identity_keystone**
+    - Description: list of Horizon service identity/keystone configuration sections
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/openstack_keystone_url*
+        - Required
+        - Type: type_absoluteURI
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/openstack_keystone_multidomain_support*
+        - Description: Set this to True if running on a multi-domain model. When this is enabled, it will require the user to enter the Domain name in addition to the username for login
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/openstack_endpoint_type*
+        - Description: the endpoint type to use for the endpoints in the Keystone service catalog. The default value for all services except for identity is "publicURL". The default value for the identity service is "internalURL".
+        - Optional
+        - Type: choice
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/openstack_keystone_default_role*
+        - Description: Configure the default role for users that you create via the dashboard
+        - Required
+        - Type: string
+        - Default value: user
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/openstack_keystone_backend*
+        - Required
+        - Type: openstack_horizon_keystone_backend
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/websso_enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/websso_initial_choice*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/websso_idp_mapping*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/websso_choices*
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_identity_keystone/available_regions*
+        - Description: list of available regions. 'openstack_keystone_url' indicates which of the regions is the default one
+        - Optional
+        - Type: openstack_horizon_keystone_available_region
+ - **/software/components/openstack/openstack_horizon_config_catalog_murano**
+    - Description: list of Horizon service app catalog/murano configuration sections
+    - */software/components/openstack/openstack_horizon_config_catalog_murano/databases*
+        - Description: Murano UI needs to change the default session back end-from using browser cookies to using a database instead to avoid issues with forms during the creation of applications
+        - Optional
+        - Type: openstack_horizon_databases
+    - */software/components/openstack/openstack_horizon_config_catalog_murano/metadata_cache_dir*
+        - Description: Set Murano cache dir. By default it uses /tmp directory by this directory is protected by default by Systemd in CentOS with "PrivateTmp=true"
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /var/cache/murano-dashboard
+ - **/software/components/openstack/openstack_horizon_config_network_neutron**
+    - Description: list of Horizon service network/neutron configuration sections
+    - */software/components/openstack/openstack_horizon_config_network_neutron/allowed_private_subnet_cidr*
+        - Optional
+        - Type: openstack_horizon_allowed_subnet
+    - */software/components/openstack/openstack_horizon_config_network_neutron/openstack_neutron_network*
+        - Required
+        - Type: openstack_horizon_neutron_network
+ - **/software/components/openstack/openstack_horizon_config_general**
+    - Description: list of Horizon service general configuration sections
+    - */software/components/openstack/openstack_horizon_config_general/webroot*
+        - Description: WEBROOT is the location relative to Webserver root should end with a slash
+        - Required
+        - Type: string
+        - Default value: /dashboard/
+    - */software/components/openstack/openstack_horizon_config_general/session_engine*
+        - Description: Horizon uses Djangos sessions framework for handling session data. There are numerous session backends available, which are selected through the "SESSION_ENGINE" setting. For instance, Murano UI requires "django.contrib.sessions.backends.db".
+        - Required
+        - Type: openstack_horizon_session_engine
+        - Default value: django.contrib.sessions.backends.cache
+    - */software/components/openstack/openstack_horizon_config_general/email_backend*
+        - Description: Send email to the console by default
+        - Required
+        - Type: string
+        - Default value: django.core.mail.backends.console.EmailBackend
+    - */software/components/openstack/openstack_horizon_config_general/caches*
+        - Description: External caching using an application such as memcached offers persistence and shared storage, and can be very useful for small-scale deployment and/or development
+        - Optional
+        - Type: openstack_horizon_caches
+    - */software/components/openstack/openstack_horizon_config_general/openstack_api_versions*
+        - Required
+        - Type: openstack_horizon_api_versions
+    - */software/components/openstack/openstack_horizon_config_general/openstack_hypervisor_features*
+        - Required
+        - Type: openstack_horizon_hypervisor_features
+    - */software/components/openstack/openstack_horizon_config_general/openstack_cinder_features*
+        - Required
+        - Type: openstack_horizon_cinder_features
+    - */software/components/openstack/openstack_horizon_config_general/openstack_heat_stack*
+        - Required
+        - Type: openstack_horizon_heat_stack
+    - */software/components/openstack/openstack_horizon_config_general/image_custom_property_titles*
+        - Required
+        - Type: openstack_horizon_image_custom_titles
+    - */software/components/openstack/openstack_horizon_config_general/image_reserved_custom_properties*
+        - Description: The IMAGE_RESERVED_CUSTOM_PROPERTIES setting is used to specify which image custom properties should not be displayed in the Image Custom Properties table
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_general/horizon_images_upload_mode*
+        - Description: "off" disables the ability to upload images via Horizon. "legacy" (default) enables local file upload by piping the image file through the Horizon’s web-server (used by default). "direct" sends the image file directly from the web browser to Glance. This bypasses Horizon web-server which both reduces network hops and prevents filling up Horizon web-server’s filesystem. "direct" is the preferred mode, but due to the following requirements it is not the default. The direct setting requires a modern web browser, network access from the browser to the public Glance endpoint, and CORS support to be enabled on the Glance API service. Without CORS support, the browser will forbid the PUT request to a location different than the Horizon server. To enable CORS support for Glance API service, you will need to edit [cors] section of glance-api.conf file. Set allowed_origin to the full hostname of Horizon web-server (e.g. http(s)://<HOST_IP>) and restart glance-api process. Set this [cors] extra configuration via Glance schema
+        - Optional
+        - Type: choice
+    - */software/components/openstack/openstack_horizon_config_general/api_result_limit*
+        - Description: The number of objects (Swift containers/objects or images) to display on a single page before providing a paging element (a "more" link) to paginate results
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 1000
+    - */software/components/openstack/openstack_horizon_config_general/api_result_page_size*
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 20
+    - */software/components/openstack/openstack_horizon_config_general/swift_file_transfer_chunk_size*
+        - Description: The size of chunk in bytes for downloading objects from Swift
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 524288
+    - */software/components/openstack/openstack_horizon_config_general/instance_log_length*
+        - Description: The default number of lines displayed for instance console log
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 35
+    - */software/components/openstack/openstack_horizon_config_general/local_path*
+        - Required
+        - Type: absolute_file_path
+        - Default value: /tmp
+    - */software/components/openstack/openstack_horizon_config_general/secret_key*
+        - Description: You can either set it to a specific value or you can let horizon generate a default secret key that is unique on this machine, e.i. regardless of the amount of Python WSGI workers (if used behind Apache+mod_wsgi): However, there may be situations where you would want to set this explicitly, e.g. when multiple dashboard instances are distributed on different machines (usually behind a load-balancer). Either you have to make sure that a session gets all requests routed to the same dashboard instance or you set the same SECRET_KEY for all of them
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_general/openstack_keystone_default_domain*
+        - Description: Overrides the default domain used when running on single-domain model with Keystone V3. All entities will be created in the default domain. NOTE: This value must be the name of the default domain, NOT the ID. Also, you will most likely have a value in the keystone policy file like this "cloud_admin": "rule:admin_required and domain_id:<your domain id>" This value must be the name of the domain whose ID is specified there
+        - Required
+        - Type: string
+        - Default value: Default
+    - */software/components/openstack/openstack_horizon_config_general/time_zone*
+        - Description: The timezone of the server. This should correspond with the timezone of your entire OpenStack installation, and hopefully be in UTC. Example: "Europe/Brussels"
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_general/policy_files_path*
+        - Description: Path to directory containing policy.json files
+        - Required
+        - Type: absolute_file_path
+        - Default value: /etc/openstack-dashboard
+    - */software/components/openstack/openstack_horizon_config_general/logging*
+        - Required
+        - Type: openstack_horizon_logging
+    - */software/components/openstack/openstack_horizon_config_general/rest_api_required_settings*
+        - Description: AngularJS requires some settings to be made available to the client side. Some settings are required by in-tree / built-in horizon features. These settings must be added to REST_API_REQUIRED_SETTINGS in the form of ['SETTING_1','SETTING_2'], etc. You may remove settings from this list for security purposes, but do so at the risk of breaking a built-in horizon feature. These settings are required for horizon to function properly. Only remove them if you know what you are doing. These settings may in the future be moved to be defined within the enabled panel configuration. You should not add settings to this list for out of tree extensions
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_general/security_group_files*
+        - Required
+        - Type: openstack_horizon_security_group
+    - */software/components/openstack/openstack_horizon_config_general/use_ssl*
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_horizon_config_general/csrf_cookie_secure*
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_horizon_config_general/session_cookie_secure*
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_horizon_config_general/session_cookie_httponly*
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_horizon_config_general/openstack_ssl_cacert*
+        - Description: path to a custom CA certificate file, this overrides use of the default system CA certificate
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/openstack/openstack_horizon_config_general/openstack_ssl_no_verify*
+        - Description: Disable SSL certificate checks in the OpenStack clients (useful for self-signed certificates)
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_horizon_config_general/operation_log_enabled*
+        - Description: enable logging of all operations carried out by users of Horizon
+        - Optional
+        - Type: boolean
+ - **/software/components/openstack/openstack_horizon_config**
+    - Description: list of Horizon service configuration sections
