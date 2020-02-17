@@ -1,0 +1,79 @@
+#################################################
+NCM\::Component\::openstack\::metric - ceilometer
+#################################################
+
+Types
+-----
+
+ - **/software/components/openstack/openstack_ceilometer_gnocchi_api**
+    - Description: list of Gnocchi api section
+    - */software/components/openstack/openstack_ceilometer_gnocchi_api/auth_mode*
+        - Required
+        - Type: string
+        - Default value: keystone
+ - **/software/components/openstack/openstack_ceilometer_gnocchi_indexer**
+    - Description: list of Gnocchi indexer section
+    - */software/components/openstack/openstack_ceilometer_gnocchi_indexer/url*
+        - Description: The SQLAlchemy connection string to use to connect to the database
+        - Required
+        - Type: string
+ - **/software/components/openstack/openstack_ceilometer_gnocchi_storage**
+    - Description: list of Gnocchi storage section
+    - */software/components/openstack/openstack_ceilometer_gnocchi_storage/file_basepath*
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /var/lib/gnocchi
+    - */software/components/openstack/openstack_ceilometer_gnocchi_storage/driver*
+        - Required
+        - Type: choice
+        - Default value: file
+    - */software/components/openstack/openstack_ceilometer_gnocchi_storage/ceph_pool*
+        - Description: Ceph pool name to use
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_ceilometer_gnocchi_storage/ceph_username*
+        - Description: Ceph username (ie: admin without "client." prefix)
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_ceilometer_gnocchi_storage/ceph_keyring*
+        - Description: Ceph keyring path
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/openstack/openstack_ceilometer_gnocchi_storage/ceph_conffile*
+        - Description: Ceph configuration file
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/openstack/openstack_ceilometer_gnocchi_config**
+    - Description: list of Ceilometer Gnocchi service sections
+    - */software/components/openstack/openstack_ceilometer_gnocchi_config/api*
+        - Required
+        - Type: openstack_ceilometer_gnocchi_api
+    - */software/components/openstack/openstack_ceilometer_gnocchi_config/indexer*
+        - Required
+        - Type: openstack_ceilometer_gnocchi_indexer
+    - */software/components/openstack/openstack_ceilometer_gnocchi_config/storage*
+        - Required
+        - Type: openstack_ceilometer_gnocchi_storage
+    - */software/components/openstack/openstack_ceilometer_gnocchi_config/keystone_authtoken*
+        - Required
+        - Type: openstack_domains_common
+ - **/software/components/openstack/openstack_ceilometer_service_config**
+    - Description: list of Ceilometer service configuration sections
+    - */software/components/openstack/openstack_ceilometer_service_config/DEFAULT*
+        - Required
+        - Type: openstack_DEFAULTS
+    - */software/components/openstack/openstack_ceilometer_service_config/service_credentials*
+        - Required
+        - Type: openstack_domains_common
+ - **/software/components/openstack/openstack_quattor_ceilometer**
+ - **/software/components/openstack/openstack_ceilometer_config**
+    - Description: list of Ceilometer service configuration sections
+    - */software/components/openstack/openstack_ceilometer_config/service*
+        - Optional
+        - Type: openstack_ceilometer_service_config
+    - */software/components/openstack/openstack_ceilometer_config/gnocchi*
+        - Optional
+        - Type: openstack_ceilometer_gnocchi_config
+    - */software/components/openstack/openstack_ceilometer_config/quattor*
+        - Required
+        - Type: openstack_quattor_ceilometer

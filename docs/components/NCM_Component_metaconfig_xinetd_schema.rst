@@ -30,8 +30,12 @@ Types
         - Optional
         - Type: xinetd_options_ips
     - */software/components/metaconfig/xinetd_options/cps*
-        - Required
+        - Optional
         - Type: long
+    - */software/components/metaconfig/xinetd_options/port*
+        - Optional
+        - Type: long
+        - Range: 0..
     - */software/components/metaconfig/xinetd_options/socket_type*
         - Required
         - Type: string
@@ -53,12 +57,10 @@ Types
         - Type: string
     - */software/components/metaconfig/xinetd_options/instances*
         - Optional
-        - Type: long
-        - Range: 0..
+        - Type: string
     - */software/components/metaconfig/xinetd_options/per_source*
-        - Required
+        - Optional
         - Type: long
-        - Default value: 11
  - **/software/components/metaconfig/xinetd_conf**
     - */software/components/metaconfig/xinetd_conf/servicename*
         - Required

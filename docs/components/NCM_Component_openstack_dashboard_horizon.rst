@@ -283,7 +283,7 @@ Types
     - */software/components/openstack/openstack_horizon_config_identity_keystone/openstack_endpoint_type*
         - Description: the endpoint type to use for the endpoints in the Keystone service catalog. The default value for all services except for identity is "publicURL". The default value for the identity service is "internalURL".
         - Optional
-        - Type: choice
+        - Type: openstack_keystone_endpoint_type
     - */software/components/openstack/openstack_horizon_config_identity_keystone/openstack_keystone_default_role*
         - Description: Configure the default role for users that you create via the dashboard
         - Required
@@ -450,5 +450,13 @@ Types
         - Description: enable logging of all operations carried out by users of Horizon
         - Optional
         - Type: boolean
+    - */software/components/openstack/openstack_horizon_config_general/site_branding*
+        - Description: The OpenStack Dashboard Site Title branding (i.e. "OpenStack Dashboard") can be overwritten by adding the "SITE_BRANDING" attribute
+        - Optional
+        - Type: string
+    - */software/components/openstack/openstack_horizon_config_general/site_branding_link*
+        - Description: The logo also acts as a hyperlink. The default behavior is to redirect to horizon:user_home. By adding the attribute "SITE_BRANDING_LINK" with the desired url target
+        - Optional
+        - Type: type_absoluteURI
  - **/software/components/openstack/openstack_horizon_config**
     - Description: list of Horizon service configuration sections

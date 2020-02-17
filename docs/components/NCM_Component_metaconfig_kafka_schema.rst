@@ -1,0 +1,84 @@
+#############################################
+NCM\::Component\::metaconfig\::kafka - schema
+#############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/kafka_server_properties**
+    - */software/components/metaconfig/kafka_server_properties/advertised.listeners*
+        - Optional
+        - Type: string
+        - Default value: PLAINTEXT://localhost:9092
+    - */software/components/metaconfig/kafka_server_properties/broker.id*
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/group.initial.rebalance.delay.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/inter.broker.listener.name*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/listener.security.protocol.map*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/listeners*
+        - Optional
+        - Type: string
+        - Default value: PLAINTEXT://localhost:9092
+    - */software/components/metaconfig/kafka_server_properties/log.dirs*
+        - Required
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kafka_server_properties/log.retention.hours*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.retention.check.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.segment.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/num.io.threads*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/num.network.threads*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/num.partitions*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/num.recovery.threads.per.data.dir*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/offsets.topic.replication.factor*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/socket.send.buffer.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/socket.receive.buffer.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/socket.request.max.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/zookeeper.connect*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/zookeeper.connection.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 100..

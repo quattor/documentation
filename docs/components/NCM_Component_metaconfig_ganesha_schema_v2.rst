@@ -466,6 +466,10 @@ Types
     - */software/components/metaconfig/ganesha_v2_nfsv4/UseGetpwnam*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/ganesha_v2_nfsv4/Only_Numeric_Owners*
+        - Description: default false, set it to true if you want to ignore/bypass/disable idmapping
+        - Optional
+        - Type: boolean
  - **/software/components/metaconfig/ganesha_v2_nfs_core_param**
     - Description: Ganesha NFS_CORE_PARAM section @
     - */software/components/metaconfig/ganesha_v2_nfs_core_param/Bind_Addr*

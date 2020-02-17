@@ -41,6 +41,21 @@ Types
         - Required
         - Type: string
         - Default value: /var/lib/haproxy
+    - */software/components/metaconfig/haproxy_service_global_config/log-send-hostname*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_global_config/ssl-default-bind-ciphers*
+        - Optional
+        - Type: string_non_whitespace
+    - */software/components/metaconfig/haproxy_service_global_config/ssl-default-bind-options*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_global_config/ssl-default-server-ciphers*
+        - Optional
+        - Type: string_non_whitespace
+    - */software/components/metaconfig/haproxy_service_global_config/ssl-default-server-options*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/haproxy_service_global_stats**
     - Description: options for the stats line in the Global section
     - */software/components/metaconfig/haproxy_service_global_stats/socket*
@@ -75,6 +90,9 @@ Types
         - Required
         - Type: long
         - Default value: 4000
+    - */software/components/metaconfig/haproxy_service_defaults_config/option*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/haproxy_service_timeouts**
     - Description: Timeouts in ms
     - */software/components/metaconfig/haproxy_service_timeouts/check*
@@ -211,6 +229,36 @@ Types
     - */software/components/metaconfig/haproxy_service_proxy/timeouts*
         - Optional
         - Type: haproxy_service_timeouts
+ - **/software/components/metaconfig/haproxy_service_peer**
+    - Description: configuration of a peer
+    - */software/components/metaconfig/haproxy_service_peer/name*
+        - Description: Name of the peer host. Preferably in FQDN.
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_peer/port*
+        - Description: Port to use to connect to peer.
+        - Required
+        - Type: type_port
+    - */software/components/metaconfig/haproxy_service_peer/ip*
+        - Description: IP address of the peer.
+        - Required
+        - Type: type_ip
+ - **/software/components/metaconfig/haproxy_service_peers**
+    - Description: configuration of peers
+    - */software/components/metaconfig/haproxy_service_peers/peers*
+        - Required
+        - Type: haproxy_service_peer
+ - **/software/components/metaconfig/haproxy_service_stick_table**
+    - Description: configuration of stick-table
+    - */software/components/metaconfig/haproxy_service_stick_table/type*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_stick_table/size*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_stick_table/peers*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/haproxy_service_bind_server_params**
     - */software/components/metaconfig/haproxy_service_bind_server_params/ssl*
         - Optional
@@ -222,6 +270,10 @@ Types
         - Description: combined cert and key in pem format
         - Optional
         - Type: absolute_file_path
+    - */software/components/metaconfig/haproxy_service_bind_server_params/interface*
+        - Description: interface to bind on
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/haproxy_service_server_params**
     - */software/components/metaconfig/haproxy_service_server_params/check*
         - Description: enable health check
@@ -259,10 +311,19 @@ Types
         - Optional
         - Type: haproxy_service_server_params
  - **/software/components/metaconfig/haproxy_service_backend**
+    - */software/components/metaconfig/haproxy_service_backend/balance*
+        - Optional
+        - Type: choice
     - */software/components/metaconfig/haproxy_service_backend/options*
         - Optional
         - Type: string
     - */software/components/metaconfig/haproxy_service_backend/tcpchecks*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_backend/sticktable*
+        - Optional
+        - Type: haproxy_service_stick_table
+    - */software/components/metaconfig/haproxy_service_backend/stick*
         - Optional
         - Type: string
     - */software/components/metaconfig/haproxy_service_backend/servers*
@@ -279,6 +340,9 @@ Types
     - */software/components/metaconfig/haproxy_service/stats*
         - Optional
         - Type: haproxy_service_stats
+    - */software/components/metaconfig/haproxy_service/peers*
+        - Optional
+        - Type: haproxy_service_peers
     - */software/components/metaconfig/haproxy_service/proxys*
         - Optional
         - Type: haproxy_service_proxy

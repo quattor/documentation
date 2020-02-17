@@ -5,8 +5,10 @@ NCM\::Component\::metaconfig\::nginx - schema
 Types
 -----
 
- - **/software/components/metaconfig/cipherstring**
+ - **/software/components/metaconfig/sslprotocol**
     - Description: Data types for an nginx server, with proxy and SSL support
+ - **/software/components/metaconfig/cipherstring**
+    - Description: based on Mozilla server side tls intermediate recommendations
  - **/software/components/metaconfig/basic_ssl**
     - */software/components/metaconfig/basic_ssl/options*
         - Optional
@@ -31,7 +33,10 @@ Types
         - Type: cipherstring
     - */software/components/metaconfig/httpd_ssl/protocol*
         - Required
-        - Type: cipherstring
+        - Type: sslprotocol
+    - */software/components/metaconfig/httpd_ssl/prefer_server_ciphers*
+        - Optional
+        - Type: boolean
     - */software/components/metaconfig/httpd_ssl/certificate*
         - Required
         - Type: string
@@ -46,6 +51,24 @@ Types
         - Optional
         - Type: string
     - */software/components/metaconfig/httpd_ssl/revocation_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl/stapling*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_ssl/stapling_verify*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_ssl/trusted_certificate*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl/session_tickets*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_ssl/session_timeout*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl/session_cache*
         - Optional
         - Type: string
  - **/software/components/metaconfig/nginx_global**
@@ -121,6 +144,12 @@ Types
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/metaconfig/nginx_proxy_location/ssl_certificate*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/nginx_proxy_location/ssl_certificate_key*
+        - Optional
+        - Type: absolute_file_path
  - **/software/components/metaconfig/nginx_return**
     - Description: nginx return diretcive
     - */software/components/metaconfig/nginx_return/code*
@@ -172,6 +201,10 @@ Types
         - Required
         - Type: boolean
         - Default value: false
+    - */software/components/metaconfig/nginx_listen/http2*
+        - Optional
+        - Type: boolean
+        - Default value: false
  - **/software/components/metaconfig/nginx_server_name**
     - Description: nginx_server_name: either a valid hostname or _ (an invalid domain name which never intersect with any real name)
  - **/software/components/metaconfig/nginx_server**
@@ -197,6 +230,9 @@ Types
     - */software/components/metaconfig/nginx_server/return*
         - Optional
         - Type: nginx_return
+    - */software/components/metaconfig/nginx_server/add_header*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/nginx_upstream**
     - Description: An upstream declaration for reverse proxies
     - */software/components/metaconfig/nginx_upstream/host*
@@ -218,7 +254,7 @@ Types
     - */software/components/metaconfig/nginx_http/gzip*
         - Required
         - Type: boolean
-        - Default value: true
+        - Default value: false
     - */software/components/metaconfig/nginx_http/proxy_cache_path*
         - Optional
         - Type: nginx_cache_path
@@ -237,6 +273,9 @@ Types
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/metaconfig/nginx_http/add_header*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/type_nginx**
     - */software/components/metaconfig/type_nginx/global*
         - Required

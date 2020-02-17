@@ -1,0 +1,169 @@
+#############################################
+NCM\::Component\::metaconfig\::irods - schema
+#############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/irods_environment_client_config**
+    - Description: type for configuring the irods_environment.json config file for clients @
+    - */software/components/metaconfig/irods_environment_client_config/irods_host*
+        - Required
+        - Type: type_hostname
+    - */software/components/metaconfig/irods_environment_client_config/irods_port*
+        - Required
+        - Type: type_port
+    - */software/components/metaconfig/irods_environment_client_config/irods_user_name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/irods_environment_client_config/irods_zone_name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/irods_environment_client_config/irods_client_server_policy*
+        - Required
+        - Type: choice
+        - Default value: CS_NEG_REFUSE
+    - */software/components/metaconfig/irods_environment_client_config/irods_client_server_negotiation*
+        - Required
+        - Type: choice
+        - Default value: request_server_negotiation
+    - */software/components/metaconfig/irods_environment_client_config/irods_ssl_verify_server*
+        - Required
+        - Type: choice
+        - Default value: hostname
+    - */software/components/metaconfig/irods_environment_client_config/irods_ssl_ca_certificate_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/irods_environment_client_config/irods_encryption_algorithm*
+        - Required
+        - Type: string
+        - Default value: AES-256-CBC
+    - */software/components/metaconfig/irods_environment_client_config/irods_encryption_key_size*
+        - Required
+        - Type: long
+        - Default value: 32
+    - */software/components/metaconfig/irods_environment_client_config/irods_encryption_num_hash_rounds*
+        - Required
+        - Type: long
+        - Default value: 16
+    - */software/components/metaconfig/irods_environment_client_config/irods_encryption_salt_size*
+        - Required
+        - Type: long
+        - Default value: 8
+ - **/software/components/metaconfig/irods_environment_server_config**
+    - Description: type for configuring the irods_environment.json config file for service accounts @
+    - */software/components/metaconfig/irods_environment_server_config/irods_cwd*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/irods_environment_server_config/irods_default_hash_scheme*
+        - Required
+        - Type: choice
+        - Default value: SHA256
+    - */software/components/metaconfig/irods_environment_server_config/irods_default_number_of_transfer_threads*
+        - Required
+        - Type: long
+        - Default value: 4
+    - */software/components/metaconfig/irods_environment_server_config/irods_default_resource*
+        - Required
+        - Type: string
+        - Default value: demoResc
+    - */software/components/metaconfig/irods_environment_server_config/irods_maximum_size_for_single_buffer_in_megabytes*
+        - Required
+        - Type: long
+        - Default value: 32
+    - */software/components/metaconfig/irods_environment_server_config/irods_home*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/irods_environment_server_config/irods_match_hash_policy*
+        - Required
+        - Type: choice
+        - Default value: compatible
+    - */software/components/metaconfig/irods_environment_server_config/irods_server_control_plane_encryption_algorithm*
+        - Required
+        - Type: string
+        - Default value: AES-256-CBC
+    - */software/components/metaconfig/irods_environment_server_config/irods_server_control_plane_encryption_num_hash_rounds*
+        - Required
+        - Type: long
+        - Default value: 16
+    - */software/components/metaconfig/irods_environment_server_config/irods_server_control_plane_key*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/irods_environment_server_config/irods_server_control_plane_port*
+        - Required
+        - Type: long
+        - Default value: 1248
+    - */software/components/metaconfig/irods_environment_server_config/irods_ssl_certificate_chain_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/irods_environment_server_config/irods_ssl_certificate_key_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/irods_environment_server_config/irods_ssl_dh_params_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/irods_environment_server_config/irods_transfer_buffer_size_for_parallel_transfer_in_megabytes*
+        - Required
+        - Type: long
+        - Default value: 4
+    - */software/components/metaconfig/irods_environment_server_config/schema_name*
+        - Required
+        - Type: choice
+        - Default value: irods_environment
+    - */software/components/metaconfig/irods_environment_server_config/schema_version*
+        - Required
+        - Type: choice
+        - Default value: v3
+ - **/software/components/metaconfig/irods_host_entry_address**
+    - Description: type for configuring the irods_hosts.json address config section @
+    - */software/components/metaconfig/irods_host_entry_address/address*
+        - Required
+        - Type: type_hostname
+ - **/software/components/metaconfig/irods_host_entry**
+    - Description: type for configuring the irods_hosts.json host_entries config section @
+    - */software/components/metaconfig/irods_host_entry/address_type*
+        - Required
+        - Type: choice
+    - */software/components/metaconfig/irods_host_entry/addresses*
+        - Required
+        - Type: irods_host_entry_address
+ - **/software/components/metaconfig/irods_hosts_config**
+    - Description: type for configuring the irods_hosts.json config file @
+    - */software/components/metaconfig/irods_hosts_config/host_entries*
+        - Required
+        - Type: irods_host_entry
+    - */software/components/metaconfig/irods_hosts_config/schema_name*
+        - Required
+        - Type: choice
+        - Default value: hosts_config
+    - */software/components/metaconfig/irods_hosts_config/schema_version*
+        - Required
+        - Type: choice
+        - Default value: v3
+ - **/software/components/metaconfig/irods_access_entry**
+    - Description: type for configuring the host_access_control_config.json access_entries config section @
+    - */software/components/metaconfig/irods_access_entry/user*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/irods_access_entry/group*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/irods_access_entry/address*
+        - Required
+        - Type: type_ip
+    - */software/components/metaconfig/irods_access_entry/mask*
+        - Required
+        - Type: type_ip
+ - **/software/components/metaconfig/irods_host_access_control_config**
+    - Description: type for configuring the host_access_control_config.json config file @
+    - */software/components/metaconfig/irods_host_access_control_config/schema_name*
+        - Required
+        - Type: choice
+        - Default value: host_access_control_config
+    - */software/components/metaconfig/irods_host_access_control_config/schema_version*
+        - Required
+        - Type: choice
+        - Default value: v3
+    - */software/components/metaconfig/irods_host_access_control_config/access_entries*
+        - Required
+        - Type: irods_access_entry

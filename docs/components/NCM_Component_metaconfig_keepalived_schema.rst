@@ -34,6 +34,9 @@ Types
     - */software/components/metaconfig/keepalived_service_vip/interface*
         - Required
         - Type: string
+    - */software/components/metaconfig/keepalived_service_vip/broadcast*
+        - Required
+        - Type: string
  - **/software/components/metaconfig/keepalived_service_vrrpinstance_config**
     - Description: The vrrp_instance configuration
     - */software/components/metaconfig/keepalived_service_vrrpinstance_config/virtual_router_id*
@@ -49,7 +52,7 @@ Types
         - Default value: 100
     - */software/components/metaconfig/keepalived_service_vrrpinstance_config/state*
         - Required
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/keepalived_service_vrrpinstance_config/interface*
         - Required
         - Type: string
@@ -66,6 +69,18 @@ Types
         - Type: keepalived_service_vip
     - */software/components/metaconfig/keepalived_service_vrrpinstance/track_scripts*
         - Required
+        - Type: string
+    - */software/components/metaconfig/keepalived_service_vrrpinstance/unicast_peer*
+        - Optional
+        - Type: type_ip
+    - */software/components/metaconfig/keepalived_service_vrrpinstance/unicast_src_ip*
+        - Optional
+        - Type: type_ip
+    - */software/components/metaconfig/keepalived_service_vrrpinstance/virtual_routes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/keepalived_service_vrrpinstance/track_interface*
+        - Optional
         - Type: string
  - **/software/components/metaconfig/keepalived_service**
     - Description: Keepalived config See: http://keepalived.org/

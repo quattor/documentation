@@ -1,0 +1,107 @@
+######################################################
+NCM\::Component\::openstack\::container-infra - magnum
+######################################################
+
+Types
+-----
+
+ - **/software/components/openstack/openstack_magnum_api**
+    - Description: Magnum api section
+    - */software/components/openstack/openstack_magnum_api/host*
+        - Description: The listen IP for the Magnum API server
+        - Required
+        - Type: type_ip
+ - **/software/components/openstack/openstack_magnum_certificates**
+    - Description: Magnum certificates section
+    - */software/components/openstack/openstack_magnum_certificates/cert_manager_type*
+        - Description: Certificate Manager plugin. Barbican is recommended for production environments
+        - Required
+        - Type: choice
+        - Default value: barbican
+ - **/software/components/openstack/openstack_magnum_common_client**
+    - Description: Magnum Cinder client section
+    - */software/components/openstack/openstack_magnum_common_client/region_name*
+        - Description: Region in Identity service catalog to use for communication with the OpenStack service
+        - Required
+        - Type: string
+        - Default value: RegionOne
+    - */software/components/openstack/openstack_magnum_common_client/endpoint_type*
+        - Description: Type of endpoint in Identity service catalog to use for communication with the OpenStack service
+        - Optional
+        - Type: openstack_keystone_endpoint_type
+ - **/software/components/openstack/openstack_magnum_trust**
+    - Description: Magnum trust section
+    - */software/components/openstack/openstack_magnum_trust/trustee_domain_name*
+        - Description: Name of the domain to create trustee for
+        - Required
+        - Type: string
+        - Default value: magnum
+    - */software/components/openstack/openstack_magnum_trust/trustee_domain_admin_name*
+        - Description: Name of the admin with roles sufficient to manage users in the trustee_domain
+        - Required
+        - Type: string
+        - Default value: magnum_domain_admin
+    - */software/components/openstack/openstack_magnum_trust/trustee_domain_admin_password*
+        - Description: Password of trustee_domain_admin
+        - Required
+        - Type: string
+    - */software/components/openstack/openstack_magnum_trust/trustee_keystone_interface*
+        - Description: Auth interface used by instances/trustee
+        - Required
+        - Type: choice
+        - Default value: public
+ - **/software/components/openstack/openstack_magnum_keystone_auth**
+    - Description: Magnum keystone_auth section
+    - */software/components/openstack/openstack_magnum_keystone_auth/auth_section*
+        - Description: Config Section from which to load plugin specific options
+        - Required
+        - Type: string
+        - Default value: keystone_authtoken
+ - **/software/components/openstack/openstack_magnum_cinder**
+    - Description: Magnum cinder section
+    - */software/components/openstack/openstack_magnum_cinder/default_docker_volume_type*
+        - Description: The default docker volume_type to use for volumes used for docker storage. To use the cinder volumes for docker storage, you need to select a default value
+        - Required
+        - Type: string
+ - **/software/components/openstack/openstack_quattor_magnum**
+ - **/software/components/openstack/openstack_magnum_config**
+    - Description: list of Magnum configuration sections
+    - */software/components/openstack/openstack_magnum_config/DEFAULT*
+        - Required
+        - Type: openstack_DEFAULTS
+    - */software/components/openstack/openstack_magnum_config/database*
+        - Required
+        - Type: openstack_database
+    - */software/components/openstack/openstack_magnum_config/keystone_authtoken*
+        - Required
+        - Type: openstack_keystone_authtoken
+    - */software/components/openstack/openstack_magnum_config/keystone_auth*
+        - Required
+        - Type: openstack_magnum_keystone_auth
+    - */software/components/openstack/openstack_magnum_config/oslo_messaging_notifications*
+        - Required
+        - Type: openstack_oslo_messaging_notifications
+    - */software/components/openstack/openstack_magnum_config/oslo_concurrency*
+        - Required
+        - Type: openstack_oslo_concurrency
+    - */software/components/openstack/openstack_magnum_config/api*
+        - Required
+        - Type: openstack_magnum_api
+    - */software/components/openstack/openstack_magnum_config/certificates*
+        - Required
+        - Type: openstack_magnum_certificates
+    - */software/components/openstack/openstack_magnum_config/cinder_client*
+        - Required
+        - Type: openstack_magnum_common_client
+    - */software/components/openstack/openstack_magnum_config/heat_client*
+        - Optional
+        - Type: openstack_magnum_common_client
+    - */software/components/openstack/openstack_magnum_config/cinder*
+        - Optional
+        - Type: openstack_magnum_cinder
+    - */software/components/openstack/openstack_magnum_config/trust*
+        - Required
+        - Type: openstack_magnum_trust
+    - */software/components/openstack/openstack_magnum_config/quattor*
+        - Required
+        - Type: openstack_quattor_magnum

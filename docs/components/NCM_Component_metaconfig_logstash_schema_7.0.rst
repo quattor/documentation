@@ -1,5 +1,5 @@
 ####################################################
-NCM\::Component\::metaconfig\::logstash - schema_5.0
+NCM\::Component\::metaconfig\::logstash - schema_7.0
 ####################################################
 
 Types
@@ -192,6 +192,145 @@ Types
     - */software/components/metaconfig/logstash_input_zeromq/topology*
         - Required
         - Type: string
+ - **/software/components/metaconfig/logstash_input_kafka**
+    - Description: kafka input
+    - */software/components/metaconfig/logstash_input_kafka/auto_commit_interval_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/auto_offset_reset*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/bootstrap_servers*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/check_crcs*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/client_id*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/connections_max_idle_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/consumer_threads*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_input_kafka/decorate_events*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_input_kafka/enable_auto_commit*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/exclude_internal_topics*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/fetch_max_bytes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/fetch_max_wait_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/fetch_min_bytes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/group_id*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/heartbeat_interval_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/jaas_path*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_input_kafka/kerberos_config*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_input_kafka/key_deserializer_class*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/max_partition_fetch_bytes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/max_poll_interval_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/max_poll_records*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/metadata_max_age_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/partition_assignment_strategy*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/poll_timeout_ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_input_kafka/receive_buffer_bytes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/reconnect_backoff_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/request_timeout_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/retry_backoff_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/sasl_jaas_config*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/sasl_kerberos_service_name*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/sasl_mechanism*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/security_protocol*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/send_buffer_bytes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/session_timeout_ms*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/ssl_endpoint_identification_algorithm*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/ssl_key_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/ssl_keystore_location*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_input_kafka/ssl_keystore_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/ssl_keystore_type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/ssl_truststore_location*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_input_kafka/ssl_truststore_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/ssl_truststore_type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/topics*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/topics_pattern*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_input_kafka/value_deserializer_class*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/logstash_input_plugin**
     - */software/components/metaconfig/logstash_input_plugin/file*
         - Optional
@@ -214,6 +353,9 @@ Types
     - */software/components/metaconfig/logstash_input_plugin/zeromq*
         - Optional
         - Type: logstash_input_zeromq
+    - */software/components/metaconfig/logstash_input_plugin/kafka*
+        - Optional
+        - Type: logstash_input_kafka
  - **/software/components/metaconfig/logstash_name_pattern**
     - Description: Base for all filters
     - */software/components/metaconfig/logstash_name_pattern/name*
@@ -443,44 +585,178 @@ Types
         - Type: boolean
  - **/software/components/metaconfig/logstash_output_elasticsearch**
     - Description: elasticsearch-based output
-    - */software/components/metaconfig/logstash_output_elasticsearch/bind_host*
-        - Optional
-        - Type: type_hostname
-    - */software/components/metaconfig/logstash_output_elasticsearch/hosts*
-        - Optional
-        - Type: type_hostport
-    - */software/components/metaconfig/logstash_output_elasticsearch/host*
-        - Optional
-        - Type: type_hostname
-    - */software/components/metaconfig/logstash_output_elasticsearch/port*
-        - Optional
-        - Type: logstash_port_range
-    - */software/components/metaconfig/logstash_output_elasticsearch/cluster*
+    - */software/components/metaconfig/logstash_output_elasticsearch/bulk_path*
         - Optional
         - Type: string
-    - */software/components/metaconfig/logstash_output_elasticsearch/embedded*
+    - */software/components/metaconfig/logstash_output_elasticsearch/cacert*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_output_elasticsearch/custom_headers*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/logstash_output_elasticsearch/doc_as_upsert*
         - Optional
         - Type: boolean
-        - Default value: false
-    - */software/components/metaconfig/logstash_output_elasticsearch/index*
-        - Required
+    - */software/components/metaconfig/logstash_output_elasticsearch/document_id*
+        - Optional
         - Type: string
-        - Default value: logstash-%{+YYYY.MM.dd}
-    - */software/components/metaconfig/logstash_output_elasticsearch/flush_size*
+    - */software/components/metaconfig/logstash_output_elasticsearch/document_type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/failure_type_logging_whitelist*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/healthcheck_path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/hosts*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/http_compression*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_output_elasticsearch/ilm_enabled*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/ilm_pattern*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/ilm_policy*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/ilm_rollover_alias*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/index*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/keystore*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_output_elasticsearch/keystore_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/manage_template*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_output_elasticsearch/parameters*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/logstash_output_elasticsearch/parent*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/pipeline*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/pool_max*
         - Optional
         - Type: long
-        - Default value: 5000
-    - */software/components/metaconfig/logstash_output_elasticsearch/index_type*
+        - Range: 0..
+        - Default value: 1000
+    - */software/components/metaconfig/logstash_output_elasticsearch/pool_max_per_route*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 100
+    - */software/components/metaconfig/logstash_output_elasticsearch/proxy*
+        - Optional
+        - Type: type_absoluteURI
+    - */software/components/metaconfig/logstash_output_elasticsearch/resurrect_delay*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_output_elasticsearch/retry_initial_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_output_elasticsearch/retry_max_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_output_elasticsearch/retry_on_conflict*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_output_elasticsearch/routing*
         - Optional
         - Type: string
-        - Default value: %{@type}
-    - */software/components/metaconfig/logstash_output_elasticsearch/document_type*
-        - Required
+    - */software/components/metaconfig/logstash_output_elasticsearch/script*
+        - Optional
         - Type: string
-        - Default value: %{@type}
+    - */software/components/metaconfig/logstash_output_elasticsearch/script_lang*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/script_type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/script_var_name*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/scripted_upsert*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_output_elasticsearch/sniffing*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_output_elasticsearch/sniffing_delay*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_output_elasticsearch/sniffing_path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/ssl*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_output_elasticsearch/ssl_certificate_verification*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/logstash_output_elasticsearch/template*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_output_elasticsearch/template_name*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/logstash_output_elasticsearch/template_overwrite*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/logstash_output_elasticsearch/timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_output_elasticsearch/truststore*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_output_elasticsearch/truststore_password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/upsert*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/validate_after_inactivity*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/logstash_output_elasticsearch/version*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_output_elasticsearch/version_type*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_output_file**
+    - Description: file based output
+    - */software/components/metaconfig/logstash_output_file/path*
+        - Required
+        - Type: absolute_file_path
  - **/software/components/metaconfig/logstash_output_plugin**
     - */software/components/metaconfig/logstash_output_plugin/elasticsearch*
         - Optional
@@ -494,6 +770,9 @@ Types
     - */software/components/metaconfig/logstash_output_plugin/tcp*
         - Optional
         - Type: logstash_output_tcp
+    - */software/components/metaconfig/logstash_output_plugin/file*
+        - Optional
+        - Type: logstash_output_file
  - **/software/components/metaconfig/logstash_input_conditional**
     - */software/components/metaconfig/logstash_input_conditional/plugins*
         - Optional

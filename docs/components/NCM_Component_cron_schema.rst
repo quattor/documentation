@@ -106,7 +106,7 @@ Types
         - Type: structure_cron_syslog
  - **/software/components/cron/cron_component**
     - */software/components/cron/cron_component/entries*
-        - Description: A list containing cron structures (described above).
+        - Description: A list containing cron structures (described above). Validate with no_duplicate_cron_entries if you wish to prevent duplicate entries from being defined.
         - Optional
         - Type: structure_cron
     - */software/components/cron/cron_component/deny*
@@ -139,3 +139,4 @@ Functions
     - Description: Convenience wrapper for validating cron day of week field
  - valid_cron_frequency
     - Description: Validate contents of cron frequency field
+ - no_duplicate_cron_entries

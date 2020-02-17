@@ -103,7 +103,7 @@ Types
  - **structure_ks_ks_info**
     - Description: Information needed for creating the Kickstart file Optional hooks pre_install, post_install, post_reboot and install for user customization are under /system/ks/hooks/.
     - *structure_ks_ks_info/ackurl*
-        - Required
+        - Optional
         - Type: type_absoluteURI
     - *structure_ks_ks_info/acklist*
         - Optional
@@ -232,6 +232,9 @@ Types
     - *structure_ks_ks_info/packages_args*
         - Required
         - Type: string
+    - *structure_ks_ks_info/end_script*
+        - Optional
+        - Type: string
     - *structure_ks_ks_info/part_label*
         - Required
         - Type: boolean
@@ -268,5 +271,9 @@ Types
         - Optional
         - Type: boolean
     - *structure_ks_ks_info/leavebootorder*
+        - Optional
+        - Type: boolean
+    - *structure_ks_ks_info/pxeboot*
+        - Description: pxeboot first: set the PXE boot device as first device. Only for supported platforms (e.g. UEFI)
         - Optional
         - Type: boolean

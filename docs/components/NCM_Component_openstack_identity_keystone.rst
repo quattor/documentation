@@ -62,6 +62,27 @@ Types
         - Description: Absolute path to an HTML file used as a Single Sign-On callback handler. This page is expected to redirect the user from keystone back to a trusted dashboard host, by form encoding a token in a POST request. Keystone's default value /etc/keystone/sso_callback_template.html should be sufficient for most deployments.
         - Optional
         - Type: absolute_file_path
+ - **/software/components/openstack/openstack_keystone_application_credential**
+    - Description: The Keystone configuration options in the "application_credential" section
+    - */software/components/openstack/openstack_keystone_application_credential/driver*
+        - Description: Entry point for the application credential backend driver in the "keystone.application_credential" namespace. Keystone only provides a "sql" driver, so there is no reason to change this unless you are providing a custom entry point
+        - Required
+        - Type: string
+        - Default value: sql
+    - */software/components/openstack/openstack_keystone_application_credential/caching*
+        - Description: Toggle for application credential caching. This has no effect unless global caching is enabled
+        - Optional
+        - Type: boolean
+    - */software/components/openstack/openstack_keystone_application_credential/cache_time*
+        - Description: Time to cache application credential data in seconds. This has no effect unless global caching is enabled
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/openstack/openstack_keystone_application_credential/user_limit*
+        - Description: Maximum number of application credentials a user is permitted to create. A value of -1 means unlimited. If a limit is not set, users are permitted to create application credentials at will, which could lead to bloat in the keystone database or open keystone to a DoS attack
+        - Optional
+        - Type: long
+        - Range: -1..
  - **/software/components/openstack/openstack_keystone_mapped**
     - Description: The Keystone configuration options in the "mapped" section
     - */software/components/openstack/openstack_keystone_mapped/remote_id_attribute*
@@ -98,6 +119,9 @@ Types
     - */software/components/openstack/openstack_keystone_config/openid*
         - Optional
         - Type: openstack_keystone_openid
+    - */software/components/openstack/openstack_keystone_config/application_credential*
+        - Optional
+        - Type: openstack_keystone_application_credential
     - */software/components/openstack/openstack_keystone_config/quattor*
         - Required
         - Type: openstack_quattor_keystone
