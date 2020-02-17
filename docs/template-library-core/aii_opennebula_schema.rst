@@ -97,6 +97,11 @@ Types
         - Description: Set ignoremac tree to avoid to include MAC values within AR/VM templates
         - Optional
         - Type: opennebula_ignoremac
+    - *opennebula_vmtemplate/virtio_queues*
+        - Description: Set how many queues will be used for the communication between CPUs and virtio drivers. see: https://docs.opennebula.org/5.6/deployment/open_cloud_host_setup/kvm_driver.html
+        - Optional
+        - Type: long
+        - Range: 0..
     - *opennebula_vmtemplate/graphics*
         - Description: Set graphics to export VM graphical display (VNC is used by default)
         - Required

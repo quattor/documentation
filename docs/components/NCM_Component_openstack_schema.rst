@@ -76,6 +76,18 @@ Types
     - */software/components/openstack/openstack_component/catalog*
         - Optional
         - Type: openstack_catalog_config
+    - */software/components/openstack/openstack_component/metric*
+        - Optional
+        - Type: openstack_metric_config
+    - */software/components/openstack/openstack_component/rating*
+        - Optional
+        - Type: openstack_rating_config
+    - */software/components/openstack/openstack_component/container-infra*
+        - Optional
+        - Type: openstack_container_infra_config
+    - */software/components/openstack/openstack_component/key-manager*
+        - Optional
+        - Type: openstack_key_manager_config
     - */software/components/openstack/openstack_component/openrc*
         - Optional
         - Type: openstack_openrc_config

@@ -21,16 +21,20 @@ EXAMPLES
 
 
 Try the following settings:
-  prefix "/software/components/sudo";
-  "general_options/options" = dict("insults", true);
-  "user_aliases/FOO" = list("127.0.0.1");
-  "privilege_lines" = list(dict(
 
-      "user", "foo",
-      "run_as", "ALL",
-      "host", "ALL",
-      "cmd", "ALL"
-      ));
+
+.. code-block:: perl
+
+   prefix "/software/components/sudo";
+   "general_options/options" = dict("insults", true);
+   "user_aliases/FOO" = list("127.0.0.1");
+   "privilege_lines" = list(dict(
+       "user", "foo",
+       "run_as", "ALL",
+       "host", "ALL",
+       "cmd", "ALL"
+       ));
+
 
 and see the resulting ``/etc/sudoers``.
 

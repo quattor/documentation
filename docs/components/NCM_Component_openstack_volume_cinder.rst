@@ -100,6 +100,9 @@ Types
     - */software/components/openstack/openstack_cinder_config/oslo_concurrency*
         - Required
         - Type: openstack_oslo_concurrency
+    - */software/components/openstack/openstack_cinder_config/oslo_messaging_notifications*
+        - Optional
+        - Type: openstack_oslo_messaging_notifications
     - */software/components/openstack/openstack_cinder_config/lvm*
         - Optional
         - Type: openstack_cinder_lvm

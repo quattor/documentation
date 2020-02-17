@@ -14,6 +14,9 @@ Types
  - **/software/components/openstack/openstack_neutron_firewall_driver**
  - **/software/components/openstack/openstack_share_backends**
  - **/software/components/openstack/openstack_share_protocols**
+ - **/software/components/openstack/openstack_neutron_service_plugins**
+ - **/software/components/openstack/openstack_neutron_agent_extensions**
+ - **/software/components/openstack/openstack_keystone_endpoint_type**
  - **/software/components/openstack/openstack_domains_common**
     - Description: OpenStack common domains section
     - */software/components/openstack/openstack_domains_common/project_domain_name*
@@ -48,6 +51,11 @@ Types
         - Description: OpenStack service user password
         - Required
         - Type: string
+    - */software/components/openstack/openstack_domains_common/interface*
+        - Description: Type of endpoint in Identity service catalog to use for communication with OpenStack services
+        - Optional
+        - Type: openstack_keystone_endpoint_type
+        - Default value: internalURL
  - **/software/components/openstack/openstack_region_common**
     - Description: OpenStack common region section
     - */software/components/openstack/openstack_region_common/os_region_name*
@@ -66,6 +74,13 @@ Types
         - Description: Directory to use for lock files. For security, the specified directory should only be writable by the user running the processes that need locking. Defaults to environment variable OSLO_LOCK_PATH. If external locks are used, a lock path must be set
         - Required
         - Type: absolute_file_path
+ - **/software/components/openstack/openstack_oslo_messaging_notifications**
+    - Description: The configuration options in 'oslo_messaging_notifications' Section.
+    - */software/components/openstack/openstack_oslo_messaging_notifications/driver*
+        - Description: The drivers to handle sending notifications
+        - Required
+        - Type: choice
+        - Default value: messagingv2
  - **/software/components/openstack/openstack_DEFAULTS**
     - Description: The configuration options in the DEFAULTS Section
     - */software/components/openstack/openstack_DEFAULTS/admin_token*
@@ -129,7 +144,7 @@ Types
     - */software/components/openstack/openstack_DEFAULTS/service_plugins*
         - Description: From neutron.conf The service plugins Neutron will use
         - Optional
-        - Type: string
+        - Type: openstack_neutron_service_plugins
     - */software/components/openstack/openstack_DEFAULTS/allow_overlapping_ips*
         - Description: From neutron.conf Allow overlapping IP support in Neutron. Attention: the following parameter MUST be set to False if Neutron is being used in conjunction with Nova security groups
         - Optional

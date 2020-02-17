@@ -39,7 +39,7 @@ Types
     - */software/components/openstack/openstack_heat_clients/endpoint_type*
         - Description: Type of endpoint in Identity service catalog to use for communication with the OpenStack service
         - Required
-        - Type: choice
+        - Type: openstack_keystone_endpoint_type
         - Default value: internalURL
  - **/software/components/openstack/openstack_quattor_heat**
  - **/software/components/openstack/openstack_heat_config**
@@ -62,6 +62,9 @@ Types
     - */software/components/openstack/openstack_heat_config/clients*
         - Required
         - Type: openstack_heat_clients
+    - */software/components/openstack/openstack_heat_config/oslo_messaging_notifications*
+        - Optional
+        - Type: openstack_oslo_messaging_notifications
     - */software/components/openstack/openstack_heat_config/quattor*
         - Required
         - Type: openstack_quattor_heat

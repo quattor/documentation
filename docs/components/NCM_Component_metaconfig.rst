@@ -61,6 +61,12 @@ The following formats can be rendered via ``EDG::WP4::CCM::TextRender``:
  
 
 
+* jsonpretty
+ 
+ Uses `JSON::XS <http://search.cpan.org/search?query=JSON%3a%3aXS&mode=module>`_ pretty for rendering JSON configuration files.
+ 
+
+
 * properties
  
  Uses `Config::Properties <http://search.cpan.org/search?query=Config%3a%3aProperties&mode=module>`_ for rendering Java-style configuration

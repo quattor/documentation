@@ -50,7 +50,7 @@ Types
     - */software/components/metaconfig/rsyslog_action_common/name*
         - Description: name (useful for debugging)
         - Optional
-        - Type: string
+        - Type: string_non_whitespace
     - */software/components/metaconfig/rsyslog_action_common/options*
         - Description: action options
         - Optional
@@ -99,10 +99,10 @@ Types
  - **/software/components/metaconfig/rsyslog_action_file**
     - */software/components/metaconfig/rsyslog_action_file/file*
         - Optional
-        - Type: string
+        - Type: absolute_file_path
     - */software/components/metaconfig/rsyslog_action_file/dynaFile*
         - Optional
-        - Type: string
+        - Type: absolute_file_path
     - */software/components/metaconfig/rsyslog_action_file/closeTimeout*
         - Optional
         - Type: long
@@ -143,10 +143,10 @@ Types
         - Type: boolean
     - */software/components/metaconfig/rsyslog_action_file/sig.provider*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/rsyslog_action_file/cry.provider*
         - Optional
-        - Type: string
+        - Type: choice
  - **/software/components/metaconfig/rsyslog_action_prog**
     - */software/components/metaconfig/rsyslog_action_prog/binary*
         - Description: The binary (and command line options; make sure to esacpe the double quotes)
@@ -154,7 +154,7 @@ Types
         - Type: string
     - */software/components/metaconfig/rsyslog_action_prog/hup.signal*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/rsyslog_action_prog/signalOnClose*
         - Optional
         - Type: boolean
@@ -168,7 +168,7 @@ Types
         - Range: 0..
     - */software/components/metaconfig/rsyslog_action_fwd/Protocol*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/rsyslog_action_fwd/NetworkNamespace*
         - Optional
         - Type: string
@@ -177,7 +177,7 @@ Types
         - Type: string
     - */software/components/metaconfig/rsyslog_action_fwd/TCP_Framing*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/rsyslog_action_fwd/ZipLevel*
         - Optional
         - Type: long
@@ -188,7 +188,7 @@ Types
         - Range: 0..
     - */software/components/metaconfig/rsyslog_action_fwd/compression.mode*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/rsyslog_action_fwd/compression.stream.flushOnTXEnd*
         - Optional
         - Type: boolean
@@ -213,17 +213,17 @@ Types
         - Range: 0..
     - */software/components/metaconfig/rsyslog_action_fwd/StreamDriver*
         - Optional
-        - Type: string
+        - Type: string_non_whitespace
     - */software/components/metaconfig/rsyslog_action_fwd/StreamDriverMode*
         - Optional
         - Type: long
         - Range: 0..
     - */software/components/metaconfig/rsyslog_action_fwd/StreamDriverAuthMode*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/rsyslog_action_fwd/StreamDriverPermittedPeers*
         - Optional
-        - Type: string
+        - Type: string_non_whitespace
     - */software/components/metaconfig/rsyslog_action_fwd/ResendLastMSGOnReconnect*
         - Optional
         - Type: boolean
@@ -243,7 +243,7 @@ Types
         - Type: string
     - */software/components/metaconfig/rsyslog_action_czmq/socktype*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/rsyslog_action_czmq/sendtimeout*
         - Optional
         - Type: long

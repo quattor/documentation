@@ -71,6 +71,9 @@ Types
     - */software/components/openstack/openstack_glance_service_config/cors*
         - Optional
         - Type: openstack_cors
+    - */software/components/openstack/openstack_glance_service_config/oslo_messaging_notifications*
+        - Optional
+        - Type: openstack_oslo_messaging_notifications
  - **/software/components/openstack/openstack_quattor_glance**
  - **/software/components/openstack/openstack_glance_config**
     - Description: list of Glance service configuration sections

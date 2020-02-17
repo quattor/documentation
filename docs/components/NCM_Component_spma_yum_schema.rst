@@ -74,6 +74,10 @@ Types
         - Optional
         - Type: absolute_file_path
     - */software/components/spma/component_spma_yum/filter*
-        - Description: regexp pattern to install only matching (unescaped) package names. This is an advanced setting, and typically only used in a 2-stage software install like spmalight. When userpkgs is not defined, it runs as if userpkgs is true. (Caution: is userpkgs is false, it will very likely remove all non-matching packages. It is advised to remove the userpkgs attribute). Versionlocking is not affected by the filter (i.e. all packages are considered for version locking, not only the filtered ones).
+        - Description: regexp pattern to install only matching (unescaped) package names. This is an advanced setting, and typically only used in a 2-stage software install like spmalight. When userpkgs is not defined, it runs as if userpkgs is true. When repository_cleanup is not defined, it runs as if repository_cleanup is true. (Caution: is userpkgs is false, it will very likely remove all non-matching packages. It is advised to remove the userpkgs attribute). Versionlocking is not affected by the filter (i.e. all packages are considered for version locking, not only the filtered ones).
         - Optional
         - Type: string
+    - */software/components/spma/component_spma_yum/repository_cleanup*
+        - Description: Cleanup repository configuration (even when running in userpkgs mode). By default, repositories will not be cleaned up when running in userpkgs mode.
+        - Optional
+        - Type: boolean

@@ -68,7 +68,7 @@ Types
         - Default value: true
     - */software/components/openstack/openstack_neutron_vxlan/local_ip*
         - Description: IP address of local overlay (tunnel) network endpoint. Use either an IPv4 or IPv6 address that resides on one of the host network interfaces. The IP version of this value must match the value of the 'overlay_ip_version' option in the ML2 plug-in configuration file on the neutron server node(s)
-        - Required
+        - Optional
         - Type: type_ip
     - */software/components/openstack/openstack_neutron_vxlan/l2_population*
         - Description: Extension to use alongside ml2 plugins l2population mechanism driver. It enables the plugin to populate VXLAN forwarding table
@@ -91,13 +91,17 @@ Types
     - Description: The Neutron configuration options in openvswitch_agent.ini "agent" Section.
     - */software/components/openstack/openstack_neutron_agent/l2_population*
         - Description: Extension to use alongside ml2 plugins l2population mechanism driver. It enables the plugin to populate VXLAN forwarding table
-        - Required
+        - Optional
         - Type: boolean
         - Default value: true
     - */software/components/openstack/openstack_neutron_agent/tunnel_types*
         - Description: Network types supported by the agent (gre and/or vxlan)
-        - Required
+        - Optional
         - Type: openstack_tunnel_types
+    - */software/components/openstack/openstack_neutron_agent/extensions*
+        - Description: Extensions list to use
+        - Optional
+        - Type: openstack_neutron_agent_extensions
  - **/software/components/openstack/openstack_neutron_common**
     - Description: list of Neutron common configuration sections
     - */software/components/openstack/openstack_neutron_common/DEFAULT*
@@ -149,6 +153,9 @@ Types
     - */software/components/openstack/openstack_neutron_l3_config/DEFAULT*
         - Required
         - Type: openstack_DEFAULTS
+    - */software/components/openstack/openstack_neutron_l3_config/agent*
+        - Optional
+        - Type: openstack_neutron_agent
  - **/software/components/openstack/openstack_neutron_dhcp_config**
     - */software/components/openstack/openstack_neutron_dhcp_config/DEFAULT*
         - Required
@@ -173,6 +180,9 @@ Types
         - Description: nova section has the same options than "keystone_authtoken" but with the nova user and passwod
         - Optional
         - Type: openstack_neutron_nova
+    - */software/components/openstack/openstack_neutron_service_config/oslo_messaging_notifications*
+        - Optional
+        - Type: openstack_oslo_messaging_notifications
  - **/software/components/openstack/openstack_quattor_neutron**
  - **/software/components/openstack/openstack_neutron_config**
     - Description: list of Neutron service configuration sections
