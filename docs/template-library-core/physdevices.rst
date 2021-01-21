@@ -11,7 +11,7 @@ Types
         - Type: long
     - *structure_raidport/interface*
         - Required
-        - Type: string
+        - Type: choice
     - *structure_raidport/boot*
         - Optional
         - Type: boolean

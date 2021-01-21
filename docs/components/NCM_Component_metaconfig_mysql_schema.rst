@@ -1,0 +1,197 @@
+#############################################
+NCM\::Component\::metaconfig\::mysql - schema
+#############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/mysql_cnf_size**
+ - **/software/components/metaconfig/mysql_cnf_client**
+    - */software/components/metaconfig/mysql_cnf_client/password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_client/port*
+        - Optional
+        - Type: type_port
+        - Default value: 3306
+    - */software/components/metaconfig/mysql_cnf_client/socket*
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /var/lib/mysql/mysql.sock
+ - **/software/components/metaconfig/mysql_cnf_mysqld**
+    - */software/components/metaconfig/mysql_cnf_mysqld/port*
+        - Optional
+        - Type: type_port
+        - Default value: 3306
+    - */software/components/metaconfig/mysql_cnf_mysqld/datadir*
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /var/lib/mysql
+    - */software/components/metaconfig/mysql_cnf_mysqld/socket*
+        - Optional
+        - Type: absolute_file_path
+        - Default value: /var/lib/mysql/mysql.sock
+    - */software/components/metaconfig/mysql_cnf_mysqld/user*
+        - Optional
+        - Type: string
+        - Default value: mysql
+    - */software/components/metaconfig/mysql_cnf_mysqld/symbolic-links*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/mysql_cnf_mysqld/skip-locking*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/mysql_cnf_mysqld/key_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/max_allowed_packet*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/max_connections*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/mysql_cnf_mysqld/table_open_cache*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/mysql_cnf_mysqld/sort_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/read_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/read_rnd_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/myisam_sort_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/thread_cache_size*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/mysql_cnf_mysqld/query_cache_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/thread_concurrency*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/mysql_cnf_mysqld/skip-networking*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/mysql_cnf_mysqld/log-bin*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqld/server-id*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/mysql_cnf_mysqld/master-host*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqld/master-user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqld/master-password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqld/master-port*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/mysql_cnf_mysqld/log-bin*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqld/binlog_format*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_data_home_dir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_data_file_path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_log_group_home_dir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_buffer_pool_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_additional_mem_pool_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_log_file_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_log_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_flush_log_at_trx_commit*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/mysql_cnf_mysqld/innodb_lock_wait_timeout*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/mysql_cnf_mysqld/ignore_builtin_innodb*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/mysql_cnf_mysqld/plugin-load*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/mysql_cnf_mysqldump**
+    - */software/components/metaconfig/mysql_cnf_mysqldump/quick*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/mysql_cnf_mysqldump/max_allowed_packet*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_mysqldump/max_connections*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/mysql_cnf_mysqldump/user*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/mysql_cnf_mysqldump/password*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/mysql_cnf_mysql**
+    - */software/components/metaconfig/mysql_cnf_mysql/no-auto-rehash*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/mysql_cnf_mysql/safe-updates*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/mysql_cnf_myisamchk**
+    - */software/components/metaconfig/mysql_cnf_myisamchk/key_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_myisamchk/sort_buffer_size*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_myisamchk/read_buffer*
+        - Optional
+        - Type: mysql_cnf_size
+    - */software/components/metaconfig/mysql_cnf_myisamchk/write_buffer*
+        - Optional
+        - Type: mysql_cnf_size
+ - **/software/components/metaconfig/mysql_cnf_mysqlhotcopy**
+    - */software/components/metaconfig/mysql_cnf_mysqlhotcopy/interactive-timeout*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/type_mysql_cnf**
+    - */software/components/metaconfig/type_mysql_cnf/client*
+        - Optional
+        - Type: mysql_cnf_client
+    - */software/components/metaconfig/type_mysql_cnf/mysqld*
+        - Optional
+        - Type: mysql_cnf_mysqld
+    - */software/components/metaconfig/type_mysql_cnf/mysqldump*
+        - Optional
+        - Type: mysql_cnf_mysqldump
+    - */software/components/metaconfig/type_mysql_cnf/mysql*
+        - Optional
+        - Type: mysql_cnf_mysql
+    - */software/components/metaconfig/type_mysql_cnf/myisamchk*
+        - Optional
+        - Type: mysql_cnf_myisamchk
+    - */software/components/metaconfig/type_mysql_cnf/mysqlhotcopy*
+        - Optional
+        - Type: mysql_cnf_mysqlhotcopy

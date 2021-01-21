@@ -44,7 +44,8 @@ the profile cache: 'cache', 'resources' and 'profiles'.
 The values are generated from the defaults or ``profilecacheoptions``
 (to be set via ``set_profile_cache_options``).
 
-Relative paths are assumed to be relative wrt current directory;
+Relative paths are assumed to be relative wrt ``basedir``
+(defaults to current directory);
 absolute paths are used for the returned values.
 
 
@@ -58,8 +59,11 @@ prepare_profile_cache
 
 
 Prepares a cache for the profile given as an argument. This means
-compiling the profile, fetching it and saving the binary cache
+compiling the profile if needed, fetching it and saving the binary cache
 wherever the CCM configuration tells us.
+
+If the ``profile`` ends with ``.(json|xml)(.gz)?`` it is assumed
+to be already compiled and used as-is.
 
 Returns the configuration object for this profile.
 

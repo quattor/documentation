@@ -32,7 +32,7 @@ Types
     - */software/components/symlink/structure_symlink_entry/name*
         - Description: symbolic link name (path).
         - Required
-        - Type: string
+        - Type: absolute_file_path
     - */software/components/symlink/structure_symlink_entry/target*
         - Description: The target path can be built using a command output with the command string (can include valid command options) to execute between a pair of '@@' or a contextual variable (variables are defined in "/software/components/symlinks/context"). Unless the shell command between '@@' must be reevaluated for each link, it is better to associate the shell command with a contextual variable and use the variable in the target definition, as a contextual variable is evaluated once (global).
         - Required

@@ -237,6 +237,66 @@ Types
     - */software/components/metaconfig/rsyslog_action_fwd/template*
         - Optional
         - Type: string
+ - **/software/components/metaconfig/rsyslog_action_kafka**
+    - */software/components/metaconfig/rsyslog_action_kafka/Broker*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_kafka/Topic*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_kafka/Key*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_kafka/DynaKey*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/rsyslog_action_kafka/DynaTopic*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_kafka/DynaTopic.Cachesize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_kafka/Partitions.Auto*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/rsyslog_action_kafka/Partitions.number*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_kafka/Partitions.useFixed*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/rsyslog_action_kafka/errorFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_action_kafka/statsFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_action_kafka/ConfParam*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_kafka/TopicConfParam*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_kafka/Template*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_action_kafka/closeTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 2000
+    - */software/components/metaconfig/rsyslog_action_kafka/resubmitOnFailure*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/rsyslog_action_kafka/KeepFailedMessages*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/rsyslog_action_kafka/failedMsgFile*
+        - Optional
+        - Type: absolute_file_path
  - **/software/components/metaconfig/rsyslog_action_czmq**
     - */software/components/metaconfig/rsyslog_action_czmq/endpoints*
         - Optional
@@ -296,6 +356,9 @@ Types
     - */software/components/metaconfig/rsyslog_action/fwd*
         - Optional
         - Type: rsyslog_action_fwd
+    - */software/components/metaconfig/rsyslog_action/kafka*
+        - Optional
+        - Type: rsyslog_action_kafka
     - */software/components/metaconfig/rsyslog_action/prog*
         - Optional
         - Type: rsyslog_action_prog

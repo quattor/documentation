@@ -122,7 +122,7 @@ Types
         - Type: string
     - */software/components/altlogrotate/structure_altlogrotate_logrot/frequency*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/altlogrotate/structure_altlogrotate_logrot/scripts*
         - Optional
         - Type: structure_altlogrotate_scripts

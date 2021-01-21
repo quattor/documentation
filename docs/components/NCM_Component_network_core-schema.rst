@@ -5,12 +5,14 @@ NCM\::Component\::network - core-schema
 Types
 -----
 
+ - **/software/components/network/network_valid_routing_table**
+ - **/software/components/network/network_ip_cmd_prefix**
  - **/software/components/network/structure_route**
     - Description: Add route (IPv4 of IPv6) Presence of ':' in any of the values indicates this is IPv6 related.
     - */software/components/network/structure_route/address*
         - Description: The ADDRESS in ADDRESS/PREFIX via GATEWAY
         - Optional
-        - Type: type_ip
+        - Type: string
     - */software/components/network/structure_route/prefix*
         - Description: The PREFIX in ADDRESS/PREFIX via GATEWAY
         - Optional
@@ -23,12 +25,32 @@ Types
         - Description: alternative notation for prefix (cannot be combined with prefix)
         - Optional
         - Type: type_ip
+    - */software/components/network/structure_route/table*
+        - Description: routing table
+        - Optional
+        - Type: network_valid_routing_table
     - */software/components/network/structure_route/command*
         - Description: route add command options to use (cannot be combined with other options)
         - Optional
         - Type: string
  - **/software/components/network/structure_rule**
     - Description: Add rule (IPv4 of IPv6) Presence of ':' in any of the values indicates this is IPv6 related.
+    - */software/components/network/structure_rule/to*
+        - Description: to selector
+        - Optional
+        - Type: network_ip_cmd_prefix
+    - */software/components/network/structure_rule/from*
+        - Description: from selector
+        - Optional
+        - Type: network_ip_cmd_prefix
+    - */software/components/network/structure_rule/not*
+        - Description: not action (false value means no not action; also the default when not is not defined)
+        - Optional
+        - Type: boolean
+    - */software/components/network/structure_rule/table*
+        - Description: routing table action
+        - Optional
+        - Type: network_valid_routing_table
     - */software/components/network/structure_rule/command*
         - Description: rule add options to use (cannot be combined with other options)
         - Optional
@@ -127,6 +149,24 @@ Types
     - */software/components/network/structure_ethtool_ring/rx-jumbo*
         - Optional
         - Type: long
+ - **/software/components/network/structure_ethtool_channels**
+    - Description: Set the number of channels. See ethtool --show-channels for the values.
+    - */software/components/network/structure_ethtool_channels/rx*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/structure_ethtool_channels/tx*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/structure_ethtool_channels/other*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/structure_ethtool_channels/combined*
+        - Optional
+        - Type: long
+        - Range: 0..
  - **/software/components/network/structure_ethtool_wol**
     - Description: ethtool wol p|u|m|b|a|g|s|d... from the man page Sets Wake-on-LAN options. Not all devices support this. The argument to this option is a string of characters specifying which options to enable. p Wake on phy activity u Wake on unicast messages m Wake on multicast messages b Wake on broadcast messages a Wake on ARP g Wake on MagicPacket(tm) s Enable SecureOn(tm) password for MagicPacket(tm) d Disable (wake on nothing). This option clears all previous option
  - **/software/components/network/structure_ethtool**
@@ -143,6 +183,9 @@ Types
     - */software/components/network/structure_ethtool/speed*
         - Optional
         - Type: long
+    - */software/components/network/structure_ethtool/channels*
+        - Optional
+        - Type: structure_ethtool_channels
  - **/software/components/network/structure_interface_plugin_vxlan**
     - Description: interface plugin for vxlan support via initscripts-vxlan
     - */software/components/network/structure_interface_plugin_vxlan/vni*
@@ -402,3 +445,8 @@ Types
     - */software/components/network/structure_network/ipv6*
         - Optional
         - Type: structure_ipv6
+    - */software/components/network/structure_network/routing_table*
+        - Description: Manage custom routing table entries; key is the name; value is the id
+        - Optional
+        - Type: long
+        - Range: 1..252

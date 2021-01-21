@@ -27,6 +27,7 @@ SYNOPSIS
      $srv->stop();
      $srv->start();
      $srv->restart();
+     $srv->condrestart();
      $srv->stop_sleep_start();
 
 

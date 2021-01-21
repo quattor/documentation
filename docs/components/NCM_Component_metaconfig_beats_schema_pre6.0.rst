@@ -1,0 +1,410 @@
+####################################################
+NCM\::Component\::metaconfig\::beats - schema_pre6.0
+####################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/beats_output_logstash_ssl_protocol**
+ - **/software/components/metaconfig/beats_output_logstash_ssl**
+    - Description: SSL settings for logstash output
+    - */software/components/metaconfig/beats_output_logstash_ssl/certificate_authorities*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash_ssl/certificate*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash_ssl/key*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash_ssl/key_passphrase*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash_ssl/insecure*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_output_logstash_ssl/cipher_suites*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash_ssl/curve_types*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash_ssl/verification_mode*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash_ssl/supported_protocols*
+        - Optional
+        - Type: beats_output_logstash_ssl_protocol
+ - **/software/components/metaconfig/beats_output_elasticsearch_ssl**
+    - Description: TLS settings for elasticsearch output
+ - **/software/components/metaconfig/beats_output_elasticsearch**
+    - Description: elasticsearch as output
+    - */software/components/metaconfig/beats_output_elasticsearch/hosts*
+        - Optional
+        - Type: type_hostport
+    - */software/components/metaconfig/beats_output_elasticsearch/protocol*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_elasticsearch/username*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_elasticsearch/password*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_elasticsearch/worker*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_elasticsearch/index*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_elasticsearch/path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_elasticsearch/proxy_url*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_elasticsearch/max_retries*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_elasticsearch/bulk_max_size*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_elasticsearch/timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_elasticsearch/flush_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_elasticsearch/save_topology*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_output_elasticsearch/topology_expire*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_elasticsearch/ssl*
+        - Optional
+        - Type: beats_output_elasticsearch_ssl
+ - **/software/components/metaconfig/beats_output_logstash**
+    - Description: logstash as output
+    - */software/components/metaconfig/beats_output_logstash/hosts*
+        - Optional
+        - Type: type_hostport
+    - */software/components/metaconfig/beats_output_logstash/compression_level*
+        - Optional
+        - Type: long
+        - Range: 0..9
+    - */software/components/metaconfig/beats_output_logstash/worker*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_logstash/loadbalance*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_output_logstash/pipelining*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_logstash/proxy_url*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash/proxy_use_local_resolver*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_output_logstash/index*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_logstash/ssl*
+        - Optional
+        - Type: beats_output_logstash_ssl
+    - */software/components/metaconfig/beats_output_logstash/timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_logstash/max_retries*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/beats_output_logstash/bulk_max_size*
+        - Optional
+        - Type: long
+ - **/software/components/metaconfig/beats_output_file**
+    - Description: file(s) as output
+    - */software/components/metaconfig/beats_output_file/path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_file/filename*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_output_file/rotate_every_kb*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_output_file/number_of_files*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/beats_output_console**
+    - Description: console as output
+    - */software/components/metaconfig/beats_output_console/pretty*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/beats_output**
+    - Description: Configure output (only one can be configured)
+    - */software/components/metaconfig/beats_output/elasticsearch*
+        - Optional
+        - Type: beats_output_elasticsearch
+    - */software/components/metaconfig/beats_output/logstash*
+        - Optional
+        - Type: beats_output_logstash
+    - */software/components/metaconfig/beats_output/file*
+        - Optional
+        - Type: beats_output_file
+    - */software/components/metaconfig/beats_output/console*
+        - Optional
+        - Type: beats_output_console
+ - **/software/components/metaconfig/beats_shipper_geoip**
+    - Description: shipper geoip
+    - */software/components/metaconfig/beats_shipper_geoip/paths*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/beats_shipper**
+    - Description: The shipper publishes the data
+    - */software/components/metaconfig/beats_shipper/name*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_shipper/tags*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_shipper/ignore_outgoing*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_shipper/refresh_topology_freq*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_shipper/topology_expire*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_shipper/geoip*
+        - Optional
+        - Type: beats_shipper_geoip
+ - **/software/components/metaconfig/beats_logging_selector**
+    - Description: Enable debug output for the a (or all) component(s).
+ - **/software/components/metaconfig/beats_logging_files**
+    - Description: log to local files
+    - */software/components/metaconfig/beats_logging_files/path*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_logging_files/name*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_logging_files/rotateeverybytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_logging_files/keepfiles*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/beats_logging**
+    - Description: Configure logging of beats itself.
+    - */software/components/metaconfig/beats_logging/to_syslog*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_logging/to_files*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_logging/files*
+        - Optional
+        - Type: beats_logging_files
+    - */software/components/metaconfig/beats_logging/selectors*
+        - Optional
+        - Type: beats_logging_selector
+    - */software/components/metaconfig/beats_logging/level*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/beats_service**
+    - */software/components/metaconfig/beats_service/output*
+        - Required
+        - Type: beats_output
+    - */software/components/metaconfig/beats_service/shipper*
+        - Optional
+        - Type: beats_shipper
+    - */software/components/metaconfig/beats_service/logging*
+        - Optional
+        - Type: beats_logging
+    - */software/components/metaconfig/beats_service/name*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/beats_filebeat_prospector_multiline**
+    - Description: Handle logmessages spread over multiple lines
+    - */software/components/metaconfig/beats_filebeat_prospector_multiline/pattern*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector_multiline/negate*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_filebeat_prospector_multiline/match*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector_multiline/max_lines*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector_multiline/timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/beats_filebeat_prospector**
+    - Description: Configure a prospector (source of certain class of data, can come multiple paths)
+    - */software/components/metaconfig/beats_filebeat_prospector/paths*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/encoding*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/input_type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/exclude_lines*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/include_lines*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/exclude_files*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/fields*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/fields_under_root*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_filebeat_prospector/ignore_older*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector/document_type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_prospector/scan_frequency*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector/harvester_buffer_size*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector/max_bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector/multiline*
+        - Optional
+        - Type: beats_filebeat_prospector_multiline
+    - */software/components/metaconfig/beats_filebeat_prospector/tail_files*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_filebeat_prospector/backoff*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector/max_backoff*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector/backoff_factor*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_prospector/force_close_files*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/beats_filebeat_filebeat**
+    - Description: Filebeat configuration
+    - */software/components/metaconfig/beats_filebeat_filebeat/prospectors*
+        - Required
+        - Type: beats_filebeat_prospector
+    - */software/components/metaconfig/beats_filebeat_filebeat/spool_size*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_filebeat/idle_timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/beats_filebeat_filebeat/registry_file*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_filebeat_filebeat/config_dir*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/beats_filebeat_service**
+    - Description: Filebeat service (see https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-configuration-details.html)
+    - */software/components/metaconfig/beats_filebeat_service/filebeat*
+        - Required
+        - Type: beats_filebeat_filebeat
+ - **/software/components/metaconfig/beats_gpfsbeat_gpfsbeat**
+    - Description: Gpfsbeat configuration devices: the filesystems as named in GPFS mmrequota, mmlsfs, mmlsfilset, mmdf: paths to these executables
+    - */software/components/metaconfig/beats_gpfsbeat_gpfsbeat/period*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/beats_gpfsbeat_gpfsbeat/devices*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/beats_gpfsbeat_gpfsbeat/mmrepquota*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/beats_gpfsbeat_gpfsbeat/mmlsfs*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/beats_gpfsbeat_gpfsbeat/mmlsfileset*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/beats_gpfsbeat_gpfsbeat/mmdf*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/beats_gpfsbeat_service**
+    - Description: Gpfsbeat service
+    - */software/components/metaconfig/beats_gpfsbeat_service/gpfsbeat*
+        - Required
+        - Type: beats_gpfsbeat_gpfsbeat
+ - **/software/components/metaconfig/beats_topbeat_input_stats**
+    - Description: Topbeat input source(s)
+    - */software/components/metaconfig/beats_topbeat_input_stats/system*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_topbeat_input_stats/proc*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_topbeat_input_stats/filesystem*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/beats_topbeat_input_stats/cpu_per_core*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/beats_topbeat_input**
+    - Description: Topbeat configuration
+    - */software/components/metaconfig/beats_topbeat_input/period*
+        - Required
+        - Type: long
+        - Range: 0..
+        - Default value: 10
+    - */software/components/metaconfig/beats_topbeat_input/procs*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/beats_topbeat_input/stats*
+        - Optional
+        - Type: beats_topbeat_input_stats
+ - **/software/components/metaconfig/beats_topbeat_service**
+    - Description: Topbeat service (see https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-configuration-options.html)
+    - */software/components/metaconfig/beats_topbeat_service/input*
+        - Required
+        - Type: beats_topbeat_input

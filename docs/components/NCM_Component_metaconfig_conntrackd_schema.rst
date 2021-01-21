@@ -1,0 +1,160 @@
+##################################################
+NCM\::Component\::metaconfig\::conntrackd - schema
+##################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/conntrackd_service_sync_mode**
+    - Description: There are 3 main synchronization modes or protocols: NOTRACK, ALARM and FTFW.
+    - */software/components/metaconfig/conntrackd_service_sync_mode/type*
+        - Required
+        - Type: choice
+        - Default value: FTFW
+    - */software/components/metaconfig/conntrackd_service_sync_mode/DisableExternalCache*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/conntrackd_service_sync_mode/CommitTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/conntrackd_service_sync_mode/PurgeTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/conntrackd_service_sync_transport**
+    - Description: There are 3 transport protocols: TCP, Multicast and UDP.
+    - */software/components/metaconfig/conntrackd_service_sync_transport/type*
+        - Required
+        - Type: choice
+    - */software/components/metaconfig/conntrackd_service_sync_transport/IPv4_address*
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/conntrackd_service_sync_transport/IPv6_address*
+        - Optional
+        - Type: type_ipv6
+    - */software/components/metaconfig/conntrackd_service_sync_transport/IPv4_Destination_Address*
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/conntrackd_service_sync_transport/IPv6_Destionation_Address*
+        - Optional
+        - Type: type_ipv6
+    - */software/components/metaconfig/conntrackd_service_sync_transport/Port*
+        - Optional
+        - Type: type_port
+    - */software/components/metaconfig/conntrackd_service_sync_transport/Interface*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/conntrackd_service_sync_transport/IPv4_interface*
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/conntrackd_service_sync_transport/SndSocketBuffer*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/conntrackd_service_sync_transport/RcvSocketBuffer*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/conntrackd_service_sync_transport/Checksum*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/conntrackd_service_sync**
+    - Description: This top-level section defines how conntrackd should handle synchronization with other cluster nodes.
+    - */software/components/metaconfig/conntrackd_service_sync/mode*
+        - Required
+        - Type: conntrackd_service_sync_mode
+    - */software/components/metaconfig/conntrackd_service_sync/transport*
+        - Required
+        - Type: conntrackd_service_sync_transport
+ - **/software/components/metaconfig/conntrackd_service_general_unix**
+    - Description: Unix socket configuration. This socket is used by conntrackd to listen to external commands like `conntrackd -k` or `conntrackd -n`.
+    - */software/components/metaconfig/conntrackd_service_general_unix/Path*
+        - Required
+        - Type: string
+        - Default value: /var/run/conntrackd.ctl
+    - */software/components/metaconfig/conntrackd_service_general_unix/Backlog*
+        - Required
+        - Type: long
+        - Default value: 20
+ - **/software/components/metaconfig/conntrackd_service_general_filter_action**
+    - */software/components/metaconfig/conntrackd_service_general_filter_action/action*
+        - Required
+        - Type: choice
+ - **/software/components/metaconfig/conntrackd_service_general_filter_protocol_option**
+ - **/software/components/metaconfig/conntrackd_service_general_filter_state_option**
+ - **/software/components/metaconfig/conntrackd_service_general_filter_state**
+    - */software/components/metaconfig/conntrackd_service_general_filter_state/states*
+        - Required
+        - Type: conntrackd_service_general_filter_state_option
+ - **/software/components/metaconfig/conntrackd_service_general_filter_protocol**
+    - */software/components/metaconfig/conntrackd_service_general_filter_protocol/protocols*
+        - Required
+        - Type: conntrackd_service_general_filter_protocol_option
+ - **/software/components/metaconfig/conntrackd_service_general_filter_address**
+    - */software/components/metaconfig/conntrackd_service_general_filter_address/IPv4_address*
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/conntrackd_service_general_filter_address/IPv6_address*
+        - Optional
+        - Type: type_ipv6
+ - **/software/components/metaconfig/conntrackd_service_general_filter**
+    - Description: Event filtering. This clause allows you to filter certain traffic. There are currently three filter-sets: Protocol, Address and State. The filter is attached to an action that can be: Accept or Ignore. Thus, you can define the event filtering policy of the filter-sets in positive or negative logic depending on your needs. You can select if conntrackd filters the event messages from user-space or kernel-space. The kernel-space event filtering saves some CPU cycles by avoiding the copy of the event message from kernel-space to user-space. The kernel-space event filtering is prefered, however, you require a Linux kernel >= 2.6.29 to filter from kernel-space.
+    - */software/components/metaconfig/conntrackd_service_general_filter/from*
+        - Required
+        - Type: choice
+        - Default value: Userspace
+    - */software/components/metaconfig/conntrackd_service_general_filter/protocol*
+        - Optional
+        - Type: conntrackd_service_general_filter_protocol
+    - */software/components/metaconfig/conntrackd_service_general_filter/address*
+        - Optional
+        - Type: conntrackd_service_general_filter_address
+    - */software/components/metaconfig/conntrackd_service_general_filter/state*
+        - Optional
+        - Type: conntrackd_service_general_filter_state
+ - **/software/components/metaconfig/conntrackd_service_general**
+    - Description: This top-level section contains generic configuration directives for the conntrackd daemon
+    - */software/components/metaconfig/conntrackd_service_general/Nice*
+        - Required
+        - Type: long
+        - Range: -20..19
+    - */software/components/metaconfig/conntrackd_service_general/HashSize*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/conntrackd_service_general/HashLimit*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/conntrackd_service_general/Logfile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/conntrackd_service_general/Syslog*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/conntrackd_service_general/LockFile*
+        - Required
+        - Type: string
+        - Default value: /var/lock/conntrack.lock
+    - */software/components/metaconfig/conntrackd_service_general/UNIX*
+        - Required
+        - Type: conntrackd_service_general_unix
+    - */software/components/metaconfig/conntrackd_service_general/NetlinkBufferSize*
+        - Optional
+        - Type: long
+        - Range: 102400..
+    - */software/components/metaconfig/conntrackd_service_general/NetlinkBufferSizeMaxGrowth*
+        - Optional
+        - Type: long
+        - Range: 204800..
+    - */software/components/metaconfig/conntrackd_service_general/filter*
+        - Optional
+        - Type: conntrackd_service_general_filter
+ - **/software/components/metaconfig/conntrackd_service**
+    - */software/components/metaconfig/conntrackd_service/sync*
+        - Optional
+        - Type: conntrackd_service_sync
+    - */software/components/metaconfig/conntrackd_service/general*
+        - Required
+        - Type: conntrackd_service_general

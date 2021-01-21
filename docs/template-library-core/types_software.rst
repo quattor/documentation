@@ -19,3 +19,6 @@ Types
     - *structure_software/groups*
         - Optional
         - Type: dict
+    - *structure_software/modules*
+        - Optional
+        - Type: dict

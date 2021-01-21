@@ -79,7 +79,7 @@ METHODS
  
  
  Every test section has at least the ``enable`` option,
- set to true by default.
+ set by default.
  For all other options, read the respective method
  documentation.
  

@@ -357,6 +357,12 @@ Types
     - */software/components/metaconfig/httpd_ssl_vhost/honorcipherorder*
         - Optional
         - Type: string
+    - */software/components/metaconfig/httpd_ssl_vhost/compression*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/httpd_ssl_vhost/sessiontickets*
+        - Optional
+        - Type: boolean
  - **/software/components/metaconfig/httpd_directory_allowoverride**
  - **/software/components/metaconfig/httpd_acl_order**
  - **/software/components/metaconfig/httpd_acl**
@@ -501,11 +507,78 @@ Types
         - Type: string
     - */software/components/metaconfig/httpd_auth/basicprovider*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/httpd_auth/type*
         - Required
         - Type: httpd_auth_type
         - Default value: Basic
+ - **/software/components/metaconfig/davrods_server**
+    - Description: Hostname and port of the iRODS server to connect to. @
+    - */software/components/metaconfig/davrods_server/host*
+        - Required
+        - Type: type_fqdn
+    - */software/components/metaconfig/davrods_server/port*
+        - Required
+        - Type: type_port
+ - **/software/components/metaconfig/davrods_anonymous**
+    - */software/components/metaconfig/davrods_anonymous/user*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/davrods_anonymous/password*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/httpd_davrods**
+    - Description: Davrods plugin configuration @
+    - */software/components/metaconfig/httpd_davrods/Dav*
+        - Required
+        - Type: choice
+        - Default value: davrods-locallock
+    - */software/components/metaconfig/httpd_davrods/EnvFile*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_davrods/Server*
+        - Required
+        - Type: davrods_server
+    - */software/components/metaconfig/httpd_davrods/Zone*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_davrods/AuthScheme*
+        - Required
+        - Type: choice
+        - Default value: Native
+    - */software/components/metaconfig/httpd_davrods/AnonymousMode*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/httpd_davrods/AnonymousLogin*
+        - Optional
+        - Type: davrods_anonymous
+    - */software/components/metaconfig/httpd_davrods/DefaultResource*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_davrods/ExposedRoot*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_davrods/TxBufferKbs*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_davrods/RxBufferKbs*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/httpd_davrods/TmpfileRollback*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/httpd_davrods/LockDB*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_davrods/HtmlHead*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_davrods/HtmlHeader*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_davrods/HtmlFooter*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/httpd_file**
     - */software/components/metaconfig/httpd_file/name*
         - Required
@@ -599,6 +672,17 @@ Types
     - */software/components/metaconfig/httpd_rewrite/options*
         - Optional
         - Type: httpd_rewrite_option
+ - **/software/components/metaconfig/httpd_redirect**
+    - */software/components/metaconfig/httpd_redirect/status*
+        - Optional
+        - Type: long
+        - Range: 100..599
+    - */software/components/metaconfig/httpd_redirect/path*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/httpd_redirect/url*
+        - Optional
+        - Type: type_URI
  - **/software/components/metaconfig/httpd_perl_handler**
     - */software/components/metaconfig/httpd_perl_handler/responsehandler*
         - Required
@@ -699,7 +783,7 @@ Types
         - Default value: false
     - */software/components/metaconfig/httpd_shared/servername*
         - Optional
-        - Type: type_hostport
+        - Type: string
     - */software/components/metaconfig/httpd_shared/limitrequestbody*
         - Optional
         - Type: long
@@ -820,6 +904,9 @@ Types
     - */software/components/metaconfig/httpd_directory/wsgi*
         - Optional
         - Type: httpd_wsgi_vhost
+    - */software/components/metaconfig/httpd_directory/davrods*
+        - Optional
+        - Type: httpd_davrods
  - **/software/components/metaconfig/httpd_vhost_ip**
  - **/software/components/metaconfig/httpd_header**
     - */software/components/metaconfig/httpd_header/name*
@@ -835,6 +922,10 @@ Types
         - Required
         - Type: string
         - Default value: "
+    - */software/components/metaconfig/httpd_header/always*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/httpd_serveralias**
  - **/software/components/metaconfig/httpd_vhost**
     - */software/components/metaconfig/httpd_vhost/port*
         - Required
@@ -842,6 +933,9 @@ Types
     - */software/components/metaconfig/httpd_vhost/ip*
         - Optional
         - Type: httpd_vhost_ip
+    - */software/components/metaconfig/httpd_vhost/serveralias*
+        - Optional
+        - Type: httpd_serveralias
     - */software/components/metaconfig/httpd_vhost/ssl*
         - Optional
         - Type: httpd_ssl_vhost
@@ -863,6 +957,9 @@ Types
     - */software/components/metaconfig/httpd_vhost/rewrite*
         - Optional
         - Type: httpd_rewrite
+    - */software/components/metaconfig/httpd_vhost/redirect*
+        - Optional
+        - Type: httpd_redirect
     - */software/components/metaconfig/httpd_vhost/perl*
         - Optional
         - Type: httpd_perl_vhost

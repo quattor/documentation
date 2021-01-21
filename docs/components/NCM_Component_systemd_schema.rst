@@ -20,6 +20,8 @@ Types
  - **/software/components/systemd/systemd_unit_security**
  - **/software/components/systemd/systemd_unit_virtualization**
  - **/software/components/systemd/systemd_valid_unit**
+ - **/software/components/systemd/systemd_valid_execpath**
+ - **/software/components/systemd/systemd_relative_directory**
  - **/software/components/systemd/systemd_unitfile_config_unit_condition**
     - Description: Condition/Assert entries in Unit section All lists can start with empty string to reset previously defined values.
     - */software/components/systemd/systemd_unitfile_config_unit_condition/ACPower*
@@ -209,6 +211,18 @@ Types
         - Type: boolean
  - **/software/components/systemd/systemd_unitfile_config_systemd_exec**
     - Description: systemd.exec directives http://www.freedesktop.org/software/systemd/man/systemd.exec.html valid for [Service], [Socket], [Mount], or [Swap] sections
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/CacheDirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/CacheDirectory*
+        - Optional
+        - Type: systemd_relative_directory
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/ConfigurationDirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/ConfigurationDirectory*
+        - Optional
+        - Type: systemd_relative_directory
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/CPUAffinity*
         - Optional
         - Type: long
@@ -302,6 +316,12 @@ Types
         - Optional
         - Type: long
         - Range: -1..
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/LogsDirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/LogsDirectory*
+        - Optional
+        - Type: systemd_relative_directory
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/Nice*
         - Optional
         - Type: long
@@ -315,7 +335,16 @@ Types
         - Type: boolean
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/RootDirectory*
         - Optional
-        - Type: string
+        - Type: systemd_relative_directory
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/RuntimeDirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/RuntimeDirectoryPreserve*
+        - Optional
+        - Type: choice
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/RuntimeDirectory*
+        - Optional
+        - Type: systemd_relative_directory
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/StandardError*
         - Optional
         - Type: systemd_unitfile_config_systemd_exec_stdouterr
@@ -325,6 +354,12 @@ Types
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/StandardOutput*
         - Optional
         - Type: systemd_unitfile_config_systemd_exec_stdouterr
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/StateDirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/StateDirectory*
+        - Optional
+        - Type: systemd_relative_directory
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/SupplementaryGroups*
         - Optional
         - Type: defined_group
@@ -354,7 +389,7 @@ Types
         - Type: boolean
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/UMask*
         - Optional
-        - Type: string
+        - Type: type_octal_mode
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/User*
         - Optional
         - Type: defined_user
@@ -452,6 +487,193 @@ Types
         - Optional
         - Type: long
         - Range: 0..
+ - **/software/components/systemd/systemd_unitfile_config_socket**
+    - Description: the [Socket] section http://www.freedesktop.org/software/systemd/man/systemd.socket.html
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenStream*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenDatagram*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenSequentialPacket*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenFIFO*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenSpecial*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenNetlink*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenMessageQueue*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/ListenUSBFunction*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/SocketProtocol*
+        - Optional
+        - Type: choice
+    - */software/components/systemd/systemd_unitfile_config_socket/BindIPv6Only*
+        - Optional
+        - Type: choice
+    - */software/components/systemd/systemd_unitfile_config_socket/Backlog*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/BindToDevice*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/SocketUser*
+        - Optional
+        - Type: defined_user
+    - */software/components/systemd/systemd_unitfile_config_socket/SocketGroup*
+        - Optional
+        - Type: defined_group
+    - */software/components/systemd/systemd_unitfile_config_socket/SocketMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_socket/DirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_socket/Accept*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/Writable*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/MaxConnections*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/MaxConnectionsPerSource*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/KeepAlive*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/KeepAliveTimeSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/KeepAliveIntervalSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/KeepAliveProbes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/NoDelay*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/Priority*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/DeferAcceptSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/ReceiveBuffer*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/SendBuffer*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/IPTOS*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/IPTTL*
+        - Optional
+        - Type: long
+    - */software/components/systemd/systemd_unitfile_config_socket/Mark*
+        - Optional
+        - Type: long
+    - */software/components/systemd/systemd_unitfile_config_socket/ReusePort*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/SmackLabel*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/SmackLabelIPIn*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/SmackLabelIPOut*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/SELinuxContextFromNet*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/PipeSize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/MessageQueueMaxMessages*
+        - Optional
+        - Type: long
+    - */software/components/systemd/systemd_unitfile_config_socket/MessageQueueMessageSize*
+        - Optional
+        - Type: long
+    - */software/components/systemd/systemd_unitfile_config_socket/FreeBind*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/Transparent*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/Broadcast*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/PassCredentials*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/PassSecurity*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/TCPCongestion*
+        - Optional
+        - Type: choice
+    - */software/components/systemd/systemd_unitfile_config_socket/ExecStartPost*
+        - Optional
+        - Type: systemd_valid_execpath
+    - */software/components/systemd/systemd_unitfile_config_socket/ExecStartPre*
+        - Optional
+        - Type: systemd_valid_execpath
+    - */software/components/systemd/systemd_unitfile_config_socket/ExecStopPre*
+        - Optional
+        - Type: systemd_valid_execpath
+    - */software/components/systemd/systemd_unitfile_config_socket/ExecStopPost*
+        - Optional
+        - Type: systemd_valid_execpath
+    - */software/components/systemd/systemd_unitfile_config_socket/TimeoutSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/Service*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/RemoveOnStop*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_socket/Symlinks*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/FileDescriptorName*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_socket/TriggerLimitIntervalSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_socket/TriggerLimitBurst*
+        - Optional
+        - Type: long
+        - Range: 0..
  - **/software/components/systemd/systemd_unitfile_config**
     - Description: Unit configuration sections includes, unit and install are type agnostic unit and install are mandatory, but not enforced by schema (possible issues in case of replace=true) the other attributes are only valid for a specific type
     - */software/components/systemd/systemd_unitfile_config/includes*
@@ -464,6 +686,9 @@ Types
     - */software/components/systemd/systemd_unitfile_config/service*
         - Optional
         - Type: systemd_unitfile_config_service
+    - */software/components/systemd/systemd_unitfile_config/socket*
+        - Optional
+        - Type: systemd_unitfile_config_socket
     - */software/components/systemd/systemd_unitfile_config/unit*
         - Optional
         - Type: systemd_unitfile_config_unit
@@ -502,7 +727,7 @@ Types
         - Type: systemd_target
     - */software/components/systemd/systemd_unit_type/type*
         - Required
-        - Type: string
+        - Type: choice
         - Default value: service
     - */software/components/systemd/systemd_unit_type/startstop*
         - Required
@@ -516,15 +741,15 @@ Types
         - Description: unitfile configuration
         - Optional
         - Type: systemd_unitfile
- - **/software/components/systemd/component_systemd**
-    - */software/components/systemd/component_systemd/skip*
+ - **/software/components/systemd/systemd_component**
+    - */software/components/systemd/systemd_component/skip*
         - Required
         - Type: systemd_skip
-    - */software/components/systemd/component_systemd/unconfigured*
+    - */software/components/systemd/systemd_component/unconfigured*
         - Description: what to do with unconfigured units: ignore, enabled, disabled, on (enabled+start), off (disabled+stop; advanced option)
         - Required
         - Type: string
         - Default value: ignore
-    - */software/components/systemd/component_systemd/unit*
+    - */software/components/systemd/systemd_component/unit*
         - Optional
         - Type: systemd_unit_type

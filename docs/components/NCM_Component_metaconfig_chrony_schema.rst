@@ -1,0 +1,136 @@
+##############################################
+NCM\::Component\::metaconfig\::chrony - schema
+##############################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/chrony_service_server_flag**
+ - **/software/components/metaconfig/chrony_service_server_options**
+    - Description: the crony.conf configuration entry for server/pool/peer options
+    - */software/components/metaconfig/chrony_service_server_options/minpoll*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/chrony_service_server_options/maxpoll*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/chrony_service_server_options/key*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/chrony_service_server_options/maxdelay*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/chrony_service_server_options/maxdelayratio*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/chrony_service_server_options/maxdelaydevratio*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/chrony_service_server_options/mindelay*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/chrony_service_server_options/asymmetry*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/chrony_service_server_options/offset*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/chrony_service_server_options/minsamples*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/chrony_service_server_options/maxsamples*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/chrony_service_server_options/maxsources*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/chrony_service_server_options/filter*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/chrony_service_server_options/polltarget*
+        - Optional
+        - Type: long
+        - Range: 6..60
+    - */software/components/metaconfig/chrony_service_server_options/port*
+        - Optional
+        - Type: type_port
+    - */software/components/metaconfig/chrony_service_server_options/presend*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/chrony_service_server_options/minstratum*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/chrony_service_server_options/version*
+        - Optional
+        - Type: choice
+ - **/software/components/metaconfig/chrony_service_server**
+    - Description: the crony.conf configuration entry for server/pool/peer
+    - */software/components/metaconfig/chrony_service_server/hostname*
+        - Required
+        - Type: type_hostname
+    - */software/components/metaconfig/chrony_service_server/options*
+        - Optional
+        - Type: chrony_service_server_options
+    - */software/components/metaconfig/chrony_service_server/flags*
+        - Optional
+        - Type: chrony_service_server_flag
+ - **/software/components/metaconfig/chrony_service_flag**
+ - **/software/components/metaconfig/chrony_service_makestep**
+    - Description: Normally chronyd will cause the system to gradually correct any time offset, by slowing down or speeding up the clock as required. In certain situations, the system clock might be so far adrift that this slewing process would take a very long time to correct the system clock. This directive forces chronyd to step the system clock if the adjustment is larger than a threshold value, but only if there were no more clock updates since chronyd was started than a specified limit (a negative value can be used to disable the limit)
+    - */software/components/metaconfig/chrony_service_makestep/threshold*
+        - Required
+        - Type: double
+    - */software/components/metaconfig/chrony_service_makestep/limit*
+        - Required
+        - Type: long
+ - **/software/components/metaconfig/chrony_service_network**
+    - Description: The allow/deny directive is used to designate a particular subnet from which NTP clients are allowed/denied to access the computer as an NTP server.
+    - */software/components/metaconfig/chrony_service_network/action*
+        - Required
+        - Type: choice
+    - */software/components/metaconfig/chrony_service_network/host*
+        - Required
+        - Type: type_network_name
+ - **/software/components/metaconfig/chrony_service**
+    - Description: the crony.conf configuration
+    - */software/components/metaconfig/chrony_service/server*
+        - Optional
+        - Type: chrony_service_server
+    - */software/components/metaconfig/chrony_service/pool*
+        - Optional
+        - Type: chrony_service_server
+    - */software/components/metaconfig/chrony_service/peer*
+        - Optional
+        - Type: chrony_service_server
+    - */software/components/metaconfig/chrony_service/flags*
+        - Optional
+        - Type: chrony_service_flag
+    - */software/components/metaconfig/chrony_service/makestep*
+        - Optional
+        - Type: chrony_service_makestep
+    - */software/components/metaconfig/chrony_service/driftfile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/chrony_service/minsources*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/chrony_service/hwtimestamp*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/chrony_service/network*
+        - Optional
+        - Type: chrony_service_network
+    - */software/components/metaconfig/chrony_service/keyfile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/chrony_service/logdir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/chrony_service/leapsectz*
+        - Optional
+        - Type: string

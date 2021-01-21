@@ -262,6 +262,12 @@ Types
     - *structure_bios/releasedate*
         - Required
         - Type: string
+ - **structure_hw_options**
+    - Description: Configuration settings
+    - *structure_hw_options/encrypt_disks*
+        - Description: Signal to the hardware management platform that all directly attached disks should be encrypted.
+        - Optional
+        - Type: boolean
  - **structure_hardware**
     - Description: Hardware definition
     - *structure_hardware/cpu*
@@ -292,6 +298,10 @@ Types
         - Description: Date at which the hardware support runs out.
         - Optional
         - Type: type_isodate
+    - *structure_hardware/options*
+        - Description: Optional configuration settings
+        - Optional
+        - Type: structure_hw_options
     - *structure_hardware/procured*
         - Description: Date at which the hardware is procured.
         - Optional

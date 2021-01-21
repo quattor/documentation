@@ -40,6 +40,41 @@ Types
     - */software/components/shorewall/component_shorewall_masq/probability*
         - Optional
         - Type: double
+ - **/software/components/shorewall/component_shorewall_snat**
+    - Description: a snat entry: ACTION SOURCE DEST PROTO PORT IPSEC MARK USER SWITCH ORIGDEST PROBABILITY
+    - */software/components/shorewall/component_shorewall_snat/action*
+        - Required
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/source*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/dest*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/proto*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/port*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/ipsec*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/mark*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/user*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/switch*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/origdest*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_snat/probability*
+        - Optional
+        - Type: double
  - **/software/components/shorewall/component_shorewall_tcinterfaces**
     - Description: a tcinterfaces entry: interface type inbw outbw
     - */software/components/shorewall/component_shorewall_tcinterfaces/interface*
@@ -136,6 +171,53 @@ Types
     - */software/components/shorewall/component_shorewall_policy/connlimit*
         - Optional
         - Type: string
+ - **/software/components/shorewall/component_shorewall_providers**
+    - Description: a providers entry: name number mark duplicate interface gateway options copy
+    - */software/components/shorewall/component_shorewall_providers/name*
+        - Required
+        - Type: string
+    - */software/components/shorewall/component_shorewall_providers/number*
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/shorewall/component_shorewall_providers/mark*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/shorewall/component_shorewall_providers/duplicate*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_providers/interface*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_providers/gateway*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_providers/options*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_providers/copy*
+        - Optional
+        - Type: string
+ - **/software/components/shorewall/component_shorewall_rtrules**
+    - Description: a rtrules entry: source dest provider priority mark
+    - */software/components/shorewall/component_shorewall_rtrules/source*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_rtrules/dest*
+        - Optional
+        - Type: string
+    - */software/components/shorewall/component_shorewall_rtrules/provider*
+        - Required
+        - Type: string
+    - */software/components/shorewall/component_shorewall_rtrules/priority*
+        - Required
+        - Type: long
+        - Range: 1..32678
+    - */software/components/shorewall/component_shorewall_rtrules/mark*
+        - Optional
+        - Type: long
+        - Range: 1..
  - **/software/components/shorewall/component_shorewall_stoppedrules**
     - Description: a stoppedrules entry: action src dst proto dport sport
     - */software/components/shorewall/component_shorewall_stoppedrules/action*
@@ -594,6 +676,18 @@ Types
         - Description: masq configuration
         - Optional
         - Type: component_shorewall_masq
+    - */software/components/shorewall/component_shorewall/snat*
+        - Description: snat configuration
+        - Optional
+        - Type: component_shorewall_snat
+    - */software/components/shorewall/component_shorewall/providers*
+        - Description: providers configuration
+        - Optional
+        - Type: component_shorewall_providers
+    - */software/components/shorewall/component_shorewall/rtrules*
+        - Description: rtrules configuration
+        - Optional
+        - Type: component_shorewall_rtrules
     - */software/components/shorewall/component_shorewall/stoppedrules*
         - Description: rules to use when shorewall is stopped
         - Optional

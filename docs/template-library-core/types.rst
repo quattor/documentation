@@ -36,6 +36,11 @@ Types
     - Description: CPU architectures understood by Quattor
  - **linux_capability**
     - Description: Linux capabilities, see CAPABILITIES(7)
+ - **string_search_path**
+    - Description: Search path, a colon seperated set of absolute paths which may include . as a reference to current working directory
+ - **type_octal_mode**
+    - Description: string type to store a valid mode/mask in octal
+ - **caf_serviceaction**
 
 Functions
 ---------

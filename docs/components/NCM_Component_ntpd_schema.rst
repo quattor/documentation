@@ -156,6 +156,14 @@ Types
     - */software/components/ntpd/ntpd_system_options/stats*
         - Optional
         - Type: boolean
+ - **/software/components/ntpd/ntpd_interface_options**
+    - Description: Defines a single rule for the "interface" statement. See the ntp_misc manpage.
+    - */software/components/ntpd/ntpd_interface_options/action*
+        - Required
+        - Type: choice
+    - */software/components/ntpd/ntpd_interface_options/match*
+        - Required
+        - Type: string
  - **/software/components/ntpd/ntpd_logconfig**
     - Description: Log configuration arguments must be defined in a list of strings. Values for each argument must follow what is defined in ntp_misc manual. Refer to ntp_misc manpage for more details. Examples: to get command 'logconfig -syncstatus +sysevents' prefix "/software/components/ntpd"; "logconfig" = list("-syncstatus", "+sysevents");
  - **/software/components/ntpd/ntpd_statistics**
@@ -296,6 +304,10 @@ Types
         - Description: if the group is set, files are written with root.group ownership and 0640 permission
         - Optional
         - Type: defined_group
+    - */software/components/ntpd/ntpd_component/interface*
+        - Description: Rules for which interfaces/addresses should the daemon listen on
+        - Optional
+        - Type: ntpd_interface_options
 
 Functions
 ---------

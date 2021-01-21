@@ -196,6 +196,9 @@ Types
     - */software/components/ssh/ssh_daemon_options_type/PrintMotd*
         - Optional
         - Type: legacy_binary_affirmation_string
+    - */software/components/ssh/ssh_daemon_options_type/RevokedKeys*
+        - Optional
+        - Type: string
     - */software/components/ssh/ssh_daemon_options_type/RhostsAuthentication*
         - Optional
         - Type: legacy_binary_affirmation_string
@@ -258,6 +261,9 @@ Types
         - Optional
         - Type: legacy_binary_affirmation_string
     - */software/components/ssh/ssh_client_options_type/ForwardX11*
+        - Optional
+        - Type: legacy_binary_affirmation_string
+    - */software/components/ssh/ssh_client_options_type/HashKnownHosts*
         - Optional
         - Type: legacy_binary_affirmation_string
     - */software/components/ssh/ssh_client_options_type/GSSAPIDelegateCredentials*

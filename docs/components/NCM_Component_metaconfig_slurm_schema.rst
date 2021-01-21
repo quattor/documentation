@@ -1530,6 +1530,27 @@ Types
     - */software/components/metaconfig/slurm_spank_conf/includes*
         - Optional
         - Type: slurm_spank_includes
+ - **/software/components/metaconfig/slurm_topology_leaf_switch**
+    - */software/components/metaconfig/slurm_topology_leaf_switch/switch*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_topology_leaf_switch/nodes*
+        - Required
+        - Type: type_fqdn
+ - **/software/components/metaconfig/slurm_topology_spine_switch**
+    - */software/components/metaconfig/slurm_topology_spine_switch/switch*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_topology_spine_switch/switches*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/slurm_topology_conf**
+    - */software/components/metaconfig/slurm_topology_conf/leafswitch*
+        - Required
+        - Type: slurm_topology_leaf_switch
+    - */software/components/metaconfig/slurm_topology_conf/spineswitch*
+        - Required
+        - Type: slurm_topology_spine_switch
  - **/software/components/metaconfig/slurm_acct_gather_conf**
     - */software/components/metaconfig/slurm_acct_gather_conf/EnergyIPMIFrequency*
         - Description: in seconds

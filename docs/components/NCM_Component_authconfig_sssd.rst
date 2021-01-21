@@ -210,6 +210,9 @@ Types
     - */software/components/authconfig/authconfig_sssd_domain/override_gid*
         - Optional
         - Type: long
+    - */software/components/authconfig/authconfig_sssd_domain/override_shell*
+        - Optional
+        - Type: string
     - */software/components/authconfig/authconfig_sssd_domain/case_sensitive*
         - Required
         - Type: boolean

@@ -334,6 +334,9 @@ Types
     - */software/components/postfix/postfix_main/default_destination_recipient_limit*
         - Optional
         - Type: long
+    - */software/components/postfix/postfix_main/default_destination_rate_delay*
+        - Optional
+        - Type: long
     - */software/components/postfix/postfix_main/default_extra_recipient_limit*
         - Optional
         - Type: long

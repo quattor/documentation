@@ -67,6 +67,9 @@ Types
         - Optional
         - Type: boolean
  - **/software/components/gpfs/gpfs_sysmon_network**
+    - */software/components/gpfs/gpfs_sysmon_network/ib_rdma_monitor_portstate*
+        - Optional
+        - Type: boolean
  - **/software/components/gpfs/gpfs_sysmon**
     - */software/components/gpfs/gpfs_sysmon/network*
         - Optional

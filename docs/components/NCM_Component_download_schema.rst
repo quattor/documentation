@@ -11,7 +11,7 @@ Types
         - Required
         - Type: string
     - */software/components/download/component_download_file/post*
-        - Description: Specify the command (no options allowed) to run whenever the file is updated. The filename is added as first and (only) argument. Note that if the update is optimised away by the download process (e.g. if the file is already up-to-date), the command will still be executed, so it is the responsibility of this command to determine what work needs to be done, if any.
+        - Description: Specify the command (no options allowed) to run after non-failed download attempt. The filename is added as first and (only) argument. Note that if the update is optimised away by the download process (e.g. if the file is already up-to-date), the command will still be executed, so it is the responsibility of this command to determine what work needs to be done, if any.
         - Optional
         - Type: string
     - */software/components/download/component_download_file/proxy*
@@ -60,6 +60,10 @@ Types
         - Description: allow older remote file
         - Optional
         - Type: boolean
+    - */software/components/download/component_download_file/daemons*
+        - Description: A dict of daemonname => caf_serviceaction indicating what actions should be applied to daemonname if the file changes. This allows, for example, the restarting of a daemon upon file change. Even if multiple services are associated to the same daemon, each action for the daemon will be taken at most once. If multiple actions are to be taken for the same daemon, all actions will be taken (no attempt to optimize is made).
+        - Optional
+        - Type: caf_serviceaction
  - **/software/components/download/download_component**
     - */software/components/download/download_component/server*
         - Description: The default server hostname to use for any sources which do not specify the source.

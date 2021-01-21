@@ -489,6 +489,16 @@ Types
     - */software/components/metaconfig/logstash_filter_kv/value_split*
         - Optional
         - Type: string
+ - **/software/components/metaconfig/logstash_filter_json**
+    - */software/components/metaconfig/logstash_filter_json/source*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_json/target*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_json/remove_field*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/logstash_filter_plugin**
     - */software/components/metaconfig/logstash_filter_plugin/grok*
         - Optional
@@ -511,6 +521,9 @@ Types
     - */software/components/metaconfig/logstash_filter_plugin/bytes2human*
         - Optional
         - Type: logstash_filter_bytes2human
+    - */software/components/metaconfig/logstash_filter_plugin/json*
+        - Optional
+        - Type: logstash_filter_json
  - **/software/components/metaconfig/logstash_output_codec**
     - Description: Common output
     - */software/components/metaconfig/logstash_output_codec/plain*

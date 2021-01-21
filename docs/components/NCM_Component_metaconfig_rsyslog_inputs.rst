@@ -148,6 +148,19 @@ Types
     - */software/components/metaconfig/rsyslog_input_czmq/authtype*
         - Optional
         - Type: string
+ - **/software/components/metaconfig/rsyslog_input_kafka**
+    - */software/components/metaconfig/rsyslog_input_kafka/broker*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsyslog_input_kafka/topic*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/rsyslog_input_kafka/consumergroup*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/rsyslog_input_kafka/ParseHostname*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/rsyslog_input_uxsock**
     - */software/components/metaconfig/rsyslog_input_uxsock/IgnoreTimestamp*
         - Optional
@@ -213,6 +226,9 @@ Types
     - */software/components/metaconfig/rsyslog_input/czmq*
         - Optional
         - Type: rsyslog_input_czmq
+    - */software/components/metaconfig/rsyslog_input/kafka*
+        - Optional
+        - Type: rsyslog_input_kafka
     - */software/components/metaconfig/rsyslog_input/uxsock*
         - Optional
         - Type: rsyslog_input_uxsock

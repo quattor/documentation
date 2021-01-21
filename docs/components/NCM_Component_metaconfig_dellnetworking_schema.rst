@@ -1,0 +1,243 @@
+######################################################
+NCM\::Component\::metaconfig\::dellnetworking - schema
+######################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/dellnetworking_interface_name**
+ - **/software/components/metaconfig/dellnetworking_vlan**
+ - **/software/components/metaconfig/dellnetworking_vlt**
+    - */software/components/metaconfig/dellnetworking_vlt/id*
+        - Description: VLT domain id, should be the same for both VLT members, globally unique
+        - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/dellnetworking_vlt/mac*
+        - Description: vlt-mac, should be the same for both VLT members, globally unique
+        - Optional
+        - Type: type_hwaddr
+    - */software/components/metaconfig/dellnetworking_vlt/discovery*
+        - Description: discovery interfaces
+        - Required
+        - Type: dellnetworking_interface_name
+    - */software/components/metaconfig/dellnetworking_vlt/backup*
+        - Description: backup ip
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/dellnetworking_vlt/delay*
+        - Description: delay restore timeout
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/dellnetworking_vlt/priority*
+        - Description: primary priority (default 32k, higher number means lower priority
+        - Optional
+        - Type: long
+        - Range: 0..65535
+    - */software/components/metaconfig/dellnetworking_vlt/mtu*
+        - Description: mtu
+        - Optional
+        - Type: long
+        - Range: 1280..65535
+    - */software/components/metaconfig/dellnetworking_vlt/peerrouting*
+        - Description: enable/disable peer routing
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/dellnetworking_lacp**
+    - */software/components/metaconfig/dellnetworking_lacp/mode*
+        - Description: LACP mode
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/dellnetworking_lacp/fallback*
+        - Description: LACP fallback (eg to PXE hosts with LACP)
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/dellnetworking_lacp/timeout*
+        - Description: LACP fallback timeout
+        - Optional
+        - Type: long
+        - Range: 0..120
+    - */software/components/metaconfig/dellnetworking_lacp/fast*
+        - Description: LACP fast rate
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/dellnetworking_lacp/priority*
+        - Description: LACP priority (default 32k, higher number means lower priority
+        - Optional
+        - Type: long
+        - Range: 0..65535
+ - **/software/components/metaconfig/dellnetworking_ip**
+    - */software/components/metaconfig/dellnetworking_ip/ip*
+        - Description: ip address
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/dellnetworking_ip/mask*
+        - Description: address subnet mask
+        - Optional
+        - Type: long
+        - Range: 0..32
+ - **/software/components/metaconfig/dellnetworking_interface**
+    - */software/components/metaconfig/dellnetworking_interface/enable*
+        - Description: interface is enabled
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/dellnetworking_interface/description*
+        - Description: description field
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/dellnetworking_interface/access*
+        - Description: access port to VLAN (implies trunk mode; no access VLAN defined implies access mode)
+        - Optional
+        - Type: dellnetworking_vlan
+    - */software/components/metaconfig/dellnetworking_interface/vids*
+        - Description: tagged VLANs, VLAN for untagged traffic is bridge pvid
+        - Optional
+        - Type: dellnetworking_vlan
+    - */software/components/metaconfig/dellnetworking_interface/slaves*
+        - Description: bond slaves for the link, required for port channels
+        - Optional
+        - Type: dellnetworking_interface_name
+    - */software/components/metaconfig/dellnetworking_interface/vlt*
+        - Description: mandatory and unique for dual-connected hosts, using ports on different VLT members
+        - Optional
+        - Type: long
+        - Range: 0..65535
+    - */software/components/metaconfig/dellnetworking_interface/lacp*
+        - Description: lacp
+        - Optional
+        - Type: dellnetworking_lacp
+    - */software/components/metaconfig/dellnetworking_interface/speed*
+        - Description: force speed
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/dellnetworking_interface/mtu*
+        - Description: mtu
+        - Optional
+        - Type: long
+        - Range: 1280..65535
+    - */software/components/metaconfig/dellnetworking_interface/edge*
+        - Description: enable/disable spanning-tree edge port
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/dellnetworking_interface/switchport*
+        - Description: set to true to suppress any switchport statement being generated; set to false to disable it
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/dellnetworking_user**
+    - */software/components/metaconfig/dellnetworking_user/password*
+        - Description: password hash
+        - Required
+        - Type: string
+    - */software/components/metaconfig/dellnetworking_user/role*
+        - Description: role
+        - Required
+        - Type: choice
+    - */software/components/metaconfig/dellnetworking_user/pubkey*
+        - Description: one pubkey
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/dellnetworking_management**
+    - */software/components/metaconfig/dellnetworking_management/gateway*
+        - Required
+        - Type: type_ipv4
+    - */software/components/metaconfig/dellnetworking_management/ipv6*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/dellnetworking_feature**
+    - Description: key is feature name, value is boolean (false will disable the feature)
+    - */software/components/metaconfig/dellnetworking_feature/auto-breakout*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/dellnetworking_logserver**
+    - */software/components/metaconfig/dellnetworking_logserver/ip*
+        - Required
+        - Type: type_ipv4
+    - */software/components/metaconfig/dellnetworking_logserver/level*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/dellnetworking_logserver/transport*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/dellnetworking_logserver/port*
+        - Optional
+        - Type: long
+        - Range: 1..65535
+ - **/software/components/metaconfig/dellnetworking_route**
+    - Description: the ip/mask define the subnet
+    - */software/components/metaconfig/dellnetworking_route/subnet*
+        - Description: subnet
+        - Required
+        - Type: type_ipv4
+    - */software/components/metaconfig/dellnetworking_route/mask*
+        - Description: subnet mask
+        - Required
+        - Type: long
+        - Range: 0..32
+    - */software/components/metaconfig/dellnetworking_route/gateway*
+        - Description: gateway
+        - Required
+        - Type: type_ipv4
+ - **/software/components/metaconfig/dellnetworking_config**
+    - */software/components/metaconfig/dellnetworking_config/feature*
+        - Description: features
+        - Optional
+        - Type: dellnetworking_feature
+    - */software/components/metaconfig/dellnetworking_config/nameserver*
+        - Description: name servers to use
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/dellnetworking_config/hostname*
+        - Description: hostname
+        - Required
+        - Type: type_hostname
+    - */software/components/metaconfig/dellnetworking_config/ntp*
+        - Description: ntp server
+        - Optional
+        - Type: type_hostname
+    - */software/components/metaconfig/dellnetworking_config/systemuser*
+        - Description: system user linuxadmin password hash
+        - Required
+        - Type: string
+    - */software/components/metaconfig/dellnetworking_config/users*
+        - Description: users, key is the username
+        - Required
+        - Type: dellnetworking_user
+    - */software/components/metaconfig/dellnetworking_config/portgroups*
+        - Description: port groups
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/dellnetworking_config/pvid*
+        - Description: Default PVID for untagged traffic
+        - Required
+        - Type: dellnetworking_vlan
+    - */software/components/metaconfig/dellnetworking_config/vlanids*
+        - Description: VLAN IDs (simple enabled VLANs)
+        - Optional
+        - Type: dellnetworking_vlan
+    - */software/components/metaconfig/dellnetworking_config/management*
+        - Description: management interface
+        - Required
+        - Type: dellnetworking_management
+    - */software/components/metaconfig/dellnetworking_config/interfaces*
+        - Description: interfaces
+        - Required
+        - Type: dellnetworking_interface
+    - */software/components/metaconfig/dellnetworking_config/vlt*
+        - Description: VLT configuration
+        - Optional
+        - Type: dellnetworking_vlt
+    - */software/components/metaconfig/dellnetworking_config/logserver*
+        - Description: logserver configuration
+        - Optional
+        - Type: dellnetworking_logserver
+    - */software/components/metaconfig/dellnetworking_config/routes*
+        - Description: static routes
+        - Optional
+        - Type: dellnetworking_route
+
+Functions
+---------
+
+ - is_dellnetworking_interface_name

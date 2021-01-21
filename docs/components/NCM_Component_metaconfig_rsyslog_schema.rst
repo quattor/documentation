@@ -23,7 +23,7 @@ Types
         - Type: rsyslog_module_action
  - **/software/components/metaconfig/rsyslog_template**
     - */software/components/metaconfig/rsyslog_template/string*
-        - Description: string type tmplate
+        - Description: string type template
         - Optional
         - Type: string
  - **/software/components/metaconfig/rsyslog_debug**

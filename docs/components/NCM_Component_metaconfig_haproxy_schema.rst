@@ -81,7 +81,7 @@ Types
         - Default value: global
     - */software/components/metaconfig/haproxy_service_defaults_config/mode*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/haproxy_service_defaults_config/retries*
         - Required
         - Type: long
@@ -249,7 +249,7 @@ Types
         - Required
         - Type: haproxy_service_peer
  - **/software/components/metaconfig/haproxy_service_stick_table**
-    - Description: configuration of stick-table
+    - Description: configuration of stick table
     - */software/components/metaconfig/haproxy_service_stick_table/type*
         - Required
         - Type: string
@@ -284,19 +284,35 @@ Types
         - Optional
         - Type: type_port
  - **/software/components/metaconfig/haproxy_service_bind_params**
- - **/software/components/metaconfig/haproxy_service_frontend**
-    - */software/components/metaconfig/haproxy_service_frontend/bind*
+ - **/software/components/metaconfig/haproxy_service_bind**
+    - */software/components/metaconfig/haproxy_service_bind/bind*
         - Required
         - Type: string
-    - */software/components/metaconfig/haproxy_service_frontend/port*
+    - */software/components/metaconfig/haproxy_service_bind/params*
+        - Optional
+        - Type: haproxy_service_bind_params
+    - */software/components/metaconfig/haproxy_service_bind/port*
         - Optional
         - Type: type_port
+ - **/software/components/metaconfig/haproxy_service_frontend**
+    - */software/components/metaconfig/haproxy_service_frontend/acl*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/haproxy_service_frontend/bind*
+        - Required
+        - Type: haproxy_service_bind
     - */software/components/metaconfig/haproxy_service_frontend/default_backend*
         - Required
         - Type: string
-    - */software/components/metaconfig/haproxy_service_frontend/params*
+    - */software/components/metaconfig/haproxy_service_frontend/mode*
         - Optional
-        - Type: haproxy_service_bind_params
+        - Type: choice
+    - */software/components/metaconfig/haproxy_service_frontend/tcp-request*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_frontend/http-request*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/haproxy_service_backend_server**
     - */software/components/metaconfig/haproxy_service_backend_server/name*
         - Required
@@ -312,6 +328,9 @@ Types
         - Type: haproxy_service_server_params
  - **/software/components/metaconfig/haproxy_service_backend**
     - */software/components/metaconfig/haproxy_service_backend/balance*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/haproxy_service_backend/mode*
         - Optional
         - Type: choice
     - */software/components/metaconfig/haproxy_service_backend/options*
@@ -330,7 +349,7 @@ Types
         - Required
         - Type: haproxy_service_backend_server
  - **/software/components/metaconfig/haproxy_service**
-    - Description: haproxy config see: http://www.haproxy.org/download/1.4/doc/configuration.txt
+    - Description: haproxy config see documentation on www.haproxy.org
     - */software/components/metaconfig/haproxy_service/global*
         - Required
         - Type: haproxy_service_global
