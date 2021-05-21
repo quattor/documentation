@@ -102,7 +102,7 @@ Types
         - Type: absolute_file_path
     - */software/components/metaconfig/rsyslog_action_file/dynaFile*
         - Optional
-        - Type: absolute_file_path
+        - Type: string
     - */software/components/metaconfig/rsyslog_action_file/closeTimeout*
         - Optional
         - Type: long

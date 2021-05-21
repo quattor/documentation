@@ -246,9 +246,8 @@ Types
         - Type: long
         - Default value: 10
     - */software/components/authconfig/authconfig_sssd_domain/force_timeout*
-        - Required
+        - Optional
         - Type: long
-        - Default value: 60
     - */software/components/authconfig/authconfig_sssd_domain/entry_cache_timeout*
         - Required
         - Type: long

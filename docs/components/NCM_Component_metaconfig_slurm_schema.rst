@@ -204,7 +204,7 @@ Types
         - Optional
         - Type: long
         - Range: 0..
-    - */software/components/metaconfig/slurm_scheduler_parameters/default_queue_depth*
+    - */software/components/metaconfig/slurm_scheduler_parameters/default_5fqueue_5fdepth*
         - Optional
         - Type: long
         - Range: 0..
@@ -234,7 +234,7 @@ Types
         - Optional
         - Type: long
         - Range: 0..
-    - */software/components/metaconfig/slurm_scheduler_parameters/kill_invalid_depend*
+    - */software/components/metaconfig/slurm_scheduler_parameters/kill_5finvalid_5fdepend*
         - Optional
         - Type: boolean
     - */software/components/metaconfig/slurm_scheduler_parameters/max_array_tasks*
@@ -440,10 +440,19 @@ Types
     - */software/components/metaconfig/slurm_launch_params/cray_net_exclusive*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/disable_send_gids*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/enable_nss_slurm*
+        - Optional
+        - Type: boolean
     - */software/components/metaconfig/slurm_launch_params/lustre_no_flush*
         - Optional
         - Type: boolean
     - */software/components/metaconfig/slurm_launch_params/mem_sort*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/mpir_use_nodeaddr*
         - Optional
         - Type: boolean
     - */software/components/metaconfig/slurm_launch_params/send_gids*
@@ -458,11 +467,27 @@ Types
     - */software/components/metaconfig/slurm_launch_params/test_exec*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/use_interactive_step*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_authalt_params**
+    - */software/components/metaconfig/slurm_authalt_params/disable_token_creation*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_authalt_params/jwt_key*
+        - Optional
+        - Type: absolute_file_path
  - **/software/components/metaconfig/slurm_conf_control**
     - */software/components/metaconfig/slurm_conf_control/AllowSpecResourcesUsage*
         - Optional
         - Type: long
         - Range: 0..1
+    - */software/components/metaconfig/slurm_conf_control/AuthAltParameters*
+        - Optional
+        - Type: slurm_authalt_params
+    - */software/components/metaconfig/slurm_conf_control/AuthAltTypes*
+        - Optional
+        - Type: choice
     - */software/components/metaconfig/slurm_conf_control/AuthInfo*
         - Optional
         - Type: string
@@ -484,6 +509,9 @@ Types
     - */software/components/metaconfig/slurm_conf_control/ChosLoc*
         - Optional
         - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/CliFilterPlugins*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/slurm_conf_control/ClusterName*
         - Required
         - Type: string
@@ -777,6 +805,42 @@ Types
     - */software/components/metaconfig/slurm_conf_prolog_epilog/TaskProlog*
         - Optional
         - Type: absolute_file_path
+ - **/software/components/metaconfig/slurm_ctld_parameters**
+    - */software/components/metaconfig/slurm_ctld_parameters/allow_user_triggers*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/cloud_dns*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/cloud_reg_addrs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/enable_configless*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/idle_on_node_suspend*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/power_save_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_ctld_parameters/power_save_min_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_ctld_parameters/max_dbd_msg_action*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_ctld_parameters/preempt_send_user_signal*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/reboot_from_controller*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/user_resv_delete*
+        - Optional
+        - Type: boolean
  - **/software/components/metaconfig/slurm_conf_process**
     - */software/components/metaconfig/slurm_conf_process/MCSParameters*
         - Optional
@@ -796,6 +860,9 @@ Types
     - */software/components/metaconfig/slurm_conf_process/SlurmdUser*
         - Optional
         - Type: string
+    - */software/components/metaconfig/slurm_conf_process/SlurmctldParameters*
+        - Optional
+        - Type: slurm_ctld_parameters
     - */software/components/metaconfig/slurm_conf_process/SlurmctldPidFile*
         - Optional
         - Type: absolute_file_path
@@ -1607,6 +1674,12 @@ Types
     - */software/components/metaconfig/slurm_dbd_conf/ArchiveUsage*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/AuthAltParameters*
+        - Optional
+        - Type: slurm_authalt_params
+    - */software/components/metaconfig/slurm_dbd_conf/AuthAltTypes*
+        - Optional
+        - Type: choice
     - */software/components/metaconfig/slurm_dbd_conf/AuthInfo*
         - Optional
         - Type: string
@@ -1735,3 +1808,62 @@ Types
     - */software/components/metaconfig/slurm_dbd_conf/TrackSlurmctldDown*
         - Optional
         - Type: boolean
+ - **/software/components/metaconfig/slurm_job_container_per_node_conf**
+    - */software/components/metaconfig/slurm_job_container_per_node_conf/AutoBasePath*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_job_container_per_node_conf/Basepath*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_job_container_per_node_conf/InitScript*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/slurm_job_container_node_conf**
+    - */software/components/metaconfig/slurm_job_container_node_conf/NodeName*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/slurm_job_container_conf**
+    - */software/components/metaconfig/slurm_job_container_conf/Default*
+        - Optional
+        - Type: slurm_job_container_per_node_conf
+    - */software/components/metaconfig/slurm_job_container_conf/Nodes*
+        - Optional
+        - Type: slurm_job_container_node_conf
+ - **/software/components/metaconfig/slurm_gres_autodetect_conf**
+    - */software/components/metaconfig/slurm_gres_autodetect_conf/AutoDetect*
+        - Optional
+        - Type: choice
+ - **/software/components/metaconfig/slurm_gres_per_node_conf**
+    - */software/components/metaconfig/slurm_gres_per_node_conf/NodeName*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Cores*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Count*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_gres_per_node_conf/File*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Flags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Links*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Name*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Type*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/slurm_gres_conf**
+    - */software/components/metaconfig/slurm_gres_conf/Default*
+        - Optional
+        - Type: slurm_gres_autodetect_conf
+    - */software/components/metaconfig/slurm_gres_conf/Nodes*
+        - Optional
+        - Type: slurm_gres_per_node_conf

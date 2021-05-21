@@ -396,6 +396,69 @@ Types
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/WorkingDirectory*
         - Optional
         - Type: string
+ - **/software/components/systemd/systemd_unitfile_config_systemd_resource_control_devicelist**
+ - **/software/components/systemd/systemd_unitfile_config_systemd_resource_control_block_weight**
+ - **/software/components/systemd/systemd_unitfile_config_systemd_resource_control**
+    - Description: systemd.resource-control directives https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html valid for [Slice], [Scope], [Service], [Socket], [Mount], or [Swap] sections
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/CPUAccounting*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/CPUShares*
+        - Optional
+        - Type: long
+        - Range: 2..262144
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/StartupCPUShares*
+        - Optional
+        - Type: long
+        - Range: 2..262144
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/CPUQuota*
+        - Optional
+        - Type: long
+        - Range: 0..100
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemoryAccounting*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemoryLimit*
+        - Optional
+        - Type: long
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/TasksAccounting*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/TasksMax*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/BlockIOAccounting*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/BlockIOWeight*
+        - Optional
+        - Type: long
+        - Range: 10..1000
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/StartupBlockIOWeight*
+        - Optional
+        - Type: long
+        - Range: 10..1000
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/BlockIODeviceWeight*
+        - Optional
+        - Type: systemd_unitfile_config_systemd_resource_control_block_weight
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/BlockIOReadBandwidth*
+        - Optional
+        - Type: systemd_unitfile_config_systemd_resource_control_block_weight
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/BlockIOWriteBandwidth*
+        - Optional
+        - Type: systemd_unitfile_config_systemd_resource_control_block_weight
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/DeviceAllow*
+        - Optional
+        - Type: systemd_unitfile_config_systemd_resource_control_devicelist
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/DevicePolicy*
+        - Optional
+        - Type: choice
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/Slice*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/Delegate*
+        - Optional
+        - Type: boolean
  - **/software/components/systemd/systemd_unitfile_config_service**
     - Description: the [Service] section http://www.freedesktop.org/software/systemd/man/systemd.service.html
     - */software/components/systemd/systemd_unitfile_config_service/AmbientCapabilities*
@@ -674,6 +737,105 @@ Types
         - Optional
         - Type: long
         - Range: 0..
+ - **/software/components/systemd/systemd_unitfile_config_mount**
+    - Description: the [mount] section http://www.freedesktop.org/software/systemd/man/systemd.mount.html
+    - */software/components/systemd/systemd_unitfile_config_mount/What*
+        - Required
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_mount/Where*
+        - Required
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_mount/Type*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_mount/Options*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_mount/SloppyOptions*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_mount/LazyUnmount*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_mount/ReadWriteOnly*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_mount/ForceUnmount*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_mount/DirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_mount/TimeoutSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/systemd/systemd_unitfile_config_automount**
+    - Description: the [Automount] section http://www.freedesktop.org/software/systemd/man/systemd.automount.html
+    - */software/components/systemd/systemd_unitfile_config_automount/Where*
+        - Required
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_automount/DirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_automount/TimeoutSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/systemd/systemd_unitfile_config_timer**
+    - Description: the [Timer] section http://www.freedesktop.org/software/systemd/man/systemd.timer.html
+    - */software/components/systemd/systemd_unitfile_config_timer/OnActiveSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_timer/OnBootSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_timer/OnStartupSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_timer/OnUnitActiveSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_timer/OnUnitInactiveSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_timer/OnCalendar*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_timer/AccuracySec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_timer/RandomizedDelaySec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_timer/FixedRandomDelay*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_timer/OnClockChange*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_timer/OnTimezoneChange*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_timer/Unit*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_timer/Persistent*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_timer/WakeSystem*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_timer/RemainAfterElapse*
+        - Optional
+        - Type: boolean
  - **/software/components/systemd/systemd_unitfile_config**
     - Description: Unit configuration sections includes, unit and install are type agnostic unit and install are mandatory, but not enforced by schema (possible issues in case of replace=true) the other attributes are only valid for a specific type
     - */software/components/systemd/systemd_unitfile_config/includes*
@@ -689,6 +851,15 @@ Types
     - */software/components/systemd/systemd_unitfile_config/socket*
         - Optional
         - Type: systemd_unitfile_config_socket
+    - */software/components/systemd/systemd_unitfile_config/mount*
+        - Optional
+        - Type: systemd_unitfile_config_mount
+    - */software/components/systemd/systemd_unitfile_config/automount*
+        - Optional
+        - Type: systemd_unitfile_config_automount
+    - */software/components/systemd/systemd_unitfile_config/timer*
+        - Optional
+        - Type: systemd_unitfile_config_timer
     - */software/components/systemd/systemd_unitfile_config/unit*
         - Optional
         - Type: systemd_unitfile_config_unit

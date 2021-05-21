@@ -473,6 +473,18 @@ Types
     - */software/components/postgresql/postgresql_mainconfig/ssl*
         - Optional
         - Type: boolean
+    - */software/components/postgresql/postgresql_mainconfig/ssl_ca_file*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/postgresql/postgresql_mainconfig/ssl_cert_file*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/postgresql/postgresql_mainconfig/ssl_crl_file*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/postgresql/postgresql_mainconfig/ssl_key_file*
+        - Optional
+        - Type: absolute_file_path
     - */software/components/postgresql/postgresql_mainconfig/ssl_ciphers*
         - Optional
         - Type: string

@@ -29,6 +29,10 @@ Types
         - Description: routing table
         - Optional
         - Type: network_valid_routing_table
+    - */software/components/network/structure_route/onlink*
+        - Description: pretend that the nexthop is directly attached to this link
+        - Optional
+        - Type: boolean
     - */software/components/network/structure_route/command*
         - Description: route add command options to use (cannot be combined with other options)
         - Optional
@@ -375,6 +379,23 @@ Types
     - */software/components/network/structure_interface/ipv6init*
         - Optional
         - Type: boolean
+    - */software/components/network/structure_interface/my_inner_ipaddr*
+        - Description: tunnel IP
+        - Optional
+        - Type: type_ip
+    - */software/components/network/structure_interface/my_inner_prefix*
+        - Description: tunnel IP netmask prefix
+        - Optional
+        - Type: long
+        - Range: 0..32
+    - */software/components/network/structure_interface/my_outer_ipaddr*
+        - Description: primary local IP address
+        - Optional
+        - Type: type_ip
+    - */software/components/network/structure_interface/peer_outer_ipaddr*
+        - Description: remote peer primary IP address
+        - Optional
+        - Type: type_ip
     - */software/components/network/structure_interface/plugin*
         - Optional
         - Type: structure_interface_plugin

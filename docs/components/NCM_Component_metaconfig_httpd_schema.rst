@@ -9,6 +9,7 @@ Types
  - **/software/components/metaconfig/httpd_ciphersuite**
  - **/software/components/metaconfig/httpd_nss_protocol**
  - **/software/components/metaconfig/httpd_nss_cipherstring**
+ - **/software/components/metaconfig/httpd_protocols**
  - **/software/components/metaconfig/httpd_option_plusminus_none**
     - Description: Either all Options must start with + or -, or no Option may.
  - **/software/components/metaconfig/httpd_gssapi_credstore**
@@ -990,6 +991,9 @@ Types
     - */software/components/metaconfig/httpd_vhost/header*
         - Optional
         - Type: httpd_header
+    - */software/components/metaconfig/httpd_vhost/protocols*
+        - Optional
+        - Type: httpd_protocols
  - **/software/components/metaconfig/httpd_global_shared**
     - */software/components/metaconfig/httpd_global_shared/directoryindex*
         - Optional

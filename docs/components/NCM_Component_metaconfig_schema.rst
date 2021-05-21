@@ -53,6 +53,23 @@ Types
         - Optional
         - Type: boolean
  - **/software/components/metaconfig/caf_service_action**
+ - **/software/components/metaconfig/metaconfig_actions**
+    - */software/components/metaconfig/metaconfig_actions/pre*
+        - Description: Always run, happens before possible modifications. A failure will cancel any file modification, unless the command is prefixed with -.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/metaconfig_actions/test*
+        - Description: Always run before possible modifications with the new (or unchanged) file content is passed on stdin. A failure will cancel any file modification, unless the command is prefixed with -. Runs with 'keeps_state' enabled, so do not modify anything with this command.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/metaconfig_actions/changed*
+        - Description: Only run after file is modified, but before any daemon action is executed. A failure in this command has no effect on whether the daemon action is executed later.
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/metaconfig_actions/post*
+        - Description: Always run, regardless of whether file was modified or not, and after the 'changed' action but before any daemon action. A failure of this command has no effect on the subsequent daemon action.
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/metaconfig_config**
     - */software/components/metaconfig/metaconfig_config/mode*
         - Description: File permissions. Defaults to 0644.
@@ -93,7 +110,17 @@ Types
         - Description: Predefined conversions from EDG::WP4::CCM::TextRender
         - Optional
         - Type: metaconfig_textrender_convert
+    - */software/components/metaconfig/metaconfig_config/actions*
+        - Description: Actions (i.e. names found in /software/components/metadata/commands) to run when processing the service. Refer to the metaconfig_actions type definition for the available hooks for when a command may be run.
+        - Optional
+        - Type: metaconfig_actions
+ - **/software/components/metaconfig/metaconfig_command**
+    - Description: Command must start with absolute path to executable. If the executable is preceded with a '-', it means that a non-zero exit code (i.e. failure) is treated as success w.r.t. reporting and continuation.
  - **/software/components/metaconfig/metaconfig_component**
     - */software/components/metaconfig/metaconfig_component/services*
         - Required
         - Type: metaconfig_config
+    - */software/components/metaconfig/metaconfig_component/commands*
+        - Description: Command registry for allowed actions, keys should be used as action value
+        - Optional
+        - Type: metaconfig_command

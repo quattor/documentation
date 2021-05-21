@@ -56,6 +56,9 @@ Types
     - */software/components/metaconfig/haproxy_service_global_config/ssl-default-server-options*
         - Optional
         - Type: string
+    - */software/components/metaconfig/haproxy_service_global_config/ssl-dh-param-file*
+        - Optional
+        - Type: absolute_file_path
  - **/software/components/metaconfig/haproxy_service_global_stats**
     - Description: options for the stats line in the Global section
     - */software/components/metaconfig/haproxy_service_global_stats/socket*
@@ -274,6 +277,11 @@ Types
         - Description: interface to bind on
         - Optional
         - Type: string
+    - */software/components/metaconfig/haproxy_service_bind_server_params/alpn*
+        - Description: enable the TLS ALPN extension
+        - Optional
+        - Type: string
+        - Default value: h2,http/1.1
  - **/software/components/metaconfig/haproxy_service_server_params**
     - */software/components/metaconfig/haproxy_service_server_params/check*
         - Description: enable health check
@@ -326,6 +334,17 @@ Types
     - */software/components/metaconfig/haproxy_service_backend_server/params*
         - Optional
         - Type: haproxy_service_server_params
+ - **/software/components/metaconfig/haproxy_service_http_check**
+    - Description: configure 'http-check expect [!] match pattern'
+    - */software/components/metaconfig/haproxy_service_http_check/inverse*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/haproxy_service_http_check/match*
+        - Required
+        - Type: choice
+    - */software/components/metaconfig/haproxy_service_http_check/pattern*
+        - Required
+        - Type: string
  - **/software/components/metaconfig/haproxy_service_backend**
     - */software/components/metaconfig/haproxy_service_backend/balance*
         - Optional
@@ -336,6 +355,9 @@ Types
     - */software/components/metaconfig/haproxy_service_backend/options*
         - Optional
         - Type: string
+    - */software/components/metaconfig/haproxy_service_backend/httpcheck*
+        - Optional
+        - Type: haproxy_service_http_check
     - */software/components/metaconfig/haproxy_service_backend/tcpchecks*
         - Optional
         - Type: string

@@ -30,6 +30,7 @@ Types
         - Type: boolean
         - Default value: true
  - **opennebula_vmtemplate_vnet**
+ - **opennebula_rdm_disk**
  - **opennebula_vmtemplate_datastore**
  - **valid_interface_ignoremac**
     - Description: Type that checks if the network interface is available from the quattor tree
@@ -66,6 +67,14 @@ Types
         - Description: third value from onehost TYPE section
         - Optional
         - Type: long
+ - **opennebula_vmtemplate_vmgroup**
+    - Description: Type that sets VM Groups and Roles for a specifc VM. VMGroups are placed by dynamically generating the requirement (SCHED_REQUIREMENTS) of each VM an re-evaluating these expressions. Moreover, the following is also considered: The scheduler will look for a host with enough capacity for an affined set of VMs. If there is no such host all the affined VMs will remain pending. If new VMs are added to an affined role, it will pick one of the hosts where the VMs are running. By default, all should be running in the same host but if you manually migrate a VM to another host it will be considered feasible for the role. The scheduler does not have any synchronization point with the state of the VM group, it will start scheduling pending VMs as soon as they show up. Re-scheduling of VMs works as for any other VM, it will look for a different host considering the placement constraints. For more info: https://docs.opennebula.org/5.8/advanced_components/application_flow_and_auto-scaling/vmgroups.html
+    - *opennebula_vmtemplate_vmgroup/vmgroup_name*
+        - Required
+        - Type: string
+    - *opennebula_vmtemplate_vmgroup/role*
+        - Required
+        - Type: string
  - **opennebula_placements**
     - Description: Type that sets placement constraints and preferences for the VM, valid for all hosts More info: http://docs.opennebula.org/5.0/operation/references/template.html#placement-section
     - *opennebula_placements/sched_requirements*
@@ -93,6 +102,10 @@ Types
         - Description: Set the OpenNebula opennebula/datastore name for each vdx
         - Required
         - Type: opennebula_vmtemplate_datastore
+    - *opennebula_vmtemplate/diskrdmpath*
+        - Description: Set raw device mapping (RDM) for a specific virtual disk, for instance: '/system/opennebula/diskrdmpath/vdd/' = '/dev/sdf'; will passthrough the block device to the VM as vdd disk. Disk size is ignored in this case. It requires a RDM datastore. See: https://docs.opennebula.org/5.8/deployment/open_cloud_storage_setup/dev_ds.html
+        - Optional
+        - Type: opennebula_rdm_disk
     - *opennebula_vmtemplate/ignoremac*
         - Description: Set ignoremac tree to avoid to include MAC values within AR/VM templates
         - Optional
@@ -133,6 +146,10 @@ Types
         - Description: The optional memoryBacking element may contain several elements that influence how virtual memory pages are backed by host pages. hugepages: This tells the hypervisor that the guest should have its memory allocated using hugepages instead of the normal native page size. nosharepages: Instructs hypervisor to disable shared pages (memory merge, KSM) for this domain. locked: When set and supported by the hypervisor, memory pages belonging to the domain will be locked in hosts memory and the host will not be allowed to swap them out, which might be required for some workloads such as real-time. For QEMU/KVM guests, the memory used by the QEMU process itself will be locked too: unlike guest memory, this is an amount libvirt has no way of figuring out in advance, so it has to remove the limit on locked memory altogether. Thus, enabling this option opens up to a potential security risk: the host will be unable to reclaim the locked memory back from the guest when its running out of memory, which means a malicious guest allocating large amounts of locked memory could cause a denial-of-service attach on the host.
         - Optional
         - Type: string
+    - *opennebula_vmtemplate/vmgroup*
+        - Description: Request existing VM Group and roles. A VM Group defines a set of related VMs, and associated placement constraints for the VMs in the group. A VM Group allows you to place together (or separately) ceartain VMs (or VM classes, roles). VMGroups will help you to optimize the performance (e.g. not placing all the cpu bound VMs in the same host) or improve the fault tolerance (e.g. not placing all your front-ends in the same host) of your multi-VM applications.
+        - Optional
+        - Type: opennebula_vmtemplate_vmgroup
 
 Variables
 ---------

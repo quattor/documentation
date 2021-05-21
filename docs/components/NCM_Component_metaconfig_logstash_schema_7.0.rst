@@ -413,6 +413,24 @@ Types
     - */software/components/metaconfig/logstash_filter_grok/patterns_dir*
         - Optional
         - Type: string
+    - */software/components/metaconfig/logstash_filter_grok/overwrite*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_grok/tag_on_failure*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_grok/tag_on_timeout*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_grok/timeout_millis*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/logstash_filter_grok/timeout_scope*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/logstash_filter_grok/target*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/logstash_filter_bytes2human**
     - */software/components/metaconfig/logstash_filter_bytes2human/convert*
         - Required
@@ -458,6 +476,9 @@ Types
     - */software/components/metaconfig/logstash_filter_mutate/update*
         - Optional
         - Type: string
+    - */software/components/metaconfig/logstash_filter_mutate/strip*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/logstash_filter_mutate/exclude_tags*
         - Optional
         - Type: string
@@ -480,10 +501,10 @@ Types
     - */software/components/metaconfig/logstash_filter_kv/target*
         - Optional
         - Type: string
-    - */software/components/metaconfig/logstash_filter_kv/trim*
+    - */software/components/metaconfig/logstash_filter_kv/trim_value*
         - Optional
         - Type: string
-    - */software/components/metaconfig/logstash_filter_kv/trimkey*
+    - */software/components/metaconfig/logstash_filter_kv/trim_key*
         - Optional
         - Type: string
     - */software/components/metaconfig/logstash_filter_kv/value_split*
@@ -497,6 +518,28 @@ Types
         - Required
         - Type: string
     - */software/components/metaconfig/logstash_filter_json/remove_field*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/logstash_filter_geoip**
+    - */software/components/metaconfig/logstash_filter_geoip/cache_size*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/logstash_filter_geoip/database*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/logstash_filter_geoip/default_database_type*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/logstash_filter_geoip/fields*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_geoip/source*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_geoip/tag_on_failure*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/logstash_filter_geoip/target*
         - Optional
         - Type: string
  - **/software/components/metaconfig/logstash_filter_plugin**
@@ -524,6 +567,9 @@ Types
     - */software/components/metaconfig/logstash_filter_plugin/json*
         - Optional
         - Type: logstash_filter_json
+    - */software/components/metaconfig/logstash_filter_plugin/geoip*
+        - Optional
+        - Type: logstash_filter_geoip
  - **/software/components/metaconfig/logstash_output_codec**
     - Description: Common output
     - */software/components/metaconfig/logstash_output_codec/plain*

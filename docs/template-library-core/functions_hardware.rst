@@ -17,3 +17,6 @@ Functions
  - get_num_of_max_threads
     - Arguments:
         - A HW template (string) or a HW configuration (nested dict) to use as a source of hardware configuration (optional)
+ - get_total_ram
+    - Arguments:
+        - A HW template (string) or a HW configuration (nested dict) to use as a source of hardware configuration (optional)

@@ -1,0 +1,92 @@
+#######################################
+NCM\::Component\::opennebula - monitord
+#######################################
+
+Types
+-----
+
+ - **/software/components/opennebula/opennebula_monitord_network**
+    - Description: OpenNebula monitoring network setup. Reads messages from monitor agent.
+    - */software/components/opennebula/opennebula_monitord_network/address*
+        - Description: Network address to bind the UDP listener to
+        - Required
+        - Type: type_ipv4
+    - */software/components/opennebula/opennebula_monitord_network/monitor_address*
+        - Description: Agents will send updates to this monitor address if "auto" is used, agents will detect the address from the ssh connection frontend -> host ($SSH_CLIENT), "auto" is not usable for HA setup
+        - Required
+        - Type: string
+        - Default value: auto
+    - */software/components/opennebula/opennebula_monitord_network/port*
+        - Description: Monitoring listening port
+        - Required
+        - Type: type_port
+        - Default value: 4124
+    - */software/components/opennebula/opennebula_monitord_network/threads*
+        - Description: Number of processing threads
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 8
+    - */software/components/opennebula/opennebula_monitord_network/pubkey*
+        - Description: Absolute path to public key (agents). Empty for no encryption
+        - Required
+        - Type: string
+    - */software/components/opennebula/opennebula_monitord_network/privkey*
+        - Description: Absolute path to private key (monitord). Empty for no encryption
+        - Required
+        - Type: string
+ - **/software/components/opennebula/opennebula_probes_period**
+    - Description: OpenNebula probes Configuration. Time in seconds to execute each probe category.
+    - */software/components/opennebula/opennebula_probes_period/beacon_host*
+        - Description: Heartbeat for the host
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 30
+    - */software/components/opennebula/opennebula_probes_period/system_host*
+        - Description: Host static/configuration information
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 600
+    - */software/components/opennebula/opennebula_probes_period/monitor_host*
+        - Description: Host variable information
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 120
+    - */software/components/opennebula/opennebula_probes_period/state_vm*
+        - Description: VM status (ie. running, error, stopped...)
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 5
+    - */software/components/opennebula/opennebula_probes_period/monitor_vm*
+        - Description: VM resource usage metrics
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 30
+    - */software/components/opennebula/opennebula_probes_period/sync_state_vm*
+        - Description: When monitor probes have been stopped more than sync_vm_state seconds, send a complete VM report
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 180
+ - **/software/components/opennebula/opennebula_monitord**
+    - Description: Type that sets the monitord configuration file
+    - */software/components/opennebula/opennebula_monitord/log*
+        - Required
+        - Type: opennebula_log
+    - */software/components/opennebula/opennebula_monitord/db*
+        - Required
+        - Type: opennebula_mysql_db
+    - */software/components/opennebula/opennebula_monitord/network*
+        - Required
+        - Type: opennebula_monitord_network
+    - */software/components/opennebula/opennebula_monitord/probes_period*
+        - Required
+        - Type: opennebula_probes_period
+    - */software/components/opennebula/opennebula_monitord/im_mad*
+        - Required
+        - Type: opennebula_im

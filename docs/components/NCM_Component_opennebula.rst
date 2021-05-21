@@ -71,6 +71,10 @@ Features that are implemented at this moment:
 
 
 
+* Adding/removing OpenNebula VM groups and roles
+
+
+
 * Assign OpenNebula resources to virtual clusters
 
 
@@ -126,7 +130,7 @@ INITIAL CREATION
 To set up the initial cluster, some steps should be taken:
 
 
-1. First install the required Ruby gems in your OpenNebula server. You can use OpenNebula installgems addon : `https://github.com/OpenNebula/addon-installgems <https://github.com/OpenNebula/addon-installgems>`_.
+1. First install the required Ruby gems in your OpenNebula server (only for OpenNebula 5.10 or older). You can use OpenNebula installgems addon : `https://github.com/OpenNebula/addon-installgems <https://github.com/OpenNebula/addon-installgems>`_.
 
 
 

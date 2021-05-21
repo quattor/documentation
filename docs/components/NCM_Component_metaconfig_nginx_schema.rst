@@ -71,6 +71,9 @@ Types
     - */software/components/metaconfig/httpd_ssl/session_cache*
         - Optional
         - Type: string
+    - */software/components/metaconfig/httpd_ssl/dhparam*
+        - Optional
+        - Type: absolute_file_path
  - **/software/components/metaconfig/nginx_global**
     - Description: Basic nginx declarations. So far we only need to declare how many processes and how many connections per process.
     - */software/components/metaconfig/nginx_global/worker_processes*

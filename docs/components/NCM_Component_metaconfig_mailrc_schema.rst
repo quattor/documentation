@@ -24,6 +24,9 @@ Types
     - */software/components/metaconfig/mailrc_element/nss-config-dir*
         - Optional
         - Type: string
+    - */software/components/metaconfig/mailrc_element/ssl-verify*
+        - Optional
+        - Type: choice
  - **/software/components/metaconfig/mailrc_config**
     - */software/components/metaconfig/mailrc_config/account*
         - Optional

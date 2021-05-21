@@ -253,7 +253,7 @@ Types
         - Optional
         - Type: sudo_defaults
     - */software/components/sudo/sudo_component/user_aliases*
-        - Description: dicts of lists of strings containing the alias information. The name of each named list must start with a letter, and contain only letters, numbers and underscores. All the letters must be capitals. i.e. the name must match `^[A-Z][A-Z0-9_]*$`. They can be preceeded by an '!', indicating the alias must *not* match that name. The contents may be preceeded by an '!', indicating that item must not be part of the alias. The contents of host aliases can be either host names, IP addresses or network specifications (IP/netmask). A valid example: "/software/components/sudo/user_aliases/FOO" = list ("bar", "%wheel", "!root");
+        - Description: dicts of lists of strings containing the alias information. The name of each named list must start with a letter, and contain only letters, numbers and underscores. All the letters must be capitals. i.e. the name must match ^[A-Z][A-Z0-9_]*$. They can be preceeded by an '!', indicating the alias must *not* match that name. The contents may be preceeded by an '!', indicating that item must not be part of the alias. The contents of host aliases can be either host names, IP addresses or network specifications (IP/netmask). A valid example: "/software/components/sudo/user_aliases/FOO" = list ("bar", "%wheel", "!root");
         - Optional
         - Type: sudo_user_alias
     - */software/components/sudo/sudo_component/run_as_aliases*

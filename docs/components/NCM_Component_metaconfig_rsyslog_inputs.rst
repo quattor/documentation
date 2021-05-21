@@ -422,6 +422,39 @@ Types
     - */software/components/metaconfig/rsyslog_module_journal/IgnoreNonValidStatefile*
         - Optional
         - Type: boolean
+ - **/software/components/metaconfig/rsyslog_module_pstats**
+    - */software/components/metaconfig/rsyslog_module_pstats/Interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+        - Default value: 300
+    - */software/components/metaconfig/rsyslog_module_pstats/Facility*
+        - Optional
+        - Type: long
+        - Range: 1..9
+        - Default value: 5
+    - */software/components/metaconfig/rsyslog_module_pstats/Severity*
+        - Optional
+        - Type: long
+        - Range: 1..9
+        - Default value: 6
+    - */software/components/metaconfig/rsyslog_module_pstats/ResetCounters*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/rsyslog_module_pstats/Format*
+        - Optional
+        - Type: choice
+        - Default value: legacy
+    - */software/components/metaconfig/rsyslog_module_pstats/log.syslog*
+        - Optional
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/rsyslog_module_pstats/log.file*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/rsyslog_module_pstats/Bracketing*
+        - Optional
+        - Type: boolean
  - **/software/components/metaconfig/rsyslog_module_input**
     - */software/components/metaconfig/rsyslog_module_input/file*
         - Optional
@@ -445,3 +478,6 @@ Types
     - */software/components/metaconfig/rsyslog_module_input/journal*
         - Optional
         - Type: rsyslog_module_journal
+    - */software/components/metaconfig/rsyslog_module_input/pstats*
+        - Optional
+        - Type: rsyslog_module_pstats
