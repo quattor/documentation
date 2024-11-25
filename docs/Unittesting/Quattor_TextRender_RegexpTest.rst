@@ -28,34 +28,34 @@ Public methods
 
 
 - new
- 
+
  Returns a new object, accepts the following options
- 
- 
+
+
  - regexp
-  
+
   The regexptest file.
-  
- 
- 
+
+
+
  - config
-  
+
   The configuration instance to retreive the values from.
-  
- 
- 
+
+
+
  - ttincludepath
-  
+
   The includepath for CCM::TextRender.
-  
- 
- 
+
+
+
  - ttrelpath
-  
+
   The relpath for CCM::TextRender.
-  
- 
- 
+
+
+
 
 
 

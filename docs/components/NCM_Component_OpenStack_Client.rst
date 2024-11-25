@@ -20,16 +20,16 @@ Functions
 
 
 - set_logger
- 
+
  Set and return the logger instance to use.
- 
+
 
 
 - get_client
- 
+
  Get the client instance.
- 
+
  It creates one if none existed before using the Openrc Service filename.
- 
+
 
 

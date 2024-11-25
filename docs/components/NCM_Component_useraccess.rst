@@ -33,91 +33,91 @@ but no public keys, or an user can be authorized to no ACL-controlled
 service. And, to make it clear:
 
 \ **The entries for user "foo" are the different ways people can log in
-as user "foo".**\ 
+as user "foo".**\
 
 
 * ``/software/components/useraccess/configSerial``
- 
+
  This property is an arbitrary string representing a configuration
  serial number. It is not interpreted in any way by the component. Its
  role is only to trig a component run when its value changes. This is
  necessary when the change is in a file external to the configuration,
  referred by a URL.
- 
+
 
 
 * ``/software/components/useraccess/acl_services``
- 
+
  List of services that will have ACLs associated to them.
- 
+
 
 
 * ``/software/components/useraccess/{users,roles}/<id>/kerberos4``
- 
+
  It is a list of the users who can log in using Kerberos v4
  tickets. The contents of this list will be appropriately formatted and
  written into ``~/.klogin``.
- 
+
 
 
 * ``/software/components/useraccess/{users,roles}/<id>/kerberos5``
- 
+
  It is a list of the users who can log using Kerberos v5 tickets. The
  contents of this list will be appropriately formatted and written into
  ``~/.k5login``.
- 
+
 
 
 * ``/software/components/useraccess/{users,roles}/<id>/ssh_keys_urls``
- 
+
  It is a list containing the \ **absolute URLs**\  where the public keys
  granted to login as this user can be found. The URL can have any
  schema LWP::UserAgent supports, and it has been tested with http://,
  https:// and file:// . Local files are admitted, if wanted.
- 
+
 
 
 * ``/software/components/useraccess/{users,roles}/<id>/ssh_keys``
- 
+
  It is a list containing the \ **exact lines**\  to be added to
  ``~/.ssh/authorized_keys``.
- 
+
  The preferred way for adding authorized_keys is ssh_keys_urls.
- 
+
 
 
 * ``/software/components/useraccess/{users,roles}/<id>/acls``
- 
+
  It is a list of the ACL-controlled services the user is allowed to log
  in. This only applies to PAM controlled services. SSH is not (not
  necessarily) controlled by PAM.
- 
+
  \ **IMPORTANT NOTE:**\  this will add the user to the given ACL, but will
  \ **not**\  force the service to use ACLs at all. To do so, add the service
  to ``/software/components/useraccess/acl_services``.
- 
+
 
 
 * ``/software/components/useraccess/{users,roles}/<id>/roles``
- 
+
  List of strings. It contains the list of roles the user belongs
  to. Roles can be nested.
- 
+
  It is a compile-time error to add an user to a non-existing role.
- 
+
 
 
 * ``/software/components/useraccess/users/<id>/managed_credentials``
- 
+
  List of authentication methods the component will configure (and thus,
  fully control) for the user. It is a list of strings, with possible
  values ``ssh_keys``, ``kerberos4`` and ``kerberos5``.
- 
+
  It defaults to control all credentials, change it if you want to
  control something by some other means. For instance, CERN uses a
  different tool to controls SSH public key authentication on user
  ``oracle``.
- 
+
 
 
 
@@ -131,29 +131,29 @@ contains the following fields:
 
 
 * ``/software/components/useraccess/<id>/kerberosX/realm`` : mandatory
- 
+
  Kerberos' realm for authentication (the part behind the @ in
  ``.klogin``).
- 
+
 
 
 * ``/software/components/useraccess/<id>/kerberosX/principal`` : mandatory
- 
+
  Principal identity for the user in the Kerberos ticket server.
- 
+
 
 
 * ``/software/components/useraccess/<id>/kerberosX/instance`` : optional
- 
+
  "Instance" identity for the user. This is a sub-identity.
- 
+
 
 
 * ``/software/components/useraccess/<id>/kerberosX/host`` : optional
- 
+
  Host from which the ticket must come for this identity. It is
  currently ignored.
- 
+
 
 
 
@@ -178,7 +178,7 @@ get all the appropriate settings:
          "principal", "me"
      )
   );
- 
+
   "/software/components/useraccess/users/root/roles" = list ("myrole");
 
 
@@ -229,7 +229,7 @@ What do you think Sauron did?
          "http://mordor.org/badguy.key")
      )
   );
- 
+
   "/software/components/useraccess/users/three/roles" = list ("rings");
   "/software/components/useraccess/users/seven/roles" = list ("rings");
   "/software/components/useraccess/users/nine/roles" = list ("rings");
@@ -255,7 +255,7 @@ on the Simpson family. And Homer wants to spy women at home:
          "principal", "mrburns")
          )
   );
- 
+
   "/software/components/useraccess/roles/badhomer" = nlist (
      "kerberos4", list (nlist (
          "realm", "SPRINGFIELD.COM",
@@ -263,19 +263,19 @@ on the Simpson family. And Homer wants to spy women at home:
          "instance", "another_silly_project")),
      "acls", list ("system-auth") # Woops! now Homer can't log-in!
      );
- 
+
   "/software/components/useraccess/users/marge/roles" = list (
      "badburns", "badhomer"
   );
- 
+
   "/software/components/useraccess/users/bart/roles" = list (
      "badburns",
   );
- 
+
   "/software/components/useraccess/users/lisa/roles" = list (
      "badburns", "badhomer"
   );
- 
+
   "/software/components/useraccess/users/maggie/roles" = list (
      "badburns",
   );

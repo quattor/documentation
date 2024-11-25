@@ -30,52 +30,52 @@ Methods
 
 
 - new
- 
+
  Create a new instance with ``value`` and ``type``.
- 
+
 
 
 - _stringify
- 
+
  Method called to stringification. Simply returns the data in string context
- 
+
 
 
 - get_type
- 
+
  Return TYPE attribute
- 
+
 
 
 - get_value
- 
+
  Return value (i.e. the VALUE attribute)
  (can be useful in case the overloading behaves unexpected)
- 
+
 
 
 - is_boolean
- 
+
  Return true if the TYPE is boolean
- 
+
 
 
 - is_string
- 
+
  Return true if the TYPE is string
- 
+
 
 
 - is_double
- 
+
  Return true if the TYPE is double
- 
+
 
 
 - is_long
- 
+
  Return true if the TYPE is long
- 
+
 
 
 

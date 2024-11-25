@@ -50,18 +50,18 @@ To enable channel bonding with quattor using devices eth0 and eth1 to form bond0
      prefix "/system/network/interfaces";
      "eth0/bootproto" = "none";
      "eth0/master" = "bond0";
- 
+
      "eth1/bootproto" = "none";
      "eth1/master" = "bond0";
- 
+
      "bond0" = NETWORK_PARAMS;
      "bond0/driver" = "bonding";
      "bond0/bonding_opts/mode" = 6;
      "bond0/bonding_opts/miimon" = 100;
- 
+
      include 'components/modprobe/config';
      "/software/components/modprobe/modules" = append(dict("name", "bonding", "alias", "bond0"));
- 
+
      "/software/components/network/dependencies/pre" = append("modprobe");
 
 

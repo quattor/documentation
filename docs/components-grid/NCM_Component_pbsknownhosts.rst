@@ -77,12 +77,12 @@ targets (optional, string[])
 
 Specify what configuration files should be generated. The default
 is to generate a configuration for edg-pbs-knownhosts only, but
-is can be set to also - or alternatively - generate the 
+is can be set to also - or alternatively - generate the
 configuration for edg-pbs-shostsequiv.
 
-The value is an array of strings that specify the disired 
+The value is an array of strings that specify the disired
 behaviour: "pbsknownhosts/targets" = list("pbsknownhosts") will
-generate the edg-pbs-knownhosts config only; "pbsknownhosts/targets" = 
+generate the edg-pbs-knownhosts config only; "pbsknownhosts/targets" =
 list("shostsequiv") will generate edg-pbs-shostsequiv config only;
 and "pbsknownhosts/targets" = list("pbsknownhosts","shostsequiv") will
 generate both.
@@ -92,7 +92,7 @@ shostsConfigFile (optional, `/opt/edg/etc/edg`-pbs-shostsequiv.conf)
 ====================================================================
 
 
-The location of the shosts-script configuration file.  Normally this 
+The location of the shosts-script configuration file.  Normally this
 should not be changed.
 
 

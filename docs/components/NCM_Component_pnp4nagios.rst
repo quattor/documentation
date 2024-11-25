@@ -48,26 +48,26 @@ documentation.
 
 
 * ``/software/components/pnp4nagios/npcd``
- 
+
  Named list of npcd configuration options.
- 
+
 
 
 * ``/software/components/pnp4nagios/php``
- 
+
  Named list of php configuration options.
- 
+
 
 
 * ``/software/components/pnp4nagios/nagios``
- 
+
  Named list of nagios configuration options.
- 
+
 
 
 * ``/software/components/pnp4nagios/perfata``
- 
+
  Named list of perfdata configuration options.
- 
+
 
 

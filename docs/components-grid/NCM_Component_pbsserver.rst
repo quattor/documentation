@@ -17,7 +17,7 @@ DESCRIPTION
 ***********
 
 
-The \ *pbsserver*\  component configures the pbs (torque) server. 
+The \ *pbsserver*\  component configures the pbs (torque) server.
 Unsetting attributes of nodes doesn't work (yet).
 
 
@@ -69,7 +69,7 @@ problems.
 
 Sets the configuration of the server. Structure as follows:
 
-\ *"/software/components/pbsserver/server/manualconfig" : boolean*\ 
+\ *"/software/components/pbsserver/server/manualconfig" : boolean*\
 
 Set to false gives complete control to ncm-pbsserver, meaning that it
 will configure defined attributes and will remove existing non-defined
@@ -77,7 +77,7 @@ ones. Set to true will configure defined ones, but not remove existing
 non-defined ones, thus allowing local configuration of other
 attributes.
 
-\ *"/software/components/pbsserver/server/attlist" ? pbs_server_attlist*\ 
+\ *"/software/components/pbsserver/server/attlist" ? pbs_server_attlist*\
 
 A named list with attributes to be set for the server through qmgr.
 
@@ -88,12 +88,12 @@ A named list with attributes to be set for the server through qmgr.
 
 Sets the configuration of the queue. Structure as follows:
 
-\ *"/software/components/pbsserver/queue/manualconfig" : boolean*\ 
+\ *"/software/components/pbsserver/queue/manualconfig" : boolean*\
 
 Same as `/software/components/pbsserver/server/manualconfig`, but will
 remove queues completely if set to false.
 
-\ *"/software/components/pbsserver/queue/queuelist" ? pbs_queue*\ 
+\ *"/software/components/pbsserver/queue/queuelist" ? pbs_queue*\
 
 A named list where the key is the name of the queue and the value of
 the type pbs_queue. This type has also a manualconfig to allow manual

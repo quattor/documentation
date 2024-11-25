@@ -37,15 +37,15 @@ effect, the ``FileEditor`` is ``cancel``-ed.
 
 
 - new
- 
+
  Create a new instance: open the file ``$fn``, read it,
  seek to the beginning and ``cancel`` any (future) changes.
- 
+
 
 
 - open
- 
+
  Synonym for ``new()``
- 
+
 
 

@@ -29,25 +29,25 @@ SYNOPSIS
 
 
 - Configure()
- 
+
  This function apply the component resource declaration to the
  \ *IPTABLES*\  firewall tables.
- 
- The \ *accept*\ , \ *drop*\ , \ *reject*\ , \ *return*\ , \ *classify*\  and \ *log*\ 
+
+ The \ *accept*\ , \ *drop*\ , \ *reject*\ , \ *return*\ , \ *classify*\  and \ *log*\
  default targets are supported.
- 
+
  User defined targets are supported. We recommend that users specify new
  targets as a rule in the profile but the system will create them if it
  needs to - N.B. This means that you need to spell target names
  consistently and with identical capitalisation otherwise you will end up
  with multiple chains. E.g. chain "LocalRules" is not the same as
  "localrules".
- 
+
  Duplicated entries in the component resource declaration are
  ignored. For each configured table, the chains are added to the
  ``/etc/sysconfig/iptables`` in order, the relative order among the rules
  belonging to the same chain is preserved.
- 
+
 
 
 

@@ -17,7 +17,7 @@ SYNOPSIS
 ********
 
 
-\ **Configure ()**\ 
+\ **Configure ()**\
 
 
 ***********
@@ -41,175 +41,175 @@ RESOURCES
 
 
 * ``/software/catalogues`` ? nlist {}
- 
+
  A list of catalogues (package groups) to install. The format is:
- 
+
  ``{\ *package_name*\ }/{\ *version*\ }``
- 
+
  For example:
- 
- 
+
+
  .. code-block:: perl
- 
+
     prefix '/software/catalogues';
     '{pkg://solaris/entire}/{0.5.11,5.11-0.175.1.10.0.5.0}' = '';
- 
- 
+
+
  The intention is that a host's software inventory is predominantly defined
  by a small number of software catalogues that pull in almost all of the
  packages required for the build.
- 
+
  Catalogues must be versioned and a host is progressed from one version
  of a build to another by shifting the catalogue version numbers.
- 
+
 
 
 * ``/software/requests`` ? nlist ()
- 
+
  A list of additional packages to install. The format is:
- 
+
  ``{\ *package_name*\ }[/{\ *version*\ }]``
- 
+
  For example:
- 
- 
+
+
  .. code-block:: perl
- 
+
     '/software/requests/{ms/afs/client}' = nlist();
     '/software/requests/{idr537}/{2}' = '';
- 
- 
+
+
  The version number is optional and should generally be omitted. It is
  intended that the version number of packages that can be requested individually
  are defined by a catalogue (e.g. constrained by an incorporate dependency).
- 
+
 
 
 * ``/software/uninstall`` ? nlist ()
- 
+
  A list of packages to uninstall. Packages in this list will not be installed,
  and if found on the system will be removed. The format is the same as with
  ``/software/requests``.
- 
+
 
 
 * ``/software/whitelist`` ? nlist ()
- 
+
  A list of packages to whitelist. Packages in this list are permitted on the
  system even if they have not been explicitly requested and even if
  ``userpkgs`` is set to ``no``. The format is the same as with
  ``/software/requests``.
- 
+
 
 
 * ``/software/components/spma/packager`` ? string
- 
+
  Must contain ``ips`` to use this module.
- 
+
 
 
 * ``/software/components/spma/run`` ? string
- 
+
  Set to ``yes`` to allow this module to launch ``spma-run --execute`` to make
  immediate changes to the new boot environment. If set to ``no`` or omitted,
  this module prepares and validates the changes only, but does not perform
  any updates, it will be the responsibility of an external process to launch
  ``spma-run --execute`` in this case.
- 
+
 
 
 * ``/software/components/spma/userpkgs`` ? string
- 
+
  Set to ``yes`` to allow user-installed packages. If set to ``no`` or omitted,
  then SPMA will find all leaf packages that have not been requested and
  uninstall them via ``--reject`` arguments to ``pkg install``.
- 
+
 
 
 * ``/software/components/spma/pkgpaths`` : string []
- 
+
  Contains a list of resource paths where catalogues and individual package
  requests are located. Should be set to:
- 
- 
+
+
  .. code-block:: perl
- 
+
     list("/software/catalogues", "/software/requests");
- 
- 
+
+
 
 
 * ``/software/components/spma/uninstpaths`` : string []
- 
+
  Contains a list of resource paths where packages to uninstall are located.
  Should be set to:
- 
- 
+
+
  .. code-block:: perl
- 
+
     list("/software/uninstall");
- 
- 
+
+
 
 
 * ``/software/components/spma/whitepaths`` : string []
- 
+
  Contains a list of resource paths where packages to whitelist are located.
  Should be set to:
- 
- 
+
+
  .. code-block:: perl
- 
+
     list("/software/whitelist");
- 
- 
+
+
 
 
 * ``/software/components/spma/cmdfile`` : string
- 
+
  Where to save commands for the ``spma-run`` script. Default location
  is ``/var/tmp/spma-commands``.
- 
+
 
 
 * ``/software/components/spma/flagfile`` ? string
- 
+
  File to touch if ``/software/components/spma/run`` is set to ``no`` and this
  module has determined that there is work to do, i.e. packages to install or
  to uninstall. If the file exists after this module has completed, then
  ``spma-run --execute`` can be run to create a new BE and make package changes
  in that BE.
- 
+
 
 
 * ``/software/components/spma/ips/bename`` ? string
- 
+
  Name of boot environment that ``spma-run`` will use when making any
  changes to packages. If a BE by that name already exists, then a
  unique number will be appended to the name. Package changes will
  be effected via ``pkg install --be-name <bename>``.
- 
+
  If this resource is missing then ``pkg install --require-new-be`` will be used
  instead, leaving Solaris to decide on the name of the new BE.
- 
+
 
 
 * ``/software/components/spma/ips/rejectidr`` : boolean
- 
+
  Add a ``--reject`` option to the ``pkg install`` command for every Solaris IDR
  installed that has not been explicitly requested.
- 
+
  Default is ``true``.
- 
+
 
 
 * ``/software/components/spma/ips/freeze`` : boolean
- 
+
  Ignore frozen packages. This will prevent SPMA from updating or uninstalling
  frozen packages.
- 
+
  Default is ``true``.
- 
+
 
 
 

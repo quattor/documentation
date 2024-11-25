@@ -33,71 +33,71 @@ RESOURCES
 
 
 - configDir (``/etc/profile.d``)
- 
+
  The directory which contains the generated files. This directory will
  be created if necessary.
- 
+
 
 
 - configName (env)
- 
+
  The base name of the default profile.d file to create. This gives some
  flexibility on the order in which the profile script will be executed.
  (Normally executed in alphabetical order.) The full filename will
  have ``".[c]sh"`` appended to it.
- 
+
 
 
 - env
- 
+
  A hash containing the environment variables to define in the default script.
  The environment variable name is the key and the value is a string.
- 
+
 
 
 - path
- 
- A structure defining (optionally) paths to define in default script. 
+
+ A structure defining (optionally) paths to define in default script.
  It may contain prepend, append, and value elements. Each element is a list of strings.
- 
+
  The prepended values will be prepended and the appended values
  appended to the current value of the path. If the value is specified,
  then the current path will be overwritten with the given value (and
  the prepended and appended values applied to it).
- 
+
  Only the first occurrence of a particular path will be kept in the
  final definition. Note that if the current path is used, there may
  still be some duplicates coming from the current definition.
- 
+
 
 
 - scripts
- 
+
  A nlist describing the contents of scripts other than the default one. Key is the script base name
  (.sh or .csh extension appended in actual script name) and may be either a relative name
  in which case the script is created in configDir or an absolute name (in this case it must be escaped).
- 
+
  Value is a nlist that may contains 'env' and 'path' properties (as in the default script)
  plus the properties described below.
- 
- 
+
+
  - flavors : list of string (required)
-  
+
   Defines a list of script flavors to build. Valid values are 'csh' and 'sh'.
-  
+
   Default : csh,sh
-  
- 
- 
+
+
+
  - flavorSuffix : boolean (required)
-  
+
   This property indicates whether to add a .sh or .csh suffix to the script path.
   If false, only one flavor must be specified.
-  
+
   Default : true
-  
- 
- 
+
+
+
 
 
 

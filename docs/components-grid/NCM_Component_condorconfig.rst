@@ -9,7 +9,7 @@ NAME
 ****
 
 
-The \ *condorconfig*\  component manages the configuration file of 
+The \ *condorconfig*\  component manages the configuration file of
 Condor.
 
 

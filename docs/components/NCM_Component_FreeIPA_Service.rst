@@ -18,24 +18,24 @@ Public methods
 
 
 - add_service
- 
+
  Add a service with name ``name``.
- 
+
 
 
 - add_service_host
- 
+
  Add a per-host service ``name`` for host ``host``
  (actual service name will ``<<name``/<host>>>).
- 
+
  Add host ``host`` to list of hosts that can manage this service.
- 
+
 
 
 - service_has_keytab
- 
+
  Check if a keytab is already made for service with ``name``.
- 
+
 
 
 

@@ -52,7 +52,7 @@ Scenario 2 : Configuration with dict() usage
 
      prefix '/software/components/autofs';
      'preserveMaster' = false;
- 
+
      prefix '/software/components/autofs/maps/misc';
      'enabled' = true;
      'preserve' = false;
@@ -64,7 +64,7 @@ Scenario 2 : Configuration with dict() usage
              'location', 'misc.example.com:/misc'
          )
      );
- 
+
      prefix '/software/components/autofs/maps/garden';
      'enabled' = true;
      'preserve' = false;

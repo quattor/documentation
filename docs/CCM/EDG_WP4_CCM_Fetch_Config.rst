@@ -28,21 +28,21 @@ Functions
 
 
 - setNotificationTime()
- 
+
  Define notification time, if profile modification time is greater than
  notification time then only the profile will be downloaded
- 
+
 
 
 - setTimeout()
- 
+
  Define timeout after which profile fetch will be terminated.
- 
+
 
 
 - setProfileFailover()
- 
+
  Define failover profile url
- 
+
 
 

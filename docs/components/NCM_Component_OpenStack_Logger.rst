@@ -18,10 +18,10 @@ Public methods
 
 
 - new
- 
+
  Creates simple instance wrapper arond mandatory argument ``reporter``,
  a ``CAF::Reporter`` instance.
- 
+
 
 
 

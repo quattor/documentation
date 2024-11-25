@@ -53,7 +53,7 @@ Xrootd hosts
 ************
 
 
-This resource describes the hosts participating to the Xrootd cluster. They are specified as a 
+This resource describes the hosts participating to the Xrootd cluster. They are specified as a
 nlist where the key is the host name and the value is a nlist specifying host specific options.
 Valid properties in this nlist are:
 
@@ -88,7 +88,7 @@ configDir: string (required)
 ============================
 
 
-This option described where the Xrootd configuration information is located. This can be either an 
+This option described where the Xrootd configuration information is located. This can be either an
 absolute path or a path related to installDir (see below).
 
 Default: etc/xrootd
@@ -218,7 +218,7 @@ type: list of strings (required)
 ================================
 
 
-The type of the instance. Can be disk, redir and fedredir for xrootd service. And only fedredir for 
+The type of the instance. Can be disk, redir and fedredir for xrootd service. And only fedredir for
 cmsd service.
 
 Default: none
@@ -231,7 +231,7 @@ DPM/Xrootd plugin options
 
 
 This set of options describes the configuration of the DPM Xrootd plugin. This set is optional and must
-not be defined if the DPM/Xrootd plugin is not used. It is found under 
+not be defined if the DPM/Xrootd plugin is not used. It is found under
 `/software/components/xrootd/options/dpm.`
 
 Main options are described below.
@@ -295,7 +295,7 @@ replacementPrefix: nlist of strings (optional)
 
 
 It allows to specify the actual path prefix to substitute (nlist value) to a user-specified path starting
-by a string matching the nlist key. This option, if present, takes precedence over 
+by a string matching the nlist key. This option, if present, takes precedence over
 defaultPrefix (see above) if the path is matching. For example:
 
 replacementPrefix = nlist('/cms', '/dpm/example.com/home/cms');
@@ -312,7 +312,7 @@ Token-based authentication
 
 
 This set of options describes the configuration of token-based authorization. This set is optional and must
-not be defined if token-based authentication is not enabled. It is found under 
+not be defined if token-based authentication is not enabled. It is found under
 `/software/components/xrootd/options/tokenAuthz.`
 
 Main options are described below.
@@ -340,17 +340,17 @@ Each entry in the list is a nlist with the following required properties:
 
 
 - cert
- 
+
  A specific certificate that must be presented by the user for the rule to apply. This is a string, it must
  be present and default to '\*' (no restriction based on certificate).
- 
+
 
 
 - vo
- 
- A specific VO that must be presented by the user (in the token) for the rule to apply. 
+
+ A specific VO that must be presented by the user (in the token) for the rule to apply.
  This is a string, it must be present and default to '\*' (no restriction based on VO).
- 
+
 
 
 
@@ -393,9 +393,9 @@ exportedVOs: nlist (required)
 =============================
 
 
-List of VOs (retrieved from the token) allowed to access the XRootd cluster through token-based 
-authorization. It is specified as a nlist where the key is the VO name and the value an 
-optional nlist allowing to specify the path related to exportedPathRoot associated with the 
+List of VOs (retrieved from the token) allowed to access the XRootd cluster through token-based
+authorization. It is specified as a nlist where the key is the VO name and the value an
+optional nlist allowing to specify the path related to exportedPathRoot associated with the
 VO ('path' property). When empty, the VO name is used.
 
 Note that it is strongly recommended to export only one VO with token-based authorization.
