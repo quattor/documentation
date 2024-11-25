@@ -1,0 +1,26 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  htmlproofer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # we need the full repo or HEAD^ does not work
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3
+      - name: Install dependencies
+        run: |
+          sudo apt-get -y install bundler
+          pip install sphinx
+          bundle install
+        env:
+          NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+      - name: run htmlproofer
+        run: .ci-scripts/htmlproofer
