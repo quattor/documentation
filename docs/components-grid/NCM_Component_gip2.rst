@@ -96,12 +96,12 @@ LDIF entries : nlist (optional)
 -------------------------------
 
 
-nlist of LDIF entries (key is the DN, value is a nlist of attribute/value pairs) to put in the resulting file 
+nlist of LDIF entries (key is the DN, value is a nlist of attribute/value pairs) to put in the resulting file
 if staticInfoCmd is not specified or sets of key value/pairs (key is the set name and and value is a nlist of key/value pairs).
 
 Key is interpreted as an escaped value.
 
-If ommitted and confFile is defined, must be defined in `/software/components/gip2/ldifConfEntries` 
+If ommitted and confFile is defined, must be defined in `/software/components/gip2/ldifConfEntries`
 key matching confFile.
 
 Default : none.
@@ -154,7 +154,7 @@ Default : none.
 =============================================================
 
 
-Path of the command to execute to transform entries into a LDIF file if none is defined in the 
+Path of the command to execute to transform entries into a LDIF file if none is defined in the
 `/software/components/gip2/ldif` entry. It is here for backward compatibility but it is recommended
 to define it as part of the ldif entries. If undefined in both locations, the configuration file
 is read directly without any processing.

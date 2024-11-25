@@ -30,27 +30,27 @@ METHODS
 
 
 - new
- 
- 
+
+
  - codedirs
-  
+
   An arrayref of paths to look for perl code (uses ``Test::Pod::all_pod_files``).
-  
+
   Default is ``target/lib/perl``.
-  
- 
- 
+
+
+
 
 
 - check
- 
+
  Run perltidy on filename
- 
+
 
 
 - test
- 
+
  Run critic test on all files found with ``all_pod_files`` in all codedirs.
- 
+
 
 

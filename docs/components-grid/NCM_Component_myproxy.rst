@@ -69,27 +69,27 @@ A structure containing the following items, each one being a list of string:
 
 
 - renewers
- 
+
  Clients authorized to renew credentials.
- 
+
 
 
 - retrievers
- 
+
  Clients authorized to retrieve credentials after providing the username/password used when the proxy was created.
- 
+
 
 
 - keyRetrievers
- 
+
  Clients authorized to retrieved credentials (including the private key) after providing the username/password used when the proxy was created.
- 
+
 
 
 - trustedRetrievers
- 
+
  Clients authorized to retrieve credentials without providing a username/password.
- 
+
 
 
 A structure containing the same list of items as the previous one.

@@ -61,44 +61,44 @@ documentation.
 
 
 * ``/software/components/amandaserver/backupname/config/general_options``
- 
+
  Named list of general configuration options (goes to ``/etc/amanda/backupname/amanda.conf``).
  Depending on the value of option ``tpchanger`` it might create the virtual tapes in the path
  specified by option ``tapedev``.
- 
+
 
 
 * ``/software/components/amandaserver/backupname/config/holdingdisks : holdingdisk{}``
- 
+
  Named list of ``holdingdisk`` structures, indexed by ``holdingdisk``.
  name (goes to `/etc/amanda/backupname/amanda.conf`).
- 
+
 
 
 * ``/software/components/amandaserver/backupname/config/tapetypes : tapetype{}``
- 
+
  Named list of ``tapetype`` structures, indexed by ``tapetype`` name.
  (goes to `/etc/amanda/backupname/amanda.conf`).
- 
+
 
 
 * ``/software/components/amandaserver/backupname/config/dumptypes : dumptype{}``
- 
+
  Named list of ``dumptype`` structures, indexed by ``dumptype`` name.
  (goes to `/etc/amanda/backupname/amanda.conf`).
- 
+
 
 
 * ``/software/components/amandaserver/backupname/config/interfaces : interface{}``
- 
+
  Named list of ``interface`` structures, indexed by ``interface`` name.
  (goes to `/etc/amanda/backupname/amanda.conf`).
- 
+
 
 
 * ``/software/components/amandaserver/backupname/disklists : disk[]``
- 
+
  List of ``disk`` structures (goes to `/etc/amanda/backupname/disklist`).
- 
+
 
 

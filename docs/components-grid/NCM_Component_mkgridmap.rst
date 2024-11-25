@@ -68,7 +68,7 @@ flavor : string
 ===============
 
 
-This property indicates LCMAPS gridmapfile/groupmafile format. It can be 'edg' or 'glite'. When format is 'glite', FQANs 
+This property indicates LCMAPS gridmapfile/groupmafile format. It can be 'edg' or 'glite'. When format is 'glite', FQANs
 are taken literally from configuration : they must be valid VOMS FQAN in standard format. When format is 'edg', FQANs
 in configuration are converted into EDG format (/VO=vo_name/GROUP=.../ROLE=...).
 
@@ -179,7 +179,7 @@ locals
 ======
 
 
-A list for which each element has the values of cert_<local> and 
+A list for which each element has the values of cert_<local> and
 user_<local>. This will add mappings to the (first) grid-mapfile-local defined
 above.
 

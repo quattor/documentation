@@ -45,36 +45,36 @@ Each entry in the list must be of the ``structure_dirperm_entry`` type which has
 
 
 * ``path``
- 
+
  String representing full path of configured file/directory.
- 
+
 
 
 * ``owner``
- 
+
  String representing ownership, of form ``user`` or ``user:group``.
- 
+
 
 
 * ``perm``
- 
+
  String containing octal permissions to enforce.
- 
+
 
 
 * ``type``
- 
+
  String, either ``'d'`` for directory or ``'f'`` for file.
- 
+
 
 
 * ``initdir``
- 
+
  Optional list of strings representing full paths to directories.
- 
+
  If the target is a directory, this can be used to prepopulate the directory by copying files from multiple sources.
  This is particularly useful for home directories.
- 
+
 
 
 

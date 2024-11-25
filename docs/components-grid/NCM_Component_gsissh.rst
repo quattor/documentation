@@ -17,7 +17,7 @@ DESCRIPTION
 ***********
 
 
-The \ *gsissh*\  component writes manages the configuration for 
+The \ *gsissh*\  component writes manages the configuration for
 both the client and server sides of the GSI-enabled SSH daemon.
 
 
@@ -56,7 +56,7 @@ yes/no values.
 
 
 An optional nlist giving the client options to use.  Typical options
-are: GssapiAuthentication, GssapiKeyExchange, and 
+are: GssapiAuthentication, GssapiKeyExchange, and
 GssapiDelegateCredentials which take yes/no values.  The client is
 always configured even if there are no options.
 

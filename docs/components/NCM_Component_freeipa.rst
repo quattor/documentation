@@ -38,7 +38,7 @@ On the server, create a keytab for the quattor-server user:
 .. code-block:: perl
 
      kinit admin
- 
+
      uidadmin=`ipa user-show admin |grep UID: |sed "s/UID://;s/ //g;"`
      gidadmin=`ipa user-show admin |grep GID: |sed "s/GID://;s/ //g;"`
      # keep random password; it's already expired
@@ -47,14 +47,14 @@ On the server, create a keytab for the quattor-server user:
      # use expired random password; and pick new random password (new password is not relevant)
      kinit quattor-server
      kdestroy
- 
+
      kinit admin
      ipa role-add "Quattor server"
      for priv in "Host Administrators" "DNS Administrators" "Group Administrators" "Service Administrators" "User Administrators"; do
          ipa role-add-privilege "Quattor server" --privileges="$priv"
      done
      ipa role-add-member --users=quattor-server "Quattor server"
- 
+
      # use -r option to retrieve existing keytab (e.g. from another ipa server)
      ipa-getkeytab -p quattor-server -k `/etc/quattor`-server.keytab -s ipaserver.example.com
 
@@ -86,7 +86,7 @@ First we need to add a user with appropriate privileges:
 .. code-block:: perl
 
      kinit admin
- 
+
      uidadmin=`ipa user-show admin |grep UID: |sed "s/UID://;s/ //g;"`
      gidadmin=`ipa user-show admin |grep GID: |sed "s/GID://;s/ //g;"`
      # keep random password; it's already expired
@@ -95,7 +95,7 @@ First we need to add a user with appropriate privileges:
      # use expired random password; and pick new random password (new password is not relevant)
      kinit quattor-aii
      kdestroy
- 
+
      kinit admin
      ipa role-add "Quattor AII"
      ipa role-add-privilege "Quattor AII" --privileges="Host Administrators"

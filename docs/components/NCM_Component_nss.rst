@@ -19,11 +19,11 @@ SYNOPSIS
 
 
 - Configure()
- 
+
  Generates ``/etc/nsswitch.conf`` and returns error in case of failure. If the
  ``nsswitch.conf`` file is modified and nscd is running, then nscd will be
  restarted.
- 
+
 
 
 
@@ -34,20 +34,20 @@ RESOURCES
 
 
 * ``/software/components/nss/active`` : boolean
- 
+
  activates/deactivates the component.
- 
+
 
 
 * ``/software/components/nss/databases`` : nlist
- 
+
  A list of database names (e.g. "passwd", "hosts"). Each
  name should be associated with a list of strings.
- 
+
 
 
 * ``/software/components/nss/build`` : nlist
- 
+
  A list of database types (e.g. "file", "db"). If any
  nss sources are set to use one of these database types
  then the "build" item will be checked to see if there
@@ -57,30 +57,30 @@ RESOURCES
  entry in nsswitch.conf that uses that data source.
  The value of each key should be an nlist
  with the following possible keys:
- 
- 
+
+
  - script
-  
+
   the command line to run to generate once for each database.
   Any token of the form ``"<DB>"`` will be substituted with the
   name of the database being built.
-  
- 
- 
+
+
+
  - active
-  
+
   if false, then the build script will not be run.
-  
- 
- 
+
+
+
  - depends
-  
+
   A database name can be provided. If specified, then
   that database will be built before processing any
   databases of this type.
-  
- 
- 
+
+
+
 
 
 
@@ -96,7 +96,7 @@ EXAMPLES
        "build", nlist(
  	  "db", nlist("script", "make -f `/usr/local/lib/dbfiles.mk` <DB>")
        ),
- 
+
        "database", nlist(
            "hosts",    list("files", "nis", "dns"),
            "passwd",   list("files", "db"),

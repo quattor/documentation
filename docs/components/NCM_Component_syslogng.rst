@@ -28,34 +28,34 @@ booleans.
 
 
 * ``/software/components/syslogng/sources`` : ``source{}``
- 
+
  Named list of ``source`` structures, indexed by ``source`` name.
- 
+
 
 
 * ``/software/components/syslogng/destinations`` : ``destination{}``
- 
+
  Named list of ``destination`` structures, indexed by ``destination``
  name.
- 
+
 
 
 * ``/software/components/syslogng/filters`` ? ``filter{}``
- 
+
  Named list of ``filter`` structures, indexed by ``filter`` name. Rules
  inside a filter are combined by an OR operator. If you want AND
  filters, use several filters inside a log path.
- 
+
  An additional field to the standard syslog-ng's usual filter
  capabilities is added: ``exclude_filters``. This links to an already
  defined filter, but it will be included in current one, NEGATED.
- 
+
 
 
 * ``/software/components/syslogng/log_rules : log_rule[]``
- 
+
  List of ``log_rule`` structures.
- 
+
 
 
 Defining a log path:
@@ -68,30 +68,30 @@ follows:
 
 
 * sources : string[]
- 
+
  List of sources on this path. Each member of this list is a source
  name, and must exist on ``/software/components/syslogng/sources``.
- 
+
 
 
 * destinations : string[]
- 
+
  List of destinations on this path. Each member of this list must exist
  on ``/software/components/syslogng/destinations``.
- 
+
 
 
 * filters ? string[]
- 
+
  List of filters to be applied on this path. Each member of this list
  must exist on ``/software/components/syslogng/destinations``.
- 
+
 
 
 * flags ? flag_structure
- 
+
  Flags to be applied on this log rule.
- 
+
 
 
 

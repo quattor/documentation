@@ -72,25 +72,25 @@ Functions
 
 
 - type_from_name
- 
+
  Convert a type in string format into a type constant.
- 
+
  Returns ``UNDEFINED`` constant and warns when name is not supported.
- 
+
 
 
 - decode_eid
- 
+
  Return decoded eid.
- 
+
 
 
 - encode_eids
- 
+
  Given ``eid``, return the keys of the tie'ed DB hashref
  for ``VALUE``, ``TYPE``, ``DERIVATION``, ``CHECKSUM`` and ``DESCRIPTION``
  as used in the ``eid2data`` DB.
- 
+
 
 
 

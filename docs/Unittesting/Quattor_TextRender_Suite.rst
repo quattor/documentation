@@ -40,43 +40,43 @@ Support options
 
 
 - testspath
- 
+
  Basepath for the suite tests.
- 
+
 
 
 - regexps
- 
+
  Path to the suite regexptests  (``testspath```/regexps` is default when not specified).
- 
+
 
 
 - profiles
- 
+
  Path to the suite object templates (``testspath```/profiles` is default when not specified).
- 
+
 
 
 - ttincludepath
- 
+
  Includepath to use for CAF::TextRender.
- 
+
 
 
 - ttrelpath
- 
+
  relpath to use for CAF::TextRender.
- 
+
 
 
 - filter
- 
+
  A compiled regular expression that is used to filter the found regexptest files
  (matching relative filenames are kept; non-matcing ones are removed).
- 
+
  One can also set the ``QUATTOR_TEST_SUITE_FILTER`` enviroment variable, which will be
  used as regular expression pattern for the filter.
- 
+
 
 
 gather_regexp

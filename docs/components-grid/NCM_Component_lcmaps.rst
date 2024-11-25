@@ -19,7 +19,7 @@ DESCRIPTION
 
 The \ *lcmaps*\  component writes the LCMAPS configuration file(s). The
 primary file is the LCMAPS database, listing the plugin modules
-to be defines and the policies to describe (in the specific order 
+to be defines and the policies to describe (in the specific order
 as specified in the list in the CDB).
 
 
@@ -99,22 +99,22 @@ EXAMPLE
 
   "/software/components/lcmaps/dbpath" = "/opt/edg/etc/lcmaps/policy.conf";
   "/software/components/lcmaps/modulepath" = "/opt/edg/lib/lcmaps/modules";
-  "/software/components/lcmaps/module/localaccount/path" = 
+  "/software/components/lcmaps/module/localaccount/path" =
  	"lcmaps_localaccount.mod";
-  "/software/components/lcmaps/module/localaccount/args" = 
+  "/software/components/lcmaps/module/localaccount/args" =
  	"-gridmapfile `/etc/grid`-security/grid-mapfile";
- 
+
   "/software/components/lcmaps/module/poolaccount/path" = "lcmaps_poolaccount.mod";
   "/software/components/lcmaps/module/poolaccount/args" =
          " -override_inconsistency" +
          " -gridmapfile `/etc/grid`-security/grid-mapfile" +
          " -gridmapdir `/etc/grid`-security/gridmapdir";
- 
+
   "/software/components/lcmaps/module/posixenf/path" = "lcmaps_posix_enf.mod";
   "/software/components/lcmaps/module/posixenf/args" =
          " -maxuid 1 -maxpgid 1 -maxsgid 32";
- 
- 
+
+
   "/software/components/lcmaps/policies" = list (
        nlist(
                "name", "standard",
@@ -147,7 +147,7 @@ resources like "/software/components/lcmaps/dbpath" are ignored, and
 relocated, but similarly named ones in the array
 "/software/components/lcmaps/config[]" are used. Thus, multiple
 LCMAPS policy files can be written to support for example separate
-services (gatekeeper, gridftp) on the same host. 
+services (gatekeeper, gridftp) on the same host.
 For example, the ".../dbpath" resource becomes:
 
 
@@ -156,6 +156,6 @@ For example, the ".../dbpath" resource becomes:
    "/software/components/lcmaps/config/0/dbpath" = "/opt/edg/etc/lcmaps/policy.gridftp";
    "/software/components/lcmaps/config/0/modulepath" = "/opt/edg/lib/lcmaps/modules";
    ...
- 
+
    "/software/components/lcmaps/config/1/dbpath" = "/opt/edg/etc/lcmaps/policy.gatekeeper";
    ...

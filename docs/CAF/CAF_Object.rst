@@ -58,19 +58,19 @@ Public methods
 
 
 - new
- 
+
  Creates an empty hash and bless'es it as the new class instance. All arguments are then passed
  to a ``$self->_initialize(@_)`` call.
  When ``_initialize`` returns success, the ``NoAction`` attribute is set to the value of
  ``CAF::Object::NoAction`` if it didn't exist after ``_initialize``.
  If ``_initialize`` returns failure, an error is thrown and undef returned.
- 
+
 
 
 - noAction
- 
+
  Returns the NoAction flag value (boolean)
- 
+
 
 
 
@@ -80,56 +80,56 @@ Private methods
 
 
 - _initialize
- 
+
  This method must be overwritten in a derived class
- 
+
 
 
 - error, warn, info, verbose, debug, report, OK, event
- 
+
  Convenience methods to access the log/reporter instance that might
  be passed during initialisation and set to ``$self->{log}``.
- 
+
  (When constructing classes via multiple inheritance,
  ``CAF::Reporter`` should precede ``CAF::Object`` if you want
  to use an absolute rather than a conditional logger).
- 
+
 
 
 - fail
- 
+
  Handle failures. Stores the error message in the ``fail`` attribute,
  logs it with ``verbose`` and returns undef.
- 
+
  To be used in subclasses that are not supposed to log/report
  any errors themself when a problem or failure occurs.
  In such classes, all failures should use ``return $self->fail("message");``.
- 
+
 
 
 - update_env
- 
+
  Update the hashref ``$env`` with key/value
  from the ``ENV`` attribute hashref.
  (A undef value will remove the key.)
- 
+
  Returns the ``env`` hashref.
- 
+
  To be used as
- 
- 
+
+
  .. code-block:: perl
- 
+
       # Setup local environment
       local %ENV = %ENV;
       $self->update_env(\%ENV);
- 
- 
+
+
  Example:
- 
- 
+
+
  .. code-block:: perl
- 
+
       # some method_1 that prepares a shared environment
       sub method_1
       {
@@ -138,21 +138,21 @@ Private methods
           $self->{ENV}->{PATH} = "/some/new/path:$ENV{PATH}";
           ...
       }
-  
-  
+
+
       sub do_something
       {
          ...
          # Setup local environment
          local %ENV = %ENV;
          $self->update_env(\%ENV);
-  
+
          # everything in the remainder of the method runs in modified environment
          # is limited to the scope of this method due to 'local'
          ...
       }
- 
- 
+
+
 
 
 
