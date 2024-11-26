@@ -19,6 +19,7 @@ Types
  - **type_URI**
  - **type_absoluteURI**
  - **type_hostURI**
+ - **type_email_list**
  - **type_email**
  - **type_lowercase**
  - **type_uppercase**
@@ -41,6 +42,7 @@ Types
  - **type_octal_mode**
     - Description: string type to store a valid mode/mask in octal
  - **caf_serviceaction**
+ - **string_crypt_hash**
 
 Functions
 ---------
@@ -78,6 +80,8 @@ Functions
  - is_hostURI
     - Description: This defines an URI according to RFC2396. A host-based URI is an absolute URI with a non-empty host field.
  - is_email
+ - is_email_list
+    - Description: require a comma-separated list of email addresses
  - is_lowercase
     - Description: If the string contains any upper case characters, return false
  - is_uppercase

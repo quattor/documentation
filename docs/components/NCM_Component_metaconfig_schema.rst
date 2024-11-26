@@ -111,9 +111,14 @@ Types
         - Optional
         - Type: metaconfig_textrender_convert
     - */software/components/metaconfig/metaconfig_config/actions*
-        - Description: Actions (i.e. names found in /software/components/metadata/commands) to run when processing the service. Refer to the metaconfig_actions type definition for the available hooks for when a command may be run.
+        - Description: Actions (i.e. names found in /software/components/metaconfig/commands) to run when processing the service. Refer to the metaconfig_actions type definition for the available hooks for when a command may be run.
         - Optional
         - Type: metaconfig_actions
+    - */software/components/metaconfig/metaconfig_config/active*
+        - Description: Skip the service if it is not active
+        - Required
+        - Type: boolean
+        - Default value: true
  - **/software/components/metaconfig/metaconfig_command**
     - Description: Command must start with absolute path to executable. If the executable is preceded with a '-', it means that a non-zero exit code (i.e. failure) is treated as success w.r.t. reporting and continuation.
  - **/software/components/metaconfig/metaconfig_component**

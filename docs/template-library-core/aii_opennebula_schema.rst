@@ -93,6 +93,35 @@ Types
         - Description: States which attribute will be used to sort the suitable datastores for this VM. Basically, it defines which datastores are more suitable than others.
         - Optional
         - Type: string
+ - **opennebula_topology**
+    - Description: Type that sets Numa topology and huge pages size for the VM. More info: https://docs.opennebula.io/6.6/management_and_operations/references/template.html#numa-topology-section
+    - *opennebula_topology/pin_policy*
+        - Description: When you need to expose the NUMA topology to the guest, you have to set a pinning policy to map each virtual NUMA node’s resources (memory and vCPUs) onto the hypervisor nodes. OpenNebula can work with four different policies: CORE: each vCPU is assigned to a whole hypervisor core. No other threads in that core will be used. This policy can be useful to isolate the VM workload for security reasons. THREAD: each vCPU is assigned to a hypervisor CPU thread. SHARED: the VM is assigned to a set of the hypervisor CPUS shared by all the VM vCPUs. NONE: the VM is not assigned to any hypervisor CPUs. Access to the resources (i.e CPU time) will be limited by the CPU attribute. For pinned VMs the CPU (assigned hypervisor capacity) is automatically set to the vCPU number. No overcommitment is allowed for pinned workloads.
+        - Optional
+        - Type: choice
+    - *opennebula_topology/sockets*
+        - Description: Number of sockets or NUMA nodes
+        - Optional
+        - Type: long
+        - Range: 1..
+    - *opennebula_topology/threads*
+        - Description: Number of threads per core
+        - Optional
+        - Type: long
+        - Range: 1..
+    - *opennebula_topology/cores*
+        - Description: Number of cores per node
+        - Optional
+        - Type: long
+        - Range: 1..
+    - *opennebula_topology/hugepage_size*
+        - Description: Size of the hugepages (MB). If not defined no hugepages will be used. It should match with the hugepage size configured in the hypervisor. For example: "1024M" see: https://docs.opennebula.io/6.6/management_and_operations/host_cluster_management/numa.html
+        - Optional
+        - Type: string
+    - *opennebula_topology/memory_access*
+        - Description: Control whether the memory is to be mapped, shared or private
+        - Optional
+        - Type: choice
  - **opennebula_vmtemplate**
     - *opennebula_vmtemplate/vnet*
         - Description: Set the VNETs opennebula/vnet (bridges) required by each VM network interface
@@ -146,10 +175,22 @@ Types
         - Description: The optional memoryBacking element may contain several elements that influence how virtual memory pages are backed by host pages. hugepages: This tells the hypervisor that the guest should have its memory allocated using hugepages instead of the normal native page size. nosharepages: Instructs hypervisor to disable shared pages (memory merge, KSM) for this domain. locked: When set and supported by the hypervisor, memory pages belonging to the domain will be locked in hosts memory and the host will not be allowed to swap them out, which might be required for some workloads such as real-time. For QEMU/KVM guests, the memory used by the QEMU process itself will be locked too: unlike guest memory, this is an amount libvirt has no way of figuring out in advance, so it has to remove the limit on locked memory altogether. Thus, enabling this option opens up to a potential security risk: the host will be unable to reclaim the locked memory back from the guest when its running out of memory, which means a malicious guest allocating large amounts of locked memory could cause a denial-of-service attach on the host.
         - Optional
         - Type: string
+    - *opennebula_vmtemplate/topology*
+        - Description: Set up OpenNebula to control how VM resources are mapped onto the hypervisor ones. These settings will help you to fine tune the performance of VMs. In OpenNebula the virtual topology of a VM is defined by the number of sockets, cores and threads. We assume that a NUMA node or cell is equivalent to a socket.
+        - Optional
+        - Type: opennebula_topology
     - *opennebula_vmtemplate/vmgroup*
         - Description: Request existing VM Group and roles. A VM Group defines a set of related VMs, and associated placement constraints for the VMs in the group. A VM Group allows you to place together (or separately) ceartain VMs (or VM classes, roles). VMGroups will help you to optimize the performance (e.g. not placing all the cpu bound VMs in the same host) or improve the fault tolerance (e.g. not placing all your front-ends in the same host) of your multi-VM applications.
         - Optional
         - Type: opennebula_vmtemplate_vmgroup
+    - *opennebula_vmtemplate/hiddenkvm*
+        - Description: Hide the KVM hypervisor from standard MSR based discovery. Useful to use PCI PT with some GPU cards or operating systems. More info: https://libvirt.org/formatdomain.html#hypervisor-features.
+        - Optional
+        - Type: boolean
+    - *opennebula_vmtemplate/hypervclock*
+        - Description: Use Virtual Machine Timer Management: https://libvirt.org/formatdomain.html#time-keeping
+        - Optional
+        - Type: boolean
 
 Variables
 ---------

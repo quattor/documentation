@@ -125,3 +125,6 @@ Types
     - */software/components/metaconfig/elasticsearch_discovery/zen*
         - Optional
         - Type: elasticsearch_discovery_zen
+    - */software/components/metaconfig/elasticsearch_discovery/seed_hosts*
+        - Optional
+        - Type: type_hostport

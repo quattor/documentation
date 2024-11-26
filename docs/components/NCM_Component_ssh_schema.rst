@@ -11,6 +11,7 @@ Types
  - **/software/components/ssh/ssh_kbdinteractivedevices**
  - **/software/components/ssh/ssh_kexalgorithms**
  - **/software/components/ssh/ssh_MACs**
+ - **/software/components/ssh/ssh_gssapikexalgorithms**
  - **/software/components/ssh/legacy_ssh_MACs**
  - **/software/components/ssh/legacy_ssh_ciphers**
  - **/software/components/ssh/legacy_ssh_kexalgorithm**
@@ -33,6 +34,9 @@ Types
     - */software/components/ssh/ssh_core_options_type/GSSAPICleanupCredentials*
         - Optional
         - Type: legacy_binary_affirmation_string
+    - */software/components/ssh/ssh_core_options_type/GSSAPIKexAlgorithms*
+        - Optional
+        - Type: ssh_gssapikexalgorithms
     - */software/components/ssh/ssh_core_options_type/GSSAPIKeyExchange*
         - Optional
         - Type: legacy_binary_affirmation_string
@@ -91,7 +95,7 @@ Types
         - Type: string
     - */software/components/ssh/ssh_daemon_options_type/AllowTcpForwarding*
         - Optional
-        - Type: legacy_binary_affirmation_string
+        - Type: choice
     - */software/components/ssh/ssh_daemon_options_type/AllowUsers*
         - Optional
         - Type: string
@@ -169,6 +173,10 @@ Types
     - */software/components/ssh/ssh_daemon_options_type/MaxStartups*
         - Optional
         - Type: long
+    - */software/components/ssh/ssh_daemon_options_type/MaxSessions*
+        - Optional
+        - Type: long
+        - Range: 0..
     - */software/components/ssh/ssh_daemon_options_type/NoneEnabled*
         - Optional
         - Type: legacy_binary_affirmation_string
@@ -177,7 +185,7 @@ Types
         - Type: legacy_binary_affirmation_string
     - */software/components/ssh/ssh_daemon_options_type/PermitRootLogin*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/ssh/ssh_daemon_options_type/PermitTunnel*
         - Optional
         - Type: string

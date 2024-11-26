@@ -149,6 +149,7 @@ Types
         - Optional
         - Type: structure_ks_ksfirewall
     - *structure_ks_ks_info/installtype*
+        - Description: Kickstart installtype (string in exact kickstart repo command syntax). If this contains a '@pattern@' substring, the installtype (including the url and optional proxy option) is generated based on the (first) enabled SPMA repository with name matching this glob pattern (without the '@').
         - Required
         - Type: string
     - *structure_ks_ks_info/installnumber*
@@ -200,6 +201,7 @@ Types
         - Optional
         - Type: type_absoluteURI
     - *structure_ks_ks_info/repo*
+        - Description: List of repositories (string in exact kickstart repo command syntax). If a string contains a '@pattern@' substring, the repository (including the baseurl and optional proxy, includepkgs and exclude pkgs options) is generated based on the enabled SPMA repositories with name(s) matching this glob pattern (without the '@').
         - Optional
         - Type: string
     - *structure_ks_ks_info/timezone*
@@ -226,7 +228,15 @@ Types
         - Required
         - Type: string
     - *structure_ks_ks_info/disabled_repos*
-        - Description: Repositories to disable while SPMA is not available
+        - Description: Repositories to disable while SPMA is not available (evaluated as glob matching the repository name)
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/enabled_repos*
+        - Description: Repositories to enable while SPMA is not available (evaluated as glob matching the repository name)
+        - Required
+        - Type: string
+    - *structure_ks_ks_info/ignored_repos*
+        - Description: Repositories to ignore while SPMA is not available (evaluated as glob matching the repository name)
         - Required
         - Type: string
     - *structure_ks_ks_info/packages_args*
@@ -260,6 +270,11 @@ Types
     - *structure_ks_ks_info/packagesinpost*
         - Optional
         - Type: boolean
+    - *structure_ks_ks_info/kernelinpost*
+        - Description: install the correct kernel rpms as defined in /software/packages (if any)
+        - Required
+        - Type: boolean
+        - Default value: true
     - *structure_ks_ks_info/bonding*
         - Description: configure bonding (when not defined, it will be tried best-effort depending on OS version and configuration)
         - Optional

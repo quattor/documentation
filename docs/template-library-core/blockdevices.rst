@@ -83,7 +83,7 @@ Types
         - Type: blockdev_string
     - *blockdevices_md_type/raid_level*
         - Required
-        - Type: string
+        - Type: choice
     - *blockdevices_md_type/stripe_size*
         - Required
         - Type: long
@@ -93,7 +93,7 @@ Types
         - Type: long
     - *blockdevices_md_type/metadata*
         - Optional
-        - Type: string
+        - Type: choice
         - Default value: 0.90
  - **blockdevices_logicalvolumes_cache_type**
     - Description: lvm cache volume and mode
@@ -102,7 +102,7 @@ Types
         - Type: lv_string
     - *blockdevices_logicalvolumes_cache_type/cachemode*
         - Optional
-        - Type: string
+        - Type: choice
  - **blockdevices_logicalvolumes_type**
     - Description: LVM
     - *blockdevices_logicalvolumes_type/size*
@@ -126,7 +126,7 @@ Types
         - Type: blockdevices_logicalvolumes_cache_type
     - *blockdevices_logicalvolumes_type/type*
         - Optional
-        - Type: string
+        - Type: choice
  - **blockdevices_lvm_type**
     - *blockdevices_lvm_type/device_list*
         - Required
@@ -172,7 +172,7 @@ Types
         - Type: raid_device_path
     - *blockdevices_disk_type/label*
         - Required
-        - Type: string
+        - Type: choice
     - *blockdevices_disk_type/readahead*
         - Optional
         - Type: long
@@ -188,7 +188,7 @@ Types
         - Type: card_port_string
     - *blockdevices_hwraid_type/raid_level*
         - Optional
-        - Type: string
+        - Type: choice
     - *blockdevices_hwraid_type/num_spares*
         - Optional
         - Type: long
@@ -211,6 +211,8 @@ Types
         - Type: long
  - **blockdevices_tmpfs_type**
     - Description: TMPFS devices (dummy devices)
+ - **blockdevices_dummy_type**
+    - Description: Dummy devices (e.g. tmpfs, proc)
  - **structure_blockdevices**
     - *structure_blockdevices/physical_devs*
         - Optional
@@ -238,4 +240,7 @@ Types
         - Type: blockdevices_vxvm_type
     - *structure_blockdevices/tmpfs*
         - Optional
-        - Type: blockdevices_tmpfs_type
+        - Type: blockdevices_dummy_type
+    - *structure_blockdevices/proc*
+        - Optional
+        - Type: blockdevices_dummy_type

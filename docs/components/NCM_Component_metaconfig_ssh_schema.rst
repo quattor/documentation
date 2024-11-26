@@ -8,9 +8,14 @@ Types
  - **/software/components/metaconfig/temp_ssh_ciphers**
  - **/software/components/metaconfig/temp_ssh_hostkeyalgorithms**
  - **/software/components/metaconfig/temp_ssh_kbdinteractivedevices**
+ - **/software/components/metaconfig/temp_ssh_gss_kexalgorithms**
  - **/software/components/metaconfig/temp_ssh_kexalgorithms**
  - **/software/components/metaconfig/temp_ssh_MACs**
+ - **/software/components/metaconfig/temp_ssh_CAAlgorithms**
  - **/software/components/metaconfig/ssh_config_opts**
+    - */software/components/metaconfig/ssh_config_opts/AddKeysToAgent*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/ssh_config_opts/AddressFamily*
         - Optional
         - Type: string
@@ -18,6 +23,9 @@ Types
         - Optional
         - Type: boolean
     - */software/components/metaconfig/ssh_config_opts/BindAddress*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_opts/BindInterface*
         - Optional
         - Type: string
     - */software/components/metaconfig/ssh_config_opts/CanonicalDomains*
@@ -34,6 +42,12 @@ Types
         - Type: long
         - Range: 0..
     - */software/components/metaconfig/ssh_config_opts/CanonicalizePermittedCNAMEs*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_opts/CASignatureAlgorithms*
+        - Optional
+        - Type: temp_ssh_CAAlgorithms
+    - */software/components/metaconfig/ssh_config_opts/CertificateFile*
         - Optional
         - Type: string
     - */software/components/metaconfig/ssh_config_opts/ChallengeResponseAuthentication*
@@ -112,7 +126,25 @@ Types
     - */software/components/metaconfig/ssh_config_opts/GSSAPIAuthentication*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/ssh_config_opts/GSSAPIClientIdentity*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/ssh_config_opts/GSSAPIDelegateCredentials*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ssh_config_opts/GSSAPIKeyExchange*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ssh_config_opts/GSSAPIKexAlgorithms*
+        - Optional
+        - Type: temp_ssh_gss_kexalgorithms
+    - */software/components/metaconfig/ssh_config_opts/GSSAPIRenewalForcesRekey*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ssh_config_opts/GSSAPIServerIdentity*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_opts/GSSAPITrustDns*
         - Optional
         - Type: boolean
     - */software/components/metaconfig/ssh_config_opts/HashKnownHosts*
@@ -136,10 +168,16 @@ Types
     - */software/components/metaconfig/ssh_config_opts/IdentitiesOnly*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/ssh_config_opts/IdentityAgent*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/ssh_config_opts/IdentityFile*
         - Optional
         - Type: string
     - */software/components/metaconfig/ssh_config_opts/IgnoreUnknown*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_opts/Include*
         - Optional
         - Type: string
     - */software/components/metaconfig/ssh_config_opts/IPQoS*
@@ -196,13 +234,22 @@ Types
     - */software/components/metaconfig/ssh_config_opts/ProxyCommand*
         - Optional
         - Type: string
+    - */software/components/metaconfig/ssh_config_opts/ProxyJump*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/ssh_config_opts/ProxyUseFdpass*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/ssh_config_opts/PubkeyAcceptedKeyTypes*
+        - Optional
+        - Type: temp_ssh_hostkeyalgorithms
     - */software/components/metaconfig/ssh_config_opts/PubkeyAuthentication*
         - Optional
         - Type: boolean
     - */software/components/metaconfig/ssh_config_opts/RekeyLimit*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_opts/RemoteCommand*
         - Optional
         - Type: string
     - */software/components/metaconfig/ssh_config_opts/RemoteForward*
@@ -231,6 +278,9 @@ Types
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/metaconfig/ssh_config_opts/SetEnv*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/ssh_config_opts/StreamLocalBindMask*
         - Optional
         - Type: string
@@ -238,6 +288,9 @@ Types
         - Optional
         - Type: boolean
     - */software/components/metaconfig/ssh_config_opts/StrictHostKeyChecking*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_opts/SyslogFacility*
         - Optional
         - Type: string
     - */software/components/metaconfig/ssh_config_opts/TCPKeepAlive*
@@ -274,10 +327,35 @@ Types
     - */software/components/metaconfig/ssh_config_host/hostnames*
         - Required
         - Type: string
- - **/software/components/metaconfig/ssh_config_match**
-    - */software/components/metaconfig/ssh_config_match/matches*
-        - Required
+ - **/software/components/metaconfig/ssh_config_match_criteria**
+    - */software/components/metaconfig/ssh_config_match_criteria/all*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ssh_config_match_criteria/canonical*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ssh_config_match_criteria/final*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/ssh_config_match_criteria/user*
+        - Optional
         - Type: string
+    - */software/components/metaconfig/ssh_config_match_criteria/localuser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_match_criteria/host*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_match_criteria/originalhost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/ssh_config_match_criteria/exec*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/ssh_config_match**
+    - */software/components/metaconfig/ssh_config_match/criteria*
+        - Required
+        - Type: ssh_config_match_criteria
  - **/software/components/metaconfig/ssh_config_file**
     - */software/components/metaconfig/ssh_config_file/Host*
         - Optional
@@ -288,3 +366,330 @@ Types
     - */software/components/metaconfig/ssh_config_file/main*
         - Optional
         - Type: ssh_config_opts
+ - **/software/components/metaconfig/sshd_config_match_opts**
+    - */software/components/metaconfig/sshd_config_match_opts/AcceptEnv*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AllowAgentForwarding*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/AllowGroups*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AllowStreamLocalForwarding*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AllowTcpForwarding*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AllowUsers*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AuthenticationMethods*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AuthorizedKeysCommand*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/sshd_config_match_opts/AuthorizedKeysCommandUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AuthorizedKeysFile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AuthorizedPrincipalsCommand*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/sshd_config_match_opts/AuthorizedPrincipalsCommandUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/AuthorizedPrincipalsFile*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/Banner*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/ChrootDirectory*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/ClientAliveCountMax*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/sshd_config_match_opts/ClientAliveInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/sshd_config_match_opts/DenyGroups*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/DenyUsers*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/ForceCommand*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/GatewayPorts*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/GSSAPIAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/HostbasedAcceptedKeyTypes*
+        - Optional
+        - Type: temp_ssh_hostkeyalgorithms
+    - */software/components/metaconfig/sshd_config_match_opts/HostbasedAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/HostbasedUsesNameFromPacketOnly*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/IPQoS*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/KbdInteractiveAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/KerberosAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/LogLevel*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/MaxAuthTries*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/sshd_config_match_opts/MaxSessions*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/sshd_config_match_opts/PasswordAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/PermitEmptyPasswords*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/PermitListen*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/PermitOpen*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/PermitRootLogin*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/PermitTTY*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/PermitTunnel*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/PermitUserRC*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/PubkeyAcceptedKeyTypes*
+        - Optional
+        - Type: temp_ssh_hostkeyalgorithms
+    - */software/components/metaconfig/sshd_config_match_opts/PubkeyAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/RekeyLimit*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/RSAAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/RhostsRSAAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/RevokedKeys*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/RDomain*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/SetEnv*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/StreamLocalBindMask*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/StreamLocalBindUnlink*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/TrustedUserCAKeys*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_opts/X11DisplayOffset*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/sshd_config_match_opts/X11Forwarding*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_opts/X11UseLocalHost*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/sshd_config_match_criteria**
+    - */software/components/metaconfig/sshd_config_match_criteria/All*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_match_criteria/User*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_criteria/Group*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_criteria/Host*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_criteria/LocalAddress*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_criteria/LocalPort*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_criteria/RDomain*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_match_criteria/Address*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/sshd_config_match**
+    - */software/components/metaconfig/sshd_config_match/criteria*
+        - Required
+        - Type: sshd_config_match_criteria
+ - **/software/components/metaconfig/sshd_config_opts**
+    - */software/components/metaconfig/sshd_config_opts/AddressFamily*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/CASignatureAlgorithms*
+        - Optional
+        - Type: temp_ssh_CAAlgorithms
+    - */software/components/metaconfig/sshd_config_opts/ChallengeResponseAuthentication*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/Ciphers*
+        - Optional
+        - Type: temp_ssh_ciphers
+    - */software/components/metaconfig/sshd_config_opts/Compression*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/DisableForwarding*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/ExposeAuthInfo*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/FingerprintHash*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/GSSAPICleanupCredentials*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/GSSAPIKeyExchange*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/GSSAPIKexAlgorithms*
+        - Optional
+        - Type: temp_ssh_gss_kexalgorithms
+    - */software/components/metaconfig/sshd_config_opts/GSSAPIStrictAcceptorCheck*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/GSSAPIStoreCredentialsOnRekey*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/HostCertificate*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/HostKey*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/HostKeyAgent*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/HostKeyAlgorithms*
+        - Optional
+        - Type: temp_ssh_hostkeyalgorithms
+    - */software/components/metaconfig/sshd_config_opts/IgnoreRhosts*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/IgnoreUserKnownHosts*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/KerberosGetAFSToken*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/KerberosOrLocalPasswd*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/KerberosTicketCleanup*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/KexAlgorithms*
+        - Optional
+        - Type: temp_ssh_kexalgorithms
+    - */software/components/metaconfig/sshd_config_opts/ListenAddress*
+        - Optional
+        - Type: type_hostport
+    - */software/components/metaconfig/sshd_config_opts/LoginGraceTime*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/sshd_config_opts/MACs*
+        - Optional
+        - Type: temp_ssh_MACs
+    - */software/components/metaconfig/sshd_config_opts/Match*
+        - Optional
+        - Type: sshd_config_match
+    - */software/components/metaconfig/sshd_config_opts/MaxStartups*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/PermitUserEnvironment*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/PidFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/sshd_config_opts/Port*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/sshd_config_opts/PrintLastLog*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/PrintMotd*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/StrictModes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/Subsystem*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/SyslogFacility*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/TCPKeepAlive*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/UseDNS*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/UsePAM*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/sshd_config_opts/VersionAddendum*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/sshd_config_opts/XAuthLocation*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/sshd_config_file**
+    - */software/components/metaconfig/sshd_config_file/Match*
+        - Optional
+        - Type: sshd_config_match
+    - */software/components/metaconfig/sshd_config_file/main*
+        - Optional
+        - Type: sshd_config_opts

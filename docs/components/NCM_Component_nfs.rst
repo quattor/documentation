@@ -126,7 +126,7 @@ Methods
  The current managed entries are
 
 
- - devices with filesystems ``nfs``, ``nfs4``, ``panfs`` or ``ceph``.
+ - devices with filesystems ``ceph``, ``lustre``, ``nfs``, ``nfs4`` or ``panfs``.
 
 
 

@@ -7,12 +7,18 @@ Types
 
  - **structure_pxelinux_pxe_info**
     - Description: PXE configuration
-    - *structure_pxelinux_pxe_info/initrd*
-        - Required
-        - Type: string
     - *structure_pxelinux_pxe_info/kernel*
+        - Description: Kernel path (string in exact syntax). If this contains a '@pattern@' substring, the kernel path is generated based on the (first) enabled SPMA repository with name matching this glob pattern (without the '@').
         - Required
         - Type: string
+    - *structure_pxelinux_pxe_info/initrd*
+        - Description: Initrd path (string in exact syntax). If this contains a '@pattern@' substring, the initrd path is generated based on the (first) enabled SPMA repository with name matching this glob pattern (without the '@').
+        - Required
+        - Type: string
+    - *structure_pxelinux_pxe_info/efi_name_lookup*
+        - Description: try to resolve the hostname (when relevant) for EFI kernel and/or initrd; to use the ip instead of the hostname
+        - Optional
+        - Type: boolean
     - *structure_pxelinux_pxe_info/ksdevice*
         - Required
         - Type: string

@@ -60,10 +60,17 @@ Types
         - Optional
         - Type: boolean
         - Default value: false
+    - */software/components/metaconfig/zkrsync_config/inplace*
+        - Optional
+        - Type: boolean
+        - Default value: false
     - */software/components/metaconfig/zkrsync_config/timeout*
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/metaconfig/zkrsync_config/arbitopts*
+        - Optional
+        - Type: string_trimmed
     - */software/components/metaconfig/zkrsync_config/verifypath*
         - Optional
         - Type: boolean

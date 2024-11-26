@@ -95,6 +95,10 @@ Features that are implemented at this moment:
 
 
 
+* Updates KVM PCI passthrough filter config file
+
+
+
 * Cloud resource labels (OpenNebula >= 5.x)
 
 

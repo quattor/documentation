@@ -171,6 +171,10 @@ Types
     - */software/components/shorewall/component_shorewall_policy/connlimit*
         - Optional
         - Type: string
+    - */software/components/shorewall/component_shorewall_policy/audit*
+        - Description: enable audit on the policy
+        - Optional
+        - Type: boolean
  - **/software/components/shorewall/component_shorewall_providers**
     - Description: a providers entry: name number mark duplicate interface gateway options copy
     - */software/components/shorewall/component_shorewall_providers/name*
@@ -304,6 +308,14 @@ Types
     - */software/components/shorewall/component_shorewall_rules/helper*
         - Optional
         - Type: string
+    - */software/components/shorewall/component_shorewall_rules/audit*
+        - Description: use the audit action
+        - Optional
+        - Type: boolean
+    - */software/components/shorewall/component_shorewall_rules/loglevel*
+        - Description: action loglevel
+        - Optional
+        - Type: string
  - **/software/components/shorewall/component_shorewall_shorewall_blacklist**
  - **/software/components/shorewall/component_shorewall_shorewall**
     - Description: shorewall.conf options. only configured options are written to the configfile
@@ -380,6 +392,9 @@ Types
         - Optional
         - Type: boolean
     - */software/components/shorewall/component_shorewall_shorewall/disable_ipv6*
+        - Optional
+        - Type: boolean
+    - */software/components/shorewall/component_shorewall_shorewall/docker*
         - Optional
         - Type: boolean
     - */software/components/shorewall/component_shorewall_shorewall/dont_load*

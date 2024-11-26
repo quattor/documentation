@@ -117,7 +117,7 @@ Types
         - Optional
         - Type: string
  - **/software/components/postfix/postfix_main**
-    - Description: All fields available in main.cf. Nothing is mandatory here, since it all has default values. Time limits are expressed in SECONDS. Multiply by the appropriate constant above to simplify your code.
+    - Description: All fields available in main.cf. Nothing is mandatory here, since it all has default values. Time limits are expressed in seconds.
     - */software/components/postfix/postfix_main/_2bounce_notice_recipient*
         - Optional
         - Type: string
@@ -1276,6 +1276,9 @@ Types
     - */software/components/postfix/postfix_main/smtp_tls_policy_maps*
         - Optional
         - Type: string
+    - */software/components/postfix/postfix_main/smtp_tls_protocols*
+        - Optional
+        - Type: string
     - */software/components/postfix/postfix_main/smtp_tls_scert_verifydepth*
         - Optional
         - Type: long
@@ -1426,6 +1429,9 @@ Types
     - */software/components/postfix/postfix_main/smtpd_reject_udicted_sender*
         - Optional
         - Type: boolean
+    - */software/components/postfix/postfix_main/smtpd_relay_restrictions*
+        - Optional
+        - Type: string
     - */software/components/postfix/postfix_main/smtpd_restriction_classes*
         - Optional
         - Type: string
@@ -1746,11 +1752,3 @@ Types
         - Description: Definition of Postfix databases
         - Optional
         - Type: postfix_databases
-
-Variables
----------
-
- - MINUTES
- - HOURS
- - DAYS
- - WEEKS

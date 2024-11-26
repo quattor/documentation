@@ -155,4 +155,3 @@ Private methods
  Run a simple systemctl command (like is-active, is-enabled etc.).
 
  Returns output without trailing newlines on success, undef otherwise.
-

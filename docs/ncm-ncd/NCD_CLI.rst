@@ -77,6 +77,26 @@ FUNCTIONS
 
 
 
+- _report_state_simple
+
+ Create basic report for components from hashref ``state`` and
+ configuration name ``cfgname``.
+
+
+
+- _report_state_nagios
+
+ Create report in nagios check format for components from hashref ``state`` and
+ configuration name ``cfgname``.
+
+
+
+- report_state
+
+ Report the state of the components from ``statedir`` in ``format``.
+
+
+
 - action
 
  Take action: list, unconfigure or (default) configure.

@@ -50,6 +50,11 @@ Types
     - */software/components/metaconfig/hnormalise_output/zeromq*
         - Optional
         - Type: hnormalise_output_zeromq
+ - **/software/components/metaconfig/hnormalise_logging**
+    - */software/components/metaconfig/hnormalise_logging/frequency*
+        - Optional
+        - Type: long
+        - Range: 0..
  - **/software/components/metaconfig/hnormalise**
     - */software/components/metaconfig/hnormalise/input*
         - Required
@@ -60,3 +65,6 @@ Types
     - */software/components/metaconfig/hnormalise/fields*
         - Required
         - Type: string
+    - */software/components/metaconfig/hnormalise/logging*
+        - Optional
+        - Type: hnormalise_logging

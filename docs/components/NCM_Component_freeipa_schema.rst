@@ -205,3 +205,7 @@ Types
         - Description: Principal/keytab pairs for client,server or aii roles (default client role with host/fqdn princiapl and /etc/krb5.keytab keytab)
         - Optional
         - Type: component_freeipa_principal
+    - */software/components/freeipa/freeipa_component/cli_packages*
+        - Description: Packages required for CLI installation (e.g. in kickstart)
+        - Required
+        - Type: string

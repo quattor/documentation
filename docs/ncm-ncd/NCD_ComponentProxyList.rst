@@ -84,4 +84,23 @@ Functions
 
 
 
+- get_states
+
+ Gather the state information of the components in ``statedir``.
+
+ Return hashref with component name as key and state information.
+
+ First argument is a ``CAF::Reporter`` instance for logging.
+
+
+ - timestamp (when statefile was created)
+
+
+
+ - message
+
+
+
+
+
 

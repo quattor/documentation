@@ -8,5 +8,5 @@ Types
  - **/software/components/spma/component_spma_common**
     - */software/components/spma/component_spma_common/packager*
         - Required
-        - Type: string
+        - Type: choice
         - Default value: yum

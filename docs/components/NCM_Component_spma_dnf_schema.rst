@@ -5,6 +5,12 @@ NCM\::Component\::spma\::dnf - schema
 Types
 -----
 
+ - **/software/components/spma/spma_dnf_main_options**
+    - Description: Main configuration options for yum.conf.
+    - */software/components/spma/spma_dnf_main_options/best*
+        - Optional
+        - Type: long
+        - Range: 0..1
  - **/software/components/spma/component_spma_dnf**
     - */software/components/spma/component_spma_dnf/excludes*
         - Optional
@@ -39,3 +45,20 @@ Types
     - */software/components/spma/component_spma_dnf/run*
         - Optional
         - Type: boolean
+    - */software/components/spma/component_spma_dnf/main_options*
+        - Optional
+        - Type: spma_dnf_main_options
+ - **/software/components/spma/component_spma_dnf_module_defaults**
+    - Description: DNF module structure. To be used as dict, with name as key. to set default profiles for modules not enabled by default and change existing defaults.
+    - */software/components/spma/component_spma_dnf_module_defaults/stream*
+        - Required
+        - Type: string_trimmed
+    - */software/components/spma/component_spma_dnf_module_defaults/profiles*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/spma/component_spma_dnf_module_defaults/modulemd_version*
+        - Description: defaults to 1 in component, provided in-case it changes in a future release
+        - Required
+        - Type: long
+        - Range: 1..
+        - Default value: 1

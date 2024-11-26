@@ -5,92 +5,92 @@ NCM\::Component\::pam - schema
 Types
 -----
 
- - **/software/components/pam/component_pam_options**
- - **/software/components/pam/component_listfile_acl**
-    - */software/components/pam/component_listfile_acl/filename*
+ - **/software/components/pam/pam_component_options**
+ - **/software/components/pam/pam_component_listfile_acl**
+    - */software/components/pam/pam_component_listfile_acl/filename*
         - Required
         - Type: string
-    - */software/components/pam/component_listfile_acl/items*
+    - */software/components/pam/pam_component_listfile_acl/items*
         - Required
         - Type: string
- - **/software/components/pam/component_pam_module_stack**
-    - */software/components/pam/component_pam_module_stack/control*
+ - **/software/components/pam/pam_component_module_stack**
+    - */software/components/pam/pam_component_module_stack/control*
         - Required
         - Type: string
-    - */software/components/pam/component_pam_module_stack/module*
+    - */software/components/pam/pam_component_module_stack/module*
         - Required
         - Type: string
-    - */software/components/pam/component_pam_module_stack/options*
+    - */software/components/pam/pam_component_module_stack/options*
         - Optional
-        - Type: component_pam_options
-    - */software/components/pam/component_pam_module_stack/options_list*
-        - Optional
-        - Type: string
-    - */software/components/pam/component_pam_module_stack/allow*
-        - Optional
-        - Type: component_listfile_acl
-    - */software/components/pam/component_pam_module_stack/deny*
-        - Optional
-        - Type: component_listfile_acl
- - **/software/components/pam/component_pam_service_type**
-    - */software/components/pam/component_pam_service_type/auth*
-        - Optional
-        - Type: component_pam_module_stack
-    - */software/components/pam/component_pam_service_type/account*
-        - Optional
-        - Type: component_pam_module_stack
-    - */software/components/pam/component_pam_service_type/password*
-        - Optional
-        - Type: component_pam_module_stack
-    - */software/components/pam/component_pam_service_type/session*
-        - Optional
-        - Type: component_pam_module_stack
-    - */software/components/pam/component_pam_service_type/mode*
+        - Type: pam_component_options
+    - */software/components/pam/pam_component_module_stack/options_list*
         - Optional
         - Type: string
- - **/software/components/pam/component_pam_module**
-    - */software/components/pam/component_pam_module/path*
+    - */software/components/pam/pam_component_module_stack/allow*
+        - Optional
+        - Type: pam_component_listfile_acl
+    - */software/components/pam/pam_component_module_stack/deny*
+        - Optional
+        - Type: pam_component_listfile_acl
+ - **/software/components/pam/pam_component_service_type**
+    - */software/components/pam/pam_component_service_type/auth*
+        - Optional
+        - Type: pam_component_module_stack
+    - */software/components/pam/pam_component_service_type/account*
+        - Optional
+        - Type: pam_component_module_stack
+    - */software/components/pam/pam_component_service_type/password*
+        - Optional
+        - Type: pam_component_module_stack
+    - */software/components/pam/pam_component_service_type/session*
+        - Optional
+        - Type: pam_component_module_stack
+    - */software/components/pam/pam_component_service_type/mode*
         - Optional
         - Type: string
- - **/software/components/pam/component_pam_access_entry**
-    - */software/components/pam/component_pam_access_entry/permission*
+ - **/software/components/pam/pam_component_module**
+    - */software/components/pam/pam_component_module/path*
+        - Optional
+        - Type: string
+ - **/software/components/pam/pam_component_access_entry**
+    - */software/components/pam/pam_component_access_entry/permission*
         - Required
         - Type: string
-    - */software/components/pam/component_pam_access_entry/users*
+    - */software/components/pam/pam_component_access_entry/users*
         - Required
         - Type: string
-    - */software/components/pam/component_pam_access_entry/origins*
+    - */software/components/pam/pam_component_access_entry/origins*
         - Required
         - Type: string
- - **/software/components/pam/component_pam_access**
-    - */software/components/pam/component_pam_access/filename*
+ - **/software/components/pam/pam_component_access**
+    - */software/components/pam/pam_component_access/filename*
         - Required
         - Type: string
-    - */software/components/pam/component_pam_access/acl*
+    - */software/components/pam/pam_component_access/acl*
         - Required
-        - Type: component_pam_access_entry
-    - */software/components/pam/component_pam_access/lastacl*
+        - Type: pam_component_access_entry
+    - */software/components/pam/pam_component_access/lastacl*
         - Required
-        - Type: component_pam_access_entry
-    - */software/components/pam/component_pam_access/allowpos*
-        - Required
-        - Type: boolean
-    - */software/components/pam/component_pam_access/allowneg*
+        - Type: pam_component_access_entry
+    - */software/components/pam/pam_component_access/allowpos*
         - Required
         - Type: boolean
- - **/software/components/pam/component_pam_entry**
-    - */software/components/pam/component_pam_entry/modules*
+    - */software/components/pam/pam_component_access/allowneg*
+        - Required
+        - Type: boolean
+ - **/software/components/pam/pam_component**
+    - */software/components/pam/pam_component/modules*
         - Optional
-        - Type: component_pam_module
-    - */software/components/pam/component_pam_entry/services*
+        - Type: pam_component_module
+    - */software/components/pam/pam_component/services*
         - Optional
-        - Type: component_pam_service_type
-    - */software/components/pam/component_pam_entry/directory*
+        - Type: pam_component_service_type
+    - */software/components/pam/pam_component/directory*
         - Optional
         - Type: string
-    - */software/components/pam/component_pam_entry/acldir*
+    - */software/components/pam/pam_component/acldir*
         - Optional
         - Type: string
-    - */software/components/pam/component_pam_entry/access*
+    - */software/components/pam/pam_component/access*
         - Optional
-        - Type: component_pam_access
+        - Type: pam_component_access

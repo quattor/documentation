@@ -75,6 +75,15 @@ Types
         - Required
         - Type: boolean
         - Default value: false
+ - **/software/components/metaconfig/httpd_oidc_state_cookies**
+    - */software/components/metaconfig/httpd_oidc_state_cookies/number*
+        - Description: maximum number of state cookies
+        - Required
+        - Type: long
+    - */software/components/metaconfig/httpd_oidc_state_cookies/delete*
+        - Description: delete oldest state cookies
+        - Required
+        - Type: boolean
  - **/software/components/metaconfig/httpd_oidc**
     - Description: OpenID Connect configuration for mod_auth_openidc https://github.com/pingidentity/mod_auth_openidc
     - */software/components/metaconfig/httpd_oidc/claimprefix*
@@ -121,6 +130,9 @@ Types
     - */software/components/metaconfig/httpd_oidc/providerjwksuri*
         - Optional
         - Type: type_absoluteURI
+    - */software/components/metaconfig/httpd_oidc/statemaxnumberofcookies*
+        - Optional
+        - Type: httpd_oidc_state_cookies
  - **/software/components/metaconfig/httpd_shibboleth**
     - */software/components/metaconfig/httpd_shibboleth/useheaders*
         - Optional
@@ -297,6 +309,9 @@ Types
     - */software/components/metaconfig/httpd_ssl_global/carevocationpath*
         - Optional
         - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/carevocationcheck*
+        - Optional
+        - Type: choice
     - */software/components/metaconfig/httpd_ssl_global/verifydepth*
         - Optional
         - Type: long
@@ -310,6 +325,9 @@ Types
         - Optional
         - Type: string
     - */software/components/metaconfig/httpd_ssl_global/staplingcache*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_ssl_global/opensslconfcmd*
         - Optional
         - Type: string
  - **/software/components/metaconfig/httpd_ssl_nss_vhost**
@@ -873,6 +891,16 @@ Types
     - */software/components/metaconfig/httpd_browsermatch/names*
         - Required
         - Type: string
+ - **/software/components/metaconfig/httpd_expires**
+    - */software/components/metaconfig/httpd_expires/active*
+        - Required
+        - Type: boolean
+    - */software/components/metaconfig/httpd_expires/default*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/httpd_expires/bytype*
+        - Optional
+        - Type: string
  - **/software/components/metaconfig/httpd_directory**
     - */software/components/metaconfig/httpd_directory/rewrite*
         - Optional
@@ -908,6 +936,12 @@ Types
     - */software/components/metaconfig/httpd_directory/davrods*
         - Optional
         - Type: httpd_davrods
+    - */software/components/metaconfig/httpd_directory/files*
+        - Optional
+        - Type: httpd_file
+    - */software/components/metaconfig/httpd_directory/expires*
+        - Optional
+        - Type: httpd_expires
  - **/software/components/metaconfig/httpd_vhost_ip**
  - **/software/components/metaconfig/httpd_header**
     - */software/components/metaconfig/httpd_header/name*
@@ -1090,6 +1124,15 @@ Types
     - */software/components/metaconfig/httpd_global_system/traceenable*
         - Optional
         - Type: string
+    - */software/components/metaconfig/httpd_global_system/remoteipproxyprotocol*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/httpd_global_system/remoteipproxyprotocolexceptions*
+        - Optional
+        - Type: type_network_name
+    - */software/components/metaconfig/httpd_global_system/remoteiptrustedproxy*
+        - Optional
+        - Type: type_network_name
  - **/software/components/metaconfig/httpd_ifmodule_parameters**
     - */software/components/metaconfig/httpd_ifmodule_parameters/name*
         - Required

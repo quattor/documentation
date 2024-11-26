@@ -84,3 +84,7 @@ Types
         - Required
         - Type: boolean
         - Default value: false
+    - */software/components/spma/SOFTWARE_REPOSITORY/module_hotfixes*
+        - Description: DNF only feature, protects the repository from module filtering
+        - Optional
+        - Type: boolean

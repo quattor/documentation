@@ -108,11 +108,30 @@ Methods
 
 
 
-- grubby_args_options
+- convert_grubby_arguments
 
- Given string ``args``, split and convert into grubby commandline options
+ Given ``args`` string or hashref, update ``arguments`` hashref
+ with add/remove hashrefs. Optional serial console kernel commandline option ``cons``
+
+ If ``args`` is a string, arguments prefixed with '-' are added to the remove hashref.
+
+ Returns ``arguments`` hashref with add and remove hashrefs.
+
+ If track is false, the values of add and remove hashrefs are the last encountered value.
+ If track is true, the values of add and remove hashrefs are arraysrefs with all encountered values.
+
+
+
+- assemble_grubby_options
+
+ Given ``arguments`` hashref, return the add and remove option arrayrrefs.
+
+
+
+- grubby_arguments_options
+
+ Given arguments hashref ``args``, convert into grubby commandline options
  to add and/or remove the arguments.
- Arguments prefixed with '-' are scheduled for removal
  If ``multiboot`` is true, generate multiboot commandline options
 
  Returns a list of options.
@@ -227,6 +246,20 @@ Methods
  Return info for default kernel as an arrayref of hashref
 
  Same kernel can have multiple entries.
+
+
+
+- current_arguments
+
+ Get the current arguments. Return current arguments as string and as parsed hasref
+
+ ``track`` option is passed to ``convert_grubby_arguments``.
+
+
+
+- sanitize_arguments
+
+ Sanitize the current arguments
 
 
 
