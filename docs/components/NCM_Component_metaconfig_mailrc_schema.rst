@@ -15,6 +15,9 @@ Types
     - */software/components/metaconfig/mailrc_element/smtp-use-starttls*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/mailrc_element/smtp-auth*
+        - Optional
+        - Type: string_trimmed
     - */software/components/metaconfig/mailrc_element/smtp-auth-user*
         - Optional
         - Type: string

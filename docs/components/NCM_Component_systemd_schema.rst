@@ -22,6 +22,8 @@ Types
  - **/software/components/systemd/systemd_valid_unit**
  - **/software/components/systemd/systemd_valid_execpath**
  - **/software/components/systemd/systemd_relative_directory**
+ - **/software/components/systemd/systemd_absolute_or_relative_size**
+ - **/software/components/systemd/systemd_weights**
  - **/software/components/systemd/systemd_unitfile_config_unit_condition**
     - Description: Condition/Assert entries in Unit section All lists can start with empty string to reset previously defined values.
     - */software/components/systemd/systemd_unitfile_config_unit_condition/ACPower*
@@ -333,6 +335,9 @@ Types
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/PrivateTmp*
         - Optional
         - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_systemd_exec/PrivateNetwork*
+        - Optional
+        - Type: boolean
     - */software/components/systemd/systemd_unitfile_config_systemd_exec/RootDirectory*
         - Optional
         - Type: systemd_relative_directory
@@ -407,6 +412,12 @@ Types
         - Optional
         - Type: long
         - Range: 2..262144
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/CPUWeight*
+        - Optional
+        - Type: systemd_weights
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/StartupCPUWeight*
+        - Optional
+        - Type: systemd_weights
     - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/StartupCPUShares*
         - Optional
         - Type: long
@@ -420,7 +431,22 @@ Types
         - Type: boolean
     - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemoryLimit*
         - Optional
-        - Type: long
+        - Type: systemd_absolute_or_relative_size
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemoryMin*
+        - Optional
+        - Type: systemd_absolute_or_relative_size
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemoryMax*
+        - Optional
+        - Type: systemd_absolute_or_relative_size
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemoryLow*
+        - Optional
+        - Type: systemd_absolute_or_relative_size
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemoryHigh*
+        - Optional
+        - Type: systemd_absolute_or_relative_size
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/MemorySwapMax*
+        - Optional
+        - Type: systemd_absolute_or_relative_size
     - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/TasksAccounting*
         - Optional
         - Type: boolean
@@ -434,6 +460,12 @@ Types
         - Optional
         - Type: long
         - Range: 10..1000
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/IOWeight*
+        - Optional
+        - Type: systemd_weights
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/StartupIOWeight*
+        - Optional
+        - Type: systemd_weights
     - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/StartupBlockIOWeight*
         - Optional
         - Type: long
@@ -447,6 +479,12 @@ Types
     - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/BlockIOWriteBandwidth*
         - Optional
         - Type: systemd_unitfile_config_systemd_resource_control_block_weight
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/IPAccounting*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/IPAddressAllow*
+        - Optional
+        - Type: type_network_name
     - */software/components/systemd/systemd_unitfile_config_systemd_resource_control/DeviceAllow*
         - Optional
         - Type: systemd_unitfile_config_systemd_resource_control_devicelist
@@ -475,22 +513,22 @@ Types
         - Type: linux_capability
     - */software/components/systemd/systemd_unitfile_config_service/ExecReload*
         - Optional
-        - Type: string
+        - Type: transitional_string_or_list_of_strings
     - */software/components/systemd/systemd_unitfile_config_service/ExecStart*
         - Optional
-        - Type: string
+        - Type: transitional_string_or_list_of_strings
     - */software/components/systemd/systemd_unitfile_config_service/ExecStartPost*
         - Optional
-        - Type: string
+        - Type: transitional_string_or_list_of_strings
     - */software/components/systemd/systemd_unitfile_config_service/ExecStartPre*
         - Optional
-        - Type: string
+        - Type: transitional_string_or_list_of_strings
     - */software/components/systemd/systemd_unitfile_config_service/ExecStop*
         - Optional
-        - Type: string
+        - Type: transitional_string_or_list_of_strings
     - */software/components/systemd/systemd_unitfile_config_service/ExecStopPost*
         - Optional
-        - Type: string
+        - Type: transitional_string_or_list_of_strings
     - */software/components/systemd/systemd_unitfile_config_service/GuessMainPID*
         - Optional
         - Type: boolean
@@ -737,6 +775,40 @@ Types
         - Optional
         - Type: long
         - Range: 0..
+ - **/software/components/systemd/systemd_unitfile_config_path**
+    - Description: the [Path] section https://www.freedesktop.org/software/systemd/man/systemd.path.html
+    - */software/components/systemd/systemd_unitfile_config_path/PathExists*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_path/PathExistsGlob*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_path/PathChanged*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_path/PathModified*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_path/DirectoryNotEmpty*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/systemd/systemd_unitfile_config_path/Unit*
+        - Optional
+        - Type: string
+    - */software/components/systemd/systemd_unitfile_config_path/MakeDirectory*
+        - Optional
+        - Type: boolean
+    - */software/components/systemd/systemd_unitfile_config_path/DirectoryMode*
+        - Optional
+        - Type: type_octal_mode
+    - */software/components/systemd/systemd_unitfile_config_path/TriggerLimitIntervalSec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/systemd/systemd_unitfile_config_path/TriggerLimitBurst*
+        - Optional
+        - Type: long
+        - Range: 0..
  - **/software/components/systemd/systemd_unitfile_config_mount**
     - Description: the [mount] section http://www.freedesktop.org/software/systemd/man/systemd.mount.html
     - */software/components/systemd/systemd_unitfile_config_mount/What*
@@ -778,7 +850,7 @@ Types
     - */software/components/systemd/systemd_unitfile_config_automount/DirectoryMode*
         - Optional
         - Type: type_octal_mode
-    - */software/components/systemd/systemd_unitfile_config_automount/TimeoutSec*
+    - */software/components/systemd/systemd_unitfile_config_automount/TimeoutIdleSec*
         - Optional
         - Type: long
         - Range: 0..
@@ -836,6 +908,8 @@ Types
     - */software/components/systemd/systemd_unitfile_config_timer/RemainAfterElapse*
         - Optional
         - Type: boolean
+ - **/software/components/systemd/systemd_unitfile_config_slice**
+    - Description: the [Slice] section http://www.freedesktop.org/software/systemd/man/systemd.slice.html
  - **/software/components/systemd/systemd_unitfile_config**
     - Description: Unit configuration sections includes, unit and install are type agnostic unit and install are mandatory, but not enforced by schema (possible issues in case of replace=true) the other attributes are only valid for a specific type
     - */software/components/systemd/systemd_unitfile_config/includes*
@@ -857,12 +931,18 @@ Types
     - */software/components/systemd/systemd_unitfile_config/automount*
         - Optional
         - Type: systemd_unitfile_config_automount
+    - */software/components/systemd/systemd_unitfile_config/path*
+        - Optional
+        - Type: systemd_unitfile_config_path
     - */software/components/systemd/systemd_unitfile_config/timer*
         - Optional
         - Type: systemd_unitfile_config_timer
     - */software/components/systemd/systemd_unitfile_config/unit*
         - Optional
         - Type: systemd_unitfile_config_unit
+    - */software/components/systemd/systemd_unitfile_config/slice*
+        - Optional
+        - Type: systemd_unitfile_config_slice
  - **/software/components/systemd/systemd_unitfile_custom**
     - Description: Custom unit configuration to allow inserting computed configuration data It overrides the data defined in the regular config schema, so do not forget to set those as well (can be dummy value).
     - */software/components/systemd/systemd_unitfile_custom/CPUAffinity*
@@ -924,3 +1004,9 @@ Types
     - */software/components/systemd/systemd_component/unit*
         - Optional
         - Type: systemd_unit_type
+
+Functions
+---------
+
+ - is_absolute_or_relative_size
+    - Description: Validate that a property is either a size (in bytes), a relative size (in %) or 'infinity'. Used for memory limits in cgroups.

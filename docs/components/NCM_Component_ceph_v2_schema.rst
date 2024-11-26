@@ -7,112 +7,6 @@ Types
 
  - **/software/components/ceph/ceph_daemon**
     - Description: type for a generic ceph daemon
- - **/software/components/ceph/ceph_global_config**
-    - Description: ceph cluster-wide config parameters generate an fsid with uuidgen
-    - */software/components/ceph/ceph_global_config/auth_client_required*
-        - Required
-        - Type: choice
-        - Default value: cephx
-    - */software/components/ceph/ceph_global_config/auth_cluster_required*
-        - Required
-        - Type: choice
-        - Default value: cephx
-    - */software/components/ceph/ceph_global_config/auth_service_required*
-        - Required
-        - Type: choice
-        - Default value: cephx
-    - */software/components/ceph/ceph_global_config/cluster_network*
-        - Optional
-        - Type: type_network_name
-    - */software/components/ceph/ceph_global_config/enable_experimental_unrecoverable_data_corrupting_features*
-        - Optional
-        - Type: string
-    - */software/components/ceph/ceph_global_config/filestore_xattr_use_omap*
-        - Optional
-        - Type: boolean
-    - */software/components/ceph/ceph_global_config/fsid*
-        - Required
-        - Type: type_uuid
-    - */software/components/ceph/ceph_global_config/mon_cluster_log_to_syslog*
-        - Required
-        - Type: boolean
-        - Default value: true
-    - */software/components/ceph/ceph_global_config/mon_initial_members*
-        - Required
-        - Type: type_network_name
-    - */software/components/ceph/ceph_global_config/mon_host*
-        - Required
-        - Type: type_fqdn
-    - */software/components/ceph/ceph_global_config/mon_max_pg_per_osd*
-        - Optional
-        - Type: long
-    - */software/components/ceph/ceph_global_config/mon_osd_min_down_reporters*
-        - Optional
-        - Type: long
-        - Range: 0..
-    - */software/components/ceph/ceph_global_config/mon_osd_min_down_reports*
-        - Optional
-        - Type: long
-        - Range: 0..
-    - */software/components/ceph/ceph_global_config/mon_osd_warn_op_age*
-        - Optional
-        - Type: long
-        - Default value: 32
-    - */software/components/ceph/ceph_global_config/mon_osd_err_op_age_ratio*
-        - Optional
-        - Type: long
-        - Default value: 128
-    - */software/components/ceph/ceph_global_config/ms_type*
-        - Optional
-        - Type: choice
-    - */software/components/ceph/ceph_global_config/op_queue*
-        - Optional
-        - Type: choice
-    - */software/components/ceph/ceph_global_config/osd_journal_size*
-        - Required
-        - Type: long
-        - Range: 0..
-        - Default value: 10240
-    - */software/components/ceph/ceph_global_config/osd_max_pg_per_osd_hard_ratio*
-        - Optional
-        - Type: long
-    - */software/components/ceph/ceph_global_config/osd_pool_default_min_size*
-        - Required
-        - Type: long
-        - Range: 0..
-        - Default value: 2
-    - */software/components/ceph/ceph_global_config/osd_pool_default_pg_num*
-        - Optional
-        - Type: long
-        - Range: 0..
-    - */software/components/ceph/ceph_global_config/osd_pool_default_pgp_num*
-        - Optional
-        - Type: long
-        - Range: 0..
-    - */software/components/ceph/ceph_global_config/osd_pool_default_size*
-        - Required
-        - Type: long
-        - Range: 0..
-        - Default value: 3
-    - */software/components/ceph/ceph_global_config/public_network*
-        - Required
-        - Type: type_network_name
- - **/software/components/ceph/ceph_configfile**
-    - */software/components/ceph/ceph_configfile/global*
-        - Required
-        - Type: ceph_global_config
-    - */software/components/ceph/ceph_configfile/mds*
-        - Optional
-        - Type: ceph_mds_config
-    - */software/components/ceph/ceph_configfile/osd*
-        - Optional
-        - Type: ceph_osd_config
-    - */software/components/ceph/ceph_configfile/mon*
-        - Optional
-        - Type: ceph_mon_config
-    - */software/components/ceph/ceph_configfile/rgw*
-        - Optional
-        - Type: ceph_rgw_config
  - **/software/components/ceph/ceph_cluster**
     - Description: overarching ceph cluster type, with osds, mons and msds
     - */software/components/ceph/ceph_cluster/monitors*
@@ -124,6 +18,9 @@ Types
     - */software/components/ceph/ceph_cluster/initcfg*
         - Required
         - Type: ceph_configfile
+    - */software/components/ceph/ceph_cluster/configdb*
+        - Optional
+        - Type: ceph_configdb
     - */software/components/ceph/ceph_cluster/deployhosts*
         - Required
         - Type: type_fqdn
@@ -147,7 +44,7 @@ Types
  - **/software/components/ceph/ceph_supported_version**
  - **/software/components/ceph/ceph_deploy_supported_version**
  - **/software/components/ceph/ceph_component**
-    - Description: ceph cluster configuration we only support node to be in one ceph cluster named ceph this schema only works with Luminous 12.2.2 and above
+    - Description: ceph cluster configuration we only support node to be in one ceph cluster named ceph this schema only works with Luminous 12.2.2 and above When setting release to Octopus (15.2.x), we only need orchestrator, minconfig and ceph_version
     - */software/components/ceph/ceph_component/cluster*
         - Optional
         - Type: ceph_cluster
@@ -157,6 +54,9 @@ Types
     - */software/components/ceph/ceph_component/config*
         - Optional
         - Type: ceph_configfile
+    - */software/components/ceph/ceph_component/minconfig*
+        - Optional
+        - Type: ceph_minimal_config
     - */software/components/ceph/ceph_component/ceph_version*
         - Required
         - Type: ceph_supported_version
@@ -167,3 +67,6 @@ Types
         - Required
         - Type: choice
         - Default value: Luminous
+    - */software/components/ceph/ceph_component/orchestrator*
+        - Optional
+        - Type: ceph_orch

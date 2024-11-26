@@ -17,6 +17,10 @@ Types
         - Required
         - Type: boolean
         - Default value: false
+    - */software/components/mysql/component_mysql_db_user/encrypted_pwd*
+        - Required
+        - Type: boolean
+        - Default value: false
  - **/software/components/mysql/component_mysql_db_script**
     - */software/components/mysql/component_mysql_db_script/file*
         - Optional
@@ -55,6 +59,10 @@ Types
     - */software/components/mysql/component_mysql_server_options/adminpwd*
         - Required
         - Type: string
+    - */software/components/mysql/component_mysql_server_options/encrypted_adminpwd*
+        - Required
+        - Type: boolean
+        - Default value: false
     - */software/components/mysql/component_mysql_server_options/options*
         - Optional
         - Type: string

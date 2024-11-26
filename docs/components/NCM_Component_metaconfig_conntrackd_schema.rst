@@ -68,7 +68,7 @@ Types
         - Required
         - Type: conntrackd_service_sync_transport
  - **/software/components/metaconfig/conntrackd_service_general_unix**
-    - Description: Unix socket configuration. This socket is used by conntrackd to listen to external commands like `conntrackd -k' or `conntrackd -n'.
+    - Description: Unix socket configuration. This socket is used by conntrackd to listen to external commands like `conntrackd -k` or `conntrackd -n`.
     - */software/components/metaconfig/conntrackd_service_general_unix/Path*
         - Required
         - Type: string

@@ -5,7 +5,7 @@ functions\::network
 Variables
 ---------
 
- - MTU
+ - INTERFACE_MTU
     - Description: dict defining a non default MTU size for each interface in the system. dict keys can be an interface name, an interface type (e.g. eth, em), DEFAULT or BOOT. BOOT entry is applied to main interface (no explicit value must exist for it). DEFAULT entry is applied to all interfaces without an explicit value defined.
 
 Functions

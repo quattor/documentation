@@ -1,0 +1,86 @@
+#####################################################
+NCM\::Component\::network\::types\::network - ethtool
+#####################################################
+
+Types
+-----
+
+ - **/software/components/network/network_ethtool_offload**
+    - Description: interface ethtool offload
+    - */software/components/network/network_ethtool_offload/rx*
+        - Optional
+        - Type: choice
+    - */software/components/network/network_ethtool_offload/tx*
+        - Optional
+        - Type: choice
+    - */software/components/network/network_ethtool_offload/tso*
+        - Description: Set the TCP segment offload parameter to "off" or "on"
+        - Optional
+        - Type: choice
+    - */software/components/network/network_ethtool_offload/gro*
+        - Optional
+        - Type: choice
+    - */software/components/network/network_ethtool_offload/gso*
+        - Optional
+        - Type: choice
+ - **/software/components/network/network_ethtool_ring**
+    - Description: Set the ethernet transmit or receive buffer ring counts. See ethtool --show-ring for the values.
+    - */software/components/network/network_ethtool_ring/rx*
+        - Optional
+        - Type: long
+    - */software/components/network/network_ethtool_ring/tx*
+        - Optional
+        - Type: long
+    - */software/components/network/network_ethtool_ring/rx-mini*
+        - Optional
+        - Type: long
+    - */software/components/network/network_ethtool_ring/rx-jumbo*
+        - Optional
+        - Type: long
+ - **/software/components/network/network_ethtool_channels**
+    - Description: Set the number of channels. See ethtool --show-channels for the values.
+    - */software/components/network/network_ethtool_channels/rx*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_ethtool_channels/tx*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_ethtool_channels/other*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_ethtool_channels/combined*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/network/network_ethtool_wol**
+    - Description: ethtool wol p|u|m|b|a|g|s|d... from the man page Sets Wake-on-LAN options. Not all devices support this. The argument to this option is a string of characters specifying which options to enable. p Wake on phy activity u Wake on unicast messages m Wake on multicast messages b Wake on broadcast messages a Wake on ARP g Wake on MagicPacket(tm) s Enable SecureOn(tm) password for MagicPacket(tm) d Disable (wake on nothing). This option clears all previous option
+ - **/software/components/network/network_ethtool**
+    - Description: ethtool
+    - */software/components/network/network_ethtool/wol*
+        - Optional
+        - Type: network_ethtool_wol
+    - */software/components/network/network_ethtool/autoneg*
+        - Optional
+        - Type: choice
+    - */software/components/network/network_ethtool/duplex*
+        - Optional
+        - Type: choice
+    - */software/components/network/network_ethtool/speed*
+        - Optional
+        - Type: long
+    - */software/components/network/network_ethtool/channels*
+        - Optional
+        - Type: network_ethtool_channels
+ - **/software/components/network/network_interface_ethtool**
+    - */software/components/network/network_interface_ethtool/offload*
+        - Optional
+        - Type: network_ethtool_offload
+    - */software/components/network/network_interface_ethtool/ring*
+        - Optional
+        - Type: network_ethtool_ring
+    - */software/components/network/network_interface_ethtool/ethtool*
+        - Optional
+        - Type: network_ethtool

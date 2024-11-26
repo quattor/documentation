@@ -8,6 +8,8 @@ Types
  - **/software/components/metaconfig/xinetd_options_type**
  - **/software/components/metaconfig/xinetd_options_flags**
  - **/software/components/metaconfig/xinetd_options_ips**
+ - **/software/components/metaconfig/xinetd_options_log_on_success**
+ - **/software/components/metaconfig/xinetd_options_log_on_failure**
  - **/software/components/metaconfig/xinetd_options**
     - */software/components/metaconfig/xinetd_options/disable*
         - Required
@@ -38,7 +40,7 @@ Types
         - Range: 0..
     - */software/components/metaconfig/xinetd_options/socket_type*
         - Required
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/xinetd_options/user*
         - Required
         - Type: string
@@ -48,7 +50,7 @@ Types
         - Type: string
     - */software/components/metaconfig/xinetd_options/protocol*
         - Optional
-        - Type: string
+        - Type: choice
     - */software/components/metaconfig/xinetd_options/server_args*
         - Optional
         - Type: string
@@ -61,6 +63,12 @@ Types
     - */software/components/metaconfig/xinetd_options/per_source*
         - Optional
         - Type: long
+    - */software/components/metaconfig/xinetd_options/log_on_success*
+        - Optional
+        - Type: xinetd_options_log_on_success
+    - */software/components/metaconfig/xinetd_options/log_on_failure*
+        - Optional
+        - Type: xinetd_options_log_on_failure
  - **/software/components/metaconfig/xinetd_conf**
     - */software/components/metaconfig/xinetd_conf/servicename*
         - Required

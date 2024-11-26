@@ -17,6 +17,10 @@ Functions
     - Description: Adds a list of logical volumes to a volume group. For more details, see https://twiki.cern.ch/twiki/bin/view/FIOgroup/TsiCDBBlockDevices#Proposed_helper_functions
     - Arguments:
         - volume group, list of logical groups to add
+ - lvo_add
+    - Description: Adds a list of logical volumes to a volume group with mutiple lv options.
+    - Arguments:
+        - There are 2 mandatory arguments: 1: string - the volume group name 2: list of dicts representing the LVs desired. Supported keys within each dict are: size, raid_type
  - partitions_add
     - Description: Adds a list of partitions to a disk
     - Arguments:

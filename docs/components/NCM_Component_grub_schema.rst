@@ -5,8 +5,18 @@ NCM\::Component\::grub - schema
 Types
 -----
 
- - **/software/components/grub/type_grub_password**
+ - **/software/components/grub/grub_argument**
     - Description: the crypted password can be supplied either in the password field OR, alternatively, within a file. this could be useful if putting the crypted password in the profile is undesirable. for this the file will be scanned and the password will be taken from the second field in a colon delimited line, where the first field matches the file_user parameter.
+    - */software/components/grub/grub_argument/value*
+        - Description: a value for the argument (creates key=value when present; only key is generated when missing (a list is converted in comma-separated list of strings).
+        - Optional
+        - Type: element
+    - */software/components/grub/grub_argument/enable*
+        - Description: if false, do not add/update this argument and remove this option from the current list
+        - Required
+        - Type: boolean
+        - Default value: true
+ - **/software/components/grub/type_grub_password**
     - */software/components/grub/type_grub_password/enabled*
         - Description: Sets if a password should be enabled in grub.conf. If this is false, any existing password will be removed. If this is not defined, the component will not add or remove a password, leaving any existing one untouched.
         - Optional
@@ -62,8 +72,16 @@ Types
         - Description: Sets the arguments for the default kernel at boot time. The removal of a current argument is done by preceding the argument with a "-". If 'fullcontrol' is false then an empty or undefined value leaves the current arguments untouched. If 'fullcontrol' is true then the current arguments passed to the kernel are substituted by the ones given in this entry.
         - Optional
         - Type: string
+    - */software/components/grub/grub_component/arguments*
+        - Description: Same as args, but removal is flagged by setting enable=false
+        - Optional
+        - Type: grub_argument
     - */software/components/grub/grub_component/fullcontrol*
         - Description: Sets if we want a full control of the kernel arguments. The component default is 'false'.
+        - Optional
+        - Type: boolean
+    - */software/components/grub/grub_component/sanitize*
+        - Description: Sets if we want to sanitize final state of default kernel arguments. The component default is 'false'.
         - Optional
         - Type: boolean
     - */software/components/grub/grub_component/kernels*

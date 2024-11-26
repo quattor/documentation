@@ -63,6 +63,19 @@ Types
     - */software/components/spma/spma_yum_plugin_priorities/check_obsoletes*
         - Optional
         - Type: boolean
+ - **/software/components/spma/spma_yum_plugin_product_id**
+    - */software/components/spma/spma_yum_plugin_product_id/enabled*
+        - Required
+        - Type: boolean
+        - Default value: false
+ - **/software/components/spma/spma_yum_plugin_subscription_manager**
+    - */software/components/spma/spma_yum_plugin_subscription_manager/enabled*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/spma/spma_yum_plugin_subscription_manager/disable_system_repos*
+        - Optional
+        - Type: boolean
  - **/software/components/spma/spma_yum_plugins**
     - */software/components/spma/spma_yum_plugins/fastestmirror*
         - Optional
@@ -73,6 +86,12 @@ Types
     - */software/components/spma/spma_yum_plugins/priorities*
         - Optional
         - Type: spma_yum_plugin_priorities
+    - */software/components/spma/spma_yum_plugins/subscription-manager*
+        - Optional
+        - Type: spma_yum_plugin_subscription_manager
+    - */software/components/spma/spma_yum_plugins/product-id*
+        - Optional
+        - Type: spma_yum_plugin_product_id
  - **/software/components/spma/component_spma_common_yum**
     - */software/components/spma/component_spma_common_yum/proxy*
         - Optional
@@ -82,4 +101,13 @@ Types
         - Type: string
     - */software/components/spma/component_spma_common_yum/proxyport*
         - Optional
+        - Type: string
+ - **/software/components/spma/component_spma_dnf_module_simple**
+    - Description: Simple DNF module structure. To be used as dict, with name as key. No profile support, as it is only intended to configure/enable modules.
+    - */software/components/spma/component_spma_dnf_module_simple/enable*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/spma/component_spma_dnf_module_simple/stream*
+        - Required
         - Type: string

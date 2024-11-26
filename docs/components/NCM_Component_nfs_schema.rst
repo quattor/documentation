@@ -21,7 +21,7 @@ Types
         - Type: string
     - */software/components/nfs/structure_nfs_mounts/fstype*
         - Required
-        - Type: string
+        - Type: choice
     - */software/components/nfs/structure_nfs_mounts/options*
         - Optional
         - Type: string
@@ -39,6 +39,11 @@ Types
         - Required
         - Type: boolean
         - Default value: true
+    - */software/components/nfs/nfs_component/daemon*
+        - Description: Daemon to reload when changes are made
+        - Required
+        - Type: string_trimmed
+        - Default value: nfs-server
     - */software/components/nfs/nfs_component/exports*
         - Description: This is a list of dicts with "path" giving the export path and "hosts" being a dict of host/option entries where the key is the escaped host name and the value the export options(e.g. for "nfsclient.example.org(rw)", key will be escape("nfsclient.example.org") and value will be 'rw'. Note that the values in "hosts" may NOT contain embedded spaces and should not contain the enclosing '()'. This restriction is not checked in the schema! If a path is listed more than once, then the last entry will be used to generate the exports file.
         - Optional

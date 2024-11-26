@@ -32,15 +32,43 @@ Types
     - */software/components/autofs/autofs_conf_autofs/logging*
         - Optional
         - Type: string
+    - */software/components/autofs/autofs_conf_autofs/mount_nfs_default_protocol*
+        - Optional
+        - Type: long
+        - Range: 0..
  - **/software/components/autofs/autofs_conf_amd**
     - */software/components/autofs/autofs_conf_amd/dismount_interval*
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/autofs/autofs_conf_amd/map_name*
+        - Optional
+        - Type: string_trimmed
     - */software/components/autofs/autofs_conf_amd/map_type*
         - Optional
         - Type: string
     - */software/components/autofs/autofs_conf_amd/autofs_use_lofs*
+        - Optional
+        - Type: boolean
+    - */software/components/autofs/autofs_conf_amd/auto_dir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/autofs/autofs_conf_amd/browsable_dirs*
+        - Optional
+        - Type: boolean
+    - */software/components/autofs/autofs_conf_amd/domain_strip*
+        - Optional
+        - Type: boolean
+    - */software/components/autofs/autofs_conf_amd/local_domain*
+        - Optional
+        - Type: string
+    - */software/components/autofs/autofs_conf_amd/normalize_hostnames*
+        - Optional
+        - Type: boolean
+    - */software/components/autofs/autofs_conf_amd/search_path*
+        - Optional
+        - Type: string_search_path
+    - */software/components/autofs/autofs_conf_amd/selectors_on_default*
         - Optional
         - Type: boolean
  - **/software/components/autofs/autofs_conf**
@@ -105,7 +133,7 @@ Types
         - Default value: true
     - */software/components/autofs/autofs_component/maps*
         - Description: This resource contains one entry per autofs map to manage. The dict key is mainly an internal name but it will be used to build the default map name.
-        - Required
+        - Optional
         - Type: autofs_map_type
     - */software/components/autofs/autofs_component/conf*
         - Optional

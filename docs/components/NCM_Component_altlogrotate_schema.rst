@@ -28,6 +28,13 @@ Types
     - */software/components/altlogrotate/structure_altlogrotate_create_params/group*
         - Required
         - Type: string
+ - **/software/components/altlogrotate/structure_altlogrotate_su**
+    - */software/components/altlogrotate/structure_altlogrotate_su/user*
+        - Required
+        - Type: string_trimmed
+    - */software/components/altlogrotate/structure_altlogrotate_su/group*
+        - Required
+        - Type: string_trimmed
  - **/software/components/altlogrotate/structure_altlogrotate_logrot**
     - */software/components/altlogrotate/structure_altlogrotate_logrot/pattern*
         - Optional
@@ -126,6 +133,9 @@ Types
     - */software/components/altlogrotate/structure_altlogrotate_logrot/scripts*
         - Optional
         - Type: structure_altlogrotate_scripts
+    - */software/components/altlogrotate/structure_altlogrotate_logrot/su*
+        - Optional
+        - Type: structure_altlogrotate_su
  - **/software/components/altlogrotate/altlogrotate_component**
     - */software/components/altlogrotate/altlogrotate_component/configFile*
         - Description: Logrotate configuration file location, defaults to /etc/logrotate.conf.

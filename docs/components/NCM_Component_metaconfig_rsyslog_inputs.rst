@@ -158,6 +158,9 @@ Types
     - */software/components/metaconfig/rsyslog_input_kafka/consumergroup*
         - Optional
         - Type: string
+    - */software/components/metaconfig/rsyslog_input_kafka/ConfParam*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/rsyslog_input_kafka/ParseHostname*
         - Optional
         - Type: string

@@ -242,8 +242,11 @@ Types
         - Optional
         - Type: string
  - **structure_benchmark**
-    - Description: System benchmark results benchmarks is used to hold the performance benchmark for the machine i.e. HEPSpec06 score this might be used to scale things such as the wall time example of using this might be : variable CONDOR_WN_SCALING_FACTOR = value('/hardware/benchmarks/hepspec06') / ( 4 * get_num_of_cores()) ;
+    - Description: System benchmark results Benchmarks is used to hold the performance benchmark for the machine e.g. HEPScore23. These can be used to scale things such as the wall time of jobs, an example of using this might be: variable CONDOR_WN_SCALING_FACTOR = value('/hardware/benchmarks/hepscore23') / ( 4 * get_num_of_cores());
     - *structure_benchmark/hepspec06*
+        - Optional
+        - Type: double
+    - *structure_benchmark/hepscore23*
         - Optional
         - Type: double
     - *structure_benchmark/HPL*
@@ -262,6 +265,9 @@ Types
     - *structure_bios/releasedate*
         - Required
         - Type: string
+    - *structure_bios/bootmode*
+        - Optional
+        - Type: choice
  - **structure_hw_options**
     - Description: Configuration settings
     - *structure_hw_options/encrypt_disks*

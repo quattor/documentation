@@ -1,0 +1,270 @@
+#######################################################
+NCM\::Component\::network\::types\::network - interface
+#######################################################
+
+Types
+-----
+
+ - **/software/components/network/network_interface_alias**
+    - Description: Interface alias
+    - */software/components/network/network_interface_alias/ip*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_interface_alias/netmask*
+        - Required
+        - Type: type_ip
+    - */software/components/network/network_interface_alias/broadcast*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_interface_alias/fqdn*
+        - Optional
+        - Type: type_fqdn
+ - **/software/components/network/network_bonding_options**
+    - Description: Describes the bonding options for configuring channel bonding on EL and similar. Used by initscripts and nmstate backend. As per https://docs.rs/nmstate/latest/nmstate/struct.BondOptions.html#fields
+    - */software/components/network/network_bonding_options/ad_select*
+        - Description: 802.3ad aggregation selection logic
+        - Optional
+        - Type: choice
+    - */software/components/network/network_bonding_options/all_slaves_active*
+        - Description: Drop (0) or deliver(1) duplicate frames on inactive ports
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/network/network_bonding_options/arp_interval*
+        - Description: ARP link monitoring frequency in milliseconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_bonding_options/arp_ip_target*
+        - Description: IP addresses to use as ARP monitoring peers when arp_interval is > 0
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_bonding_options/arp_validate*
+        - Description: For which ports should ARP probes and replies should be validated or ignored completely
+        - Optional
+        - Type: choice
+    - */software/components/network/network_bonding_options/downdelay*
+        - Description: Milliseconds to wait before disabling a port after a link failure has been detected by miimon
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_bonding_options/fail_over_mac*
+        - Description: MAC address assignment policy for failover bonds
+        - Optional
+        - Type: choice
+    - */software/components/network/network_bonding_options/lacp_rate*
+        - Description: Requested LACPDU packet rate in 802.3ad mode
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/network/network_bonding_options/min_links*
+        - Description: Minimum number of links that must be active before asserting carrier
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_bonding_options/miimon*
+        - Description: Milliseconds between link state checks
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_bonding_options/mode*
+        - Required
+        - Type: long
+        - Range: 0..6
+    - */software/components/network/network_bonding_options/num_grat_arp*
+        - Description: Number of gratuitous ARPs after failover
+        - Optional
+        - Type: long
+        - Range: 0..255
+    - */software/components/network/network_bonding_options/num_unsol_na*
+        - Description: Number of unsolicited IPv6 Neighbor Advertisements after failover
+        - Optional
+        - Type: long
+        - Range: 0..255
+    - */software/components/network/network_bonding_options/primary*
+        - Description: Which interface is considered the primary device
+        - Optional
+        - Type: valid_interface
+    - */software/components/network/network_bonding_options/primary_reselect*
+        - Description: Method used to choose a new primary when the primary fails
+        - Optional
+        - Type: choice
+    - */software/components/network/network_bonding_options/resend_igmp*
+        - Description: Number of IGMP membership reports sent after failover
+        - Optional
+        - Type: long
+        - Range: 0..255
+    - */software/components/network/network_bonding_options/use_carrier*
+        - Description: Use link state from the device driver
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_bonding_options/updelay*
+        - Description: Milliseconds to wait before enabling a port after link recovery
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/network/network_bonding_options/xmit_hash_policy*
+        - Description: Transmit hash policy used in balance-xor, 802.3ad and tlb modes
+        - Optional
+        - Type: choice
+ - **/software/components/network/network_bridging_options**
+    - Description: describes the bridging options (the parameters for /sys/class/net/<br>/brport)
+    - */software/components/network/network_bridging_options/bpdu_guard*
+        - Optional
+        - Type: long
+    - */software/components/network/network_bridging_options/flush*
+        - Optional
+        - Type: long
+    - */software/components/network/network_bridging_options/hairpin_mode*
+        - Optional
+        - Type: long
+    - */software/components/network/network_bridging_options/multicast_fast_leave*
+        - Optional
+        - Type: long
+    - */software/components/network/network_bridging_options/multicast_router*
+        - Optional
+        - Type: long
+    - */software/components/network/network_bridging_options/path_cost*
+        - Optional
+        - Type: long
+    - */software/components/network/network_bridging_options/priority*
+        - Optional
+        - Type: long
+    - */software/components/network/network_bridging_options/root_block*
+        - Optional
+        - Type: long
+ - **/software/components/network/network_interface_type**
+ - **/software/components/network/network_interface**
+    - Description: network interface
+    - */software/components/network/network_interface/ip*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_interface/gateway*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_interface/netmask*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_interface/broadcast*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_interface/driver*
+        - Optional
+        - Type: string
+    - */software/components/network/network_interface/bootproto*
+        - Optional
+        - Type: choice
+    - */software/components/network/network_interface/onboot*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/type*
+        - Optional
+        - Type: network_interface_type
+    - */software/components/network/network_interface/device*
+        - Optional
+        - Type: string
+    - */software/components/network/network_interface/mtu*
+        - Optional
+        - Type: long
+    - */software/components/network/network_interface/master*
+        - Optional
+        - Type: string
+    - */software/components/network/network_interface/bonding_opts*
+        - Optional
+        - Type: network_bonding_options
+    - */software/components/network/network_interface/route*
+        - Description: Routes for this interface. These values are used to generate the /etc/sysconfig/network-scripts/route[6]-<interface> files as used by ifup-routes when using ncm-network. This allows for mixed IPv4 and IPv6 configuration
+        - Optional
+        - Type: network_route
+    - */software/components/network/network_interface/rule*
+        - Description: Rules for this interface. These values are used to generate the /etc/sysconfig/network-scripts/rule[6]-<interface> files as used by ifup-routes when using ncm-network. This allows for mixed IPv4 and IPv6 configuration
+        - Optional
+        - Type: network_rule
+    - */software/components/network/network_interface/aliases*
+        - Description: Aliases for this interface. These values are used to generate the /etc/sysconfig/network-scripts/ifcfg-<interface>:<key> files as used by ifup-aliases when using ncm-network.
+        - Optional
+        - Type: network_interface_alias
+    - */software/components/network/network_interface/set_hwaddr*
+        - Description: Explicitly set the MAC address. The MAC address is taken from /hardware/cards/nic/<interface>/hwaddr.
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/vlan*
+        - Description: Is a VLAN device. If the device name starts with vlan, this is always true.
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/physdev*
+        - Description: If the device name starts with vlan, this has to be set. It is set (but ignored by ifup) if it the device is not named vlan
+        - Optional
+        - Type: valid_interface
+    - */software/components/network/network_interface/fqdn*
+        - Optional
+        - Type: string
+    - */software/components/network/network_interface/network_environment*
+        - Optional
+        - Type: string
+    - */software/components/network/network_interface/network_type*
+        - Optional
+        - Type: string
+    - */software/components/network/network_interface/nmcontrolled*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/defroute*
+        - Description: Set DEFROUTE, is the default for ipv6_defroute
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/bridge*
+        - Optional
+        - Type: valid_interface
+    - */software/components/network/network_interface/linkdelay*
+        - Optional
+        - Type: long
+    - */software/components/network/network_interface/stp*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/delay*
+        - Optional
+        - Type: long
+    - */software/components/network/network_interface/bridging_opts*
+        - Optional
+        - Type: network_bridging_options
+    - */software/components/network/network_interface/bond_ifaces*
+        - Optional
+        - Type: string
+    - */software/components/network/network_interface/ipv4_failure_fatal*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/ipv6_autoconf*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/ipv6_failure_fatal*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/ipv6_mtu*
+        - Optional
+        - Type: long
+        - Range: 1280..65536
+    - */software/components/network/network_interface/ipv6_privacy*
+        - Optional
+        - Type: choice
+    - */software/components/network/network_interface/ipv6_rtr*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/ipv6_defroute*
+        - Description: Set IPV6_DEFROUTE, defaults to defroute value
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_interface/ipv6addr*
+        - Optional
+        - Type: type_network_name
+    - */software/components/network/network_interface/ipv6addr_secondaries*
+        - Optional
+        - Type: type_network_name
+    - */software/components/network/network_interface/ipv6init*
+        - Optional
+        - Type: boolean
+
+Functions
+---------
+
+ - network_exclude_backend
+    - Description: Generate error if network backend is not supported. First argument is the component backend (ncm-module). Optional 2nd is extra message

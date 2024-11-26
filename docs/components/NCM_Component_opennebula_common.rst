@@ -90,6 +90,18 @@ Types
         - Required
         - Type: boolean
         - Default value: true
+ - **/software/components/opennebula/opennebula_rpc_service**
+    - Description: type for opennebula service common RPC attributes.
+    - */software/components/opennebula/opennebula_rpc_service/one_xmlrpc*
+        - Description: OpenNebula daemon RPC contact information
+        - Required
+        - Type: type_absoluteURI
+        - Default value: http://localhost:2633/RPC2
+    - */software/components/opennebula/opennebula_rpc_service/core_auth*
+        - Description: authentication driver to communicate with OpenNebula core
+        - Required
+        - Type: string
+        - Default value: cipher
 
 Functions
 ---------

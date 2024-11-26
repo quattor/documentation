@@ -1,0 +1,1945 @@
+###################################################
+NCM\::Component\::metaconfig\::slurm - schema_21.08
+###################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/slurm_debuglevel**
+ - **/software/components/metaconfig/slurm_gres**
+    - */software/components/metaconfig/slurm_gres/name*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_gres/type*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_gres/consume*
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/metaconfig/slurm_gres/number*
+        - Required
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_job_gather_frequency**
+    - Description: all intervals in seconds
+    - */software/components/metaconfig/slurm_job_gather_frequency/energy*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_job_gather_frequency/filesystem*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_job_gather_frequency/network*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_job_gather_frequency/task*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_msg_aggregation**
+    - */software/components/metaconfig/slurm_msg_aggregation/WindowMsgs*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_msg_aggregation/WindowTime*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_power_parameters**
+    - */software/components/metaconfig/slurm_power_parameters/balance_interval*
+        - Description: in seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/capmc_path*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_power_parameters/cap_watts*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/decrease_rate*
+        - Description: percentage of the difference between a node's minimum and maximum power consumption
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/get_timeout*
+        - Description: in milliseconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/increase_rate*
+        - Description: percentage of the difference between a node's minimum and maximum power consumption
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/job_level*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_power_parameters/job_no_level*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_power_parameters/lower_threshold*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/recent_job*
+        - Description: in seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/set_timeout*
+        - Description: in milliseconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/set_watts*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_power_parameters/upper_threshold*
+        - Description: percentage of its current cap
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_sbcast_parameters**
+    - */software/components/metaconfig/slurm_sbcast_parameters/DestDir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_sbcast_parameters/Compression*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_sbcast_parameters/send_libs*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_dependency_parameters**
+    - */software/components/metaconfig/slurm_dependency_parameters/disable_remote_singleton*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dependency_parameters/kill_5finvalid_5fdepend*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dependency_parameters/max_5fdepend_5fdepth*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_scheduler_parameters**
+    - */software/components/metaconfig/slurm_scheduler_parameters/assoc_limit_stop*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/batch_5fsched_5fdelay*
+        - Description: in seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bb_array_stage_cnt*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_busy_nodes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_continue*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_interval*
+        - Description: in seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_job_part_count_reserve*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_job_array_resv*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_job_assoc*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_job_part*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_job_start*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_job_test*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_job_user*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_job_user_part*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_max_time*
+        - Optional
+        - Type: long
+        - Range: 0..256
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_min_age_reserve*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_min_prio_reserve*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_node_space_size*
+        - Optional
+        - Type: long
+        - Range: 2..2000000
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_resolution*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_window*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_window_linear*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_yield_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/bf_yield_sleep*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/build_queue_timeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/default_5fqueue_5fdepth*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/defer*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/delay_boot*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/default_gbytes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/disable_hetero_steps*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/enable_hetero_steps*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/enable_user_top*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/Ignore_NUMA*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/inventory_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/kill_5finvalid_5fdepend*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/max_array_tasks*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/max_5fdepend_5fdepth*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/max_rpc_cnt*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/max_sched_time*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/max_script_size*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/max_switch_wait*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/no_5fbackup_5fscheduling*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/no_5fenv_5fcache*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/pack_serial_at_end*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/partition_5fjob_5fdepth*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/preempt_reorder_count*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/preempt_strict_order*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/preempt_youngest_first*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/nohold_on_prolog_fail*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/reduce_completing_frag*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/requeue_setup_env_fail*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/salloc_wait_nodes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/sbatch_wait_nodes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/sched_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/sched_max_job_start*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/sched_min_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/spec_cores_first*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_scheduler_parameters/step_retry_count*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/step_retry_time*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_scheduler_parameters/whole_pack*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_select_type_parameters**
+    - */software/components/metaconfig/slurm_select_type_parameters/OTHER_CONS_RES*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/NHC_ABSOLUTELY_NO*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/NHC_NO_STEPS*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/NHC_NO*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_CPU*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_CPU_Memory*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_Core*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_Core_Memory*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_ONE_TASK_PER_CORE*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_CORE_DEFAULT_DIST_BLOCK*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_LLN*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_Pack_Nodes*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_Socket*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_Socket_Memory*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_select_type_parameters/CR_Memory*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_task_plugin_param**
+    - */software/components/metaconfig/slurm_task_plugin_param/Boards*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_task_plugin_param/Cores*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_task_plugin_param/None*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_task_plugin_param/Sockets*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_task_plugin_param/Threads*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_task_plugin_param/SlurmdOffSpec*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_task_plugin_param/Verbose*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_task_plugin_param/Autobind*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_topology_param**
+    - */software/components/metaconfig/slurm_topology_param/Dragonfly*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_topology_param/NoCtldInAddrAny*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_topology_param/NoInAddrAny*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_topology_param/TopoOptional*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_conf_health_check**
+    - */software/components/metaconfig/slurm_conf_health_check/HealthCheckInterval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_health_check/HealthCheckNodeState*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_health_check/HealthCheckProgram*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/slurm_control_resourcelimits**
+ - **/software/components/metaconfig/slurm_mpi_params**
+    - */software/components/metaconfig/slurm_mpi_params/ports*
+        - Description: port or port range
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_launch_params**
+    - */software/components/metaconfig/slurm_launch_params/batch_step_set_cpu_freq*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/cray_net_exclusive*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/disable_send_gids*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/enable_nss_slurm*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/lustre_no_flush*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/mem_sort*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/mpir_use_nodeaddr*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/send_gids*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/slurmstepd_memlock*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/slurmstepd_memlock_all*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/test_exec*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_launch_params/use_interactive_step*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_authalt_params**
+    - */software/components/metaconfig/slurm_authalt_params/disable_token_creation*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_authalt_params/jwt_key*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_authalt_params/jwks*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/slurm_communication_params**
+    - */software/components/metaconfig/slurm_communication_params/block_null_hash*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_communication_params/CheckGhalQuiesce*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_communication_params/DisableIPv4*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_communication_params/EnableIPv6*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_communication_params/NoAddrCache*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_communication_params/NoCtldInAddrAny*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_communication_params/NoInAddrAny*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_cron_parameters**
+    - */software/components/metaconfig/slurm_cron_parameters/enable*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_conf_control**
+    - */software/components/metaconfig/slurm_conf_control/AllowSpecResourcesUsage*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/slurm_conf_control/AuthAltParameters*
+        - Optional
+        - Type: slurm_authalt_params
+    - */software/components/metaconfig/slurm_conf_control/AuthAltTypes*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/AuthInfo*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/AuthType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/BackupController*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/BackupAddr*
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/slurm_conf_control/BurstBufferType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/ChosLoc*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/CliFilterPlugins*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/ClusterName*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/CommunicationParameters*
+        - Optional
+        - Type: slurm_communication_params
+    - */software/components/metaconfig/slurm_conf_control/CompleteWait*
+        - Optional
+        - Type: long
+        - Range: 0..65535
+    - */software/components/metaconfig/slurm_conf_control/ControlMachine*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/ControlAddr*
+        - Optional
+        - Type: type_ipv4
+    - */software/components/metaconfig/slurm_conf_control/CoreSpecPlugin*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/CpuFreqDef*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/CpuFreqGovernors*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/CryptoType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/DebugFlags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/DefaultStorageHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/DefaultStorageLoc*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/DefaultStoragePass*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/DefaultStoragePort*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/DefaultStorageType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/DefaultStorageUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/DisableRootJobs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_control/EnforcePartLimits*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/ExtSensorsFreq*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/ExtSensorsType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/FairShareDampeningFactor*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_conf_control/FastSchedule*
+        - Optional
+        - Type: long
+        - Range: 0..2
+    - */software/components/metaconfig/slurm_conf_control/FederationParameters*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/slurm_conf_control/FirstJobId*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/GresTypes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/GroupUpdateForce*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_control/GroupUpdateTime*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/JobContainerType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/JobCredentialPrivateKey*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/JobCredentialPublicCertificate*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/JobFileAppend*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_control/JobRequeue*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_control/JobSubmitPlugins*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/KillOnBadExit*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_control/LaunchType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/LaunchParameters*
+        - Optional
+        - Type: slurm_launch_params
+    - */software/components/metaconfig/slurm_conf_control/Licenses*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/MailProg*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/MaxArraySize*
+        - Description: 0 disables array jobs, the value of MaxJobCount should be much larger than MaxArraySize
+        - Optional
+        - Type: long
+        - Range: 0..4000001
+    - */software/components/metaconfig/slurm_conf_control/MaxJobCount*
+        - Optional
+        - Type: long
+        - Range: 0..200000
+    - */software/components/metaconfig/slurm_conf_control/MaxJobId*
+        - Optional
+        - Type: long
+        - Range: 0..67108863
+    - */software/components/metaconfig/slurm_conf_control/MaxMemPerCPU*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/MaxMemPerNode*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/MaxStepCount*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/MaxTasksPerNode*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_control/MpiDefault*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/MpiParams*
+        - Optional
+        - Type: slurm_mpi_params
+    - */software/components/metaconfig/slurm_conf_control/PluginDir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/PlugStackConfig*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/PreemptMode*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/PreemptType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/ProctrackType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/PropagatePrioProcess*
+        - Optional
+        - Type: long
+        - Range: 0..2
+    - */software/components/metaconfig/slurm_conf_control/PropagateResourceLimits*
+        - Optional
+        - Type: slurm_control_resourcelimits
+    - */software/components/metaconfig/slurm_conf_control/PropagateResourceLimitsExcept*
+        - Optional
+        - Type: slurm_control_resourcelimits
+    - */software/components/metaconfig/slurm_conf_control/RebootProgram*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/ReconfigFlags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/RequeueExit*
+        - Description: Separate multiple exit code, does not support ranges
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/slurm_conf_control/RequeueExitHold*
+        - Description: Separate multiple exit code, does not support ranges
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/slurm_conf_control/ReturnToService*
+        - Required
+        - Type: long
+        - Range: 0..2
+    - */software/components/metaconfig/slurm_conf_control/NodeFeaturesPlugins*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/MailDomain*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/MinJobAge*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_control/MsgAggregationParams*
+        - Optional
+        - Type: slurm_msg_aggregation
+    - */software/components/metaconfig/slurm_conf_control/PrivateData*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/RoutePlugin*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_control/SallocDefaultCommand*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/SbcastParameters*
+        - Optional
+        - Type: slurm_sbcast_parameters
+    - */software/components/metaconfig/slurm_conf_control/BcastExclude*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/ScronParameters*
+        - Optional
+        - Type: slurm_cron_parameters
+    - */software/components/metaconfig/slurm_conf_control/SrunPortRange*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_control/TmpFS*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/TrackWCKey*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_control/TreeWidth*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_control/UnkillableStepProgram*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_control/UsePAM*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_control/VSizeFactor*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+ - **/software/components/metaconfig/slurm_conf_prolog_epilog**
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/Epilog*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/EpilogSlurmctld*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/Prolog*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/PrologEpilogTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/PrologFlags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/PrologSlurmctld*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/ResvEpilog*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/ResvOverRun*
+        - Description: in minutes
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/ResvProlog*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/SrunEpilog*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/SrunProlog*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/TaskEpilog*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_prolog_epilog/TaskProlog*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/slurm_ctld_parameters**
+    - */software/components/metaconfig/slurm_ctld_parameters/allow_user_triggers*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/cloud_dns*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/cloud_5freg_5faddrs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/enable_configless*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/idle_on_node_suspend*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/power_save_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_ctld_parameters/power_save_min_interval*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_ctld_parameters/max_5fdbd_5fmsg_5faction*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_ctld_parameters/node_reg_mem_percent*
+        - Optional
+        - Type: long
+        - Range: 0..100
+    - */software/components/metaconfig/slurm_ctld_parameters/preempt_send_user_signal*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/reboot_from_controller*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_ctld_parameters/user_5fresv_5fdelete*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_d_parameters**
+    - */software/components/metaconfig/slurm_d_parameters/config_overrides*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_d_parameters/l3cache_as_socket*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_d_parameters/shutdown_on_reboot*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_conf_process**
+    - */software/components/metaconfig/slurm_conf_process/MCSParameters*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/slurm_conf_process/MCSPlugin*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_process/PowerParameters*
+        - Optional
+        - Type: slurm_power_parameters
+    - */software/components/metaconfig/slurm_conf_process/PowerPlugin*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_process/SlurmUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_process/SlurmdUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_process/SlurmdParameters*
+        - Optional
+        - Type: slurm_d_parameters
+    - */software/components/metaconfig/slurm_conf_process/SlurmctldParameters*
+        - Optional
+        - Type: slurm_ctld_parameters
+    - */software/components/metaconfig/slurm_conf_process/SlurmctldPidFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_process/SlurmctldPlugstack*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_process/SlurmctldPort*
+        - Description: a port range
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_process/SlurmdPidFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_process/SlurmdPort*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_process/SlurmdSpoolDir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_process/StateSaveLocation*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_process/SwitchType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_process/TaskPlugin*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_process/TaskPluginParam*
+        - Optional
+        - Type: slurm_task_plugin_param
+    - */software/components/metaconfig/slurm_conf_process/TopologyParam*
+        - Optional
+        - Type: slurm_topology_param
+    - */software/components/metaconfig/slurm_conf_process/TopologyPlugin*
+        - Optional
+        - Type: choice
+ - **/software/components/metaconfig/slurm_conf_timers**
+    - */software/components/metaconfig/slurm_conf_timers/BatchStartTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/CompleteWait*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/EioTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_timers/EpilogMsgTime*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/GetEnvTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/InactiveLimit*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/KeepAliveTime*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_timers/KillWait*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_timers/MessageTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/OverTimeLimit*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/ReturnToService*
+        - Optional
+        - Type: long
+        - Range: 0..2
+    - */software/components/metaconfig/slurm_conf_timers/SlurmctldTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_timers/SlurmdTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_timers/TCPTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/UnkillableStepTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_timers/WaitTime*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+ - **/software/components/metaconfig/slurm_conf_scheduling**
+    - */software/components/metaconfig/slurm_conf_scheduling/DefMemPerCPU*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_scheduling/DefMemPerNode*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_scheduling/DefCpuPerGPU*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_scheduling/FastSchedule*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/slurm_conf_scheduling/MaxMemPerNode*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_scheduling/SchedulerTimeSlice*
+        - Optional
+        - Type: long
+        - Range: 5..65533
+    - */software/components/metaconfig/slurm_conf_scheduling/SchedulerParameters*
+        - Optional
+        - Type: slurm_scheduler_parameters
+    - */software/components/metaconfig/slurm_conf_scheduling/DependencyParameters*
+        - Optional
+        - Type: slurm_dependency_parameters
+    - */software/components/metaconfig/slurm_conf_scheduling/SchedulerType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_scheduling/SelectType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_scheduling/SelectTypeParameters*
+        - Optional
+        - Type: slurm_select_type_parameters
+ - **/software/components/metaconfig/slurm_conf_job_priority**
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityDecayHalfLife*
+        - Description: in minutes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityCalcPeriod*
+        - Description: in minutes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityFavorSmall*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityFlags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityParameters*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityMaxAge*
+        - Description: in minutes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityUsageResetPeriod*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityWeightAge*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityWeightFairshare*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityWeightJobSize*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityWeightPartition*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityWeightQOS*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_job_priority/PriorityWeightTRES*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/slurm_job_gather_params**
+    - */software/components/metaconfig/slurm_job_gather_params/NoShared*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_job_gather_params/UsePss*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_job_gather_params/NoOverMemoryKill*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_conf_accounting**
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStorageBackupHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStorageEnforce*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStorageHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStorageLoc*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStoragePass*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStoragePort*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStorageTRES*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStorageType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStorageUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/AccountingStoreFlags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/AcctGatherNodeFreq*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_accounting/AcctGatherEnergyType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/AcctGatherInfinibandType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/AcctGatherFilesystemType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/AcctGatherProfileType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/JobCompHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/JobCompLoc*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/JobCompPass*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/JobCompPort*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_accounting/JobCompType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/JobCompUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_accounting/JobAcctGatherType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_accounting/JobAcctGatherFrequency*
+        - Optional
+        - Type: slurm_job_gather_frequency
+    - */software/components/metaconfig/slurm_conf_accounting/JobAcctGatherParams*
+        - Optional
+        - Type: slurm_job_gather_params
+ - **/software/components/metaconfig/slurm_conf_logging**
+    - */software/components/metaconfig/slurm_conf_logging/LogTimeFormat*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_logging/SlurmctldDebug*
+        - Optional
+        - Type: slurm_debuglevel
+    - */software/components/metaconfig/slurm_conf_logging/SlurmctldLogFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_logging/SlurmctldSyslogDebug*
+        - Optional
+        - Type: slurm_debuglevel
+    - */software/components/metaconfig/slurm_conf_logging/SlurmdDebug*
+        - Optional
+        - Type: slurm_debuglevel
+    - */software/components/metaconfig/slurm_conf_logging/SlurmdLogFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_logging/SlurmdSyslogDebug*
+        - Optional
+        - Type: slurm_debuglevel
+    - */software/components/metaconfig/slurm_conf_logging/SlurmSchedLogFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_logging/SlurmSchedLogLevel*
+        - Optional
+        - Type: long
+        - Range: 0..1
+ - **/software/components/metaconfig/slurm_conf_power**
+    - */software/components/metaconfig/slurm_conf_power/ResumeProgram*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_power/ResumeRate*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_power/ResumeTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_power/SuspendProgram*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_conf_power/SuspendTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_power/SuspendExcNodes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_power/SuspendExcParts*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_power/SuspendRate*
+        - Description: number of nodes per minute
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_power/SuspendTime*
+        - Description: in seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_conf_compute_nodes**
+    - */software/components/metaconfig/slurm_conf_compute_nodes/NodeName*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_compute_nodes/NodeHostname*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_compute_nodes/NodeAddr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Boards*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/CoreSpecCount*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/CoresPerSocket*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/CpuBind*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_compute_nodes/CPUs*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/CpuSpecList*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Feature*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Gres*
+        - Optional
+        - Type: slurm_gres
+    - */software/components/metaconfig/slurm_conf_compute_nodes/MemSpecLimit*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Port*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Procs*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/RealMemory*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Reason*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Sockets*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/SocketsPerBoard*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/State*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_compute_nodes/ThreadsPerCore*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/TmpDisk*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_compute_nodes/TRESWeights*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/slurm_conf_compute_nodes/Weight*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_conf_down_nodes**
+    - */software/components/metaconfig/slurm_conf_down_nodes/DownNodes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_down_nodes/Reason*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_down_nodes/State*
+        - Optional
+        - Type: choice
+ - **/software/components/metaconfig/slurm_conf_frontend_nodes**
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/AllowGroups*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/AllowUsers*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/DenyGroups*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/DenyUsers*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/FrontendName*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/FrontendAddr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/Port*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/Reason*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_frontend_nodes/State*
+        - Optional
+        - Type: choice
+ - **/software/components/metaconfig/slurm_partition_select_type**
+    - */software/components/metaconfig/slurm_partition_select_type/CR_Core*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_partition_select_type/CR_Core_Memory*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_partition_select_type/CR_Socket*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_partition_select_type/CR_Socket_Memory*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_conf_partition**
+    - */software/components/metaconfig/slurm_conf_partition/AllocNodes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/AllowAccounts*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/AllowGroups*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/AllowQos*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/Alternate*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/CpuBind*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_partition/Default*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_partition/DefCpuPerGPU*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/DefMemPerCPU*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/DefMemPerGPU*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/DefMemPerNode*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/DenyAccounts*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/DenyQos*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/DefaultTime*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/DisableRootJobs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_partition/ExclusiveUser*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_partition/GraceTime*
+        - Description: in seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/Hidden*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_partition/LLN*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_partition/MaxCPUsPerNode*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/MaxMemPerCPU*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/MaxMemPerNode*
+        - Description: in megabytes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/MaxNodes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/MaxTime*
+        - Description: in minutes
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/MinNodes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_conf_partition/Nodes*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/OverSubscribe*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_partition/PartitionName*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/PreemptMode*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_partition/PriorityJobFactor*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_partition/PriorityTier*
+        - Optional
+        - Type: long
+        - Range: 0..65533
+    - */software/components/metaconfig/slurm_conf_partition/QOS*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_conf_partition/ReqResv*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_partition/RootOnly*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_conf_partition/SelectTypeParameters*
+        - Optional
+        - Type: slurm_partition_select_type
+    - */software/components/metaconfig/slurm_conf_partition/State*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_conf_partition/TRESBillingWeights*
+        - Optional
+        - Type: dict
+ - **/software/components/metaconfig/slurm_conf_nodes**
+    - */software/components/metaconfig/slurm_conf_nodes/compute*
+        - Description: key is used as nodename, unless NodeName attribute is set
+        - Required
+        - Type: slurm_conf_compute_nodes
+    - */software/components/metaconfig/slurm_conf_nodes/down*
+        - Description: key is used as nodename, unless DownNodes attribute is set
+        - Optional
+        - Type: slurm_conf_down_nodes
+    - */software/components/metaconfig/slurm_conf_nodes/frontend*
+        - Description: key is used as nodename, unless FrontendName attribute is set
+        - Optional
+        - Type: slurm_conf_frontend_nodes
+ - **/software/components/metaconfig/slurm_conf**
+    - */software/components/metaconfig/slurm_conf/control*
+        - Required
+        - Type: slurm_conf_control
+    - */software/components/metaconfig/slurm_conf/process*
+        - Required
+        - Type: slurm_conf_process
+    - */software/components/metaconfig/slurm_conf/health*
+        - Optional
+        - Type: slurm_conf_health_check
+    - */software/components/metaconfig/slurm_conf/timers*
+        - Optional
+        - Type: slurm_conf_timers
+    - */software/components/metaconfig/slurm_conf/prepilogue*
+        - Optional
+        - Type: slurm_conf_prolog_epilog
+    - */software/components/metaconfig/slurm_conf/scheduling*
+        - Required
+        - Type: slurm_conf_scheduling
+    - */software/components/metaconfig/slurm_conf/priority*
+        - Required
+        - Type: slurm_conf_job_priority
+    - */software/components/metaconfig/slurm_conf/accounting*
+        - Required
+        - Type: slurm_conf_accounting
+    - */software/components/metaconfig/slurm_conf/logging*
+        - Required
+        - Type: slurm_conf_logging
+    - */software/components/metaconfig/slurm_conf/power*
+        - Optional
+        - Type: slurm_conf_power
+    - */software/components/metaconfig/slurm_conf/nodes*
+        - Optional
+        - Type: slurm_conf_nodes
+    - */software/components/metaconfig/slurm_conf/partitions*
+        - Description: key is used as PartitionName, unless PartitionName attribute is set
+        - Optional
+        - Type: slurm_conf_partition
+ - **/software/components/metaconfig/slurm_cgroups_conf**
+    - */software/components/metaconfig/slurm_cgroups_conf/AllowedDevicesFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_cgroups_conf/AllowedKmemSpace*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_cgroups_conf/AllowedRAMSpace*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_cgroups_conf/AllowedSwapSpace*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_cgroups_conf/CgroupAutomount*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_cgroups_conf/CgroupMountpoint*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_cgroups_conf/ConstrainCores*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_cgroups_conf/ConstrainDevices*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_cgroups_conf/ConstrainKmemSpace*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_cgroups_conf/ConstrainRAMSpace*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_cgroups_conf/ConstrainSwapSpace*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_cgroups_conf/MaxRAMPercent*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/slurm_cgroups_conf/MaxSwapPercent*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/slurm_cgroups_conf/MaxKmemPercent*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/slurm_cgroups_conf/MemorySwappiness*
+        - Optional
+        - Type: long
+        - Range: 0..100
+    - */software/components/metaconfig/slurm_cgroups_conf/MinKmemSpace*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_cgroups_conf/MinRAMSpace*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_cgroups_conf/TaskAffinity*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_spank_plugin**
+    - */software/components/metaconfig/slurm_spank_plugin/optional*
+        - Description: plugin is optional (if not optional, it is required)
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_spank_plugin/plugin*
+        - Required
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_spank_plugin/arguments*
+        - Optional
+        - Type: dict
+ - **/software/components/metaconfig/slurm_spank_includes**
+    - */software/components/metaconfig/slurm_spank_includes/directory*
+        - Required
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/slurm_spank_conf**
+    - */software/components/metaconfig/slurm_spank_conf/plugins*
+        - Optional
+        - Type: slurm_spank_plugin
+    - */software/components/metaconfig/slurm_spank_conf/includes*
+        - Optional
+        - Type: slurm_spank_includes
+ - **/software/components/metaconfig/slurm_topology_leaf_switch**
+    - */software/components/metaconfig/slurm_topology_leaf_switch/switch*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_topology_leaf_switch/nodes*
+        - Required
+        - Type: type_fqdn
+ - **/software/components/metaconfig/slurm_topology_spine_switch**
+    - */software/components/metaconfig/slurm_topology_spine_switch/switch*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_topology_spine_switch/switches*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/slurm_topology_conf**
+    - */software/components/metaconfig/slurm_topology_conf/leafswitch*
+        - Required
+        - Type: slurm_topology_leaf_switch
+    - */software/components/metaconfig/slurm_topology_conf/spineswitch*
+        - Required
+        - Type: slurm_topology_spine_switch
+ - **/software/components/metaconfig/slurm_acct_gather_conf**
+    - */software/components/metaconfig/slurm_acct_gather_conf/EnergyIPMIFrequency*
+        - Description: in seconds
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_acct_gather_conf/EnergyIPMICalcAdjustment*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_acct_gather_conf/EnergyIPMIPowerSensors*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_acct_gather_conf/EnergyIPMIUsername*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_acct_gather_conf/EnergyIPMIPassword*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_acct_gather_conf/ProfileHDF5Dir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_acct_gather_conf/ProfileHDF5Default*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_acct_gather_conf/InfinibandOFEDPort*
+        - Optional
+        - Type: long
+        - Range: 0..
+ - **/software/components/metaconfig/slurm_dbd_conf**
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveDir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveEvents*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveJobs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveResvs*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveScript*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveSteps*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveSuspend*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveTXN*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/ArchiveUsage*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/AuthAltParameters*
+        - Optional
+        - Type: slurm_authalt_params
+    - */software/components/metaconfig/slurm_dbd_conf/AuthAltTypes*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_dbd_conf/AuthInfo*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/AuthType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_dbd_conf/CommitDelay*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/DbdBackupHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/DbdAddr*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/DbdHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/DbdPort*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_dbd_conf/DebugFlags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_dbd_conf/DebugLevel*
+        - Optional
+        - Type: slurm_debuglevel
+    - */software/components/metaconfig/slurm_dbd_conf/DebugLevelSyslog*
+        - Optional
+        - Type: slurm_debuglevel
+    - */software/components/metaconfig/slurm_dbd_conf/DefaultQOS*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/LogFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_dbd_conf/LogTimeFormat*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_dbd_conf/MaxQueryTimeRange*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_dbd_conf/MessageTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_dbd_conf/PidFile*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_dbd_conf/PluginDir*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_dbd_conf/PrivateData*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_dbd_conf/PurgeEventAfter*
+        - Description: in hours
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/PurgeJobAfter*
+        - Description: in hours
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/PurgeResvAfter*
+        - Description: in hours
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/PurgeStepAfter*
+        - Description: in hours
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/PurgeSuspendAfter*
+        - Description: in hours
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/PurgeTXNAfter*
+        - Description: in hours
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/PurgeUsageAfter*
+        - Description: in hours
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/slurm_dbd_conf/SlurmUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/StorageHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/StorageBackupHost*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/StorageLoc*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_dbd_conf/StoragePass*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/StoragePort*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_dbd_conf/StorageType*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_dbd_conf/StorageUser*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/slurm_dbd_conf/TCPTimeout*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_dbd_conf/TrackWCKey*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_dbd_conf/TrackSlurmctldDown*
+        - Optional
+        - Type: boolean
+ - **/software/components/metaconfig/slurm_job_container_per_node_conf**
+    - */software/components/metaconfig/slurm_job_container_per_node_conf/AutoBasePath*
+        - Optional
+        - Type: boolean
+    - */software/components/metaconfig/slurm_job_container_per_node_conf/Basepath*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_job_container_per_node_conf/InitScript*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/slurm_job_container_node_conf**
+    - */software/components/metaconfig/slurm_job_container_node_conf/NodeName*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/slurm_job_container_conf**
+    - */software/components/metaconfig/slurm_job_container_conf/Default*
+        - Optional
+        - Type: slurm_job_container_per_node_conf
+    - */software/components/metaconfig/slurm_job_container_conf/Nodes*
+        - Optional
+        - Type: slurm_job_container_node_conf
+ - **/software/components/metaconfig/slurm_gres_autodetect_conf**
+    - */software/components/metaconfig/slurm_gres_autodetect_conf/AutoDetect*
+        - Optional
+        - Type: choice
+ - **/software/components/metaconfig/slurm_gres_per_node_conf**
+    - */software/components/metaconfig/slurm_gres_per_node_conf/NodeName*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Cores*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Count*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_gres_per_node_conf/File*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Flags*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Links*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Name*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/slurm_gres_per_node_conf/Type*
+        - Optional
+        - Type: string
+ - **/software/components/metaconfig/slurm_gres_conf**
+    - */software/components/metaconfig/slurm_gres_conf/Default*
+        - Optional
+        - Type: slurm_gres_autodetect_conf
+    - */software/components/metaconfig/slurm_gres_conf/Nodes*
+        - Optional
+        - Type: slurm_gres_per_node_conf

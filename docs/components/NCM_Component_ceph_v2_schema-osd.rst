@@ -42,6 +42,18 @@ Types
     - */software/components/ceph/ceph_osd_config/osd_scrub_max_interval*
         - Optional
         - Type: double
+    - */software/components/ceph/ceph_osd_config/osd_deep_scrub_large_omap_object_key_threshold*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/ceph/ceph_osd_config/osd_op_queue*
+        - Optional
+        - Type: choice
+        - Default value: wpq
+    - */software/components/ceph/ceph_osd_config/osd_op_queue_cut_off*
+        - Optional
+        - Type: choice
+        - Default value: low
  - **/software/components/ceph/ceph_osd**
     - Description: ceph osd-specific type Only bluestore support for now dmcrypt supported with ceph-volume > 12.2.3
     - */software/components/ceph/ceph_osd/class*

@@ -6,21 +6,160 @@ Types
 -----
 
  - **/software/components/metaconfig/kafka_server_properties**
+    - */software/components/metaconfig/kafka_server_properties/advertised.host.name*
+        - Optional
+        - Type: string_trimmed
     - */software/components/metaconfig/kafka_server_properties/advertised.listeners*
         - Optional
-        - Type: string
+        - Type: string_trimmed
         - Default value: PLAINTEXT://localhost:9092
+    - */software/components/metaconfig/kafka_server_properties/advertised.port*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/alter.config.policy.class.name*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/alter.log.dirs.replication.quota.window.num*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/alter.log.dirs.replication.quota.window.size.seconds*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/authorizer.class.name*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/auto.create.topics.enable*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/auto.leader.rebalance.enable*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/background.threads*
+        - Optional
+        - Type: long
+        - Range: 1..
     - */software/components/metaconfig/kafka_server_properties/broker.id*
         - Required
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/broker.id.generation.enable*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/broker.rack*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/client.quota.callback.class*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/compression.type*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/connection.failed.authentication.delay.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/connections.max.idle.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/connections.max.reauth.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/control.plane.listener.name*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/controlled.shutdown.enable*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/controlled.shutdown.max.retries*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/controlled.shutdown.retry.backoff.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/controller.socket.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/create.topic.policy.class.name*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/default.replication.factor*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/delegation.token.expiry.check.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/delegation.token.expiry.time.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/delegation.token.master.key*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/delegation.token.max.lifetime.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/delete.records.purgatory.purge.interval.requests*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/delete.topic.enable*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/fetch.purgatory.purge.interval.requests*
+        - Optional
         - Type: long
         - Range: 0..
     - */software/components/metaconfig/kafka_server_properties/group.initial.rebalance.delay.ms*
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/group.max.session.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/group.max.size*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/group.min.session.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/host.name*
+        - Optional
+        - Type: string
     - */software/components/metaconfig/kafka_server_properties/inter.broker.listener.name*
         - Optional
         - Type: string
+    - */software/components/metaconfig/kafka_server_properties/inter.broker.protocol.version*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/kafka.metrics.polling.interval.secs*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/kafka.metrics.reporters*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/leader.imbalance.check.interval.seconds*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/leader.imbalance.per.broker.percentage*
+        - Optional
+        - Type: long
+        - Range: 0..
     - */software/components/metaconfig/kafka_server_properties/listener.security.protocol.map*
         - Optional
         - Type: string
@@ -28,14 +167,132 @@ Types
         - Optional
         - Type: string
         - Default value: PLAINTEXT://localhost:9092
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.backoff.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.dedupe.buffer.size*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.delete.retention.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.enable*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.io.buffer.load.factor*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.io.buffer.size*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.io.max.bytes.per.second*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.max.compaction.lag.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.min.cleanable.ratio*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.min.compaction.lag.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.cleaner.threads*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.cleanup.policy*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/log.dir*
+        - Optional
+        - Type: absolute_file_path
     - */software/components/metaconfig/kafka_server_properties/log.dirs*
         - Required
         - Type: absolute_file_path
-    - */software/components/metaconfig/kafka_server_properties/log.retention.hours*
+    - */software/components/metaconfig/kafka_server_properties/log.flush.interval.messages*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/log.flush.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.flush.offset.checkpoint.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.flush.scheduler.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.flush.start.offset.checkpoint.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.index.interval.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.index.size.max.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.message.downconversion.enable*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/log.message.format.version*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/log.message.timestamp.difference.max.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.message.timestamp.type*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/log.preallocate*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/log.retention.bytes*
         - Optional
         - Type: long
         - Range: 0..
     - */software/components/metaconfig/kafka_server_properties/log.retention.check.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/log.retention.hours*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.retention.minutes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.retention.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.roll.hours*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/log.roll.jitter.hours*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.roll.jitter.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.roll.ms*
         - Optional
         - Type: long
         - Range: 0..
@@ -43,6 +300,47 @@ Types
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/log.segment.delete.delay.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/max.connections*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/max.connections.per.ip*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/max.connections.per.ip.overrides*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/max.incremental.fetch.session.cache.slots*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/message.max.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/metric.reporters*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/metrics.num.samples*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/metrics.recording.level*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/metrics.sample.window.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/min.insync.replicas*
+        - Optional
+        - Type: long
+        - Range: 1..
     - */software/components/metaconfig/kafka_server_properties/num.io.threads*
         - Optional
         - Type: long
@@ -54,8 +352,44 @@ Types
     - */software/components/metaconfig/kafka_server_properties/num.partitions*
         - Optional
         - Type: long
-        - Range: 0..
+        - Range: 1..
     - */software/components/metaconfig/kafka_server_properties/num.recovery.threads.per.data.dir*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/num.replica.alter.log.dirs.threads*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/num.replica.fetchers*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/offset.metadata.max.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/offsets.commit.required.acks*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/offsets.commit.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/offsets.load.buffer.size*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/offsets.retention.minutes*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/offsets.topic.compression.codec*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/offsets.topic.num.partitions*
         - Optional
         - Type: long
         - Range: 1..
@@ -63,10 +397,180 @@ Types
         - Optional
         - Type: long
         - Range: 1..
-    - */software/components/metaconfig/kafka_server_properties/socket.send.buffer.bytes*
+    - */software/components/metaconfig/kafka_server_properties/offsets.topic.segment.bytes*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/password.encoder.cipher.algorithm*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/password.encoder.iterations*
         - Optional
         - Type: long
         - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/password.encoder.key.length*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/password.encoder.keyfactory.algorithm*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/password.encoder.old.secret*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/password.encoder.secret*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/port*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/principal.builder.class*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/producer.purgatory.purge.interval.requests*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/queued.max.request.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/queued.max.requests*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/quota.consumer.default*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/quota.producer.default*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/quota.window.num*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/quota.window.size.seconds*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/replica.fetch.backoff.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replica.fetch.max.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replica.fetch.min.bytes*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/replica.fetch.response.max.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replica.fetch.wait.max.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replica.high.watermark.checkpoint.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replica.lag.time.max.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replica.selector.class*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/replica.socket.receive.buffer.bytes*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replica.socket.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/replication.quota.window.num*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/replication.quota.window.size.seconds*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/request.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/reserved.broker.max.id*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/sasl.client.callback.handler.class*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/kafka_server_properties/sasl.enabled.mechanisms*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/sasl.jaas.config*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/sasl.kerberos.kinit.cmd*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kafka_server_properties/sasl.kerberos.min.time.before.relogin*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/sasl.kerberos.principal.to.local.rules*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/sasl.kerberos.service.name*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/sasl.kerberos.ticket.renew.jitter*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/kafka_server_properties/sasl.kerberos.ticket.renew.window.factor*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/kafka_server_properties/sasl.login.callback.handler.class*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/sasl.login.class*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/sasl.login.refresh.buffer.seconds*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/sasl.login.refresh.min.period.seconds*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/sasl.login.refresh.window.factor*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/kafka_server_properties/sasl.login.refresh.window.jitter*
+        - Optional
+        - Type: double
+    - */software/components/metaconfig/kafka_server_properties/sasl.mechanism.inter.broker.protocol*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/sasl.server.callback.handler.class*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/security.inter.broker.protocol*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/security.providers*
+        - Optional
+        - Type: string_trimmed
     - */software/components/metaconfig/kafka_server_properties/socket.receive.buffer.bytes*
         - Optional
         - Type: long
@@ -74,7 +578,101 @@ Types
     - */software/components/metaconfig/kafka_server_properties/socket.request.max.bytes*
         - Optional
         - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/socket.send.buffer.bytes*
+        - Optional
+        - Type: long
         - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/ssl.cipher.suites*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.client.auth*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/ssl.enabled.protocols*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.endpoint.identification.algorithm*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.key.password*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.keymanager.algorithm*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.keystore.location*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kafka_server_properties/ssl.keystore.password*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.keystore.type*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/ssl.principal.mapping.rules*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.protocol*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/ssl.provider*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.secure.random.implementation*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.trustmanager.algorithm*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.truststore.location*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kafka_server_properties/ssl.truststore.password*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/kafka_server_properties/ssl.truststore.type*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/transaction.abort.timed.out.transaction.cleanup.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transaction.max.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transaction.remove.expired.transaction.cleanup.interval.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transaction.state.log.load.buffer.size*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transaction.state.log.min.isr*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transaction.state.log.num.partitions*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transaction.state.log.replication.factor*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transaction.state.log.segment.bytes*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/transactional.id.expiration.ms*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/unclean.leader.election.enable*
+        - Optional
+        - Type: choice
     - */software/components/metaconfig/kafka_server_properties/zookeeper.connect*
         - Required
         - Type: string
@@ -82,3 +680,18 @@ Types
         - Optional
         - Type: long
         - Range: 100..
+    - */software/components/metaconfig/kafka_server_properties/zookeeper.max.in.flight.requests*
+        - Optional
+        - Type: long
+        - Range: 1..
+    - */software/components/metaconfig/kafka_server_properties/zookeeper.session.timeout.ms*
+        - Optional
+        - Type: long
+        - Range: 0..
+    - */software/components/metaconfig/kafka_server_properties/zookeeper.set.acl*
+        - Optional
+        - Type: choice
+    - */software/components/metaconfig/kafka_server_properties/zookeeper.sync.time.ms*
+        - Optional
+        - Type: long
+        - Range: 0..

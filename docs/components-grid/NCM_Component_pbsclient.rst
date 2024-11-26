@@ -195,4 +195,3 @@ RESOURCES
 
  If true, it assumes this host is only used for job submission, and has no pbs MOM running
   that requires restarting.
- 

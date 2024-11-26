@@ -11,9 +11,8 @@ Types
         - Type: string
         - Default value: /sbin/sysctl
     - */software/components/sysctl/component_sysctl_structure/compat-v1*
-        - Required
+        - Optional
         - Type: boolean
-        - Default value: false
     - */software/components/sysctl/component_sysctl_structure/confFile*
         - Required
         - Type: string

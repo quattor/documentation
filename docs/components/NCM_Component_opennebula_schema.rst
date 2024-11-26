@@ -346,9 +346,8 @@ Types
         - Optional
         - Type: choice
     - */software/components/opennebula/opennebula_datastore/ds_mad*
-        - Required
+        - Optional
         - Type: choice
-        - Default value: ceph
     - */software/components/opennebula/opennebula_datastore/tm_mad*
         - Description: set system Datastore TM_MAD value. shared: The storage area for the system datastore is a shared directory across the hosts. vmfs: A specialized version of the shared one to use the vmfs file system. ssh: Uses a local storage area from each host for the system datastore. ceph: Uses Ceph storage backend.
         - Required
@@ -356,7 +355,7 @@ Types
         - Default value: ceph
     - */software/components/opennebula/opennebula_datastore/type*
         - Required
-        - Type: string
+        - Type: choice
         - Default value: IMAGE_DS
     - */software/components/opennebula/opennebula_datastore/labels*
         - Description: datastore labels is a list of strings to group the datastores under a given name and filter them in the admin and cloud views. It is also possible to include in the list sub-labels using a common slash: list("Name", "Name/SubName")
@@ -457,6 +456,10 @@ Types
         - Description: Set the hypervisor cluster. Any new hypervisor is always included within "Default" cluster. Hosts can be in only one cluster at a time.
         - Optional
         - Type: string
+    - */software/components/opennebula/opennebula_host/pin_policy*
+        - Description: Define which Hosts are going to be used to run pinned workloads setting PIN_POLICY. A Host can operate in two modes: NONE: Default mode where no NUMA or hardware characteristics are considered. Resources are assigned and balanced by an external component, e.g. numad or kernel. PINNED: VMs are allocated and pinned to specific nodes according to different policies. See: https://docs.opennebula.io/6.6/management_and_operations/host_cluster_management/numa.html#configuring-the-host
+        - Optional
+        - Type: choice
  - **/software/components/opennebula/opennebula_user**
     - Description: Set OpenNebula regular users and their primary groups. By default new users are assigned to the users group.
     - */software/components/opennebula/opennebula_user/ssh_public_key*
@@ -829,18 +832,6 @@ Types
     - */software/components/opennebula/opennebula_instance_types/description*
         - Optional
         - Type: string
- - **/software/components/opennebula/opennebula_rpc_service**
-    - Description: type for opennebula service common RPC attributes.
-    - */software/components/opennebula/opennebula_rpc_service/one_xmlrpc*
-        - Description: OpenNebula daemon RPC contact information
-        - Required
-        - Type: type_absoluteURI
-        - Default value: http://localhost:2633/RPC2
-    - */software/components/opennebula/opennebula_rpc_service/core_auth*
-        - Description: authentication driver to communicate with OpenNebula core
-        - Required
-        - Type: string
-        - Default value: cipher
  - **/software/components/opennebula/opennebula_sunstone**
     - Description: Type that sets the OpenNebula sunstone_server.conf file
     - */software/components/opennebula/opennebula_sunstone/env*
@@ -937,7 +928,7 @@ Types
     - */software/components/opennebula/opennebula_sunstone/marketplace_url*
         - Required
         - Type: type_absoluteURI
-        - Default value: http://marketplace.opennebula.systems/appliance
+        - Default value: http://marketplace.opennebula.io/
     - */software/components/opennebula/opennebula_sunstone/oneflow_server*
         - Required
         - Type: type_absoluteURI
@@ -946,6 +937,11 @@ Types
         - Required
         - Type: opennebula_instance_types
     - */software/components/opennebula/opennebula_sunstone/routes*
+        - Description: List of Ruby files containing custom routes to be loaded
+        - Required
+        - Type: string
+    - */software/components/opennebula/opennebula_sunstone/support_fs*
+        - Description: List of filesystems to offer when creating new image
         - Required
         - Type: string
  - **/software/components/opennebula/opennebula_oneflow**
@@ -997,6 +993,11 @@ Types
         - Type: long
         - Range: 0..3
         - Default value: 2
+    - */software/components/opennebula/opennebula_oneflow/subscriber_endpoint*
+        - Description: Endpoint for ZeroMQ subscriptions
+        - Required
+        - Type: string
+        - Default value: tcp://localhost:2101
  - **/software/components/opennebula/opennebula_kvmrc**
     - Description: Type that sets the OpenNebula VMM kvmrc conf files
     - */software/components/opennebula/opennebula_kvmrc/lang*
@@ -1095,6 +1096,24 @@ Types
     - */software/components/opennebula/opennebula_untouchables/vmgroups*
         - Optional
         - Type: string
+ - **/software/components/opennebula/opennebula_pci**
+    - Description: Type that sets the OpenNebula pci.conf file
+    - */software/components/opennebula/opennebula_pci/filter*
+        - Description: This option specifies the main filters for PCI card monitoring. The format is the same as used by lspci to filter on PCI card by vendor:device(:class) identification. Several filters can be added as a list, or separated by commas. The NULL filter will retrieve all PCI cards. From lspci help: -d [<vendor>]:[<device>][:<class>] Show only devices with specified vendor, device and class ID. The ID's are given in hexadecimal and may be omitted or given as "*", both meaning "any value" For example: :filter: - '10de:*' # all NVIDIA VGA cards - '10de:11bf' # only GK104GL [GRID K2] - '*:10d3' # only 82574L Gigabit Network cards - '8086::0c03' # only Intel USB controllers or :filter: '*:*' # all devices or :filter: '0:0' # no devices No devices filter is set by default.
+        - Required
+        - Type: string
+    - */software/components/opennebula/opennebula_pci/short_address*
+        - Description: The PCI cards list restricted by the :filter option above can be even more filtered by the list of exact PCI addresses (bus:device.func). For example: :short_address: - '07:00.0' - '06:00.0'
+        - Optional
+        - Type: string
+    - */software/components/opennebula/opennebula_pci/device_name*
+        - Description: The PCI cards list restricted by the :filter option above can be even more filtered by matching the device name against the list of regular expression case-insensitive patterns. For example: :device_name: - 'Virtual Function' - 'Gigabit Network' - 'USB.*Host Controller' - '^MegaRAID'
+        - Optional
+        - Type: string
+    - */software/components/opennebula/opennebula_pci/nvidia_vendors*
+        - Description: List of NVIDIA vendor IDs, these are used to recognize PCI devices from NVIDIA and use vGPU feature. For example: :nvidia_vendors: - '10de' On the other hand set an empty list to use full GPU PCI PT with NVIDIA cards: :nvidia_vendors: []
+        - Optional
+        - Type: string
  - **/software/components/opennebula/component_opennebula**
     - Description: Type to define ONE basic resources datastores, vnets, hosts names, etc
     - */software/components/opennebula/component_opennebula/datastores*
@@ -1139,6 +1158,13 @@ Types
     - */software/components/opennebula/component_opennebula/kvmrc*
         - Optional
         - Type: opennebula_kvmrc
+    - */software/components/opennebula/component_opennebula/sched*
+        - Optional
+        - Type: opennebula_sched
+    - */software/components/opennebula/component_opennebula/pci*
+        - Description: set pci pt filter configuration
+        - Optional
+        - Type: opennebula_pci
     - */software/components/opennebula/component_opennebula/vnm_conf*
         - Description: set vnm remote configuration
         - Optional

@@ -50,12 +50,18 @@ Types
     - */software/components/metaconfig/haproxy_service_global_config/ssl-default-bind-options*
         - Optional
         - Type: string
+    - */software/components/metaconfig/haproxy_service_global_config/ssl-default-bind-ciphersuites*
+        - Optional
+        - Type: string_non_whitespace
     - */software/components/metaconfig/haproxy_service_global_config/ssl-default-server-ciphers*
         - Optional
         - Type: string_non_whitespace
     - */software/components/metaconfig/haproxy_service_global_config/ssl-default-server-options*
         - Optional
         - Type: string
+    - */software/components/metaconfig/haproxy_service_global_config/ssl-default-server-ciphersuites*
+        - Optional
+        - Type: string_non_whitespace
     - */software/components/metaconfig/haproxy_service_global_config/ssl-dh-param-file*
         - Optional
         - Type: absolute_file_path
@@ -118,6 +124,18 @@ Types
         - Required
         - Type: long
         - Default value: 10000
+    - */software/components/metaconfig/haproxy_service_timeouts/client-fin*
+        - Optional
+        - Type: long
+        - Range: 4000..
+    - */software/components/metaconfig/haproxy_service_timeouts/server-fin*
+        - Optional
+        - Type: long
+        - Range: 4000..
+    - */software/components/metaconfig/haproxy_service_timeouts/tunnel*
+        - Optional
+        - Type: long
+        - Range: 4000..
  - **/software/components/metaconfig/haproxy_service_defaults**
     - Description: The Default Section
     - */software/components/metaconfig/haproxy_service_defaults/config*
@@ -262,6 +280,13 @@ Types
     - */software/components/metaconfig/haproxy_service_stick_table/peers*
         - Optional
         - Type: string
+ - **/software/components/metaconfig/haproxy_service_reqrep**
+    - */software/components/metaconfig/haproxy_service_reqrep/pattern*
+        - Required
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_reqrep/replace*
+        - Required
+        - Type: string
  - **/software/components/metaconfig/haproxy_service_bind_server_params**
     - */software/components/metaconfig/haproxy_service_bind_server_params/ssl*
         - Optional
@@ -282,6 +307,10 @@ Types
         - Optional
         - Type: string
         - Default value: h2,http/1.1
+    - */software/components/metaconfig/haproxy_service_bind_server_params/inter*
+        - Description: interval in milliseconds between healthchecks
+        - Optional
+        - Type: long
  - **/software/components/metaconfig/haproxy_service_server_params**
     - */software/components/metaconfig/haproxy_service_server_params/check*
         - Description: enable health check
@@ -302,6 +331,14 @@ Types
     - */software/components/metaconfig/haproxy_service_bind/port*
         - Optional
         - Type: type_port
+ - **/software/components/metaconfig/haproxy_service_frontend_errorfile**
+    - */software/components/metaconfig/haproxy_service_frontend_errorfile/code*
+        - Required
+        - Type: long
+        - Range: 200..600
+    - */software/components/metaconfig/haproxy_service_frontend_errorfile/filename*
+        - Required
+        - Type: absolute_file_path
  - **/software/components/metaconfig/haproxy_service_frontend**
     - */software/components/metaconfig/haproxy_service_frontend/acl*
         - Optional
@@ -312,6 +349,9 @@ Types
     - */software/components/metaconfig/haproxy_service_frontend/default_backend*
         - Required
         - Type: string
+    - */software/components/metaconfig/haproxy_service_frontend/use_backend*
+        - Optional
+        - Type: string_trimmed
     - */software/components/metaconfig/haproxy_service_frontend/mode*
         - Optional
         - Type: choice
@@ -321,6 +361,9 @@ Types
     - */software/components/metaconfig/haproxy_service_frontend/http-request*
         - Optional
         - Type: string
+    - */software/components/metaconfig/haproxy_service_frontend/errorfile*
+        - Optional
+        - Type: haproxy_service_frontend_errorfile
  - **/software/components/metaconfig/haproxy_service_backend_server**
     - */software/components/metaconfig/haproxy_service_backend_server/name*
         - Required
@@ -370,6 +413,15 @@ Types
     - */software/components/metaconfig/haproxy_service_backend/servers*
         - Required
         - Type: haproxy_service_backend_server
+    - */software/components/metaconfig/haproxy_service_backend/reqrep*
+        - Optional
+        - Type: haproxy_service_reqrep
+    - */software/components/metaconfig/haproxy_service_backend/http-request*
+        - Optional
+        - Type: string
+    - */software/components/metaconfig/haproxy_service_backend/acl*
+        - Optional
+        - Type: dict
  - **/software/components/metaconfig/haproxy_service**
     - Description: haproxy config see documentation on www.haproxy.org
     - */software/components/metaconfig/haproxy_service/global*

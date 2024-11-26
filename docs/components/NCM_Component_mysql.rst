@@ -71,11 +71,15 @@ List of MySQL users to create and MySQL privileges they have on the database. Th
 Value is a nlist with the following possible keys :
 
 
-- password : user MySQL password. Must be a cleartext password.
+- password : user MySQL password. Must be a cleartext password if encrypted_pwd is false (default value) or an encrypted password (using mysql command : select password('my_secret_password');).
 
 
 
 - rights : list of MySQL privileges to grant to the user.
+
+
+
+- encrypted_pwd : boolean (optional). If true, password will be used as an encrypted value.
 
 
 

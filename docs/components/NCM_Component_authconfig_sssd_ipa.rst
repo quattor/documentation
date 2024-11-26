@@ -22,6 +22,18 @@ Types
     - */software/components/authconfig/authconfig_sssd_ipa_krb5/confd_path*
         - Optional
         - Type: absolute_file_path
+    - */software/components/authconfig/authconfig_sssd_ipa_krb5/server*
+        - Optional
+        - Type: type_hostname
+    - */software/components/authconfig/authconfig_sssd_ipa_krb5/backup_server*
+        - Optional
+        - Type: type_hostname
+ - **/software/components/authconfig/authconfig_sssd_ipa_ldap**
+    - Description: LDAP settings for the IPA access provider
+    - */software/components/authconfig/authconfig_sssd_ipa_ldap/deref_threshold*
+        - Optional
+        - Type: long
+        - Range: 0..
  - **/software/components/authconfig/authconfig_sssd_ipa_dyndns**
     - Description: dyndns settings for the IPA access provider
     - */software/components/authconfig/authconfig_sssd_ipa_dyndns/update*
@@ -72,6 +84,9 @@ Types
     - */software/components/authconfig/authconfig_sssd_ipa/krb5*
         - Optional
         - Type: authconfig_sssd_ipa_krb5
+    - */software/components/authconfig/authconfig_sssd_ipa/ldap*
+        - Optional
+        - Type: authconfig_sssd_ipa_ldap
     - */software/components/authconfig/authconfig_sssd_ipa/dyndns*
         - Optional
         - Type: authconfig_sssd_ipa_dyndns

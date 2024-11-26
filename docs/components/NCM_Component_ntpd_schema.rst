@@ -126,7 +126,7 @@ Types
         - Type: long
     - */software/components/ntpd/ntpd_tinker_options/step*
         - Optional
-        - Type: long
+        - Type: double
     - */software/components/ntpd/ntpd_tinker_options/stepout*
         - Optional
         - Type: long
@@ -163,7 +163,7 @@ Types
         - Type: choice
     - */software/components/ntpd/ntpd_interface_options/match*
         - Required
-        - Type: string
+        - Type: string_trimmed
  - **/software/components/ntpd/ntpd_logconfig**
     - Description: Log configuration arguments must be defined in a list of strings. Values for each argument must follow what is defined in ntp_misc manual. Refer to ntp_misc manpage for more details. Examples: to get command 'logconfig -syncstatus +sysevents' prefix "/software/components/ntpd"; "logconfig" = list("-syncstatus", "+sysevents");
  - **/software/components/ntpd/ntpd_statistics**

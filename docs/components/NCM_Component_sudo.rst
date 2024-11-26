@@ -9,7 +9,7 @@ DESCRIPTION
 ***********
 
 
-The \ *sudo*\  component manages the sudo configuracion, I.E: edits
+The \ *sudo*\  component manages the sudo configuration, I.E: edits
 ``/etc/sudoers``. It doesn't provide as strict and nice syntax and
 semantic correction as visudo(8) does, but it tries to warn on most
 common users' mistakes.

@@ -56,6 +56,9 @@ Types
     - */software/components/metaconfig/zookeeper_main/syncEnabled*
         - Optional
         - Type: boolean
+    - */software/components/metaconfig/zookeeper_main/4lw.commands.whitelist*
+        - Optional
+        - Type: choice
     - */software/components/metaconfig/zookeeper_main/initLimit*
         - Required
         - Type: long

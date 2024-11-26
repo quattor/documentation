@@ -204,6 +204,11 @@ Types
     - */software/components/metaconfig/beats_logging/level*
         - Optional
         - Type: string
+ - **/software/components/metaconfig/beats_seccomp**
+    - Description: Secomp settings for RHEL with Linux >3.16 (see https://www.elastic.co/guide/en/beats/filebeat/6.8/linux-seccomp.html)
+    - */software/components/metaconfig/beats_seccomp/default_action*
+        - Required
+        - Type: choice
  - **/software/components/metaconfig/beats_service**
     - */software/components/metaconfig/beats_service/output*
         - Required
@@ -231,6 +236,9 @@ Types
     - */software/components/metaconfig/beats_service/geoip*
         - Optional
         - Type: beats_shipper_geoip
+    - */software/components/metaconfig/beats_service/seccomp*
+        - Optional
+        - Type: beats_seccomp
  - **/software/components/metaconfig/beats_filebeat_input_multiline**
     - Description: Handle logmessages spread over multiple lines
     - */software/components/metaconfig/beats_filebeat_input_multiline/pattern*
