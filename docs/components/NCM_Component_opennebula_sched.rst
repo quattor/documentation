@@ -1,0 +1,82 @@
+####################################
+NCM\::Component\::opennebula - sched
+####################################
+
+Types
+-----
+
+ - **/software/components/opennebula/opennebula_sched_policy_conf**
+    - */software/components/opennebula/opennebula_sched_policy_conf/policy*
+        - Required
+        - Type: long
+        - Range: 0..4
+        - Default value: 1
+ - **/software/components/opennebula/opennebula_sched**
+    - Description: Type that sets OpenNebula scheduler sched.conf
+    - */software/components/opennebula/opennebula_sched/message_size*
+        - Description: buffer size in bytes for XML-RPC responses
+        - Required
+        - Type: long
+        - Default value: 1073741824
+    - */software/components/opennebula/opennebula_sched/timeout*
+        - Description: seconds to timeout XML-RPC calls to oned
+        - Required
+        - Type: long
+        - Default value: 60
+    - */software/components/opennebula/opennebula_sched/sched_interval*
+        - Description: seconds between two scheduling actions
+        - Required
+        - Type: long
+        - Default value: 15
+    - */software/components/opennebula/opennebula_sched/max_vm*
+        - Description: maximum number of Virtual Machines scheduled in each scheduling action. Use 0 to schedule all pending VMs each time
+        - Required
+        - Type: long
+        - Default value: 5000
+    - */software/components/opennebula/opennebula_sched/max_dispatch*
+        - Description: maximum number of Virtual Machines dispatched in each scheduling action
+        - Required
+        - Type: long
+        - Default value: 30
+    - */software/components/opennebula/opennebula_sched/max_host*
+        - Description: maximum number of Virtual Machines dispatched to each host in each scheduling action
+        - Required
+        - Type: long
+        - Default value: 1
+    - */software/components/opennebula/opennebula_sched/live_rescheds*
+        - Description: perform live (1) or cold migrations (0) when rescheduling a VM
+        - Required
+        - Type: long
+        - Range: 0..1
+        - Default value: 0
+    - */software/components/opennebula/opennebula_sched/cold_migrate_mode*
+        - Description: type of cold migration, see documentation for one.vm.migrate 0 = save - default 1 = poweroff 2 = poweroff-hard
+        - Required
+        - Type: long
+        - Range: 0..2
+        - Default value: 0
+    - */software/components/opennebula/opennebula_sched/memory_system_ds_scale*
+        - Description: this factor scales the VM usage of the system DS with the memory size. This factor can be use to make the scheduler consider the overhead of checkpoint files: system_ds_usage = system_ds_usage + memory_system_ds_scale * memory
+        - Required
+        - Type: long
+        - Default value: 0
+    - */software/components/opennebula/opennebula_sched/different_vnets*
+        - Description: when set (true) the NICs of a VM will be forced to be in different Virtual Networks
+        - Required
+        - Type: boolean
+        - Default value: true
+    - */software/components/opennebula/opennebula_sched/default_sched*
+        - Description: definition of the default scheduling algorithm - policy: 0 = Packing. Heuristic that minimizes the number of hosts in use by packing the VMs in the hosts to reduce VM fragmentation 1 = Striping. Heuristic that tries to maximize resources available for the VMs by spreading the VMs in the hosts 2 = Load-aware. Heuristic that tries to maximize resources available for the VMs by using those nodes with less load 3 = Custom. - rank: Custom arithmetic expression to rank suitable hosts based in their attributes 4 = Fixed. Hosts will be ranked according to the PRIORITY attribute found in the Host or Cluster template
+        - Required
+        - Type: opennebula_sched_policy_conf
+    - */software/components/opennebula/opennebula_sched/default_ds_sched*
+        - Description: definition of the default storage scheduling algorithm - policy: 0 = Packing. Tries to optimize storage usage by selecting the DS with less free space 1 = Striping. Tries to optimize I/O by distributing the VMs across datastores. 2 = Custom. - rank: Custom arithmetic expression to rank suitable datastores based on their attributes 3 = Fixed. Datastores will be ranked according to the PRIORITY attribute found in the Datastore template
+        - Required
+        - Type: opennebula_sched_policy_conf
+    - */software/components/opennebula/opennebula_sched/default_nic_sched*
+        - Description: definition of the default virtual network scheduler - policy: 0 = Packing. Tries to pack address usage by selecting the VNET with less free leases 1 = Striping. Tries to distribute address usage across VNETs. 2 = Custom. - rank: Custom arithmetic expression to rank suitable datastores based on their attributes 3 = Fixed. Virtual Networks will be ranked according to the PRIORITY attribute found in the Virtual Network template
+        - Required
+        - Type: opennebula_sched_policy_conf
+    - */software/components/opennebula/opennebula_sched/log*
+        - Required
+        - Type: opennebula_log

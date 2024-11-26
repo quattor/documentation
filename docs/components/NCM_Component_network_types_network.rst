@@ -1,0 +1,108 @@
+###########################################
+NCM\::Component\::network\::types - network
+###########################################
+
+Types
+-----
+
+ - **/software/components/network/network_vip**
+    - Description: Define vip interfaces for configuring loopback interface. Used with frr/zebra configuration
+    - */software/components/network/network_vip/interfaces*
+        - Required
+        - Type: valid_interface
+    - */software/components/network/network_vip/ip*
+        - Required
+        - Type: type_ip
+    - */software/components/network/network_vip/fqdn*
+        - Optional
+        - Type: type_fqdn
+    - */software/components/network/network_vip/netmask*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_vip/broadcast*
+        - Optional
+        - Type: type_ip
+ - **/software/components/network/network_router**
+    - Description: router
+ - **/software/components/network/network_ipv6**
+    - Description: IPv6 global settings
+    - */software/components/network/network_ipv6/enabled*
+        - Optional
+        - Type: boolean
+    - */software/components/network/network_ipv6/default_gateway*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/network_ipv6/gatewaydev*
+        - Optional
+        - Type: valid_interface
+ - **/software/components/network/structure_network**
+    - Description: Host network configuration These values are used to generate /etc/sysconfig/network when using ncm-network (unless specified otherwise).
+    - */software/components/network/structure_network/domainname*
+        - Required
+        - Type: type_fqdn
+    - */software/components/network/structure_network/hostname*
+        - Required
+        - Type: type_shorthostname
+    - */software/components/network/structure_network/realhostname*
+        - Optional
+        - Type: string
+    - */software/components/network/structure_network/default_gateway*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/structure_network/guess_default_gateway*
+        - Description: When default_gateway is not set, the component will try to guess the default gateway using the first configured gateway set on an interface. The default is true for backward compatible behaviour.
+        - Optional
+        - Type: boolean
+    - */software/components/network/structure_network/gatewaydev*
+        - Optional
+        - Type: valid_interface
+    - */software/components/network/structure_network/interfaces*
+        - Description: Per interface network settings. These values are used to generate the /etc/sysconfig/network-scripts/ifcfg-<interface> files when using ncm-network.
+        - Required
+        - Type: network_interface
+    - */software/components/network/structure_network/nameserver*
+        - Optional
+        - Type: type_ip
+    - */software/components/network/structure_network/nisdomain*
+        - Optional
+        - Type: string
+    - */software/components/network/structure_network/nozeroconf*
+        - Description: Setting nozeroconf to true stops an interface from being assigned an automatic address in the 169.254.0.0 subnet.
+        - Optional
+        - Type: boolean
+    - */software/components/network/structure_network/set_hwaddr*
+        - Description: The default behaviour for all interfaces wrt setting the MAC address (see interface set_hwaddr attribute). The component default is false.
+        - Optional
+        - Type: boolean
+    - */software/components/network/structure_network/nmcontrolled*
+        - Optional
+        - Type: boolean
+    - */software/components/network/structure_network/allow_nm*
+        - Optional
+        - Type: boolean
+    - */software/components/network/structure_network/primary_ip*
+        - Optional
+        - Type: string
+    - */software/components/network/structure_network/routers*
+        - Optional
+        - Type: network_router
+    - */software/components/network/structure_network/ipv6*
+        - Optional
+        - Type: network_ipv6
+    - */software/components/network/structure_network/manage_vips*
+        - Required
+        - Type: boolean
+        - Default value: false
+    - */software/components/network/structure_network/vips*
+        - Optional
+        - Type: network_vip
+    - */software/components/network/structure_network/routing_table*
+        - Description: Manage custom routing table entries; key is the name; value is the id
+        - Optional
+        - Type: long
+        - Range: 1..252
+
+Variables
+---------
+
+ - QUATTOR_TYPES_NETWORK_BACKEND

@@ -1,0 +1,115 @@
+##################################################
+NCM\::Component\::metaconfig\::kibana - schema_8.1
+##################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/kibana_service_server**
+    - */software/components/metaconfig/kibana_service_server/port*
+        - Optional
+        - Type: type_port
+        - Default value: 5601
+    - */software/components/metaconfig/kibana_service_server/host*
+        - Optional
+        - Type: type_hostname
+        - Default value: localhost.localdomain
+    - */software/components/metaconfig/kibana_service_server/basePath*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kibana_service_server/maxPayloadBytes*
+        - Optional
+        - Type: long
+        - Default value: 1048576
+    - */software/components/metaconfig/kibana_service_server/ssl.enabled*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/kibana_service_server/server.ssl.certificate*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kibana_service_server/server.ssl.key*
+        - Optional
+        - Type: absolute_file_path
+ - **/software/components/metaconfig/kibana_service_elasticsearch**
+    - */software/components/metaconfig/kibana_service_elasticsearch/hosts*
+        - Required
+        - Type: type_absoluteURI
+        - Default value: http://localhost:9200
+    - */software/components/metaconfig/kibana_service_elasticsearch/ssl.certificate*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kibana_service_elasticsearch/ssl.key*
+        - Optional
+        - Type: absolute_file_path
+    - */software/components/metaconfig/kibana_service_elasticsearch/ssl.certificateAuthorities*
+        - Optional
+        - Type: list
+    - */software/components/metaconfig/kibana_service_elasticsearch/ssl.verificationMode*
+        - Optional
+        - Type: string
+        - Default value: full
+    - */software/components/metaconfig/kibana_service_elasticsearch/pingTimeout*
+        - Optional
+        - Type: long
+        - Default value: 1500
+    - */software/components/metaconfig/kibana_service_elasticsearch/requestTimeout*
+        - Optional
+        - Type: long
+        - Default value: 30000
+    - */software/components/metaconfig/kibana_service_elasticsearch/requestHeadersWhitelist*
+        - Optional
+        - Type: list
+    - */software/components/metaconfig/kibana_service_elasticsearch/customHeaders*
+        - Optional
+        - Type: dict
+    - */software/components/metaconfig/kibana_service_elasticsearch/shardTimeout*
+        - Optional
+        - Type: long
+        - Default value: 0
+    - */software/components/metaconfig/kibana_service_elasticsearch/startupTimeout*
+        - Optional
+        - Type: long
+        - Default value: 5000
+    - */software/components/metaconfig/kibana_service_elasticsearch/serviceAccountToken*
+        - Required
+        - Type: string
+ - **/software/components/metaconfig/kibana_service_kibana**
+    - */software/components/metaconfig/kibana_service_kibana/index*
+        - Required
+        - Type: string
+        - Default value: .kibana
+    - */software/components/metaconfig/kibana_service_kibana/defaultAppId*
+        - Optional
+        - Type: string
+        - Default value: home
+ - **/software/components/metaconfig/kibana_service_logging**
+    - */software/components/metaconfig/kibana_service_logging/dest*
+        - Optional
+        - Type: string
+        - Default value: stdout
+    - */software/components/metaconfig/kibana_service_logging/silent*
+        - Optional
+        - Type: boolean
+        - Default value: false
+    - */software/components/metaconfig/kibana_service_logging/quiet*
+        - Optional
+        - Type: boolean
+        - Default value: false
+ - **/software/components/metaconfig/kibana_service**
+    - */software/components/metaconfig/kibana_service/server*
+        - Optional
+        - Type: kibana_service_server
+    - */software/components/metaconfig/kibana_service/elasticsearch*
+        - Required
+        - Type: kibana_service_elasticsearch
+    - */software/components/metaconfig/kibana_service/kibana*
+        - Optional
+        - Type: kibana_service_kibana
+    - */software/components/metaconfig/kibana_service/pid.file*
+        - Optional
+        - Type: string
+        - Default value: /var/run/kibana.pid
+    - */software/components/metaconfig/kibana_service/logging*
+        - Optional
+        - Type: kibana_service_logging

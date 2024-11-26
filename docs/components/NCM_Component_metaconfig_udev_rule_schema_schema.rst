@@ -1,0 +1,146 @@
+##########################################################
+NCM\::Component\::metaconfig\::udev\::rule_schema - schema
+##########################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/udev_rule_match_operator**
+    - Description: Schema for udev rules which consist of match or matches of key that results in assignment or actions of matched key(s), referred as match_rule and udev_assign_rule in this schema. match key is either dict of dict with a key and without one that has a value and an operator with equality check. matched key result in action/assigment in ether dict of dict with a key or without one that has a value and an operator with assignment. There could be multiple lines of rules with different matches independent of each rules. example: /etc/udev/rules.d/00-x710.rules 'rule/0' = dict( 'match_rule', dict( 'attrs', list( dict( 'key', 'device', 'operator', '==', 'value', '0x1572', ), ), ), 'udev_assign_rule', dict( 'run', list( dict( 'operator', '+=', 'value', "/sbin/ethtool -s '%k' speed 10000", ), ), ), ); ACTION is one of the match keys with value of add|change with '==' operator. RUN is a matched key result of all the matched keys, ACTION, and ATTRS being matched, with value of "/sbin/ethtool ..." and operator of '+='. Please refer to udev(7) man page for the list of match and assignment or action
+ - **/software/components/metaconfig/udev_rule_assign_operator**
+ - **/software/components/metaconfig/string_match_structure**
+    - */software/components/metaconfig/string_match_structure/value*
+        - Description: dict of dict with string key, eg ACTION=="add|change"
+        - Required
+        - Type: string
+    - */software/components/metaconfig/string_match_structure/operator*
+        - Required
+        - Type: udev_rule_match_operator
+ - **/software/components/metaconfig/dict_match_structure**
+    - */software/components/metaconfig/dict_match_structure/key*
+        - Description: dict of dict with a key, eg dict( 'key', 'device', 'operator', '==', 'value', '0x1572', );
+        - Required
+        - Type: string_trimmed
+    - */software/components/metaconfig/dict_match_structure/value*
+        - Required
+        - Type: string_trimmed
+    - */software/components/metaconfig/dict_match_structure/operator*
+        - Required
+        - Type: udev_rule_match_operator
+ - **/software/components/metaconfig/string_assign_structure**
+    - */software/components/metaconfig/string_assign_structure/value*
+        - Description: dict of dict without key, eg RUN+="/sbin/ethtool --set-priv-flags '%k'"
+        - Required
+        - Type: string_trimmed
+    - */software/components/metaconfig/string_assign_structure/operator*
+        - Required
+        - Type: udev_rule_assign_operator
+ - **/software/components/metaconfig/dict_assign_structure**
+    - */software/components/metaconfig/dict_assign_structure/key*
+        - Description: dict of dict with a key, eg dict( 'key', 'vendor', 'operator', '=', 'value', '0x8086', );
+        - Required
+        - Type: string_trimmed
+    - */software/components/metaconfig/dict_assign_structure/value*
+        - Required
+        - Type: string_trimmed
+    - */software/components/metaconfig/dict_assign_structure/operator*
+        - Required
+        - Type: udev_rule_assign_operator
+ - **/software/components/metaconfig/device_match**
+    - */software/components/metaconfig/device_match/action*
+        - Description: list of possible matches
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/name*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/kernel*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/driver*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/subsystem*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/devpath*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/attr*
+        - Optional
+        - Type: dict_match_structure
+    - */software/components/metaconfig/device_match/program*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/result*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/env*
+        - Optional
+        - Type: dict_match_structure
+    - */software/components/metaconfig/device_match/kernels*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/drivers*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/subsystems*
+        - Optional
+        - Type: string_match_structure
+    - */software/components/metaconfig/device_match/attrs*
+        - Optional
+        - Type: dict_match_structure
+ - **/software/components/metaconfig/assign_keys**
+    - */software/components/metaconfig/assign_keys/name*
+        - Description: list of possible assigment/actions
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/attr*
+        - Optional
+        - Type: dict_assign_structure
+    - */software/components/metaconfig/assign_keys/symlink*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/owner*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/group*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/mode*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/env*
+        - Optional
+        - Type: dict_assign_structure
+    - */software/components/metaconfig/assign_keys/run*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/label*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/goto*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/import*
+        - Optional
+        - Type: dict_assign_structure
+    - */software/components/metaconfig/assign_keys/wait_for_sysfs*
+        - Optional
+        - Type: string_assign_structure
+    - */software/components/metaconfig/assign_keys/options*
+        - Optional
+        - Type: string_assign_structure
+ - **/software/components/metaconfig/udev_rule**
+    - */software/components/metaconfig/udev_rule/match_rule*
+        - Description: udev rule consistes of match and assigment/action
+        - Optional
+        - Type: device_match
+    - */software/components/metaconfig/udev_rule/udev_assign_rule*
+        - Required
+        - Type: assign_keys
+ - **/software/components/metaconfig/udev_rules**
+    - */software/components/metaconfig/udev_rules/rule*
+        - Description: udev rules can be multiple in a file
+        - Required
+        - Type: udev_rule

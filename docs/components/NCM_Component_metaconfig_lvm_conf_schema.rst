@@ -1,0 +1,389 @@
+################################################
+NCM\::Component\::metaconfig\::lvm_conf - schema
+################################################
+
+Types
+-----
+
+ - **/software/components/metaconfig/lvm_conf_global_entry**
+    - */software/components/metaconfig/lvm_conf_global_entry/event_activation*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/io_memory_size*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_global_entry/test*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/umask*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_global_entry/units*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/si_unit_consistency*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/suffix*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/activation*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/wait_for_locks*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/locking_dir*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/prioritise_write_locks*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/abort_on_internal_errors*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/metadata_read_only*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/mirror_segtype_default*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/support_mirrored_mirror_log*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/raid10_segtype_default*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/sparse_segtype_default*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/lvdisplay_shows_full_device_path*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/use_aio*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/use_lvmlockd*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/lvmlockd_lock_retries*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/sanlock_lv_extend*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_global_entry/lvmlockctl_kill_command*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/thin_check_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/thin_dump_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/thin_repair_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/thin_check_options*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/thin_repair_options*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/cache_check_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/cache_dump_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/cache_repair_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/cache_check_options*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/cache_repair_options*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/vdo_format_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/vdo_format_options*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/fsadm_executable*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/system_id_source*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/use_lvmpolld*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/notify_dbus*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/fallback_to_clustered_locking*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/fallback_to_local_locking*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/fallback_to_lvm1*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_global_entry/format*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/format_libraries*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/locking_library*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/locking_type*
+        - Optional
+        - Type: long
+        - Range: 0..5
+    - */software/components/metaconfig/lvm_conf_global_entry/lvmetad_update_wait_time*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_global_entry/segment_libraries*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_global_entry/use_lvmetad*
+        - Optional
+        - Type: long
+        - Range: 0..1
+ - **/software/components/metaconfig/lvm_conf_activation_entry**
+    - */software/components/metaconfig/lvm_conf_activation_entry/activation_mode*
+        - Required
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_activation_entry/checks*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/udev_sync*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/udev_rules*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/verify_udev_operations*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/retry_deactivation*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/missing_stripe_filler*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_activation_entry/use_linear_target*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/reserved_stack*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/reserved_memory*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/process_priority*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/raid_region_size*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/error_when_full*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/readahead*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_activation_entry/raid_fault_policy*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_activation_entry/mirror_image_fault_policy*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_activation_entry/mirror_log_fault_policy*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_activation_entry/snapshot_autoextend_threshold*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/snapshot_autoextend_percent*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/thin_pool_autoextend_threshold*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/thin_pool_autoextend_percent*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/vdo_pool_autoextend_threshold*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/vdo_pool_autoextend_percent*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/use_mlockall*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/monitoring*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_activation_entry/polling_interval*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_activation_entry/auto_set_activation_skip*
+        - Optional
+        - Type: long
+        - Range: 0..1
+ - **/software/components/metaconfig/lvm_conf_config_entry**
+    - */software/components/metaconfig/lvm_conf_config_entry/checks*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_config_entry/abort_on_errors*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_config_entry/profile_dir*
+        - Optional
+        - Type: string_trimmed
+ - **/software/components/metaconfig/lvm_conf_local_entry**
+    - */software/components/metaconfig/lvm_conf_local_entry/host_id*
+        - Optional
+        - Type: long
+        - Range: 1..2000
+    - */software/components/metaconfig/lvm_conf_local_entry/system_id*
+        - Optional
+        - Type: string_trimmed
+ - **/software/components/metaconfig/lvm_conf_shell_entry**
+    - */software/components/metaconfig/lvm_conf_shell_entry/history*
+        - Optional
+        - Type: long
+ - **/software/components/metaconfig/lvm_conf_backup_entry**
+    - */software/components/metaconfig/lvm_conf_backup_entry/backup*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_backup_entry/backup_dir*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_backup_entry/archive*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_backup_entry/archive_dir*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_backup_entry/retain_min*
+        - Optional
+        - Type: long
+    - */software/components/metaconfig/lvm_conf_backup_entry/retain_days*
+        - Optional
+        - Type: long
+ - **/software/components/metaconfig/lvm_conf_metadata_entry**
+    - */software/components/metaconfig/lvm_conf_metadata_entry/check_pv_device_sizes*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_metadata_entry/record_lvs_history*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_metadata_entry/lvs_history_retention_time*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_metadata_entry/pvmetadatacopies*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_metadata_entry/vgmetadatacopies*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_metadata_entry/pvmetadataignore*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/metaconfig/lvm_conf_metadata_entry/stripesize*
+        - Optional
+        - Type: long
+ - **/software/components/metaconfig/lvm_conf_dmeventd_entry**
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/mirror_library*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/raid_library*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/snapshot_library*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/thin_library*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/thin_command*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/vdo_library*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/vdo_command*
+        - Optional
+        - Type: string_trimmed
+    - */software/components/metaconfig/lvm_conf_dmeventd_entry/executable*
+        - Optional
+        - Type: string_trimmed
+ - **/software/components/metaconfig/lvm_conf_file**
+    - */software/components/metaconfig/lvm_conf_file/global*
+        - Required
+        - Type: lvm_conf_global_entry
+    - */software/components/metaconfig/lvm_conf_file/activation*
+        - Optional
+        - Type: lvm_conf_activation_entry
+    - */software/components/metaconfig/lvm_conf_file/config*
+        - Optional
+        - Type: lvm_conf_config_entry
+    - */software/components/metaconfig/lvm_conf_file/local*
+        - Optional
+        - Type: lvm_conf_local_entry
+    - */software/components/metaconfig/lvm_conf_file/dmeventd*
+        - Optional
+        - Type: lvm_conf_dmeventd_entry
+    - */software/components/metaconfig/lvm_conf_file/shell*
+        - Optional
+        - Type: lvm_conf_shell_entry
+    - */software/components/metaconfig/lvm_conf_file/backup*
+        - Optional
+        - Type: lvm_conf_backup_entry
+    - */software/components/metaconfig/lvm_conf_file/matadata*
+        - Optional
+        - Type: lvm_conf_metadata_entry

@@ -1,0 +1,169 @@
+#########################################
+NCM\::Component\::ceph\::v2 - schema-orch
+#########################################
+
+Types
+-----
+
+ - **/software/components/ceph/ceph_orch_host_spec**
+    - Description: hosts to add to orchestrator hostname should be hostname as displayed with 'hostname' command
+    - */software/components/ceph/ceph_orch_host_spec/service_type*
+        - Required
+        - Type: choice
+        - Default value: host
+    - */software/components/ceph/ceph_orch_host_spec/addr*
+        - Optional
+        - Type: type_hostname
+    - */software/components/ceph/ceph_orch_host_spec/hostname*
+        - Required
+        - Type: type_hostname
+    - */software/components/ceph/ceph_orch_host_spec/labels*
+        - Optional
+        - Type: string
+ - **/software/components/ceph/ceph_orch_service_placement**
+    - Description: where to deploy service, by label, hostname, host_pattern. It is also possible to specify the number of daemons for this service
+    - */software/components/ceph/ceph_orch_service_placement/hosts*
+        - Optional
+        - Type: type_hostname
+    - */software/components/ceph/ceph_orch_service_placement/label*
+        - Optional
+        - Type: string
+    - */software/components/ceph/ceph_orch_service_placement/host_pattern*
+        - Optional
+        - Type: string
+    - */software/components/ceph/ceph_orch_service_placement/count*
+        - Optional
+        - Type: long
+        - Range: 1..
+ - **/software/components/ceph/ceph_orch_service_spec**
+    - Description: declare placement of mon, mds and mgr daemons
+    - */software/components/ceph/ceph_orch_service_spec/placement*
+        - Required
+        - Type: ceph_orch_service_placement
+    - */software/components/ceph/ceph_orch_service_spec/unmanaged*
+        - Optional
+        - Type: boolean
+ - **/software/components/ceph/ceph_orch_mon_spec**
+    - Description: ceph orchestrator spec for monitors
+    - */software/components/ceph/ceph_orch_mon_spec/service_type*
+        - Required
+        - Type: choice
+        - Default value: mon
+ - **/software/components/ceph/ceph_orch_mgr_spec**
+    - Description: ceph orchestrator spec for ceph-mgr
+    - */software/components/ceph/ceph_orch_mgr_spec/service_type*
+        - Required
+        - Type: choice
+        - Default value: mgr
+ - **/software/components/ceph/ceph_orch_mds_spec**
+    - Description: mds service spec. service_id is file system name
+    - */software/components/ceph/ceph_orch_mds_spec/service_type*
+        - Required
+        - Type: choice
+        - Default value: mds
+    - */software/components/ceph/ceph_orch_mds_spec/service_id*
+        - Required
+        - Type: string
+ - **/software/components/ceph/ceph_orch_osd_placement**
+    - Description: ceph orchestrator osd placement
+    - */software/components/ceph/ceph_orch_osd_placement/host_pattern*
+        - Optional
+        - Type: string
+ - **/software/components/ceph/ceph_orch_osd_devices**
+    - Description: ceph orchestrator spec for osd device filtering
+    - */software/components/ceph/ceph_orch_osd_devices/model*
+        - Optional
+        - Type: string
+    - */software/components/ceph/ceph_orch_osd_devices/rotational*
+        - Optional
+        - Type: long
+        - Range: 0..1
+    - */software/components/ceph/ceph_orch_osd_devices/vendor*
+        - Optional
+        - Type: string
+    - */software/components/ceph/ceph_orch_osd_devices/size*
+        - Optional
+        - Type: string
+    - */software/components/ceph/ceph_orch_osd_devices/all*
+        - Optional
+        - Type: boolean
+    - */software/components/ceph/ceph_orch_osd_devices/limit*
+        - Optional
+        - Type: long
+ - **/software/components/ceph/ceph_orch_osd_drivegroup_spec**
+    - Description: ceph orchestrator spec for osds. See https://docs.ceph.com/en/latest/cephadm/drivegroups/#osd-service-specification
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/data_devices*
+        - Optional
+        - Type: ceph_orch_osd_devices
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/db_devices*
+        - Optional
+        - Type: ceph_orch_osd_devices
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/wal_devices*
+        - Optional
+        - Type: ceph_orch_osd_devices
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/encrypted*
+        - Optional
+        - Type: boolean
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/db_slots*
+        - Optional
+        - Type: long
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/wal_slots*
+        - Optional
+        - Type: long
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/filter_logic*
+        - Optional
+        - Type: choice
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/osds_per_device*
+        - Optional
+        - Type: long
+    - */software/components/ceph/ceph_orch_osd_drivegroup_spec/crush_device_class*
+        - Optional
+        - Type: string
+ - **/software/components/ceph/ceph_orch_osd_spec**
+    - Description: ceph orchestrator spec for osds. See https://docs.ceph.com/en/latest/cephadm/drivegroups/#osd-service-specification
+    - */software/components/ceph/ceph_orch_osd_spec/service_type*
+        - Required
+        - Type: choice
+        - Default value: osd
+    - */software/components/ceph/ceph_orch_osd_spec/service_id*
+        - Required
+        - Type: string
+        - Default value: default_drive_group
+    - */software/components/ceph/ceph_orch_osd_spec/placement*
+        - Required
+        - Type: ceph_orch_osd_placement
+    - */software/components/ceph/ceph_orch_osd_spec/spec*
+        - Required
+        - Type: ceph_orch_osd_drivegroup_spec
+ - **/software/components/ceph/ceph_orch_cluster**
+    - Description: all specifications deployable with ceph orch apply -i
+    - */software/components/ceph/ceph_orch_cluster/hosts*
+        - Optional
+        - Type: ceph_orch_host_spec
+    - */software/components/ceph/ceph_orch_cluster/mon*
+        - Optional
+        - Type: ceph_orch_mon_spec
+    - */software/components/ceph/ceph_orch_cluster/mgr*
+        - Optional
+        - Type: ceph_orch_mgr_spec
+    - */software/components/ceph/ceph_orch_cluster/mds*
+        - Optional
+        - Type: ceph_orch_mds_spec
+    - */software/components/ceph/ceph_orch_cluster/osd*
+        - Optional
+        - Type: ceph_orch_osd_spec
+ - **/software/components/ceph/ceph_orch**
+    - Description: ceph orchestrator type
+    - */software/components/ceph/ceph_orch/backend*
+        - Required
+        - Type: choice
+        - Default value: cephadm
+    - */software/components/ceph/ceph_orch/cluster*
+        - Required
+        - Type: ceph_orch_cluster
+    - */software/components/ceph/ceph_orch/configdb*
+        - Optional
+        - Type: ceph_configdb
+    - */software/components/ceph/ceph_orch/initcfg*
+        - Optional
+        - Type: ceph_configfile
